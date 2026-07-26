@@ -1,10 +1,1 @@
-{
-  "extends": ["next/core-web-vitals"],
-  "rules": {
-    "react/no-unescaped-entities": "error",
-    "@next/next/no-img-element": "error",
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
-  }
-}
+{"extends":["next/core-web-vitals"],"rules":{}}
