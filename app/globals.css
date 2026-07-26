@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --clr-red:   #D11A1A;
+    --clr-navy:  #0D183D;
+    --clr-gold:  #D4AF37;
+    --font-display: 'Poppins', system-ui, sans-serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply font-body antialiased text-gray-900 bg-white;
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Global focus-visible — keyboard users see a clear outline */
+  :focus-visible {
+    outline: 2px solid var(--clr-navy);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Skip to main content — hidden until focused */
+  .skip-link {
+    @apply absolute -top-full left-4 z-50 bg-white text-[#0D183D] font-bold px-4 py-2 rounded-lg border-2 border-[#0D183D] text-sm;
+    transition: top 0.1s;
+  }
+  .skip-link:focus {
+    @apply top-4;
+  }
+}
+
+@layer components {
+  .btn-primary { @apply bg-[#D11A1A] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#A01010] transition-colors focus-visible:outline-2 focus-visible:outline-[#D11A1A]; }
+  .btn-navy    { @apply bg-[#0D183D] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#1a2b5e] transition-colors; }
+  .btn-gold    { @apply bg-[#D4AF37] text-[#0D183D] font-bold px-6 py-3 rounded-xl hover:bg-[#c4a030] transition-colors; }
+  .btn-outline { @apply border-2 border-current font-bold px-6 py-3 rounded-xl hover:bg-current/10 transition-colors; }
+  .container   { @apply max-w-6xl mx-auto px-4 md:px-8; }
+  .section     { @apply py-16 md:py-24; }
+  .input-field { @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10 transition-all; }
+}

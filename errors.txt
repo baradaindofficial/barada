@@ -1,0 +1,72 @@
+
+> barada-academy@2.0.0 type-check
+> tsc --noEmit
+
+context/AuthContext.tsx(40,56): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(initialValue: SupabaseClient<Database, "public", "public", never, { PostgrestVersion: "12"; }>): MutableRefObject<SupabaseClient<Database, "public", "public", never, { ...; }>>', gave the following error.
+    Argument of type 'SupabaseClient<Database, "public", { Tables: { learners: { Row: { learner_id: string; name: string; email: string; avatar_url: string | null; bio: string | null; profession: string | null; linkedin_url: string | null; status: "active" | ... 1 more ... | "pending_verification"; created_at: string; updated_at: string;...' is not assignable to parameter of type 'SupabaseClient<Database, "public", "public", never, { PostgrestVersion: "12"; }>'.
+      Type '{ Tables: { learners: { Row: { learner_id: string; name: string; email: string; avatar_url: string | null; bio: string | null; profession: string | null; linkedin_url: string | null; status: "active" | ... 1 more ... | "pending_verification"; created_at: string; updated_at: string; }; Insert: { ...; }; Update: { ......' is not assignable to type '"public"'.
+  Overload 2 of 3, '(initialValue: SupabaseClient<Database, "public", "public", never, { PostgrestVersion: "12"; }> | null): RefObject<SupabaseClient<Database, "public", "public", never, { ...; }>>', gave the following error.
+    Argument of type 'SupabaseClient<Database, "public", { Tables: { learners: { Row: { learner_id: string; name: string; email: string; avatar_url: string | null; bio: string | null; profession: string | null; linkedin_url: string | null; status: "active" | ... 1 more ... | "pending_verification"; created_at: string; updated_at: string;...' is not assignable to parameter of type 'SupabaseClient<Database, "public", "public", never, { PostgrestVersion: "12"; }>'.
+      Type '{ Tables: { learners: { Row: { learner_id: string; name: string; email: string; avatar_url: string | null; bio: string | null; profession: string | null; linkedin_url: string | null; status: "active" | ... 1 more ... | "pending_verification"; created_at: string; updated_at: string; }; Insert: { ...; }; Update: { ......' is not assignable to type '"public"'.
+  Overload 3 of 3, '(initialValue?: undefined): MutableRefObject<SupabaseClient<Database, "public", "public", never, { PostgrestVersion: "12"; }> | undefined>', gave the following error.
+    Argument of type 'SupabaseClient<Database, "public", { Tables: { learners: { Row: { learner_id: string; name: string; email: string; avatar_url: string | null; bio: string | null; profession: string | null; linkedin_url: string | null; status: "active" | ... 1 more ... | "pending_verification"; created_at: string; updated_at: string;...' is not assignable to parameter of type 'undefined'.
+context/AuthContext.tsx(58,27): error TS2339: Property 'learner_id' does not exist on type 'never'.
+context/AuthContext.tsx(59,27): error TS2339: Property 'name' does not exist on type 'never'.
+context/AuthContext.tsx(60,27): error TS2339: Property 'email' does not exist on type 'never'.
+context/AuthContext.tsx(61,27): error TS2339: Property 'avatar_url' does not exist on type 'never'.
+context/AuthContext.tsx(62,27): error TS2339: Property 'bio' does not exist on type 'never'.
+context/AuthContext.tsx(63,27): error TS2339: Property 'profession' does not exist on type 'never'.
+context/AuthContext.tsx(64,27): error TS2339: Property 'linkedin_url' does not exist on type 'never'.
+context/AuthContext.tsx(65,27): error TS2339: Property 'status' does not exist on type 'never'.
+context/AuthContext.tsx(66,27): error TS2339: Property 'created_at' does not exist on type 'never'.
+lib/db/enrollments.ts(20,24): error TS2339: Property 'enrollment_id' does not exist on type 'never'.
+lib/db/enrollments.ts(21,21): error TS2339: Property 'learner_id' does not exist on type 'never'.
+lib/db/enrollments.ts(22,22): error TS2339: Property 'course_slug' does not exist on type 'never'.
+lib/db/enrollments.ts(23,18): error TS2339: Property 'status' does not exist on type 'never'.
+lib/db/enrollments.ts(24,32): error TS2339: Property 'completion_percentage' does not exist on type 'never'.
+lib/db/enrollments.ts(25,22): error TS2339: Property 'enrolled_at' does not exist on type 'never'.
+lib/db/enrollments.ts(26,26): error TS2339: Property 'last_accessed_at' does not exist on type 'never'.
+lib/db/enrollments.ts(27,23): error TS2339: Property 'completed_at' does not exist on type 'never'.
+lib/db/enrollments.ts(39,21): error TS2339: Property 'enrollment_id' does not exist on type 'never'.
+lib/db/enrollments.ts(40,18): error TS2339: Property 'learner_id' does not exist on type 'never'.
+lib/db/enrollments.ts(41,19): error TS2339: Property 'course_slug' does not exist on type 'never'.
+lib/db/enrollments.ts(42,15): error TS2339: Property 'status' does not exist on type 'never'.
+lib/db/enrollments.ts(43,29): error TS2339: Property 'completion_percentage' does not exist on type 'never'.
+lib/db/enrollments.ts(44,19): error TS2339: Property 'enrolled_at' does not exist on type 'never'.
+lib/db/enrollments.ts(45,23): error TS2339: Property 'last_accessed_at' does not exist on type 'never'.
+lib/db/enrollments.ts(46,20): error TS2339: Property 'completed_at' does not exist on type 'never'.
+lib/db/enrollments.ts(54,15): error TS2353: Object literal may only specify known properties, and 'learner_id' does not exist in type 'never[]'.
+lib/db/learners.ts(17,21): error TS2339: Property 'learner_id' does not exist on type 'never'.
+lib/db/learners.ts(18,16): error TS2339: Property 'name' does not exist on type 'never'.
+lib/db/learners.ts(19,17): error TS2339: Property 'email' does not exist on type 'never'.
+lib/db/learners.ts(20,21): error TS2339: Property 'avatar_url' does not exist on type 'never'.
+lib/db/learners.ts(21,15): error TS2339: Property 'bio' does not exist on type 'never'.
+lib/db/learners.ts(22,22): error TS2339: Property 'profession' does not exist on type 'never'.
+lib/db/learners.ts(23,23): error TS2339: Property 'linkedin_url' does not exist on type 'never'.
+lib/db/learners.ts(24,18): error TS2339: Property 'status' does not exist on type 'never'.
+lib/db/learners.ts(25,21): error TS2339: Property 'created_at' does not exist on type 'never'.
+lib/db/learners.ts(31,60): error TS2345: Argument of type '{ p_learner_id: string; }' is not assignable to parameter of type 'undefined'.
+lib/db/learners.ts(34,36): error TS2339: Property 'enrolled_count' does not exist on type 'never'.
+lib/db/learners.ts(35,36): error TS2339: Property 'completed_count' does not exist on type 'never'.
+lib/db/learners.ts(36,36): error TS2339: Property 'certificate_count' does not exist on type 'never'.
+lib/db/learners.ts(37,36): error TS2339: Property 'total_watch_seconds' does not exist on type 'never'.
+lib/db/learners.ts(48,13): error TS2345: Argument of type '{ name: string | undefined; bio: string | undefined; profession: string | undefined; linkedin_url: string | undefined; }' is not assignable to parameter of type 'never'.
+lib/db/progress.ts(18,19): error TS2339: Property 'course_slug' does not exist on type 'never'.
+lib/db/progress.ts(19,21): error TS2339: Property 'module_number' does not exist on type 'never'.
+lib/db/progress.ts(20,21): error TS2339: Property 'lesson_number' does not exist on type 'never'.
+lib/db/progress.ts(21,20): error TS2339: Property 'is_completed' does not exist on type 'never'.
+lib/db/progress.ts(22,20): error TS2339: Property 'completed_at' does not exist on type 'never'.
+lib/db/progress.ts(23,23): error TS2339: Property 'watched_seconds' does not exist on type 'never'.
+lib/db/progress.ts(37,7): error TS2353: Object literal may only specify known properties, and 'learner_id' does not exist in type 'never[]'.
+lib/db/progress.ts(60,7): error TS2353: Object literal may only specify known properties, and 'learner_id' does not exist in type 'never[]'.
+lib/supabase/server.ts(26,16): error TS7006: Parameter 'cookiesToSet' implicitly has an 'any' type.
+lib/supabase/server.ts(28,37): error TS7031: Binding element 'name' implicitly has an 'any' type.
+lib/supabase/server.ts(28,43): error TS7031: Binding element 'value' implicitly has an 'any' type.
+lib/supabase/server.ts(28,50): error TS7031: Binding element 'options' implicitly has an 'any' type.
+middleware.ts(31,16): error TS7006: Parameter 'cookiesToSet' implicitly has an 'any' type.
+middleware.ts(33,35): error TS7031: Binding element 'name' implicitly has an 'any' type.
+middleware.ts(33,41): error TS7031: Binding element 'value' implicitly has an 'any' type.
+middleware.ts(38,35): error TS7031: Binding element 'name' implicitly has an 'any' type.
+middleware.ts(38,41): error TS7031: Binding element 'value' implicitly has an 'any' type.
+middleware.ts(38,48): error TS7031: Binding element 'options' implicitly has an 'any' type.
