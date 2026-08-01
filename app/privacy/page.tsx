@@ -23,8 +23,8 @@ export default function PrivacyPage() {
           ['How We Use Your Information', 'Your information is used to provide and improve our learning platform, send you course updates and certificate notifications, and personalise your dashboard experience. We do not sell your personal data to third parties.'],
           ['Data Storage', 'Your data is stored securely on Supabase infrastructure (hosted in Singapore, ap-south-1 region). All data is encrypted in transit and at rest.'],
           ['Analytics', 'We use Google Analytics 4 and Microsoft Clarity to understand how learners use our platform. These services may collect anonymised usage data. You can opt out via your browser settings.'],
-          ['Your Rights', 'You may request access to, correction of, or deletion of your personal data at any time by emailing privacy@barada.in. We will respond within 30 days.'],
-          ['Contact', 'For privacy-related queries, contact us at privacy@barada.in or write to Barada (OPC) Private Limited, Bengaluru, Karnataka, India.'],
+          ['Your Rights', 'You may request access to, correction of, or deletion of your personal data at any time by emailing info@barada.in. We will respond within 30 days.'],
+          ['Contact', 'For privacy-related queries, contact us at info@barada.in or write to Barada (OPC) Private Limited, Bengaluru, Karnataka, India.'],
         ].map(([title, body]) => (
           <div key={title} style={{ background: '#fff', borderRadius: 12, padding: '1.75rem', border: '1.5px solid #E5E7EB', marginBottom: '1rem' }}>
             <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', fontSize: '1rem', marginBottom: '0.625rem' }}>{title}</h2>

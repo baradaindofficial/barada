@@ -25,9 +25,9 @@ export default function ContactPage() {
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '4rem 2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
           {[
-            { icon: '\uD83D\uDCE7', label: 'General Enquiries', value: 'hello@barada.in', href: 'mailto:hello@barada.in' },
+            { icon: '\uD83D\uDCE7', label: 'General Enquiries', value: 'info@barada.in', href: 'mailto:info@barada.in' },
             { icon: '\uD83C\uDF93', label: 'Academy Support', value: 'academy@barada.in', href: 'mailto:academy@barada.in' },
-            { icon: '\uD83D\uDCBC', label: 'Business & Partnerships', value: 'partners@barada.in', href: 'mailto:partners@barada.in' },
+            { icon: '\uD83D\uDCBC', label: 'Business & Partnerships', value: 'business@partnerschaft.in', href: 'mailto:business@partnerschaft.in' },
             { icon: '\uD83D\uDCCD', label: 'Headquarters', value: 'Bengaluru, Karnataka, India', href: null },
           ].map(({ icon, label, value, href }) => (
             <div key={label} style={{ background: '#fff', borderRadius: 16, padding: '1.75rem', border: '1.5px solid #E5E7EB' }}>

@@ -26,7 +26,7 @@ export default function TermsPage() {
           ['Intellectual Property', 'All course content, including videos, slides, prompts, and materials, is the intellectual property of Barada (OPC) Private Limited. Unauthorised reproduction is prohibited.'],
           ['Limitation of Liability', 'Barada provides its platform on an as-is basis. We do not guarantee specific career outcomes. Our liability is limited to the amount paid for any certificate in the preceding 12 months.'],
           ['Governing Law', 'These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Bengaluru, Karnataka.'],
-          ['Contact', 'For terms-related queries, contact legal@barada.in or write to Barada (OPC) Private Limited, Bengaluru, Karnataka, India.'],
+          ['Contact', 'For terms-related queries, contact info@barada.in or write to Barada (OPC) Private Limited, Bengaluru, Karnataka, India.'],
         ].map(([title, body]) => (
           <div key={title} style={{ background: '#fff', borderRadius: 12, padding: '1.75rem', border: '1.5px solid #E5E7EB', marginBottom: '1rem' }}>
             <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', fontSize: '1rem', marginBottom: '0.625rem' }}>{title}</h2>
