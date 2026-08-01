@@ -68,11 +68,5 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/about",
-      "destination": "/about/",
-      "permanent": true
-    }
-  ]
+  "redirects": []
 }
