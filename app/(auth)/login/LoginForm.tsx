@@ -1,31 +1,22 @@
 'use client'
-/**
- * app/(auth)/login/LoginForm.tsx
- * Client component — owns the form state and Supabase auth call.
- * Separated from page.tsx so that useSearchParams() is inside a Suspense boundary.
- */
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
 import { createClient } from '@/lib/supabase/client'
+import Logo from '@/components/shared/Logo'
 
 export default function LoginForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
-
-  // Validate the `next` param — only accept relative paths
   const rawNext = searchParams.get('next') ?? '/dashboard'
   const next = rawNext.startsWith('/') && !rawNext.includes('://') ? rawNext : '/dashboard'
-
   const errorParam = searchParams.get('error')
 
   const [email, setEmail]       = useState('')
   const [password, setPassword] = useState('')
   const [error, setError]       = useState(
-    errorParam === 'link_expired'        ? 'Your verification link has expired. Please request a new one.' :
-    errorParam === 'auth_callback_failed' ? 'Authentication failed. Please try again.' :
-    ''
+    errorParam === 'link_expired'         ? 'Your verification link has expired. Please request a new one.' :
+    errorParam === 'auth_callback_failed' ? 'Authentication failed. Please try again.' : ''
   )
   const [loading, setLoading] = useState(false)
 
@@ -33,128 +24,58 @@ export default function LoginForm() {
     e.preventDefault()
     setLoading(true)
     setError('')
-
     const supabase = createClient()
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email: email.trim().toLowerCase(),
-      password,
-    })
-
-    if (signInError) {
-      setError('Incorrect email or password. Please try again.')
-      setLoading(false)
-      return
-    }
-
+    const { error: signInError } = await supabase.auth.signInWithPassword({ email: email.trim().toLowerCase(), password })
+    if (signInError) { setError('Incorrect email or password. Please try again.'); setLoading(false); return }
     router.push(next)
     router.refresh()
   }
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2">
+    <div style={{ minHeight: '100vh', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
       {/* Left panel */}
-      <div className="hidden lg:flex flex-col justify-between bg-[#0D183D] p-12" aria-hidden="true">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo/barada-icon-36.png" alt="Barada" width={36} height={36} className="rounded-lg" />
-          <span className="font-display font-bold text-white text-lg">Barada Academy</span>
+      <div style={{ background: '#0D183D', padding: '3rem 2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Link href="/" style={{ display: 'inline-block', lineHeight: 0 }}>
+          <Logo variant="academy" height={44} />
         </Link>
-        <ul className="space-y-4" aria-label="Platform benefits">
-          {[
-            '10 flagship courses — free to learn',
-            'Self-paced — no deadlines, ever',
-            'Verified certificates from ₹299',
-            'Track your progress across devices',
-            'Download slides, notes, and prompt packs',
-          ].map((f) => (
-            <li key={f} className="flex items-center gap-3 text-white/70 text-sm">
-              <span className="text-[#D4AF37] font-bold" aria-hidden="true">✓</span>
-              {f}
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          {['10 flagship courses \u2014 free to learn', 'Self-paced \u2014 no deadlines', 'Verified certificates', 'Track progress across devices'].map(f => (
+            <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(255,255,255,0.65)', fontSize: '0.875rem', marginBottom: '0.75rem' }}>
+              <span style={{ color: '#D4AF37', fontWeight: 700 }}>&#10003;</span>{f}
             </li>
           ))}
         </ul>
-        <p className="text-white/30 text-xs">Bengaluru, India · barada.in</p>
+        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.72rem' }}>Bengaluru, India &middot; barada.in</p>
       </div>
-
       {/* Right panel */}
-      <div className="flex items-center justify-center p-8">
-        <div className="w-full max-w-md">
-          <Link
-            href="/"
-            className="text-sm text-gray-500 hover:text-gray-700 mb-8 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D183D] rounded"
-          >
-            ← Back to Barada.in
-          </Link>
-
-          <h1 className="font-display font-bold text-3xl text-[#0D183D] mb-2">
-            Welcome back.
-          </h1>
-          <p className="text-gray-500 text-sm mb-8">
-            Sign in to continue your learning journey.
-          </p>
-
-          {error && (
-            <div role="alert" className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg p-3 mb-6">
-              {error}
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="space-y-5" noValidate>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem 2rem', background: '#fff' }}>
+        <div style={{ width: '100%', maxWidth: 420 }}>
+          <Link href="/" style={{ color: '#6B7280', textDecoration: 'none', fontSize: '0.82rem', display: 'block', marginBottom: '2rem' }}>&larr; Back to Barada.in</Link>
+          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: '1.875rem', color: '#0D183D', marginBottom: '0.5rem' }}>Welcome back.</h1>
+          <p style={{ color: '#6B7280', fontSize: '0.875rem', marginBottom: '2rem' }}>Sign in to continue your learning journey.</p>
+          {error && <div role="alert" style={{ background: '#FEF2F2', border: '1px solid #FECACA', color: '#B91C1C', fontSize: '0.875rem', borderRadius: 8, padding: '0.75rem 1rem', marginBottom: '1.5rem' }}>{error}</div>}
+          <form onSubmit={handleLogin} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-[#0D183D] mb-1.5">
-                Email address
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10 transition-colors"
-                placeholder="you@example.com"
-                autoComplete="email"
-                inputMode="email"
-              />
+              <label htmlFor="email" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#0D183D', marginBottom: '0.375rem' }}>Email address</label>
+              <input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required autoComplete="email" inputMode="email" placeholder="you@example.com"
+                style={{ width: '100%', padding: '0.75rem 1rem', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: '0.875rem', outline: 'none', boxSizing: 'border-box' }} />
             </div>
-
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-[#0D183D] mb-1.5">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10 transition-colors"
-                placeholder="Your password"
-                autoComplete="current-password"
-              />
-              <div className="text-right mt-1.5">
-                <Link
-                  href="/forgot-password"
-                  className="text-xs font-semibold text-[#0D183D] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D183D] rounded"
-                >
-                  Forgot password?
-                </Link>
+              <label htmlFor="password" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#0D183D', marginBottom: '0.375rem' }}>Password</label>
+              <input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required autoComplete="current-password"
+                style={{ width: '100%', padding: '0.75rem 1rem', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: '0.875rem', outline: 'none', boxSizing: 'border-box' }} />
+              <div style={{ textAlign: 'right', marginTop: '0.375rem' }}>
+                <Link href="/forgot-password" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#0D183D', textDecoration: 'none' }}>Forgot password?</Link>
               </div>
             </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              aria-busy={loading}
-              className="w-full bg-[#D11A1A] text-white py-3 rounded-lg font-bold text-sm hover:bg-[#A01010] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D11A1A]"
-            >
-              {loading ? 'Signing in…' : 'Sign In →'}
+            <button type="submit" disabled={loading} aria-busy={loading}
+              style={{ background: '#E31E24', color: '#fff', padding: '0.875rem', borderRadius: 10, border: 'none', fontSize: '0.95rem', fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.6 : 1 }}>
+              {loading ? 'Signing in\u2026' : 'Sign In \u2192'}
             </button>
           </form>
-
-          <p className="text-sm text-gray-500 text-center mt-6">
+          <p style={{ textAlign: 'center', fontSize: '0.875rem', color: '#6B7280', marginTop: '1.5rem' }}>
             Don&apos;t have an account?{' '}
-            <Link href="/register" className="font-bold text-[#0D183D] hover:underline">
-              Create one free →
-            </Link>
+            <Link href="/register" style={{ fontWeight: 700, color: '#0D183D', textDecoration: 'none' }}>Create one free &rarr;</Link>
           </p>
         </div>
       </div>
