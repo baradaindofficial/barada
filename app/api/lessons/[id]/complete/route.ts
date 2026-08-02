@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getAuthenticatedLearner } from '@/lib/auth/get-authenticated-learner'
 import { createClient } from '@/lib/supabase/server'
+import { isEnrolledByCourseId } from '@/lib/db/enrollments'
 import { updateLearningStreak } from '@/lib/services/streaks'
 import { checkAndGrantAchievements } from '@/lib/services/achievements'
 import { logger } from '@/lib/utils/logger'
@@ -28,6 +29,12 @@ export async function POST(req: Request, { params }: { params: { id: string } })
     if (!lesson) return NextResponse.json({ error: 'Lesson not found' }, { status: 404 })
 
     const courseId = (lesson as any).course_id
+
+    const enrolled = await isEnrolledByCourseId(learner.learnerId, courseId)
+    if (!enrolled) {
+      return NextResponse.json({ error: 'You must be enrolled in this course to track progress' }, { status: 403 })
+    }
+
     const now = new Date().toISOString()
 
     const { error: upsertError } = await (supabase.from('lesson_progress') as any)

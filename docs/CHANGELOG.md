@@ -11,6 +11,22 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 Changes merged to `main` but not yet tagged as a release.
 
+### Fixed — Sprint 4.4 / ADR-008 (August 2026)
+
+- **[P0]** `lib/db/enrollments.ts`: `enrollLearner()` now populates the `course_id` FK on every insert (previously always NULL, silently, since the column was added)
+- **[P0]** `app/api/dashboard/route.ts`: repaired — was querying `lesson_progress` columns removed by the Sprint 4.4 migration (`completed`, `course_slug`, `lesson_slug`); would have returned 500 at runtime
+- `app/(dashboard)/dashboard/courses/page.tsx`: completion % now read from `course_progress`, not `enrollments.completion_percentage`, per ADR-008
+- `app/api/lessons/[id]/complete/route.ts`, `.../resume/route.ts`: added enrollment verification before writing progress (previously missing)
+
+### Removed
+
+- `app/api/progress/route.ts`: retired (returns 410), superseded by `POST /api/lessons/[id]/complete`. Zero live callers found.
+- `lib/db/progress.ts`: deleted — built against pre-Sprint-4.4 schema, fully superseded, zero callers.
+
+### Documentation Gap (recorded, not resolved)
+
+`BARADA_PLATFORM_BLUEPRINT.md` and an ADR-001–009 series covering platform/schema decisions (SQL migrations over Prisma, `domains` rename, assets pattern, etc.) have been referenced in prior working sessions on this project but do not exist in this repository. `docs/ARCHITECTURE.md`'s own independent ADR series (001–007) is the only ADR log confirmed to exist on disk; ADR-008 (this entry) continues that series. `docs/DATABASE.md` and `docs/API.md` also predate Sprint 4.4's new tables/routes and are now stale — flagged for a follow-up documentation pass, not addressed in this fix.
+
 ---
 
 ## [2.0.0] — Sprint 3 — Architecture Migration

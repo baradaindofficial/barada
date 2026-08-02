@@ -390,4 +390,23 @@ barada.in DNS
 **Decision:** Host lesson videos on YouTube as unlisted videos, embedded in the lesson player.
 **Reason:** Zero hosting cost; global CDN; adaptive bitrate streaming handled automatically; captions auto-generated; no encoding pipeline to maintain.
 **Trade-off:** Dependency on YouTube; unlisted videos can be shared if URLs are extracted. Mitigation: Supabase-protected lesson pages require authentication before the video ID is rendered.
-**Future option:** Migrate to Mux or Cloudflare Stream for DRM-level protection when course content is commercially sensitive.
+**Future option:** Migrate to Mux or Cloudflare Stream for DRM-level protection when course content is commercially sensitive
+
+### ADR-008: `course_progress` as sole source of truth for completion tracking; `enrollments` restricted to status/gating
+
+**Decision:** `enrollments` remains authoritative for enrollment status, enrollment date, access control, and purchase/enrollment metadata. `course_progress` (and `lesson_progress`, introduced Sprint 4.4) becomes the sole source of truth for completion percentage, lesson progress, resume position, time spent, learning analytics, and completion timestamps. `completion_percentage` is NOT duplicated in `enrollments`.
+
+**Context:** Investigation during Sprint 4.4 found `enrollments.completion_percentage` was kept in sync by a database trigger (`update_enrollment_on_lesson_complete`, defined in `003_triggers.sql`) bound to the pre-Sprint-4.4 `lesson_progress` schema (`course_slug`, `is_completed`, `module_number`). That schema was replaced during Sprint 4.4's migration; the `DROP TABLE ... CASCADE` on the old `lesson_progress` table removed the trigger binding as a side effect. The `enrollments.course_id` FK column existed but was never populated by `enrollLearner()` — fixed as part of this ADR.
+
+**Reason:** A single number (completion %) maintained in two places by two different write paths (an enrollment service function vs. a lesson-completion service function) is a drift risk with no compensating benefit — `course_progress` already recomputes and stores this correctly on every lesson completion. Separating "is this learner allowed here" (enrollments) from "how far have they gotten" (course_progress) is also a cleaner domain boundary going forward.
+
+**Trade-off:** Any code still reading `enrollments.completion_percentage` for display must be updated to read `course_progress` instead, joined by `course_id`. Two call sites were found and updated: `app/(dashboard)/dashboard/courses/page.tsx` and `app/api/dashboard/route.ts`.
+
+**Related fixes (same investigation, same commit):**
+- `lib/db/enrollments.ts`: `enrollLearner()` now populates `course_id` on every insert (was previously always left NULL); added `isEnrolledByCourseId()`.
+- `app/api/dashboard/route.ts`: repaired — was querying old-schema `lesson_progress` columns (`completed`, `course_slug`, `lesson_slug`) that no longer exist after the Sprint 4.4 migration, and would have errored at runtime.
+- `app/api/progress/route.ts` and `lib/db/progress.ts`: retired. Both were built against the pre-ADR-008 schema, had zero live frontend callers (verified by repo-wide search), and are fully superseded by `POST /api/lessons/[id]/complete` (Sprint 4.4). The route now returns `410 Gone` with a pointer to the replacement rather than being silently deleted.
+- `app/api/lessons/[id]/complete/route.ts`, `app/api/lessons/[id]/resume/route.ts`: added an enrollment check (`isEnrolledByCourseId`) before writing progress — previously these routes would record progress for a course the learner was never enrolled in.
+
+**Documentation gap noted:** `BARADA_PLATFORM_BLUEPRINT.md` and an independent ADR-001–009 series (covering platform/schema decisions — SQL migrations over Prisma, the `domains` rename, the assets pattern, etc.) have been referenced across prior working sessions on this project, but do not exist as files in this repository. This document (`docs/ARCHITECTURE.md`) is the only ADR log confirmed to exist on disk, with its own independently-numbered series (001–007, tech-stack decisions). This entry continues that series as ADR-008. Reconciling the two ADR numbering series, if the Blueprint document is recovered or rewritten, is a follow-up task — not resolved by this fix.
+.

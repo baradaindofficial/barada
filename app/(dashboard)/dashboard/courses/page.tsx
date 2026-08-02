@@ -13,9 +13,19 @@ export default async function MyCoursesPage() {
 
   const { data: enrollments } = await supabase
     .from('enrollments')
-    .select('enrollment_id, course_slug, enrolled_at, completion_percentage')
+    .select('enrollment_id, course_slug, course_id, enrolled_at')
     .eq('learner_id', learner?.learner_id)
     .order('enrolled_at', { ascending: false })
+
+  // Completion % source of truth per ADR-008 — NOT enrollments.completion_percentage
+  const { data: progressRows } = await supabase
+    .from('course_progress')
+    .select('course_id, completion_percentage')
+    .eq('learner_id', learner?.learner_id)
+
+  const progressByCourseId = new Map(
+    ((progressRows as any[]) ?? []).map((p) => [p.course_id, p.completion_percentage])
+  )
 
   const courses = await Promise.all(
     (enrollments || []).map(async (e: any) => {
@@ -24,7 +34,12 @@ export default async function MyCoursesPage() {
         .select('course_id, slug, title, icon, theme_color, category, difficulty')
         .eq('slug', e.course_slug)
         .maybeSingle()
-      return { ...e, course: course as any }
+      const resolvedCourseId = (course as any)?.course_id ?? e.course_id
+      return {
+        ...e,
+        course: course as any,
+        completion_percentage: progressByCourseId.get(resolvedCourseId) ?? 0,
+      }
     })
   )
 
