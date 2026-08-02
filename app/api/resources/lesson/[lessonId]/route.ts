@@ -40,7 +40,7 @@ export async function GET(
         .from('enrollments')
         .select('enrollment_id')
         .eq('learner_id', auth.learnerId)
-        .or(`course_slug.eq.${lesson.course_id},course_id.eq.${lesson.course_id}`)
+        .eq('course_id', lesson.course_id)
         .maybeSingle()
 
       if (!enrollment) {
