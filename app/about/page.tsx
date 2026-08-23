@@ -1,21 +1,26 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Logo from '@/components/shared/Logo'
+import CorporateHeader from '@/components/corporate/Header'
+import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'About Barada',
-  description: 'Learn about Barada — a professionally driven ecosystem of platforms built around AI, technology, business growth, and social impact.',
+  description: 'Learn about Barada \u2014 a professionally driven ecosystem of platforms built around AI, technology, business growth, and social impact.',
+  openGraph: {
+    title: 'About Barada',
+    description: 'Learn about Barada \u2014 a professionally driven ecosystem of platforms built around AI, technology, business growth, and social impact.',
+    url: 'https://barada.in/about',
+    siteName: 'Barada',
+    images: [{ url: '/logo/barada-logo.png', width: 1200, height: 630, alt: 'Barada' }],
+    locale: 'en_IN',
+    type: 'website',
+  },
 }
 
 export default function AboutPage() {
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', minHeight: '100vh', background: '#F9FAFB' }}>
-      <nav style={{ background: '#0D183D', padding: '0 2rem', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
-        <Link href="/" style={{ display: 'inline-block', lineHeight: 0 }}>
-          <Logo variant="corporate" height={40} />
-        </Link>
-        <Link href="/" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', fontSize: '0.82rem' }}>&larr; Back to Barada.in</Link>
-      </nav>
+      <CorporateHeader />
 
       <section style={{ background: 'linear-gradient(135deg, #0D183D, #1A2B5E)', padding: '5rem 2rem', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4vw,3rem)', color: '#fff', marginBottom: '1rem' }}>About Barada</h1>
@@ -72,9 +77,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <footer style={{ background: '#060b18', padding: '1.5rem 2rem', textAlign: 'center' }}>
-        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', margin: 0 }}>&copy; 2026 Barada. A venture of Barada (OPC) Private Limited.</p>
-      </footer>
+      <CorporateFooter />
     </div>
   )
 }

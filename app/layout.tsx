@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Poppins, Inter } from 'next/font/google'
+import Script from 'next/script'
 import { AuthProvider } from '@/context/AuthContext'
 import './globals.css'
 
@@ -33,15 +34,28 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#D11A1A',
+  themeColor: '#E31E24',
   width: 'device-width',
   initialScale: 1,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" dir="ltr" className={`${poppins.variable} ${inter.variable}`}>
+    <html lang="en-IN" dir="ltr" className={`${poppins.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="font-body antialiased bg-white text-gray-900">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (function() {
+              try {
+                var stored = localStorage.getItem('barada-theme');
+                var theme = (stored === 'dark' || stored === 'light')
+                  ? stored
+                  : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+              } catch (e) {}
+            })();
+          `}
+        </Script>
         <AuthProvider>
           {children}
         </AuthProvider>

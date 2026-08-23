@@ -1,4 +1,19 @@
-import type { Metadata } from 'next'
+"""
+corporate_site_fixes_part4.py
+Part 4 of 5 — rewrites app/ecosystem/page.tsx.
+Run AFTER parts 1, 2, 3.
+Run from repo root: py corporate_site_fixes_part4.py
+"""
+import os
+
+def w(rel, content):
+    path = os.path.join(*rel.split('/'))
+    os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f'  Wrote: {rel}')
+
+w('app/ecosystem/page.tsx', r"""import type { Metadata } from 'next'
 import Link from 'next/link'
 import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
@@ -104,3 +119,6 @@ export default function EcosystemPage() {
     </div>
   )
 }
+""")
+
+print("Part 4 done: ecosystem page rewritten.")

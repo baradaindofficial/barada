@@ -1,4 +1,38 @@
-import Link from 'next/link'
+"""
+corporate_site_fixes_part5.py
+Part 5 of 5 —
+  1. Fixes app/academy/page.tsx secondary nav (4 links all pointed to same
+     /academy URL; reduced to the 1 real link, "Courses"). Keeps Academy's
+     own distinct branded header/footer intentionally (Logo policy v3.0) —
+     does NOT swap in the shared corporate Header.
+  2. Adds openGraph metadata to app/academy/page.tsx (was missing).
+  3. Fixes app/layout.tsx theme-color from deprecated #D11A1A to
+     canonical #E31E24.
+Run AFTER parts 1-4.
+Run from repo root: py corporate_site_fixes_part5.py
+"""
+import os
+
+def w(rel, content):
+    path = os.path.join(*rel.split('/'))
+    os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f'  Wrote: {rel}')
+
+def replace_in_file(rel, old, new, label):
+    path = os.path.join(*rel.split('/'))
+    with open(path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    if old not in content:
+        print(f'  WARNING: {label} anchor not found in {rel} — skipping, check manually')
+        return
+    content = content.replace(old, new)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f'  Updated: {rel} ({label})')
+
+w('app/academy/page.tsx', r"""import Link from 'next/link'
 import type { Metadata } from 'next'
 import Logo from '@/components/shared/Logo'
 import { COURSES } from '@/data/courses'
@@ -134,3 +168,15 @@ export default function AcademyPage() {
     </div>
   )
 }
+""")
+
+# Fix theme-color: deprecated #D11A1A -> canonical #E31E24
+replace_in_file(
+    'app/layout.tsx',
+    "themeColor: '#D11A1A',",
+    "themeColor: '#E31E24',",
+    'theme-color fix'
+)
+
+print("\nPart 5 done: academy page nav fixed, theme-color corrected.")
+print("\nALL PARTS COMPLETE. Next: npm run type-check, npm run lint, npm test")

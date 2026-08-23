@@ -1,4 +1,19 @@
-import Link from 'next/link'
+"""
+corporate_site_fixes_part2.py
+Part 2 of 3 — rewrites app/page.tsx to use shared Header/Footer + single-source data.
+Run AFTER corporate_site_fixes.py (part 1).
+Run from repo root: py corporate_site_fixes_part2.py
+"""
+import os
+
+def w(rel, content):
+    path = os.path.join(*rel.split('/'))
+    os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f'  Wrote: {rel}')
+
+w('app/page.tsx', r"""import Link from 'next/link'
 import type { Metadata } from 'next'
 import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
@@ -143,3 +158,6 @@ export default function HomePage() {
     </div>
   )
 }
+""")
+
+print("Part 2 done: app/page.tsx rewritten.")
