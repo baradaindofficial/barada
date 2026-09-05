@@ -53,3 +53,69 @@
   .section     { @apply py-16 md:py-24; }
   .input-field { @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10 transition-all; }
 }
+
+
+/* ============================================================================
+   Sprint 4.4d — Dashboard theme tokens
+   Light values live on :root (default). Dark values override under
+   [data-theme="dark"], set on <html> by the blocking script in app/layout.tsx
+   and toggled at runtime by context/ThemeContext.tsx.
+   Components consume these via inline style={{ background: 'var(--color-surface)' }}
+   etc. — this file only defines the tokens and two responsive helper classes
+   that inline styles cannot express (media queries).
+   ============================================================================ */
+:root {
+  --color-bg: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F3F4F6;
+  --color-border: #E5E7EB;
+  --color-text-primary: #0D183D;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+
+  --color-brand-red: #E31E24;
+  --color-brand-navy: #0D183D;
+  --color-brand-gold: #D4AF37;
+
+  --shadow-sm: 0 1px 2px rgba(13, 24, 61, 0.06);
+  --shadow-md: 0 4px 16px rgba(13, 24, 61, 0.10);
+  --shadow-lg: 0 12px 32px rgba(13, 24, 61, 0.16);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0B1120;
+  --color-surface: #131B33;
+  --color-surface-alt: #1A2547;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #F3F4F6;
+  --color-text-secondary: #A3ACC2;
+  --color-text-muted: #6B7280;
+
+  /* Brand red/gold stay constant across themes for brand consistency.
+     Navy lightens on dark surfaces — the literal brand navy (#0D183D) is
+     too close to the dark background to read as an accent/text color. */
+  --color-brand-red: #E31E24;
+  --color-brand-navy: #7C89B8;
+  --color-brand-gold: #D4AF37;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive helpers — media queries cannot be expressed via inline styles */
+.barada-sidebar-desktop { display: none; }
+.barada-mobile-menu-btn { display: inline-flex; }
+@media (min-width: 768px) {
+  .barada-sidebar-desktop { display: block; }
+  .barada-mobile-menu-btn { display: none; }
+}
