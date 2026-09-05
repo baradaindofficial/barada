@@ -8,7 +8,7 @@ export default async function MyCoursesPage() {
   if (!user) redirect('/login')
 
   const { data: learnerRaw } = await supabase
-    .from('learners').select('learner_id').eq('id', user.id).single()
+    .from('learners').select('learner_id').eq('learner_id', user.id).single()
   const learner = learnerRaw as any
 
   const { data: enrollments } = await supabase

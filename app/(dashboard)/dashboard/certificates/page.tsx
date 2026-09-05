@@ -8,7 +8,7 @@ export default async function CertificatesPage() {
   if (!user) redirect('/login')
 
   const { data: learnerRaw } = await supabase
-    .from('learners').select('learner_id, first_name, last_name').eq('id', user.id).single()
+    .from('learners').select('learner_id, name').eq('learner_id', user.id).single()
   const learner = learnerRaw as any
 
   const { data: certificates } = await supabase
