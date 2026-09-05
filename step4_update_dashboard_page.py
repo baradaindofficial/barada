@@ -1,4 +1,17 @@
-import { redirect } from 'next/navigation'
+"""
+Updates app/(dashboard)/dashboard/page.tsx to add:
+  - a streak badge in the Welcome section (shown only if streak.current > 0)
+  - an Achievements stat card in the stats grid
+
+Preserves everything else in the file exactly as-is.
+
+Run from repo root: py step4_update_dashboard_page.py
+"""
+
+FILE_PATH = "app/(dashboard)/dashboard/page.tsx"
+EXPECTED_OLD_MARKER = "getLearnerEnrollments } from '@/lib/db/enrollments'"
+
+NEW_CONTENT = """import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { getLearner, getLearnerStats } from '@/lib/db/learners'
@@ -140,3 +153,25 @@ function formatTime(seconds: number) {
   const m = Math.floor((seconds % 3600) / 60)
   return h > 0 ? `${h}h ${m}m` : `${m}m`
 }
+"""
+
+def main():
+    try:
+        with open(FILE_PATH, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"ERROR: Could not find {FILE_PATH}")
+        return
+
+    if EXPECTED_OLD_MARKER not in content:
+        print("WARNING: File doesn't match the expected known content.")
+        print("Not overwriting -- please check the file manually before proceeding.")
+        return
+
+    with open(FILE_PATH, "w", encoding="utf-8") as f:
+        f.write(NEW_CONTENT)
+
+    print(f"SUCCESS: {FILE_PATH} updated with streak badge + achievements stat.")
+
+if __name__ == "__main__":
+    main()

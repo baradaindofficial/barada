@@ -1,4 +1,17 @@
-import { createClient } from '@/lib/supabase/server'
+"""
+Extends lib/db/enrollments.ts so getEnrollment/getLearnerEnrollments return
+a real completionPercentage, sourced from course_progress (the sole source
+of truth per ADR-008). Fixes a latent bug: dashboard/page.tsx already reads
+enrollment.completionPercentage, but the old mapEnrollment() never set it.
+
+Run from repo root: py step2_fix_enrollments_completion.py
+"""
+
+FILE_PATH = "lib/db/enrollments.ts"
+
+EXPECTED_OLD_MARKER = "function mapEnrollment(d: any) {"
+
+NEW_CONTENT = '''import { createClient } from '@/lib/supabase/server'
 
 function mapEnrollment(d: any, completionPercentage: number = 0) {
   return { enrollmentId: d.enrollment_id, learnerId: d.learner_id, courseSlug: d.course_slug, courseId: d.course_id, status: d.status, enrolledAt: d.enrolled_at, lastAccessedAt: d.last_accessed_at, completedAt: d.completed_at, completionPercentage }
@@ -83,3 +96,25 @@ export async function isEnrolledByCourseId(learnerId: string, courseId: string):
   const { count } = await (supabase as any).from('enrollments').select('*', { count: 'exact', head: true }).eq('learner_id', learnerId).eq('course_id', courseId)
   return (count ?? 0) > 0
 }
+'''
+
+def main():
+    try:
+        with open(FILE_PATH, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"ERROR: Could not find {FILE_PATH}")
+        return
+
+    if EXPECTED_OLD_MARKER not in content:
+        print("WARNING: File doesn't match the expected known content.")
+        print("Not overwriting -- please check the file manually before proceeding.")
+        return
+
+    with open(FILE_PATH, "w", encoding="utf-8") as f:
+        f.write(NEW_CONTENT)
+
+    print(f"SUCCESS: {FILE_PATH} updated with completionPercentage support.")
+
+if __name__ == "__main__":
+    main()
