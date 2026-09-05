@@ -64,11 +64,11 @@ export default function ResetPasswordPage() {
                 style={{ width: '100%', padding: '0.75rem 1rem', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: '0.95rem', outline: 'none', boxSizing: 'border-box' }}
               />
             </div>
-            {error && <p style={{ color: '#E31E24', fontSize: '0.82rem' }}>{error}</p>}
+            {error && <p style={{ color: '#D11A1A', fontSize: '0.82rem' }}>{error}</p>}
             <button
               type="submit"
               disabled={loading}
-              style={{ background: '#E31E24', color: '#fff', border: 'none', borderRadius: 10, padding: '0.875rem', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', opacity: loading ? 0.7 : 1 }}
+              style={{ background: '#D11A1A', color: '#fff', border: 'none', borderRadius: 10, padding: '0.875rem', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', opacity: loading ? 0.7 : 1 }}
             >
               {loading ? 'Updating...' : 'Update Password'}
             </button>

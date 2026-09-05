@@ -65,7 +65,7 @@ export default function AboutPage() {
               ['Collaboration', 'We build with our community, not just for them.'],
             ].map(([title, desc]) => (
               <div key={title} style={{ background: '#F9FAFB', borderRadius: 12, padding: '1.25rem', border: '1px solid #E5E7EB' }}>
-                <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#E31E24', fontSize: '0.875rem', marginBottom: '0.375rem' }}>{title}</p>
+                <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#D11A1A', fontSize: '0.875rem', marginBottom: '0.375rem' }}>{title}</p>
                 <p style={{ color: '#6B7280', fontSize: '0.82rem', lineHeight: 1.65 }}>{desc}</p>
               </div>
             ))}
@@ -73,7 +73,7 @@ export default function AboutPage() {
         </div>
 
         <div style={{ textAlign: 'center' }}>
-          <Link href="/ecosystem" style={{ background: '#E31E24', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>Explore Our Ecosystem &rarr;</Link>
+          <Link href="/ecosystem" style={{ background: '#D11A1A', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>Explore Our Ecosystem &rarr;</Link>
         </div>
       </div>
 

@@ -61,7 +61,7 @@ export default function ServicesPage() {
         <div style={{ background: '#0D183D', borderRadius: 16, padding: '2.5rem', textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: '1.375rem', marginBottom: '0.75rem' }}>Discuss your requirements</h2>
           <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem' }}>Every engagement starts with a conversation about what you actually need.</p>
-          <Link href="/contact" style={{ display: 'inline-block', background: '#E31E24', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Contact Barada &rarr;</Link>
+          <Link href="/contact" style={{ display: 'inline-block', background: '#D11A1A', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Contact Barada &rarr;</Link>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.82rem', marginTop: '1rem' }}>or email info@barada.in directly</p>
         </div>
       </div>

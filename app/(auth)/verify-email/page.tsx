@@ -18,7 +18,7 @@ export default function VerifyEmailPage() {
           </p>
           <p style={{ color: '#9CA3AF', fontSize: '0.78rem', marginBottom: '1.5rem' }}>
             Did not receive it? Check your spam folder, or{' '}
-            <Link href="/register" style={{ color: '#E31E24', fontWeight: 700, textDecoration: 'none' }}>try again</Link>.
+            <Link href="/register" style={{ color: '#D11A1A', fontWeight: 700, textDecoration: 'none' }}>try again</Link>.
           </p>
           <Link
             href="/login"

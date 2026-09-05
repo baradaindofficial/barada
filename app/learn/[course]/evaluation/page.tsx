@@ -86,7 +86,7 @@ export default function EvaluationPage() {
 
   if (error) return (
     <div style={{ minHeight: '100vh', background: '#0a0f1e', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '1rem' }}>
-      <p style={{ color: '#E31E24', fontFamily: 'Inter, sans-serif' }}>{error}</p>
+      <p style={{ color: '#D11A1A', fontFamily: 'Inter, sans-serif' }}>{error}</p>
       <Link href={`/learn/${params.course}/module-1/lesson-1`} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', textDecoration: 'none' }}>Back to Course</Link>
     </div>
   )
@@ -101,7 +101,7 @@ export default function EvaluationPage() {
       </nav>
 
       <div style={{ height: 3, background: 'rgba(255,255,255,0.06)' }}>
-        <div style={{ height: '100%', width: `${progress}%`, background: '#E31E24', transition: 'width 0.3s ease' }} />
+        <div style={{ height: '100%', width: `${progress}%`, background: '#D11A1A', transition: 'width 0.3s ease' }} />
       </div>
 
       <div style={{ maxWidth: 680, margin: '0 auto', padding: '3rem 1.5rem' }}>
@@ -127,8 +127,8 @@ export default function EvaluationPage() {
                   <button key={opt.optionId} onClick={() => selectAnswer(q.questionId, opt.optionId)}
                     aria-label={`Option ${String.fromCharCode(65 + i)}: ${opt.optionText}`}
                     aria-pressed={isSelected}
-                    style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.25rem', borderRadius: 12, cursor: 'pointer', background: isSelected ? 'rgba(227,30,36,0.12)' : 'rgba(255,255,255,0.03)', border: isSelected ? '2px solid #E31E24' : '1.5px solid rgba(255,255,255,0.08)', textAlign: 'left', transition: 'all 0.15s ease' }}>
-                    <span style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, background: isSelected ? '#E31E24' : 'rgba(255,255,255,0.06)', border: isSelected ? 'none' : '1.5px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: isSelected ? '#fff' : 'rgba(255,255,255,0.4)', fontWeight: 700, fontSize: '0.72rem' }}>
+                    style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.25rem', borderRadius: 12, cursor: 'pointer', background: isSelected ? 'rgba(227,30,36,0.12)' : 'rgba(255,255,255,0.03)', border: isSelected ? '2px solid #D11A1A' : '1.5px solid rgba(255,255,255,0.08)', textAlign: 'left', transition: 'all 0.15s ease' }}>
+                    <span style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, background: isSelected ? '#D11A1A' : 'rgba(255,255,255,0.06)', border: isSelected ? 'none' : '1.5px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: isSelected ? '#fff' : 'rgba(255,255,255,0.4)', fontWeight: 700, fontSize: '0.72rem' }}>
                       {String.fromCharCode(65 + i)}
                     </span>
                     <span style={{ color: isSelected ? '#fff' : 'rgba(255,255,255,0.7)', fontSize: '0.95rem', lineHeight: 1.5, fontWeight: isSelected ? 600 : 400 }}>
@@ -155,7 +155,7 @@ export default function EvaluationPage() {
               {current < questions.length - 1 ? (
                 <button onClick={() => setCurrent(c => Math.min(questions.length - 1, c + 1))} disabled={!answered}
                   aria-label="Next question"
-                  style={{ padding: '0.75rem 1.75rem', borderRadius: 10, background: answered ? '#E31E24' : 'rgba(255,255,255,0.06)', border: 'none', color: '#fff', cursor: answered ? 'pointer' : 'not-allowed', fontSize: '0.875rem', fontWeight: 700, opacity: answered ? 1 : 0.5 }}>
+                  style={{ padding: '0.75rem 1.75rem', borderRadius: 10, background: answered ? '#D11A1A' : 'rgba(255,255,255,0.06)', border: 'none', color: '#fff', cursor: answered ? 'pointer' : 'not-allowed', fontSize: '0.875rem', fontWeight: 700, opacity: answered ? 1 : 0.5 }}>
                   Next &rarr;
                 </button>
               ) : (
@@ -171,7 +171,7 @@ export default function EvaluationPage() {
               {questions.map((_, i) => (
                 <button key={i} onClick={() => setCurrent(i)}
                   role="tab" aria-selected={i === current} aria-label={`Go to question ${i + 1}`}
-                  style={{ width: 28, height: 4, borderRadius: 2, border: 'none', cursor: 'pointer', background: i === current ? '#E31E24' : answers[questions[i].questionId] ? 'rgba(212,175,55,0.6)' : 'rgba(255,255,255,0.1)' }} />
+                  style={{ width: 28, height: 4, borderRadius: 2, border: 'none', cursor: 'pointer', background: i === current ? '#D11A1A' : answers[questions[i].questionId] ? 'rgba(212,175,55,0.6)' : 'rgba(255,255,255,0.1)' }} />
               ))}
             </div>
           </div>

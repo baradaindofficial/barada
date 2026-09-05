@@ -69,7 +69,7 @@ export default function LoginForm() {
               </div>
             </div>
             <button type="submit" disabled={loading} aria-busy={loading}
-              style={{ background: '#E31E24', color: '#fff', padding: '0.875rem', borderRadius: 10, border: 'none', fontSize: '0.95rem', fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.6 : 1 }}>
+              style={{ background: '#D11A1A', color: '#fff', padding: '0.875rem', borderRadius: 10, border: 'none', fontSize: '0.95rem', fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.6 : 1 }}>
               {loading ? 'Signing in\u2026' : 'Sign In \u2192'}
             </button>
           </form>

@@ -56,7 +56,7 @@ export default async function MyCoursesPage() {
           <p style={{ fontSize: '2rem', marginBottom: '1rem' }}>📚</p>
           <p style={{ color: '#374151', fontWeight: 600, marginBottom: '0.5rem' }}>No courses yet</p>
           <p style={{ color: '#6B7280', fontSize: '0.875rem', marginBottom: '1.5rem' }}>Browse the Academy and enroll in a course to get started.</p>
-          <Link href="/academy" style={{ background: '#E31E24', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
+          <Link href="/academy" style={{ background: '#D11A1A', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
             Browse Courses
           </Link>
         </div>
@@ -64,7 +64,7 @@ export default async function MyCoursesPage() {
         <div style={{ display: 'grid', gap: '1rem' }}>
           {courses.map(({ course, course_slug, completion_percentage, enrolled_at }: any) => (
             <div key={course_slug} style={{ background: '#fff', borderRadius: 14, padding: '1.5rem', border: '1.5px solid #E5E7EB', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-              <div style={{ width: 52, height: 52, background: course?.theme_color || '#E31E24', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', flexShrink: 0 }}>
+              <div style={{ width: 52, height: 52, background: course?.theme_color || '#D11A1A', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', flexShrink: 0 }}>
                 {course?.icon || '📚'}
               </div>
               <div style={{ flex: 1 }}>
@@ -75,7 +75,7 @@ export default async function MyCoursesPage() {
                   {course?.category} &middot; {course?.difficulty} &middot; Enrolled {new Date(enrolled_at).toLocaleDateString('en-IN')}
                 </p>
                 <div style={{ height: 4, background: '#F3F4F6', borderRadius: 2, overflow: 'hidden' }}>
-                  <div style={{ height: '100%', width: `${completion_percentage || 0}%`, background: '#E31E24', borderRadius: 2 }} />
+                  <div style={{ height: '100%', width: `${completion_percentage || 0}%`, background: '#D11A1A', borderRadius: 2 }} />
                 </div>
                 <p style={{ color: '#9CA3AF', fontSize: '0.72rem', marginTop: '0.25rem' }}>{completion_percentage || 0}% complete</p>
               </div>

@@ -178,7 +178,7 @@ export default async function LessonPage({ params }: Props) {
             {nextLesson ? (
               <Link href={navUrl(nextLesson)} style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '0.5rem',
-                background: '#E31E24', borderRadius: 10,
+                background: '#D11A1A', borderRadius: 10,
                 padding: '0.75rem 1.25rem', textDecoration: 'none', flex: 1,
               }}>
                 <div style={{ textAlign: 'right' }}>
@@ -217,7 +217,7 @@ export default async function LessonPage({ params }: Props) {
                     }}>
                       <span style={{
                         width: 20, height: 20, borderRadius: '50%',
-                        background: isActive ? '#E31E24' : 'rgba(255,255,255,0.08)',
+                        background: isActive ? '#D11A1A' : 'rgba(255,255,255,0.08)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: '0.6rem', color: '#fff', flexShrink: 0, fontWeight: 700,
                       }}>

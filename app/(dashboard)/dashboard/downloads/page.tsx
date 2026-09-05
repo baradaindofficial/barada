@@ -31,7 +31,7 @@ export default async function DownloadsPage() {
           <p style={{ fontSize: '2rem', marginBottom: '1rem' }}>📥</p>
           <p style={{ color: '#374151', fontWeight: 600, marginBottom: '0.5rem' }}>No downloads yet</p>
           <p style={{ color: '#6B7280', fontSize: '0.875rem', marginBottom: '1.5rem' }}>Resources you download from lessons will appear here.</p>
-          <Link href="/academy" style={{ background: '#E31E24', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
+          <Link href="/academy" style={{ background: '#D11A1A', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
             Browse Courses
           </Link>
         </div>
