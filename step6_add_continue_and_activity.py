@@ -1,4 +1,17 @@
-import { redirect } from 'next/navigation'
+"""
+Extends app/(dashboard)/dashboard/page.tsx (the version produced by
+step4_update_dashboard_page.py) to add:
+  - a "Continue Learning" highlight in the Welcome section (most recently
+    accessed enrollment, if any) with a direct link to that course
+  - a "Recent Activity" section listing the last 5 lesson_progress entries
+
+Run from repo root: py step6_add_continue_and_activity.py
+"""
+
+FILE_PATH = "app/(dashboard)/dashboard/page.tsx"
+EXPECTED_MARKER = "getLearnerStreak, getAchievementCount } from '@/lib/db/learner-engagement'"
+
+NEW_CONTENT = """import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { getLearner, getLearnerStats } from '@/lib/db/learners'
@@ -202,3 +215,25 @@ function formatRelativeTime(isoString: string) {
   const diffMonths = Math.floor(diffDays / 30)
   return `${diffMonths}mo ago`
 }
+"""
+
+def main():
+    try:
+        with open(FILE_PATH, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"ERROR: Could not find {FILE_PATH}")
+        return
+
+    if EXPECTED_MARKER not in content:
+        print("WARNING: File doesn't match the expected state (output of step4).")
+        print("Not overwriting -- please check the file manually before proceeding.")
+        return
+
+    with open(FILE_PATH, "w", encoding="utf-8") as f:
+        f.write(NEW_CONTENT)
+
+    print(f"SUCCESS: {FILE_PATH} updated with Continue Learning highlight + Recent Activity section.")
+
+if __name__ == "__main__":
+    main()
