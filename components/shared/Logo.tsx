@@ -15,8 +15,8 @@ interface LogoProps {
  * To swap a logo: replace the file in public/logo/ — no code changes needed.
  *
  * Variants:
- *   corporate — Barada parent brand logo (red square, white B, "BARADA")
- *   academy   — Barada Academy logo (white bg, red B, "BARADA ACADEMY")
+ *   corporate — Barada parent brand logo (B icon + "BARADA" text)
+ *   academy   — Barada Academy logo (B icon + "BARADA ACADEMY" text)
  *   icon      — B mark only (for favicon, small spaces)
  *   footer    — Same as corporate, used in footer context
  *
@@ -29,15 +29,14 @@ interface LogoProps {
 export default function Logo({ variant, height = 40, linkTo, className = '' }: LogoProps) {
   const config: Record<LogoVariant, { src: string; alt: string; width: number }> = {
     corporate: {
-      src: '/logo/barada-logo.png',
+      src: '/logo/barada-symbol-96.png',
       alt: 'Barada',
-      width: Math.round(height * 1),   // square logo
+      width: Math.round(height * 1),
     },
     academy: {
-      // Using corporate logo temporarily until academy-logo.png is confirmed
-      src: '/logo/academy-logo.png',
+      src: '/logo/barada-symbol-96.png',
       alt: 'Barada Academy',
-      width: Math.round(height * 1),   // square logo
+      width: Math.round(height * 1),
     },
     icon: {
       src: '/logo/barada-icon.png',
@@ -45,7 +44,7 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
       width: height,
     },
     footer: {
-      src: '/logo/barada-logo.png',
+      src: '/logo/barada-symbol-96.png',
       alt: 'Barada',
       width: Math.round(height * 1),
     },
@@ -54,14 +53,18 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
   const { src, alt, width } = config[variant]
 
   const img = (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-      priority
-    />
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+      <Image src={src} alt={alt} width={width} height={height} className={className} priority />
+      {(variant === 'corporate' || variant === 'footer') && (
+        <span style={{ fontWeight: 800, fontSize: height * 0.45, color: '#fff', letterSpacing: 0.5 }}>BARADA</span>
+      )}
+      {variant === 'academy' && (
+        <span style={{ fontWeight: 800, fontSize: height * 0.4, letterSpacing: 0.5 }}>
+          <span style={{ color: '#fff' }}>BARADA</span>{' '}
+          <span style={{ color: '#D11A1A' }}>ACADEMY</span>
+        </span>
+      )}
+    </span>
   )
 
   if (linkTo) {
