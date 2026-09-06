@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { getLearner, getLearnerStats } from '@/lib/db/learners'
 import { getLearnerEnrollments } from '@/lib/db/enrollments'
 import { getLearnerStreak, getAchievementCount, getRecentActivity } from '@/lib/db/learner-engagement'
+import { getRecommendedCourses } from '@/lib/db/recommendations'
 import { COURSES } from '@/data/courses'
 import type { Metadata } from 'next'
 
@@ -17,13 +18,14 @@ export default async function DashboardPage() {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login?next=/dashboard')
 
-  const [learner, stats, enrollments, streak, achievementCount, recentActivity] = await Promise.all([
+  const [learner, stats, enrollments, streak, achievementCount, recentActivity, recommendations] = await Promise.all([
     getLearner(user.id),
     getLearnerStats(user.id),
     getLearnerEnrollments(user.id),
     getLearnerStreak(user.id),
     getAchievementCount(user.id),
     getRecentActivity(user.id),
+    getRecommendedCourses(user.id),
   ])
 
   const enrolledCourses = enrollments.map((e: any) => ({
@@ -155,6 +157,28 @@ export default async function DashboardPage() {
             </div>
           )}
         </div>
+
+        {/* Recommended for You */}
+        {recommendations.length > 0 && (
+          <div className="mb-8">
+            <h2 className="font-display font-bold text-lg text-[#0D183D] mb-4">Recommended for You</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              {recommendations.map(({ course, reason }) => (
+                <Link
+                  key={course.slug}
+                  href={`/academy`}
+                  className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow"
+                >
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-3" style={{ background: `${course.themeColor}22` }}>
+                    {course.icon}
+                  </div>
+                  <div className="font-bold text-[#0D183D] text-sm mb-1">{course.title}</div>
+                  <div className="text-xs text-gray-400">{reason}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Recent Activity */}
         {recentActivity.length > 0 && (
