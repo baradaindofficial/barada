@@ -17,6 +17,7 @@ const NAV_ITEMS = [
   { href: '/dashboard/downloads', label: 'Downloads', icon: '📥' },
   { href: '/dashboard/certificates', label: 'Certificates', icon: '🏆' },
   { href: '/dashboard/achievements', label: 'Achievements', icon: '🏅' },
+  { href: '/dashboard/analytics', label: 'Analytics', icon: '📊' },
   { href: '/dashboard/profile', label: 'Profile', icon: '👤' },
 ]
 
