@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { href: '/dashboard/courses', label: 'My Courses', icon: '📚' },
   { href: '/dashboard/downloads', label: 'Downloads', icon: '📥' },
   { href: '/dashboard/certificates', label: 'Certificates', icon: '🏆' },
+  { href: '/dashboard/achievements', label: 'Achievements', icon: '🏅' },
   { href: '/dashboard/profile', label: 'Profile', icon: '👤' },
 ]
 
