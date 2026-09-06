@@ -18,7 +18,7 @@ export async function getAuthenticatedLearner(): Promise<AuthenticatedLearner | 
   const { data } = await supabase
     .from('learners')
     .select('learner_id')
-    .eq('id', user.id)
+    .eq('learner_id', user.id)
     .maybeSingle()
 
   if (!data) return null
