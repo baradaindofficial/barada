@@ -99,7 +99,7 @@ export default function AcademyPage() {
                   <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.75rem', lineHeight: 1.4 }}>{course.title}</h3>
                   <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: '#9CA3AF', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
                     <span>{course.modules?.reduce((acc: number, m: {lessons?: unknown[]}) => acc + (m.lessons?.length || 0), 0) || 0} lessons</span>
-                    <span>Certificate: \u20B9299</span>
+                    <span>Certificate: ₹299</span>
                   </div>
                   <Link href="/register" style={{ display: 'block', background: navy, color: '#fff', padding: '0.625rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.82rem', fontWeight: 700, textAlign: 'center' }}>Start Learning Free &rarr;</Link>
                 </div>
