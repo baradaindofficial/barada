@@ -2,6 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import Logo from '@/components/shared/Logo'
 import { COURSES } from '@/data/courses'
+import { createClient } from '@/lib/supabase/server'
+import CourseEnrollButton from '@/components/academy/CourseEnrollButton'
 
 export const metadata: Metadata = {
   title: 'Barada Academy \u2014 Learn AI. Build the Future.',
@@ -21,7 +23,11 @@ const red = '#D11A1A'
 const navy = '#0D183D'
 const gold = '#D4AF37'
 
-export default function AcademyPage() {
+export default async function AcademyPage() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  const isLoggedIn = !!user
+
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', margin: 0, padding: 0 }}>
 
@@ -101,7 +107,7 @@ export default function AcademyPage() {
                     <span>{course.modules?.reduce((acc: number, m: {lessons?: unknown[]}) => acc + (m.lessons?.length || 0), 0) || 0} lessons</span>
                     <span>Certificate: ₹299</span>
                   </div>
-                  <Link href="/register" style={{ display: 'block', background: navy, color: '#fff', padding: '0.625rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.82rem', fontWeight: 700, textAlign: 'center' }}>Start Learning Free &rarr;</Link>
+                  <CourseEnrollButton slug={course.slug} isLoggedIn={isLoggedIn} />
                 </div>
                 <div style={{ background: 'rgba(22,163,74,0.05)', borderTop: '1px solid rgba(22,163,74,0.1)', padding: '0.5rem 1.5rem' }}>
                   <span style={{ fontSize: '0.7rem', color: '#16a34a', fontWeight: 700 }}>&#10003; Enroll instantly &middot; No payment required</span>
