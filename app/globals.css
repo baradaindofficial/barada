@@ -6,9 +6,16 @@
 
 @layer base {
   :root {
-    --clr-red:   #D11A1A;
-    --clr-navy:  #0D183D;
-    --clr-gold:  #D4AF37;
+    /* Barada parent-brand tokens -- public corporate site only (/, /about,
+       /ecosystem, /services, /contact). Intentionally separate from
+       Academy's own dashboard theme tokens (--color-brand-* below, under
+       "Sprint 4.4d -- Dashboard theme tokens") which keep Academy's
+       existing values and are not touched here. */
+    --barada-red:        #E31E24;
+    --barada-navy:       #0D183D;
+    --barada-gold:       #D4AF37;
+    --barada-slate:      #475569;
+    --barada-light-gray: #F1F5F9;
     --font-display: 'Poppins', system-ui, sans-serif;
     --font-body:    'Inter', system-ui, sans-serif;
   }
@@ -29,7 +36,7 @@
 
   /* Global focus-visible — keyboard users see a clear outline */
   :focus-visible {
-    outline: 2px solid var(--clr-navy);
+    outline: 2px solid var(--barada-navy);
     outline-offset: 2px;
     border-radius: 4px;
   }
