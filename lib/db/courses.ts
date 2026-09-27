@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import type { CourseCatalogItem } from '@/types'
 
 export async function getAllPublishedCourses() {
@@ -43,6 +44,16 @@ export async function getAllPublishedCoursesWithCounts(): Promise<CourseCatalogI
   const supabase = await createClient()
   const courses = await getAllPublishedCourses()
 
+  // lessons RLS ("public: free preview lessons") only allows the anon/public
+  // role to SELECT rows where is_free_preview = true, so a request-scoped
+  // (anon) count of lessons undercounts every course down to its free-preview
+  // lesson count. Catalog display needs the true published lesson total, not
+  // per-lesson content, so the lesson count -- and only the count, via
+  // head:true which returns zero rows -- runs through the service-role
+  // client. Course/module RLS already allow public reads of published rows,
+  // so those stay on the normal request-scoped client.
+  const admin = createAdminClient()
+
   const enriched = await Promise.all(
     (courses || []).map(async (course: any) => {
       const { count: moduleCount } = await supabase
@@ -51,9 +62,9 @@ export async function getAllPublishedCoursesWithCounts(): Promise<CourseCatalogI
         .eq('course_id', course.course_id)
         .eq('status', 'published')
 
-      const { count: lessonCount } = await supabase
+      const { count: lessonCount } = await admin
         .from('lessons')
-        .select('*', { count: 'exact', head: true })
+        .select('lesson_id', { count: 'exact', head: true })
         .eq('course_id', course.course_id)
         .eq('status', 'published')
 
