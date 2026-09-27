@@ -26,6 +26,7 @@ export default function EvaluationPage() {
   const [questions, setQuestions] = useState<Question[]>([])
   const [current, setCurrent] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [attemptId, setAttemptId] = useState<string | undefined>(undefined)
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -38,6 +39,7 @@ export default function EvaluationPage() {
         if (data.error) { setError(data.error); setLoading(false); return }
         setEvaluation(data.evaluation)
         setQuestions(data.questions)
+        setAttemptId(data.attemptId)
         setLoading(false)
         startTime.current = Date.now()
       })
@@ -56,17 +58,17 @@ export default function EvaluationPage() {
       const res = await fetch(`/api/assessments/${evaluation.assessmentId}/attempt`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers, timeTakenSeconds: timeTaken }),
+        body: JSON.stringify({ answers, timeTakenSeconds: timeTaken, ...(attemptId ? { attemptId } : {}) }),
       })
       const json = await res.json()
       // F012: Handle new { data: { attemptId } } envelope
-      const attemptId = json.data?.attemptId || json.attemptId
-      if (json.error || !attemptId) {
+      const resultAttemptId = json.data?.attemptId || json.attemptId
+      if (json.error || !resultAttemptId) {
         setError(json.error || 'Submission failed. Please try again.')
         setSubmitting(false)
         return
       }
-      router.push(`/learn/${params.course}/evaluation/result/${attemptId}`)
+      router.push(`/learn/${params.course}/evaluation/result/${resultAttemptId}`)
     } catch {
       setError('Network error. Please try again.')
       setSubmitting(false)

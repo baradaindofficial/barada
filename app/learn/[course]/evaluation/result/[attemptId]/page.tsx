@@ -38,7 +38,19 @@ export default async function ResultPage({ params }: Props) {
     .select('question_id, question_number, question_text, explanation, points, sort_order, assessment_options(option_id, option_text, is_correct, explanation, sort_order)')
     .eq('assessment_id', assessment.assessment_id)
     .order('sort_order')
-  const questions = (questionsRaw || []) as any[]
+  const allQuestions = (questionsRaw || []) as any[]
+
+  // Sampled attempts (assessment_attempts.selected_question_ids populated) only
+  // show/score the persisted subset the learner was actually given — otherwise
+  // every question outside that subset would incorrectly render as 'Not answered'.
+  // Legacy / non-sampled attempts have this as null, so behavior there is unchanged.
+  const selectedIds: string[] | null =
+    attempt.selected_question_ids && attempt.selected_question_ids.length > 0
+      ? attempt.selected_question_ids
+      : null
+  const questions = selectedIds
+    ? allQuestions.filter((q: any) => selectedIds.includes(q.question_id))
+    : allQuestions
 
   const answeredQuestions = questions.map((q: any) => {
     const answerData = attempt.answers?.[q.question_id] || {}

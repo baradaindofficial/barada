@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import Logo from '@/components/shared/Logo'
 import ContentComingSoon from '@/components/academy/ContentComingSoon'
+import LessonBody from '@/components/academy/LessonBody'
 
 interface Props {
   params: { course: string; module: string; lesson: string }
@@ -137,17 +138,48 @@ export default async function LessonPage({ params }: Props) {
             </div>
           )}
 
+          {lesson.objectives && lesson.objectives.length > 0 && (
+            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }}>
+              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Learning Objectives</p>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {(lesson.objectives as string[]).map((obj: string, i: number) => (
+                  <li key={i} style={{ display: 'flex', gap: '0.625rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.6 }}>
+                    <span style={{ color: '#D4AF37', flexShrink: 0 }}>&#10003;</span>
+                    {obj}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {lesson.description && (
             <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }}>
+              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Introduction</p>
               <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '0.95rem' }}>
                 {lesson.description}
               </p>
             </div>
           )}
 
+          {lesson.body && (
+            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }}>
+              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Detailed Content</p>
+              <LessonBody text={lesson.body} />
+            </div>
+          )}
+
+          {lesson.practice_task && (
+            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }}>
+              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Exercise</p>
+              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '0.95rem', whiteSpace: 'pre-wrap' }}>
+                {lesson.practice_task}
+              </p>
+            </div>
+          )}
+
           {lesson.key_points && lesson.key_points.length > 0 && (
             <div style={{ background: 'rgba(212,175,55,0.05)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(212,175,55,0.15)', marginBottom: '1.5rem' }}>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Key Points</p>
+              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Key Takeaways</p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 {(lesson.key_points as string[]).map((point: string, i: number) => (
                   <li key={i} style={{ display: 'flex', gap: '0.625rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.6 }}>
