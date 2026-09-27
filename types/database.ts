@@ -157,6 +157,53 @@ export type Database = {
         }
         Relationships: []
       }
+      certificate_orders: {
+        Row: {
+          order_id: string
+          learner_id: string
+          course_id: string
+          razorpay_order_id: string
+          razorpay_payment_id: string | null
+          razorpay_signature: string | null
+          webhook_event_id: string | null
+          amount_paise: number
+          currency: string
+          status: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired'
+          failure_reason: string | null
+          certificate_id: string | null
+          created_at: string
+          paid_at: string | null
+          updated_at: string
+        }
+        Insert: {
+          order_id?: string
+          learner_id: string
+          course_id: string
+          razorpay_order_id: string
+          razorpay_payment_id?: string | null
+          razorpay_signature?: string | null
+          webhook_event_id?: string | null
+          amount_paise: number
+          currency?: string
+          status?: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired'
+          failure_reason?: string | null
+          certificate_id?: string | null
+          created_at?: string
+          paid_at?: string | null
+          updated_at?: string
+        }
+        Update: {
+          razorpay_payment_id?: string | null
+          razorpay_signature?: string | null
+          webhook_event_id?: string | null
+          status?: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired'
+          failure_reason?: string | null
+          certificate_id?: string | null
+          paid_at?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       admin_users: {
         Row: {
           admin_id: string
