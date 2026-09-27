@@ -73,6 +73,30 @@ export interface Course {
   prerequisites: string[]
 }
 
+// ── DB-driven course catalog (Supabase `courses` table) ────────────
+// Deliberately narrow: sized to exactly what the /academy catalog grid,
+// dashboard recommendations, and dashboard enrolled-course cards read.
+// Distinct from the legacy static `Course` type above (which nests a full
+// hand-authored curriculum) -- do not force DB rows into that shape.
+export interface CourseCatalogItem {
+  courseId: string
+  slug: string
+  title: string
+  subtitle: string | null
+  category: string
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert'
+  icon: string | null
+  themeColor: string | null
+  isFree: boolean
+  certPricePaise: number
+  sortOrder: number
+  estimatedHours: number | null
+  outcomes: string[]
+  targetAudience: string[]
+  moduleCount: number
+  lessonCount: number
+}
+
 // ── Enrollment ────────────────────────────────────────────────────
 export interface Enrollment {
   enrollmentId: string

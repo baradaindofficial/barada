@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import Logo from '@/components/shared/Logo'
-import { COURSES } from '@/data/courses'
+import { getAllPublishedCoursesWithCounts } from '@/lib/db/courses'
 import { createClient } from '@/lib/supabase/server'
 import CourseEnrollButton from '@/components/academy/CourseEnrollButton'
 
@@ -27,6 +27,7 @@ export default async function AcademyPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   const isLoggedIn = !!user
+  const courses = await getAllPublishedCoursesWithCounts()
 
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', margin: 0, padding: 0 }}>
@@ -94,7 +95,7 @@ export default async function AcademyPage() {
             <p style={{ color: '#6B7280', fontSize: '0.95rem' }}>Every course is free to enroll. Certificate available after passing the final assessment.</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.25rem' }}>
-            {COURSES.map((course) => (
+            {courses.map((course) => (
               <div key={course.slug} style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', border: '1.5px solid #E5E7EB', borderTop: `4px solid ${course.themeColor || red}` }}>
                 <div style={{ padding: '1.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '0.875rem' }}>
@@ -104,7 +105,7 @@ export default async function AcademyPage() {
                   <p style={{ color: '#6B7280', fontSize: '0.72rem', marginBottom: '0.25rem' }}>{course.category} &middot; {course.difficulty}</p>
                   <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.75rem', lineHeight: 1.4 }}>{course.title}</h3>
                   <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: '#9CA3AF', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
-                    <span>{course.modules?.reduce((acc: number, m: {lessons?: unknown[]}) => acc + (m.lessons?.length || 0), 0) || 0} lessons</span>
+                    <span>{course.lessonCount} lessons</span>
                     <span>Certificate: ₹299</span>
                   </div>
                   <CourseEnrollButton slug={course.slug} isLoggedIn={isLoggedIn} />

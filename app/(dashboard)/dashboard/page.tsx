@@ -5,7 +5,7 @@ import { getLearner, getLearnerStats } from '@/lib/db/learners'
 import { getLearnerEnrollments } from '@/lib/db/enrollments'
 import { getLearnerStreak, getAchievementCount, getRecentActivity } from '@/lib/db/learner-engagement'
 import { getRecommendedCourses } from '@/lib/db/recommendations'
-import { COURSES } from '@/data/courses'
+import { getAllPublishedCoursesWithCounts } from '@/lib/db/courses'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default async function DashboardPage() {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login?next=/dashboard')
 
-  const [learner, stats, enrollments, streak, achievementCount, recentActivity, recommendations] = await Promise.all([
+  const [learner, stats, enrollments, streak, achievementCount, recentActivity, recommendations, allCourses] = await Promise.all([
     getLearner(user.id),
     getLearnerStats(user.id),
     getLearnerEnrollments(user.id),
@@ -26,11 +26,12 @@ export default async function DashboardPage() {
     getAchievementCount(user.id),
     getRecentActivity(user.id),
     getRecommendedCourses(user.id),
+    getAllPublishedCoursesWithCounts(),
   ])
 
   const enrolledCourses = enrollments.map((e: any) => ({
     enrollment: e,
-    course: COURSES.find(c => c.slug === e.courseSlug),
+    course: allCourses.find(c => c.slug === e.courseSlug),
   })).filter((x: any) => x.course)
 
   const firstName = learner?.name.split(' ')[0] ?? 'there'

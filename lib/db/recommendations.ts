@@ -1,9 +1,9 @@
 import { createClient } from '@/lib/supabase/server'
-import { COURSES } from '@/data/courses'
-import type { Course } from '@/types'
+import { getAllPublishedCoursesWithCounts } from '@/lib/db/courses'
+import type { CourseCatalogItem } from '@/types'
 
 export interface RecommendedCourse {
-  course: Course
+  course: CourseCatalogItem
   reason: string
 }
 
@@ -12,6 +12,10 @@ export interface RecommendedCourse {
  * header comment for why). Recommends up to `limit` courses the learner is
  * NOT already enrolled in, prioritizing the same category as their most
  * recently accessed enrolled course.
+ *
+ * Course source: Supabase `courses` table (published only), via
+ * getAllPublishedCoursesWithCounts() -- replaces the legacy static
+ * data/courses.ts lookup so newly published courses appear automatically.
  */
 export async function getRecommendedCourses(learnerId: string, limit: number = 3): Promise<RecommendedCourse[]> {
   const supabase = await createClient()
@@ -26,15 +30,16 @@ export async function getRecommendedCourses(learnerId: string, limit: number = 3
     throw new Error(`[getRecommendedCourses] failed: ${error.message}`)
   }
 
+  const allCourses = await getAllPublishedCoursesWithCounts()
   const enrolledSlugs = new Set((enrollments ?? []).map((e: any) => e.course_slug))
-  const notEnrolled = COURSES.filter((c) => !enrolledSlugs.has(c.slug))
+  const notEnrolled = allCourses.filter((c) => !enrolledSlugs.has(c.slug))
 
   if (notEnrolled.length === 0) {
     return []
   }
 
   const mostRecentSlug = enrollments?.[0]?.course_slug
-  const mostRecentCourse = mostRecentSlug ? COURSES.find((c) => c.slug === mostRecentSlug) : null
+  const mostRecentCourse = mostRecentSlug ? allCourses.find((c) => c.slug === mostRecentSlug) : null
 
   const recommendations: RecommendedCourse[] = []
 

@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import type { CourseCatalogItem } from '@/types'
 
 export async function getAllPublishedCourses() {
   const supabase = await createClient()
@@ -9,6 +10,58 @@ export async function getAllPublishedCourses() {
     .order('sort_order')
   if (error) throw error
   return data
+}
+
+/**
+ * Same as getAllPublishedCourses(), plus a published module/lesson count per
+ * course -- used by the /academy catalog and dashboard recommendations,
+ * which need a lesson count for card display. Mirrors the counting pattern
+ * already used in app/api/courses/route.ts.
+ */
+function mapCourseCatalogItem(course: any, moduleCount: number, lessonCount: number): CourseCatalogItem {
+  return {
+    courseId: course.course_id,
+    slug: course.slug,
+    title: course.title,
+    subtitle: course.subtitle ?? null,
+    category: course.category,
+    difficulty: course.difficulty,
+    icon: course.icon ?? null,
+    themeColor: course.theme_color ?? null,
+    isFree: course.is_free,
+    certPricePaise: course.cert_price_paise,
+    sortOrder: course.sort_order,
+    estimatedHours: course.estimated_hours ?? null,
+    outcomes: course.outcomes ?? [],
+    targetAudience: course.target_audience ?? [],
+    moduleCount,
+    lessonCount,
+  }
+}
+
+export async function getAllPublishedCoursesWithCounts(): Promise<CourseCatalogItem[]> {
+  const supabase = await createClient()
+  const courses = await getAllPublishedCourses()
+
+  const enriched = await Promise.all(
+    (courses || []).map(async (course: any) => {
+      const { count: moduleCount } = await supabase
+        .from('modules')
+        .select('*', { count: 'exact', head: true })
+        .eq('course_id', course.course_id)
+        .eq('status', 'published')
+
+      const { count: lessonCount } = await supabase
+        .from('lessons')
+        .select('*', { count: 'exact', head: true })
+        .eq('course_id', course.course_id)
+        .eq('status', 'published')
+
+      return mapCourseCatalogItem(course, moduleCount || 0, lessonCount || 0)
+    })
+  )
+
+  return enriched
 }
 
 export async function getCourseBySlug(slug: string) {
