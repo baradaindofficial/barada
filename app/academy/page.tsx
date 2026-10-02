@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import Logo from '@/components/shared/Logo'
-import { getAllPublishedCoursesWithCounts } from '@/lib/db/courses'
+import { getAllPublishedCoursesWithCounts, getAcademyStats } from '@/lib/db/courses'
 import { createClient } from '@/lib/supabase/server'
 import CourseEnrollButton from '@/components/academy/CourseEnrollButton'
 
@@ -28,6 +28,7 @@ export default async function AcademyPage() {
   const { data: { user } } = await supabase.auth.getUser()
   const isLoggedIn = !!user
   const courses = await getAllPublishedCoursesWithCounts()
+  const stats = await getAcademyStats()
 
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', margin: 0, padding: 0 }}>
@@ -85,6 +86,27 @@ export default async function AcademyPage() {
         </div>
       </section>
 
+      {/* Social-proof strip -- real, DB-computed numbers only (see
+          lib/db/courses.ts:getAcademyStats). The learner-count line is
+          withheld below a respectable threshold rather than shown small,
+          since this is a new platform and a tiny live number would read
+          as a weakness rather than a strength. */}
+      <section style={{ background: '#fff', padding: '1.75rem 2rem', borderBottom: '1px solid #E5E7EB' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', gap: '2.5rem', justifyContent: 'center', flexWrap: 'wrap', textAlign: 'center' }}>
+          {[
+            [String(stats.courseCount), 'Courses'],
+            [String(stats.lessonCount), 'Lessons'],
+            [`${stats.totalHours}+`, 'Hours of Content'],
+            ...(stats.learnerCount >= 20 ? [[`${stats.learnerCount}+`, 'Professionals Learning']] : []),
+          ].map(([v, l]) => (
+            <div key={l}>
+              <div style={{ fontSize: '1.35rem', fontWeight: 900, color: navy, fontFamily: 'Poppins, sans-serif' }}>{v}</div>
+              <div style={{ fontSize: '0.72rem', color: '#9CA3AF', marginTop: 2 }}>{l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section style={{ background: '#F9FAFB', padding: '4rem 2rem' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
@@ -105,7 +127,9 @@ export default async function AcademyPage() {
                   <p style={{ color: '#6B7280', fontSize: '0.72rem', marginBottom: '0.25rem' }}>{course.category} &middot; {course.difficulty}</p>
                   <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.75rem', lineHeight: 1.4 }}>{course.title}</h3>
                   <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: '#9CA3AF', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+                    <span>{course.moduleCount} modules</span>
                     <span>{course.lessonCount} lessons</span>
+                    {course.estimatedHours ? <span>{course.estimatedHours}h</span> : null}
                     <span>Certificate: ₹299</span>
                   </div>
                   <CourseEnrollButton slug={course.slug} isLoggedIn={isLoggedIn} />
@@ -113,6 +137,38 @@ export default async function AcademyPage() {
                 <div style={{ background: 'rgba(22,163,74,0.05)', borderTop: '1px solid rgba(22,163,74,0.1)', padding: '0.5rem 1.5rem' }}>
                   <span style={{ fontSize: '0.7rem', color: '#16a34a', fontWeight: 700 }}>&#10003; Enroll instantly &middot; No payment required</span>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ background: '#fff', padding: '4rem 2rem' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>FAQ</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: 0 }}>
+              Common questions
+            </h2>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {[
+              {
+                q: 'Is it really free?',
+                a: 'Yes. Every course is free to enroll in and complete -- all lessons, all modules, no subscription. The only paid step is optional: a ₹299 certificate once you pass a course\'s final assessment, if you want a verifiable credential for your resume or LinkedIn.',
+              },
+              {
+                q: 'Is the certificate recognized by employers?',
+                a: 'The certificate verifies that you completed the course and passed its assessment -- each one carries a unique ID you (or anyone you share it with) can check on our verification page. We don\'t claim formal accreditation, and whether it moves the needle for a given employer depends on the employer. We\'d rather be upfront about that than oversell it.',
+              },
+              {
+                q: 'How long do I have to finish a course?',
+                a: 'There\'s no deadline. Courses are self-paced -- start, pause, and resume whenever your schedule allows.',
+              },
+            ].map((item) => (
+              <div key={item.q} style={{ borderBottom: '1px solid #E5E7EB', paddingBottom: '1.25rem' }}>
+                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.5rem' }}>{item.q}</h3>
+                <p style={{ color: '#6B7280', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
               </div>
             ))}
           </div>

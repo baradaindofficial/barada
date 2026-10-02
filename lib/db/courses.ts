@@ -75,6 +75,39 @@ export async function getAllPublishedCoursesWithCounts(): Promise<CourseCatalogI
   return enriched
 }
 
+/**
+ * Aggregate, catalog-wide stats for the /academy page's social-proof strip.
+ * All real counts -- no fabricated numbers. Module/lesson/hour totals come
+ * from the already-fetched published-course list (no extra DB round trip).
+ * Enrollment count needs the service-role client: the `enrollments` table's
+ * RLS ("learner: read own enrollments") restricts SELECT/count to the
+ * learner's own rows, so the anon role would always see 0 -- same class of
+ * issue as the lesson-count fix. Only a count is read; no enrollment rows
+ * or learner identities are exposed.
+ */
+export async function getAcademyStats(): Promise<{
+  courseCount: number
+  lessonCount: number
+  totalHours: number
+  learnerCount: number
+}> {
+  const courses = await getAllPublishedCoursesWithCounts()
+  const lessonCount = courses.reduce((sum, c) => sum + c.lessonCount, 0)
+  const totalHours = Math.round(courses.reduce((sum, c) => sum + (c.estimatedHours || 0), 0))
+
+  const admin = createAdminClient()
+  const { count: learnerCount } = await admin
+    .from('enrollments')
+    .select('learner_id', { count: 'exact', head: true })
+
+  return {
+    courseCount: courses.length,
+    lessonCount,
+    totalHours,
+    learnerCount: learnerCount || 0,
+  }
+}
+
 export async function getCourseBySlug(slug: string) {
   const supabase = await createClient()
   const { data, error } = await supabase
