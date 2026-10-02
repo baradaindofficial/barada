@@ -121,7 +121,7 @@ export default async function AnalyticsPage() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white border border-gray-200 rounded-xl p-5">
-            <BarChart data={weekly} valueKey="totalSeconds" label="Weekly Time Spent" color="#D11A1A" />
+            <BarChart data={weekly} valueKey="totalSeconds" label="Weekly Time Spent" color="#E31E24" />
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-5">
             <BarChart data={weekly} valueKey="lessonsCompleted" label="Lessons Completed per Week" color="#0D183D" />

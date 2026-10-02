@@ -144,7 +144,7 @@ export default function RegisterForm() {
             </p>
 
             <button type="submit" disabled={loading} aria-busy={loading}
-              className="w-full bg-[#D11A1A] text-white py-3 rounded-lg font-bold text-sm hover:bg-[#A01010] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D11A1A]">
+              className="w-full bg-[#E31E24] text-white py-3 rounded-lg font-bold text-sm hover:bg-[#B1171C] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E31E24]">
               {loading ? 'Creating account…' : 'Create Free Account →'}
             </button>
           </form>

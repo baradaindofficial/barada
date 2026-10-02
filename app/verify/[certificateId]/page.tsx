@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Verify the authenticity of a Barada Academy certificate.',
 }
 
-const red = '#D11A1A'
+const red = '#E31E24'
 const navy = '#0D183D'
 const gold = '#D4AF37'
 

@@ -16,7 +16,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 const navy = '#0D183D'
-const red = '#D11A1A'
+const red = '#E31E24'
 
 const buttonStyle: React.CSSProperties = {
   display: 'block',

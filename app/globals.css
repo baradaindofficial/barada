@@ -52,7 +52,7 @@
 }
 
 @layer components {
-  .btn-primary { @apply bg-[#D11A1A] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#A01010] transition-colors focus-visible:outline-2 focus-visible:outline-[#D11A1A]; }
+  .btn-primary { @apply bg-[#E31E24] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#B1171C] transition-colors focus-visible:outline-2 focus-visible:outline-[#E31E24]; }
   .btn-navy    { @apply bg-[#0D183D] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#1a2b5e] transition-colors; }
   .btn-gold    { @apply bg-[#D4AF37] text-[#0D183D] font-bold px-6 py-3 rounded-xl hover:bg-[#c4a030] transition-colors; }
   .btn-outline { @apply border-2 border-current font-bold px-6 py-3 rounded-xl hover:bg-current/10 transition-colors; }

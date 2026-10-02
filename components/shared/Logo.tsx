@@ -61,7 +61,7 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
       {variant === 'academy' && (
         <span style={{ fontWeight: 800, fontSize: height * 0.4, letterSpacing: 0.5 }}>
           <span style={{ color: '#fff' }}>BARADA</span>{' '}
-          <span style={{ color: '#D11A1A' }}>ACADEMY</span>
+          <span style={{ color: '#E31E24' }}>ACADEMY</span>
         </span>
       )}
     </span>

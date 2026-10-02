@@ -94,7 +94,7 @@ export default async function ResultPage({ params }: Props) {
   ])
 
   const correctCount = answeredQuestions.filter((q: any) => q.isCorrect).length
-  const scoreColor = attempt.passed ? '#16a34a' : '#D11A1A'
+  const scoreColor = attempt.passed ? '#16a34a' : '#E31E24'
 
   return (
     <div style={{ minHeight: '100vh', background: '#0a0f1e', fontFamily: 'Inter, system-ui, sans-serif' }}>
@@ -141,7 +141,7 @@ export default async function ResultPage({ params }: Props) {
               </div>
             </div>
           ) : !attempt.passed ? (
-            <Link href={`/learn/${params.course}/evaluation`} style={{ display: 'inline-block', background: '#D11A1A', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
+            <Link href={`/learn/${params.course}/evaluation`} style={{ display: 'inline-block', background: '#E31E24', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
               Try Again
             </Link>
           ) : null}
@@ -186,7 +186,7 @@ export default async function ResultPage({ params }: Props) {
             Browse Courses
           </Link>
           {!attempt.passed && (
-            <Link href={`/learn/${params.course}/evaluation`} style={{ background: '#D11A1A', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
+            <Link href={`/learn/${params.course}/evaluation`} style={{ background: '#E31E24', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
               Retake Evaluation
             </Link>
           )}

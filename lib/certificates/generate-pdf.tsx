@@ -16,7 +16,7 @@ import { Document, Page, View, Text, Image, StyleSheet, renderToBuffer } from '@
 import { generateVerificationQrPng } from './qr'
 
 const NAVY = '#0D183D'
-const RED = '#D11A1A'
+const RED = '#E31E24'
 const GOLD = '#D4AF37'
 const INK = '#374151'
 const MUTED = '#6B7280'

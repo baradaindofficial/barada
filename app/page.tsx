@@ -19,12 +19,11 @@ export const metadata: Metadata = {
   },
 }
 
-// Barada Homepage V2 (2026-09-27): parent-brand identity red is #E31E24
-// (CTO-approved color decision), distinct from Barada Academy's own
-// #D11A1A, which is intentionally left untouched wherever it appears
-// inside the Academy application. This page is the Barada corporate
-// homepage (route "/" -> BARADA per the approved brand-separation rules),
-// so it uses the Barada palette throughout.
+// Master Barada Colour System (2026-10-02, CTO-approved): #E31E24 is the
+// single Power Red used across the entire site -- corporate pages and the
+// Academy application alike. (Prior to this date, Academy intentionally
+// used a separate #D11A1A; that separation was explicitly superseded by
+// today's unified palette decision.)
 const red = '#E31E24'
 const navy = '#0D183D'
 const gold = '#D4AF37'
@@ -267,18 +266,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LEADERSHIP */}
+      {/* PROFESSIONAL FOUNDATION */}
       <section style={{ background: '#fff', padding: '5rem 2rem' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Leadership</p>
+          <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Professional Foundation</p>
           <h2 style={{ fontSize: 'clamp(1.25rem,2.5vw,2rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>Built from real corporate experience.</h2>
           <p style={{ color: '#6B7280', fontSize: '1rem', lineHeight: 1.85, maxWidth: 640, margin: '0 auto 1.5rem' }}>
-            Barada was founded by a senior corporate professional with 19+ years of leadership experience across procurement, marketing, retail, and AI adoption at organisations including HCL, Dish TV, and Xiaomi India.
+            Barada&apos;s platforms are built on 19+ years of hands-on professional experience across procurement, marketing, retail, and AI adoption at organisations including HCL, Dish TV, and Xiaomi India.
           </p>
           <p style={{ color: '#6B7280', fontSize: '0.9rem', marginBottom: '2rem' }}>
             Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni
           </p>
-          <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer" style={{ color: navy, fontWeight: 700, textDecoration: 'underline', fontSize: '0.9rem' }}>Full profile at bksatpathy.com &rarr;</a>
+          <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer" style={{ color: navy, fontWeight: 700, textDecoration: 'underline', fontSize: '0.9rem' }}>Professional background: bksatpathy.com &rarr;</a>
         </div>
       </section>
 

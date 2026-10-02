@@ -144,7 +144,7 @@ export default async function DashboardPage() {
                     <div className="font-bold text-[#0D183D] text-sm mb-1 truncate">{course!.title}</div>
                     <div className="flex items-center gap-2">
                       <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full rounded-full bg-[#D11A1A]" style={{ width: `${enrollment.completionPercentage}%` }} />
+                        <div className="h-full rounded-full bg-[#E31E24]" style={{ width: `${enrollment.completionPercentage}%` }} />
                       </div>
                       <span className="text-xs text-gray-400 flex-shrink-0">{enrollment.completionPercentage}%</span>
                     </div>

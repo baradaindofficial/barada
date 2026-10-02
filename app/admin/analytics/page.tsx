@@ -68,7 +68,7 @@ export default async function AdminAnalyticsPage() {
                   <div className="w-32 text-xs text-gray-600 truncate flex-shrink-0">{c.title}</div>
                   <div className="flex-1 h-4 bg-gray-100 rounded overflow-hidden">
                     <div
-                      className="h-full bg-[#D11A1A] rounded"
+                      className="h-full bg-[#E31E24] rounded"
                       style={{ width: `${Math.max(4, (c.enrollmentCount / maxPopularity) * 100)}%` }}
                     />
                   </div>

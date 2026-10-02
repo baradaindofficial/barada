@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 }
 
-const red = '#D11A1A'
+const red = '#E31E24'
 const navy = '#0D183D'
 const gold = '#D4AF37'
 
