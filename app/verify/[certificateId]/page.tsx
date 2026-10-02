@@ -53,7 +53,7 @@ export default async function VerifyCertificatePage({
         <Link href="/academy" style={{ display: 'flex', alignItems: 'center', lineHeight: 0 }}>
           <Logo variant="academy" height={40} />
         </Link>
-        <Link href="/academy" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>\u2190 Back to Academy</Link>
+        <Link href="/academy" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>&larr; Back to Academy</Link>
       </nav>
 
       <div style={{ maxWidth: 560, margin: '0 auto', padding: '4rem 1.5rem' }}>
