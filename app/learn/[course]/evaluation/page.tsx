@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
 import Logo from '@/components/shared/Logo'
+import VoiceControls from '@/components/academy/VoiceControls'
 
 interface Option { optionId: string; optionText: string }
 interface Question {
@@ -93,6 +94,14 @@ export default function EvaluationPage() {
     </div>
   )
 
+  // Voice Activation (Sprint 5 follow-on, 2026-10-02 CTO approved): read-aloud
+  // ONLY on Evaluation pages -- no voice-COMMAND navigation here (enableCommands
+  // stays false below), so a misheard word can never advance a question or
+  // submit a paid (INR 299) certification attempt. See VoiceControls.tsx.
+  const readableQuestionText = q
+    ? [q.questionText, ...q.options.map((opt, i) => `Option ${String.fromCharCode(65 + i)}: ${opt.optionText}`)].join('. ')
+    : ''
+
   return (
     <div style={{ minHeight: '100vh', background: '#0a0f1e', fontFamily: 'Inter, system-ui, sans-serif' }}>
       <nav style={{ background: '#0D183D', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 1.5rem', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
@@ -121,6 +130,12 @@ export default function EvaluationPage() {
             <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#fff', fontSize: 'clamp(1.1rem,2.5vw,1.375rem)', lineHeight: 1.5, marginBottom: '2rem' }}>
               {q.questionText}
             </h2>
+
+            <VoiceControls
+              text={readableQuestionText}
+              enableCommands={false}
+              label="Read question aloud"
+            />
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2.5rem' }}>
               {q.options.map((opt, i) => {

@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import Logo from '@/components/shared/Logo'
 import ContentComingSoon from '@/components/academy/ContentComingSoon'
 import LessonBody from '@/components/academy/LessonBody'
+import VoiceControls from '@/components/academy/VoiceControls'
 
 interface Props {
   params: { course: string; module: string; lesson: string }
@@ -85,6 +86,18 @@ export default async function LessonPage({ params }: Props) {
   const navUrl = (l: any) =>
     `/learn/${course.slug}/module-${(l.modules as any)?.module_number || moduleNumber}/lesson-${l.lesson_number}`
 
+  // Voice Activation (Sprint 5 follow-on, 2026-10-02 CTO approved): plain-text
+  // assembly of the lesson's readable content for text-to-speech. Strips the
+  // lightweight '- '/'1. '/'### ' block markers LessonBody understands, since
+  // those are rendering hints, not words to speak aloud.
+  const readableText = [
+    lesson.title,
+    lesson.description,
+    lesson.body ? (lesson.body as string).replace(/^#{1,6}\s+/gm, '').replace(/^[-\d.]+\s+/gm, '') : null,
+    lesson.practice_task,
+    ...(lesson.key_points || []),
+  ].filter(Boolean).join('. ')
+
   return (
     <div style={{ minHeight: '100vh', background: '#0a0f1e', fontFamily: 'Inter, system-ui, sans-serif' }}>
       <nav style={{
@@ -115,6 +128,14 @@ export default async function LessonPage({ params }: Props) {
           <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', marginBottom: '1.5rem' }}>
             {lesson.title}
           </h1>
+
+          <VoiceControls
+            text={readableText}
+            enableCommands
+            nextHref={nextLesson ? navUrl(nextLesson) : undefined}
+            prevHref={prevLesson ? navUrl(prevLesson) : undefined}
+            label="Read lesson aloud"
+          />
 
           {videoAsset && videoAsset.provider_id === 'youtube' && videoAsset.provider_ref ? (
             <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 12, overflow: 'hidden', marginBottom: '1.5rem' }}>
