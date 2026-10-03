@@ -71,7 +71,14 @@ export default function EcosystemPage() {
                       <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', margin: 0, fontSize: '0.9rem' }}>{name}</p>
                     </div>
                     <p style={{ color: '#6B7280', fontSize: '0.82rem', lineHeight: 1.65, marginBottom: '0.875rem' }}>{desc}</p>
-                    {href !== '#' && (
+                    {/* Consulting is the one not-yet-live vertical with a real
+                        enquiry route (/contact) -- gets a "register interest"
+                        link instead of nothing. Other not-yet-live verticals
+                        (Technology, Ayushman) have no intake yet, so get no
+                        CTA, same as before. */}
+                    {href === '#' && name === 'Consulting' ? (
+                      <Link href="/contact" style={{ color: color, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'underline' }}>Coming Soon &mdash; Register Your Interest &rarr;</Link>
+                    ) : href !== '#' && (
                       external ? (
                         <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: color, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'none' }}>Visit {name} &rarr;</a>
                       ) : (

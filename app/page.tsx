@@ -49,11 +49,12 @@ const PRIMARY_ROUTES = [
 ]
 
 // Ventures still being built, plus Consulting — whose availability is
-// unresolved (the existing /services page invites enquiries, but that is
-// not confirmation it is a live, staffed offering; left exactly as flagged
-// until explicitly confirmed, not resolved either way here).
-const BUILDING: { icon: string; name: string; desc: string }[] = [
-  { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory and procurement transformation consulting.' },
+// unresolved (the existing /services page describes it as planned, not
+// confirmed live; CTO call 2026-10-03). registerInterest is set only for
+// Consulting since that's the one with a real enquiry route (/contact) to
+// send interest to — Technology/Ayushman have no intake yet.
+const BUILDING: { icon: string; name: string; desc: string; registerInterest?: boolean }[] = [
+  { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory and procurement transformation consulting — planned.', registerInterest: true },
   { icon: '🤖', name: 'Technology', desc: 'AI-powered tools and platforms for professionals.' },
   { icon: '🌱', name: 'Ayushman', desc: 'Autism awareness, caregiver support, and community building.' },
 ]
@@ -186,12 +187,15 @@ export default function HomePage() {
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <p style={{ color: '#9CA3AF', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '1.5rem' }}>What We&apos;re Building</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
-            {BUILDING.map(({ icon, name, desc }) => (
+            {BUILDING.map(({ icon, name, desc, registerInterest }) => (
               <div key={name} style={{ background: '#F9FAFB', borderRadius: 14, padding: '1.5rem', border: '1px solid #E5E7EB', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <span style={{ fontSize: '1.5rem' }}>{icon}</span>
                 <div>
                   <p style={{ fontWeight: 700, color: navy, fontSize: '0.9rem', margin: '0 0 0.25rem' }}>{name} <span style={{ color: '#9CA3AF', fontWeight: 600, fontSize: '0.7rem' }}>&middot; Coming Soon</span></p>
-                  <p style={{ color: '#6B7280', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>{desc}</p>
+                  <p style={{ color: '#6B7280', fontSize: '0.82rem', lineHeight: 1.6, margin: '0 0 0.5rem' }}>{desc}</p>
+                  {registerInterest && (
+                    <Link href="/contact" style={{ color: red, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'underline' }}>Coming Soon &mdash; Register Your Interest &rarr;</Link>
+                  )}
                 </div>
               </div>
             ))}
