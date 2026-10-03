@@ -1,19 +1,21 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import Logo from '@/components/shared/Logo'
+import AcademyHeader from '@/components/academy/Header'
 import { getAllPublishedCoursesWithCounts, getAcademyStats } from '@/lib/db/courses'
 import { createClient } from '@/lib/supabase/server'
 import CourseEnrollButton from '@/components/academy/CourseEnrollButton'
 
 export const metadata: Metadata = {
   title: 'Barada Academy \u2014 Learn AI. Build the Future.',
+  alternates: { canonical: 'https://barada.in/academy' },
   description: 'Structured, self-paced professional courses on AI tools, productivity, and career skills. Free to learn. Verified certificates available.',
   openGraph: {
     title: 'Barada Academy \u2014 Learn AI. Build the Future.',
     description: 'Structured, self-paced professional courses on AI tools, productivity, and career skills. Free to learn. Verified certificates available.',
     url: 'https://barada.in/academy',
     siteName: 'Barada',
-    images: [{ url: '/logo/barada-logo.png', width: 1200, height: 630, alt: 'Barada Academy' }],
+    images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada Academy' }],
     locale: 'en_IN',
     type: 'website',
   },
@@ -33,26 +35,13 @@ export default async function AcademyPage() {
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', margin: 0, padding: 0 }}>
 
-      {/* ACADEMY NAV — intentionally distinct from corporate Header (Logo policy v3.0) */}
-      <nav style={{ background: navy, padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64, position: 'sticky', top: 0, zIndex: 100 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-          <Link href="/" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '0.78rem', fontWeight: 500 }}>&larr; Barada.in</Link>
-          <Link href="/academy" style={{ display: 'flex', alignItems: 'center', lineHeight: 0 }}>
-            <Logo variant="academy" height={40} />
-          </Link>
-        </div>
-        <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
-          {/* Single "Courses" link — previously 4 links (Learning Paths,
-              AI Tools, Certificates too) all pointed to this same /academy
-              URL. Removed the fake distinct items rather than leave them —
-              their intended destinations (app/(academy) scaffold) are
-              empty; see BARADA_CORPORATE_WEBSITE_IMPLEMENTATION_BRIEF.md
-              Section 10. Re-add as real links once those pages are built. */}
-          <Link href="/academy" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>Courses</Link>
-          <Link href="/login" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>Sign In</Link>
-          <Link href="/register" style={{ background: red, color: '#fff', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.82rem', fontWeight: 700 }}>Start Free</Link>
-        </div>
-      </nav>
+      {/* ACADEMY NAV — intentionally distinct from corporate Header (Logo
+          policy v3.0). Extracted to components/academy/Header.tsx (2026-10-03)
+          to fix the logged 375px overflow (Mobile Overflow Backlog) with a
+          proper responsive hamburger, matching the corporate Header pattern.
+          The single self-referential "Courses" link is preserved as-is —
+          see that component's own comment for why. */}
+      <AcademyHeader />
 
       <div style={{ background: red, padding: '0.625rem', textAlign: 'center' }}>
         <p style={{ color: '#fff', fontSize: '0.82rem', margin: 0 }}>

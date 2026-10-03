@@ -4,14 +4,15 @@ import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
-  title: 'About Barada',
+  title: 'About',
   description: 'Learn about Barada \u2014 a professionally driven ecosystem of platforms built around AI, technology, business growth, and social impact.',
+  alternates: { canonical: 'https://barada.in/about' },
   openGraph: {
     title: 'About Barada',
     description: 'Learn about Barada \u2014 a professionally driven ecosystem of platforms built around AI, technology, business growth, and social impact.',
     url: 'https://barada.in/about',
     siteName: 'Barada',
-    images: [{ url: '/logo/barada-logo.png', width: 1200, height: 630, alt: 'Barada' }],
+    images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
     locale: 'en_IN',
     type: 'website',
   },
@@ -42,10 +43,10 @@ export default function AboutPage() {
         <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB', marginBottom: '2rem' }}>
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.375rem', marginBottom: '1rem' }}>Professional Foundation</h2>
           <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '0.75rem' }}>
-            Barada&apos;s platforms are built on 19+ years of hands-on professional experience across procurement transformation, marketing, retail expansion, and AI adoption at organisations including HCL Technologies, Dish TV, and Xiaomi India.
+            Barada&apos;s platforms are built and run by <strong>BK Satpathy</strong>, drawing on 19+ years of hands-on professional experience across procurement transformation, marketing, retail expansion, and AI adoption. This experience includes roles at HCL Technologies, Dish TV, and Xiaomi India &mdash; his former employers, not Barada clients or partners.
           </p>
           <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '1.25rem' }}>
-            Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni &middot; Bengaluru, India
+            BK Satpathy: Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni &middot; Bengaluru, India
           </p>
           <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer"
             style={{ display: 'inline-block', background: '#0D183D', color: '#fff', padding: '0.625rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>

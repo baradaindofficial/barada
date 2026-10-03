@@ -3,14 +3,15 @@ import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
-  title: 'Contact Barada',
+  title: 'Contact',
   description: 'Get in touch with Barada for partnerships, consulting, media enquiries, or general questions.',
+  alternates: { canonical: 'https://barada.in/contact' },
   openGraph: {
     title: 'Contact Barada',
     description: 'Get in touch with Barada for partnerships, consulting, media enquiries, or general questions.',
     url: 'https://barada.in/contact',
     siteName: 'Barada',
-    images: [{ url: '/logo/barada-logo.png', width: 1200, height: 630, alt: 'Barada' }],
+    images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
     locale: 'en_IN',
     type: 'website',
   },
