@@ -28,6 +28,23 @@ export async function POST(request: NextRequest) {
 
   const { courseSlug } = parsed.data
 
+  // Containment (2026-10-03, BK-approved): block NEW enrolments in a
+  // course flagged enrollment_paused -- see migration
+  // 012_course_enrollment_pause.sql. Existing enrollments are never
+  // touched by this check; it only gates this route.
+  const { data: courseGate } = await supabase
+    .from('courses' as any)
+    .select('enrollment_paused, enrollment_paused_reason')
+    .eq('slug', courseSlug)
+    .maybeSingle()
+  const gate = courseGate as any
+  if (gate?.enrollment_paused) {
+    return NextResponse.json(
+      { error: gate.enrollment_paused_reason || 'New enrolments are temporarily paused for this course.' },
+      { status: 403 }
+    )
+  }
+
   // Check if already enrolled
   const alreadyEnrolled = await isEnrolled(user.id, courseSlug)
   if (alreadyEnrolled) {
