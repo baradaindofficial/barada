@@ -65,8 +65,9 @@ export const ECOSYSTEM_VERTICALS: EcosystemVertical[] = [
     name: 'Ayushman',
     tagline: 'Social Impact',
     desc: 'A platform for autism awareness, caregiver support, and community building across India.',
-    href: '#',
-    status: 'planned',
-    color: '#475569',
+    href: 'https://ayushman.world',
+    status: 'live',
+    color: '#18794E',
+    external: true,
   },
 ]

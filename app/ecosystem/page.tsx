@@ -73,9 +73,10 @@ export default function EcosystemPage() {
                     <p style={{ color: '#6B7280', fontSize: '0.82rem', lineHeight: 1.65, marginBottom: '0.875rem' }}>{desc}</p>
                     {/* Consulting is the one not-yet-live vertical with a real
                         enquiry route (/contact) -- gets a "register interest"
-                        link instead of nothing. Other not-yet-live verticals
-                        (Technology, Ayushman) have no intake yet, so get no
-                        CTA, same as before. */}
+                        link instead of nothing. Technology has no intake yet,
+                        so gets no CTA. Ayushman is live (ayushman.world,
+                        confirmed 2026-10-03) and falls through to the normal
+                        external-link branch below, same as Partnerschaft. */}
                     {href === '#' && name === 'Consulting' ? (
                       <Link href="/contact" style={{ color: color, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'underline' }}>Coming Soon &mdash; Register Your Interest &rarr;</Link>
                     ) : href !== '#' && (

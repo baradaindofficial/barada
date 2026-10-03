@@ -52,11 +52,12 @@ const PRIMARY_ROUTES = [
 // unresolved (the existing /services page describes it as planned, not
 // confirmed live; CTO call 2026-10-03). registerInterest is set only for
 // Consulting since that's the one with a real enquiry route (/contact) to
-// send interest to — Technology/Ayushman have no intake yet.
+// send interest to — Technology has no intake yet. Ayushman is live at
+// ayushman.world (confirmed 2026-10-03) and is called out separately below
+// rather than listed here as "Coming Soon".
 const BUILDING: { icon: string; name: string; desc: string; registerInterest?: boolean }[] = [
   { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory and procurement transformation consulting — planned.', registerInterest: true },
   { icon: '🤖', name: 'Technology', desc: 'AI-powered tools and platforms for professionals.' },
-  { icon: '🌱', name: 'Ayushman', desc: 'Autism awareness, caregiver support, and community building.' },
 ]
 
 export default function HomePage() {
@@ -200,7 +201,10 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <div style={{ textAlign: 'center', marginTop: '1.75rem', fontSize: '0.85rem', color: '#6B7280' }}>
+            Also live: <a href="https://ayushman.world" target="_blank" rel="noopener noreferrer" style={{ color: '#18794E', fontWeight: 700, textDecoration: 'underline' }}>Ayushman &rarr;</a> &mdash; autism awareness and caregiver support.
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
             <Link href="/ecosystem" style={{ color: navy, fontWeight: 700, textDecoration: 'underline', fontSize: '0.9rem' }}>View full ecosystem map &rarr;</Link>
           </div>
         </div>
