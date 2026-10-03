@@ -43,7 +43,7 @@ export default function AboutPage() {
         <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB', marginBottom: '2rem' }}>
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.375rem', marginBottom: '1rem' }}>Professional Foundation</h2>
           <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '0.75rem' }}>
-            Barada&apos;s platforms are built and run by <strong>BK Satpathy</strong>, drawing on 19+ years of hands-on professional experience across procurement transformation, marketing, retail expansion, and AI adoption. This experience includes roles at HCL Technologies, Dish TV, and Xiaomi India &mdash; his former employers, not Barada clients or partners.
+            Barada&apos;s platforms are built and run by <strong>BK Satpathy</strong>, drawing on 19+ years of hands-on professional experience across procurement transformation, marketing, retail expansion, and AI adoption. This includes his professional experience at HCL Technologies, Dish TV, and Xiaomi India &mdash; named here as professional background, not as Barada clients or partners.
           </p>
           <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '1.25rem' }}>
             BK Satpathy: Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni &middot; Bengaluru, India

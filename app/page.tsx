@@ -48,9 +48,12 @@ const PRIMARY_ROUTES = [
   },
 ]
 
-// Ventures still being built — shown smaller and clearly labelled, not
-// mixed in with the two live, primary routes above.
+// Ventures still being built, plus Consulting — whose availability is
+// unresolved (the existing /services page invites enquiries, but that is
+// not confirmation it is a live, staffed offering; left exactly as flagged
+// until explicitly confirmed, not resolved either way here).
 const BUILDING: { icon: string; name: string; desc: string }[] = [
+  { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory and procurement transformation consulting.' },
   { icon: '🤖', name: 'Technology', desc: 'AI-powered tools and platforms for professionals.' },
   { icon: '🌱', name: 'Ayushman', desc: 'Autism awareness, caregiver support, and community building.' },
 ]
@@ -176,21 +179,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CONSULTING CALLOUT — live, but deliberately not one of the two
-          primary routes above */}
-      <section style={{ background: '#fff', padding: '3.5rem 2rem' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', background: navy, borderRadius: 20, padding: '2.5rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ maxWidth: 520 }}>
-            <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.625rem' }}>Also Available</p>
-            <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Consulting &amp; Advisory</h3>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>AI adoption advisory and procurement transformation consulting, open for enquiries now.</p>
-          </div>
-          <Link href="/services" style={{ flexShrink: 0, background: red, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>View Services &rarr;</Link>
-        </div>
-      </section>
-
-      {/* WHAT WE'RE BUILDING — planned/in-development ventures, de-emphasized */}
-      <section style={{ background: '#fff', padding: '1rem 2rem 5rem' }}>
+      {/* WHAT WE'RE BUILDING — planned/in-development ventures, de-emphasized.
+          Consulting is included here rather than presented as a confirmed
+          live route — its availability is unresolved, see BUILDING above. */}
+      <section style={{ background: '#fff', padding: '3.5rem 2rem 5rem' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <p style={{ color: '#9CA3AF', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '1.5rem' }}>What We&apos;re Building</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
@@ -227,7 +219,7 @@ export default function HomePage() {
           <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Professional Foundation</p>
           <h2 style={{ fontSize: 'clamp(1.25rem,2.5vw,2rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>Built and run by BK Satpathy.</h2>
           <p style={{ color: '#6B7280', fontSize: '1rem', lineHeight: 1.85, maxWidth: 640, margin: '0 auto 1rem' }}>
-            Barada&apos;s platforms are built and run by BK Satpathy, drawing on 19+ years of hands-on professional experience across procurement, marketing, retail, and AI adoption. This experience includes roles at HCL Technologies, Dish TV, and Xiaomi India &mdash; his former employers, not Barada clients or partners.
+            Barada&apos;s platforms are built and run by BK Satpathy, drawing on 19+ years of hands-on professional experience across procurement, marketing, retail, and AI adoption. This includes his professional experience at HCL Technologies, Dish TV, and Xiaomi India &mdash; named here as professional background, not as Barada clients or partners.
           </p>
           <p style={{ color: '#6B7280', fontSize: '0.9rem', marginBottom: '2rem' }}>
             BK Satpathy: Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni

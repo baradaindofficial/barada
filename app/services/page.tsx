@@ -37,7 +37,7 @@ const SERVICES = [
     title: 'Procurement Transformation Consulting',
     whoFor: 'Procurement and GBS leaders redesigning process, digital tooling, or operating model.',
     problem: 'Procurement transformation initiatives often fail to stick because the process redesign isn\u2019t grounded in how the organisation actually buys \u2014 not in a generic best-practice template.',
-    deliverables: 'Process design and digital transformation recommendations, drawing on hands-on procurement leadership across HCL, Dish TV, and Xiaomi India \u2014 BK Satpathy\u2019s former employers, engaged here as professional background, not as Barada clients.',
+    deliverables: 'Process design and digital transformation recommendations, drawing on BK Satpathy\u2019s hands-on procurement leadership experience at HCL, Dish TV, and Xiaomi India \u2014 named here as professional background, not as Barada clients.',
     format: 'Discussed on enquiry \u2014 scope depends on current state and objectives.',
     nextStep: 'Contact Barada with your current procurement setup and what\u2019s not working; next step is a scoping call.',
   },
