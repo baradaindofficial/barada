@@ -1,105 +1,183 @@
 /**
- * Unit tests for certificate eligibility service.
- * Run with: npx jest __tests__/services/certificate-eligibility.test.ts
+ * Real unit tests for checkCertificateEligibility() -- calls the actual
+ * function (lib/services/certificate-eligibility.ts) against a mocked
+ * Supabase client built per-table from fixtures, so no live database or
+ * service-role credential is needed. Written 2026-10-03 to replace a
+ * prior version of this file that only asserted hand-written literal
+ * objects matched themselves and never called the real function --
+ * that file gave false confidence and tested nothing about actual
+ * behaviour, which is itself a finding worth recording here.
  *
- * These are contract tests — they verify the shape and logic of the
- * eligibility result without hitting the database.
+ * Run with: npx jest __tests__/services/certificate-eligibility.test.ts
  */
+import { checkCertificateEligibility } from '@/lib/services/certificate-eligibility'
 
-// Mock Supabase client
+type Fixtures = {
+  enrollment?: any
+  course?: any
+  courseProgress?: any
+  assessment?: any
+  attempts?: any[]
+}
+
+function buildMockSupabase(fx: Fixtures) {
+  const tableHandlers: Record<string, any> = {
+    enrollments: {
+      maybeSingle: async () => ({ data: fx.enrollment ?? null, error: null }),
+    },
+    courses: {
+      single: async () => ({ data: fx.course ?? null, error: null }),
+    },
+    course_progress: {
+      maybeSingle: async () => ({ data: fx.courseProgress ?? null, error: null }),
+    },
+    assessments: {
+      maybeSingle: async () => ({ data: fx.assessment ?? null, error: null }),
+    },
+    assessment_attempts: {
+      order: async () => ({ data: fx.attempts ?? [], error: null }),
+    },
+  }
+
+  function chain(table: string) {
+    const handler = tableHandlers[table] || {}
+    const builder: any = {}
+    ;['select', 'eq', 'order'].forEach((m) => {
+      builder[m] = (...args: any[]) => {
+        if (m === 'order' && handler.order) return handler.order()
+        return builder
+      }
+    })
+    builder.maybeSingle = handler.maybeSingle || (async () => ({ data: null, error: null }))
+    builder.single = handler.single || (async () => ({ data: null, error: null }))
+    return builder
+  }
+
+  return {
+    from: (table: string) => chain(table),
+  }
+}
+
 jest.mock('@/lib/supabase/server', () => ({
-  createClient: jest.fn().mockResolvedValue({
-    from: jest.fn().mockReturnThis(),
-    select: jest.fn().mockReturnThis(),
-    eq: jest.fn().mockReturnThis(),
-    or: jest.fn().mockReturnThis(),
-    order: jest.fn().mockReturnThis(),
-    maybeSingle: jest.fn().mockResolvedValue({ data: null, error: null }),
-    single: jest.fn().mockResolvedValue({ data: null, error: null }),
-  }),
+  createClient: jest.fn(),
 }))
 
-describe('EligibilityResult shape', () => {
-  it('should have all required fields', () => {
-    const result = {
-      eligible: false,
-      evaluationPassed: false,
-      bestScore: 0,
-      attemptsCount: 0,
-      enrolled: false,
-      paymentRequired: true,
-      certificatePricePaise: 29900,
-      reason: 'Test reason',
-    }
-    expect(result).toHaveProperty('eligible')
-    expect(result).toHaveProperty('evaluationPassed')
-    expect(result).toHaveProperty('bestScore')
-    expect(result).toHaveProperty('attemptsCount')
-    expect(result).toHaveProperty('enrolled')
-    expect(result).toHaveProperty('paymentRequired')
-    expect(result).toHaveProperty('certificatePricePaise')
-    expect(result).toHaveProperty('reason')
+import { createClient } from '@/lib/supabase/server'
+
+function mockWith(fx: Fixtures) {
+  ;(createClient as jest.Mock).mockResolvedValue(buildMockSupabase(fx))
+}
+
+const BASE_COURSE = { course_id: 'course-1', cert_price_paise: 29900, enrollment_paused: false, enrollment_paused_reason: null }
+const BASE_ASSESSMENT = { assessment_id: 'assess-1', pass_threshold: 60 }
+
+describe('checkCertificateEligibility', () => {
+  it('is ineligible when not enrolled', async () => {
+    mockWith({ enrollment: null, course: BASE_COURSE })
+    const r = await checkCertificateEligibility('learner-1', 'some-course')
+    expect(r.eligible).toBe(false)
+    expect(r.enrolled).toBe(false)
+    expect(r.reason).toMatch(/enrolled/i)
   })
 
-  it('eligible should be false when not enrolled', () => {
-    const result = {
-      eligible: false,
-      evaluationPassed: false,
-      bestScore: 0,
-      attemptsCount: 0,
-      enrolled: false,
-      paymentRequired: true,
-      certificatePricePaise: 29900,
-      reason: 'You must be enrolled in this course to earn a certificate.',
-    }
-    expect(result.eligible).toBe(false)
-    expect(result.enrolled).toBe(false)
+  it('is ineligible when the course is enrollment_paused, even if everything else passes', async () => {
+    mockWith({
+      enrollment: { enrollment_id: 'e1' },
+      course: { ...BASE_COURSE, enrollment_paused: true, enrollment_paused_reason: 'Content being completed — new enrolments temporarily paused.' },
+      courseProgress: { completion_percentage: 100 },
+      assessment: BASE_ASSESSMENT,
+      attempts: [{ score: 90, passed: true, attempt_number: 1 }],
+    })
+    const r = await checkCertificateEligibility('learner-1', 'paused-course')
+    expect(r.eligible).toBe(false)
+    expect(r.reason).toMatch(/temporarily paused/i)
   })
 
-  it('eligible should require evaluation passed', () => {
-    const notPassed = { eligible: false, evaluationPassed: false, bestScore: 40 }
-    const passed = { eligible: true, evaluationPassed: true, bestScore: 80 }
-
-    expect(notPassed.eligible).toBe(false)
-    expect(passed.eligible).toBe(true)
+  it('is ineligible when lesson completion is below 100%, even with a passed exam', async () => {
+    mockWith({
+      enrollment: { enrollment_id: 'e1' },
+      course: BASE_COURSE,
+      courseProgress: { completion_percentage: 62 },
+      assessment: BASE_ASSESSMENT,
+      attempts: [{ score: 90, passed: true, attempt_number: 1 }],
+    })
+    const r = await checkCertificateEligibility('learner-1', 'incomplete-course')
+    expect(r.eligible).toBe(false)
+    expect(r.completionPercentage).toBe(62)
+    expect(r.reason).toMatch(/complete all lessons/i)
   })
 
-  it('certificate price should be in paise', () => {
-    const result = { certificatePricePaise: 29900 }
-    expect(result.certificatePricePaise / 100).toBe(299)
-  })
-})
-
-describe('Evaluation feedback fallbacks', () => {
-  it('pass fallback should mention score', () => {
-    const score = 80
-    const title = 'ChatGPT for Professionals'
-    const fallback = `Well done on passing the ${title} evaluation with ${score}%. Your performance shows a solid grasp of the material. Apply these skills in your work and revisit the course content whenever you need a refresher.`
-    expect(fallback).toContain('80%')
-    expect(fallback).toContain('ChatGPT for Professionals')
-  })
-
-  it('fail fallback should mention score', () => {
-    const score = 40
-    const title = 'Claude AI for Professionals'
-    const fallback = `You scored ${score}% on the ${title} evaluation — a solid attempt. Review the lessons covering the topics you found challenging and retake the evaluation when you feel ready. You have unlimited attempts.`
-    expect(fallback).toContain('40%')
-    expect(fallback).toContain('unlimited attempts')
-  })
-})
-
-describe('API response envelope', () => {
-  it('success response should have data wrapper', () => {
-    const response = { data: { attemptId: 'uuid', score: 80, passed: true } }
-    expect(response).toHaveProperty('data')
-    expect(response.data).toHaveProperty('attemptId')
-    expect(response.data).toHaveProperty('score')
-    expect(response.data).toHaveProperty('passed')
+  it('is ineligible when the exam has not been passed, even at 100% completion', async () => {
+    mockWith({
+      enrollment: { enrollment_id: 'e1' },
+      course: BASE_COURSE,
+      courseProgress: { completion_percentage: 100 },
+      assessment: BASE_ASSESSMENT,
+      attempts: [{ score: 40, passed: false, attempt_number: 1 }],
+    })
+    const r = await checkCertificateEligibility('learner-1', 'failed-exam-course')
+    expect(r.eligible).toBe(false)
+    expect(r.evaluationPassed).toBe(false)
+    expect(r.bestScore).toBe(40)
+    expect(r.reason).toMatch(/60%/)
   })
 
-  it('error response should have error field', () => {
-    const response = { error: 'Unauthorized' }
-    expect(response).toHaveProperty('error')
-    expect(typeof response.error).toBe('string')
+  it('is ineligible with zero attempts and a distinct message from a failed attempt', async () => {
+    mockWith({
+      enrollment: { enrollment_id: 'e1' },
+      course: BASE_COURSE,
+      courseProgress: { completion_percentage: 100 },
+      assessment: BASE_ASSESSMENT,
+      attempts: [],
+    })
+    const r = await checkCertificateEligibility('learner-1', 'no-attempt-course')
+    expect(r.eligible).toBe(false)
+    expect(r.attemptsCount).toBe(0)
+    expect(r.reason).toMatch(/complete the course evaluation/i)
+  })
+
+  it('is eligible only when completion is 100% AND the exam is passed AND the course is not paused', async () => {
+    mockWith({
+      enrollment: { enrollment_id: 'e1' },
+      course: BASE_COURSE,
+      courseProgress: { completion_percentage: 100 },
+      assessment: BASE_ASSESSMENT,
+      // Fixture is pre-sorted best-score-first, matching what the real
+      // .order('score', { ascending: false }) query returns from Postgres --
+      // this mock doesn't re-sort, so the fixture order IS the contract here.
+      attempts: [
+        { score: 90, passed: true, attempt_number: 2 },
+        { score: 40, passed: false, attempt_number: 1 },
+      ],
+    })
+    const r = await checkCertificateEligibility('learner-1', 'legit-pass-course')
+    expect(r.eligible).toBe(true)
+    expect(r.bestScore).toBe(90)
+    expect(r.completionPercentage).toBe(100)
+  })
+
+  it('is ineligible when no published final_exam assessment exists for the course', async () => {
+    mockWith({
+      enrollment: { enrollment_id: 'e1' },
+      course: BASE_COURSE,
+      courseProgress: { completion_percentage: 100 },
+      assessment: null,
+    })
+    const r = await checkCertificateEligibility('learner-1', 'no-exam-course')
+    expect(r.eligible).toBe(false)
+    expect(r.reason).toMatch(/no evaluation available/i)
+  })
+
+  it('treats a null completion_percentage (no course_progress row yet) as 0%, not eligible', async () => {
+    mockWith({
+      enrollment: { enrollment_id: 'e1' },
+      course: BASE_COURSE,
+      courseProgress: null,
+      assessment: BASE_ASSESSMENT,
+      attempts: [{ score: 90, passed: true, attempt_number: 1 }],
+    })
+    const r = await checkCertificateEligibility('learner-1', 'never-started-course')
+    expect(r.eligible).toBe(false)
+    expect(r.completionPercentage).toBe(0)
   })
 })
