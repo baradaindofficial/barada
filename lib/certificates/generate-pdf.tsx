@@ -14,6 +14,7 @@
  */
 import { Document, Page, View, Text, Image, StyleSheet, renderToBuffer } from '@react-pdf/renderer'
 import { generateVerificationQrPng } from './qr'
+import { BARADA_SYMBOL_MARK_PNG_DATA_URI } from './brand-mark'
 
 const NAVY = '#0D183D'
 const RED = '#E31E24'
@@ -37,6 +38,11 @@ const styles = StyleSheet.create({
   },
   header: {
     textAlign: 'center',
+  },
+  mark: {
+    width: 34,
+    height: 34,
+    alignSelf: 'center',
   },
   brand: {
     fontSize: 22,
@@ -113,6 +119,10 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
   },
+  footerMark: {
+    width: 26,
+    height: 26,
+  },
 })
 
 export interface CertificatePdfInput {
@@ -137,6 +147,7 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
       <Page size="A4" orientation="landscape" style={styles.page}>
         <View style={styles.border}>
           <View style={styles.header}>
+            <Image src={BARADA_SYMBOL_MARK_PNG_DATA_URI} style={styles.mark} />
             <Text style={styles.brand}>BARADA ACADEMY</Text>
             <Text style={styles.tagline}>CERTIFICATE OF COMPLETION</Text>
           </View>
@@ -163,8 +174,8 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
               <Text style={styles.footerLabel}>SCAN TO VERIFY</Text>
             </View>
             <View style={styles.footerCol}>
-              <Text style={styles.footerValue}>Barada Academy</Text>
-              <Text style={styles.footerLabel}>ISSUING AUTHORITY</Text>
+              <Image src={BARADA_SYMBOL_MARK_PNG_DATA_URI} style={styles.footerMark} />
+              <Text style={styles.footerLabel}>ISSUED BY BARADA</Text>
             </View>
           </View>
         </View>
