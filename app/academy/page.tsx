@@ -174,7 +174,7 @@ export default async function AcademyPage() {
               We&apos;re building out the catalogue tool by tool. Each one goes live only once it meets the same bar as our published courses &mdash; real lessons, real assessments, a real certificate. No placeholders launched early.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
             {[
               { icon: '✨', name: 'Gemini for Professionals' },
               { icon: '💻', name: 'GitHub Copilot for Developers' },
@@ -184,7 +184,7 @@ export default async function AcademyPage() {
               { icon: '🎨', name: 'Midjourney for Design' },
               { icon: '⚡', name: 'AI Automation with Zapier/Make' },
             ].map((item) => (
-              <div key={item.name} style={{ background: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: 14, padding: '1.25rem 1rem', textAlign: 'center' }}>
+              <div key={item.name} style={{ background: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: 14, padding: '1.25rem 1rem', textAlign: 'center', width: 200, flex: '0 0 200px' }}>
                 <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>{item.icon}</span>
                 <p style={{ fontWeight: 700, color: navy, fontSize: '0.82rem', marginBottom: '0.375rem', lineHeight: 1.3 }}>{item.name}</p>
                 <span style={{ fontSize: '0.65rem', color: '#D5A63A', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase' }}>Coming Soon</span>
