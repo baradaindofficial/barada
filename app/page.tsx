@@ -221,21 +221,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROFESSIONAL FOUNDATION */}
-      <section style={{ background: '#fff', padding: '5rem 2rem' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Professional Foundation</p>
-          <h2 style={{ fontSize: 'clamp(1.25rem,2.5vw,2rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>Built and run by BK Satpathy.</h2>
-          <p style={{ color: '#6B7280', fontSize: '1rem', lineHeight: 1.85, maxWidth: 640, margin: '0 auto 1rem' }}>
-            Barada&apos;s platforms are built and run by BK Satpathy, drawing on 19+ years of hands-on professional experience across procurement, marketing, retail, and AI adoption. This includes his professional experience at HCL Technologies, Dish TV, and Xiaomi India &mdash; named here as professional background, not as Barada clients or partners.
-          </p>
-          <p style={{ color: '#6B7280', fontSize: '0.9rem', marginBottom: '2rem' }}>
-            BK Satpathy: Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni
-          </p>
-          <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer" style={{ color: navy, fontWeight: 700, textDecoration: 'underline', fontSize: '0.9rem' }}>Professional background: bksatpathy.com &rarr;</a>
-        </div>
-      </section>
-
       {/* CONTACT */}
       <section style={{ background: '#F9FAFB', padding: '4rem 2rem', textAlign: 'center' }}>
         <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Get in Touch</p>
