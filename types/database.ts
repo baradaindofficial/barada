@@ -168,7 +168,7 @@ export type Database = {
           webhook_event_id: string | null
           amount_paise: number
           currency: string
-          status: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired'
+          status: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired' | 'pending_review'
           failure_reason: string | null
           certificate_id: string | null
           created_at: string
@@ -185,7 +185,7 @@ export type Database = {
           webhook_event_id?: string | null
           amount_paise: number
           currency?: string
-          status?: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired'
+          status?: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired' | 'pending_review'
           failure_reason?: string | null
           certificate_id?: string | null
           created_at?: string
@@ -196,7 +196,7 @@ export type Database = {
           razorpay_payment_id?: string | null
           razorpay_signature?: string | null
           webhook_event_id?: string | null
-          status?: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired'
+          status?: 'created' | 'attempted' | 'paid' | 'failed' | 'refunded' | 'expired' | 'pending_review'
           failure_reason?: string | null
           certificate_id?: string | null
           paid_at?: string | null

@@ -142,7 +142,11 @@ export default async function AcademyPage() {
                 <div style={{ padding: '1.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '0.875rem' }}>
                     <span style={{ fontSize: '1.75rem' }}>{course.icon}</span>
-                    <span style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Available Now</span>
+                    {course.enrollmentPaused ? (
+                      <span style={{ background: 'rgba(212,175,55,0.15)', color: '#8A6D1E', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Content Being Completed</span>
+                    ) : (
+                      <span style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Available Now</span>
+                    )}
                   </div>
                   <p style={{ color: '#6B7280', fontSize: '0.72rem', marginBottom: '0.25rem' }}>{course.category} &middot; {course.difficulty}</p>
                   <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.75rem', lineHeight: 1.4 }}>{course.title}</h3>
@@ -152,11 +156,22 @@ export default async function AcademyPage() {
                     {course.estimatedHours ? <span>{course.estimatedHours}h</span> : null}
                     <span>Certificate: ₹299</span>
                   </div>
-                  <CourseEnrollButton slug={course.slug} isLoggedIn={isLoggedIn} />
+                  <CourseEnrollButton
+                    slug={course.slug}
+                    isLoggedIn={isLoggedIn}
+                    enrollmentPaused={course.enrollmentPaused}
+                    enrollmentPausedReason={course.enrollmentPausedReason}
+                  />
                 </div>
-                <div style={{ background: 'rgba(22,163,74,0.05)', borderTop: '1px solid rgba(22,163,74,0.1)', padding: '0.5rem 1.5rem' }}>
-                  <span style={{ fontSize: '0.7rem', color: '#16a34a', fontWeight: 700 }}>&#10003; Enroll instantly &middot; No payment required</span>
-                </div>
+                {course.enrollmentPaused ? (
+                  <div style={{ background: 'rgba(212,175,55,0.08)', borderTop: '1px solid rgba(212,175,55,0.2)', padding: '0.5rem 1.5rem' }}>
+                    <span style={{ fontSize: '0.7rem', color: '#8A6D1E', fontWeight: 700 }}>Content being completed &mdash; new enrolments temporarily paused.</span>
+                  </div>
+                ) : (
+                  <div style={{ background: 'rgba(22,163,74,0.05)', borderTop: '1px solid rgba(22,163,74,0.1)', padding: '0.5rem 1.5rem' }}>
+                    <span style={{ fontSize: '0.7rem', color: '#16a34a', fontWeight: 700 }}>&#10003; Enroll instantly &middot; No payment required</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>

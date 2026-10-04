@@ -33,10 +33,39 @@ const buttonStyle: React.CSSProperties = {
   fontFamily: 'inherit',
 }
 
-export default function CourseEnrollButton({ slug, isLoggedIn }: { slug: string; isLoggedIn: boolean }) {
+export default function CourseEnrollButton({
+  slug,
+  isLoggedIn,
+  enrollmentPaused = false,
+  enrollmentPausedReason,
+}: {
+  slug: string
+  isLoggedIn: boolean
+  enrollmentPaused?: boolean
+  enrollmentPausedReason?: string | null
+}) {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  // Containment (2026-10-03, BK-approved): shown regardless of login state.
+  // The server (app/api/enrollment) enforces this independently -- this is
+  // just so a visitor isn't shown a button that will 403.
+  if (enrollmentPaused) {
+    return (
+      <div
+        style={{
+          ...buttonStyle,
+          background: '#F3F4F6',
+          color: '#6B7280',
+          border: '1px solid #E5E7EB',
+          cursor: 'default',
+        }}
+      >
+        {enrollmentPausedReason || 'Content being completed — new enrolments temporarily paused.'}
+      </div>
+    )
+  }
 
   if (!isLoggedIn) {
     return (

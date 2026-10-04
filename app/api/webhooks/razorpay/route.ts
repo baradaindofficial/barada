@@ -89,7 +89,10 @@ export async function POST(request: NextRequest) {
   // Idempotency: if this exact order has already reached a terminal state
   // for this event id, this is a redelivery -- no-op.
   if (
-    (order.status === 'paid' || order.status === 'failed' || order.status === 'refunded') &&
+    (order.status === 'paid' ||
+      order.status === 'failed' ||
+      order.status === 'refunded' ||
+      order.status === 'pending_review') &&
     order.webhook_event_id === webhookEventId
   ) {
     return NextResponse.json({ status: 'already_processed' }, { status: 200 })
@@ -154,18 +157,30 @@ export async function POST(request: NextRequest) {
       order.order_id,
       eligibility.reason
     )
+    // IMPORTANT: this is a successful payment that turned out ineligible at
+    // issuance time (e.g. the course was paused, or progress regressed,
+    // between order-creation and payment.captured). It is NOT a payment
+    // failure -- the money was captured -- so it must never be folded into
+    // 'failed', which this codebase reserves for genuine Razorpay payment
+    // failures (see the payment.failed branch above). Record it as
+    // 'pending_review': the payment record is preserved, no certificate is
+    // issued, and a human reconciles it (refund, manual grant once the
+    // learner becomes eligible, or goodwill exception) via the
+    // failure_reason below. This never auto-issues a certificate.
     await admin
       .from('certificate_orders')
       .update({
-        status: 'failed',
+        status: 'pending_review',
         razorpay_payment_id: razorpayPaymentId ?? null,
         webhook_event_id: webhookEventId,
-        failure_reason: `Paid but ineligible at issuance: ${eligibility.reason}`,
+        failure_reason: `Paid but ineligible at issuance -- needs manual review: ${eligibility.reason}`,
       })
       .eq('order_id', order.order_id)
-    // This needs human follow-up (refund) -- acknowledge to Razorpay but
-    // the failure_reason above flags it for reconciliation.
-    return NextResponse.json({ status: 'paid_but_ineligible' }, { status: 200 })
+    // Acknowledge to Razorpay (so it doesn't keep retrying delivery) --
+    // the 'pending_review' status + failure_reason above flags this order
+    // for reconciliation. See step 1 of the aggregate query for how to
+    // surface all pending_review rows.
+    return NextResponse.json({ status: 'paid_but_ineligible_pending_review' }, { status: 200 })
   }
 
   // Certificate id generation, with retry-on-conflict since it's the PK.

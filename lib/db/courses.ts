@@ -6,7 +6,7 @@ export async function getAllPublishedCourses() {
   const supabase = await createClient()
   const { data, error } = await supabase
     .from('courses')
-    .select('course_id, slug, title, subtitle, category, difficulty, icon, theme_color, is_free, cert_price_paise, sort_order, estimated_hours, status, outcomes, target_audience, domain_id')
+    .select('course_id, slug, title, subtitle, category, difficulty, icon, theme_color, is_free, cert_price_paise, sort_order, estimated_hours, status, outcomes, target_audience, domain_id, enrollment_paused, enrollment_paused_reason')
     .eq('status', 'published')
     .order('sort_order')
   if (error) throw error
@@ -37,6 +37,8 @@ function mapCourseCatalogItem(course: any, moduleCount: number, lessonCount: num
     targetAudience: course.target_audience ?? [],
     moduleCount,
     lessonCount,
+    enrollmentPaused: course.enrollment_paused ?? false,
+    enrollmentPausedReason: course.enrollment_paused_reason ?? null,
   }
 }
 

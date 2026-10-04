@@ -95,6 +95,8 @@ export interface CourseCatalogItem {
   targetAudience: string[]
   moduleCount: number
   lessonCount: number
+  enrollmentPaused: boolean
+  enrollmentPausedReason: string | null
 }
 
 // ── Enrollment ────────────────────────────────────────────────────
