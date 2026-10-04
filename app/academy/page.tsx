@@ -96,6 +96,37 @@ export default async function AcademyPage() {
         </div>
       </section>
 
+      {/* Certificate preview -- added 2026-10-04 per BK's explicit ask
+          for a sample certificate image on the Academy page, so a
+          prospective learner can see the real deliverable before
+          enrolling. This is a genuine render produced by the actual
+          lib/certificates/generate-pdf.tsx pipeline (not a mockup),
+          filled with placeholder sample data. */}
+      <section style={{ background: '#fff', padding: '4rem 2rem', borderBottom: '1px solid #E5E7EB' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 380px', minWidth: 300 }}>
+            <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Your Certificate</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.6rem,3vw,2.1rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>
+              A verifiable credential, not just a PDF
+            </h2>
+            <p style={{ color: '#4B5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1rem' }}>
+              Every Barada Academy certificate carries a unique certificate ID and a QR code that resolves to a public verification page — so anyone you share it with (a recruiter, a manager) can confirm it&apos;s real in one scan.
+            </p>
+            <p style={{ color: '#9CA3AF', fontSize: '0.82rem' }}>
+              Sample shown for illustration. Your certificate carries your name, your course, and your own certificate ID.
+            </p>
+          </div>
+          <div style={{ flex: '1 1 420px', minWidth: 300 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/academy/sample-certificate.png"
+              alt="Sample Barada Academy certificate of completion, with a verification QR code and certificate ID"
+              style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(13,24,61,0.25)' }}
+            />
+          </div>
+        </div>
+      </section>
+
       <section style={{ background: '#F9FAFB', padding: '4rem 2rem' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
