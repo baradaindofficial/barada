@@ -5,21 +5,23 @@ import Link from 'next/link'
 import Logo from '@/components/shared/Logo'
 
 // Shared corporate nav — used by Home, About, Services, Contact, Ecosystem.
-// Academy keeps its own distinct branded nav intentionally (see the
+// Academy keeps its own distinct branded nav on its own pages (see the
 // documented "Logo policy (Architecture v3.0)" comment in
 // components/shared/Logo.tsx) and does not use this component.
 //
-// Barada Homepage V2 (2026-09-27): Academy intentionally removed from the
-// primary Barada navigation and from the header CTA — CTO decision. Academy
-// remains reachable via the Ecosystem page/card and the direct /academy
-// route. Do not re-add an Academy nav link or Academy login CTA here.
+// CTO reversal (2026-10-03): the 2026-09-27 decision to keep Academy out of
+// primary navigation is superseded. Academy is Barada's clearest, most
+// concrete live offering and now gets a direct nav link and header CTA so
+// visitors can reach it in one click from every corporate page, including
+// the homepage.
 //
 // /resources and /community are intentionally NOT linked here — they are
 // not yet built (BARADA_CORPORATE_WEBSITE_IMPLEMENTATION_BRIEF.md, FUTURE).
 // Re-add once real pages exist.
 const NAV_LINKS = [
-  { label: 'Ecosystem', href: '/ecosystem' },
+  { label: 'Academy', href: '/academy' },
   { label: 'Services', href: '/services' },
+  { label: 'Ecosystem', href: '/ecosystem' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -49,10 +51,10 @@ export default function CorporateHeader() {
             </Link>
           ))}
           <Link
-            href="/ecosystem"
+            href="/academy"
             style={{ background: '#E31E24', color: '#fff', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}
           >
-            Explore Ecosystem
+            Explore Academy
           </Link>
         </div>
 
@@ -116,7 +118,7 @@ export default function CorporateHeader() {
             </Link>
           ))}
           <Link
-            href="/ecosystem"
+            href="/academy"
             onClick={() => setMenuOpen(false)}
             style={{
               background: '#E31E24',
@@ -130,7 +132,7 @@ export default function CorporateHeader() {
               marginTop: '0.5rem',
             }}
           >
-            Explore Ecosystem
+            Explore Academy
           </Link>
         </div>
       )}

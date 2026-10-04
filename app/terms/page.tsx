@@ -3,7 +3,8 @@ import Link from 'next/link'
 import Logo from '@/components/shared/Logo'
 
 export const metadata: Metadata = {
-  title: 'Terms of Use | Barada',
+  title: 'Terms of Use',
+  alternates: { canonical: 'https://barada.in/terms' },
 }
 
 export default function TermsPage() {

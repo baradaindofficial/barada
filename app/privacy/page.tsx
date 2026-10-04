@@ -3,7 +3,8 @@ import Link from 'next/link'
 import Logo from '@/components/shared/Logo'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Barada',
+  title: 'Privacy Policy',
+  alternates: { canonical: 'https://barada.in/privacy' },
 }
 
 export default function PrivacyPage() {
@@ -21,7 +22,7 @@ export default function PrivacyPage() {
         {[
           ['Information We Collect', 'We collect your name, email address, and professional details when you register for Barada Academy. We also collect usage data such as course progress, quiz scores, and lesson completion to improve your learning experience.'],
           ['How We Use Your Information', 'Your information is used to provide and improve our learning platform, send you course updates and certificate notifications, and personalise your dashboard experience. We do not sell your personal data to third parties.'],
-          ['Data Storage', 'Your data is stored securely on Supabase infrastructure (hosted in Singapore, ap-south-1 region). All data is encrypted in transit and at rest.'],
+          ['Data Storage', 'Your data is stored securely on Supabase infrastructure. All data is encrypted in transit and at rest.'],
           ['Analytics', 'We use Google Analytics 4 and Microsoft Clarity to understand how learners use our platform. These services may collect anonymised usage data. You can opt out via your browser settings.'],
           ['Your Rights', 'You may request access to, correction of, or deletion of your personal data at any time by emailing info@barada.in. We will respond within 30 days.'],
           ['Contact', 'For privacy-related queries, contact us at info@barada.in or write to Barada (OPC) Private Limited, Bengaluru, Karnataka, India.'],

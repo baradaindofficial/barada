@@ -5,14 +5,15 @@ import CorporateFooter from '@/components/corporate/Footer'
 import { ECOSYSTEM_VERTICALS, STATUS_LABEL } from '@/data/ecosystem-verticals'
 
 export const metadata: Metadata = {
-  title: 'The Barada Ecosystem',
+  title: 'Ecosystem',
   description: 'One parent. Multiple platforms. Explore the Barada ecosystem of professional platforms.',
+  alternates: { canonical: 'https://barada.in/ecosystem' },
   openGraph: {
     title: 'The Barada Ecosystem',
     description: 'One parent. Multiple platforms. Explore the Barada ecosystem of professional platforms.',
     url: 'https://barada.in/ecosystem',
     siteName: 'Barada',
-    images: [{ url: '/logo/barada-logo.png', width: 1200, height: 630, alt: 'Barada' }],
+    images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
     locale: 'en_IN',
     type: 'website',
   },
@@ -41,7 +42,7 @@ export default function EcosystemPage() {
           <p style={{ color: '#6B7280', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 2rem' }}>Barada is the parent brand. It owns and governs a growing portfolio of independently operated platforms. Each platform has its own domain, brand identity, and user base &mdash; but all operate under the Barada umbrella of values and governance.</p>
           <div style={{ background: '#F9FAFB', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', display: 'inline-block', textAlign: 'left', minWidth: 320 }}>
             <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', textAlign: 'center', marginBottom: '1.5rem' }}>BARADA (Parent)</p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.75rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))', gap: '0.75rem' }}>
               {['Academy', 'Technology', 'Consulting', 'Partnerschaft', 'Ayushman', '+ Future'].map(v => (
                 <div key={v} style={{ background: '#fff', borderRadius: 8, padding: '0.5rem 0.75rem', border: '1px solid #E5E7EB', textAlign: 'center', fontSize: '0.75rem', fontWeight: 600, color: '#374151' }}>{v}</div>
               ))}
@@ -70,7 +71,15 @@ export default function EcosystemPage() {
                       <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', margin: 0, fontSize: '0.9rem' }}>{name}</p>
                     </div>
                     <p style={{ color: '#6B7280', fontSize: '0.82rem', lineHeight: 1.65, marginBottom: '0.875rem' }}>{desc}</p>
-                    {href !== '#' && (
+                    {/* Consulting is the one not-yet-live vertical with a real
+                        enquiry route (/contact) -- gets a "register interest"
+                        link instead of nothing. Technology has no intake yet,
+                        so gets no CTA. Ayushman is live (ayushman.world,
+                        confirmed 2026-10-03) and falls through to the normal
+                        external-link branch below, same as Partnerschaft. */}
+                    {href === '#' && name === 'Consulting' ? (
+                      <Link href="/contact" style={{ color: color, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'underline' }}>Coming Soon &mdash; Register Your Interest &rarr;</Link>
+                    ) : href !== '#' && (
                       external ? (
                         <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: color, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'none' }}>Visit {name} &rarr;</a>
                       ) : (

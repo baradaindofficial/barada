@@ -6,18 +6,15 @@ import { ECOSYSTEM_VERTICALS } from '@/data/ecosystem-verticals'
 // /resources and /community links removed (not yet built — see
 // BARADA_CORPORATE_WEBSITE_IMPLEMENTATION_BRIEF.md).
 //
-// Barada Homepage V2 (2026-09-27): the dedicated "Academy" column was
-// removed per CTO decision — Academy must not read as a co-equal or
-// parent brand in the corporate footer. It now appears only as one entry
-// in the "Ecosystem" column, alongside Barada's other platforms, sourced
-// from the same ECOSYSTEM_VERTICALS list used on /ecosystem so the two
-// never drift out of sync.
+// Academy appears as one entry in the "Ecosystem" column, alongside
+// Barada's other platforms, sourced from the same ECOSYSTEM_VERTICALS list
+// used on /ecosystem so the two never drift out of sync.
 //
-// CTO correction (2026-09-27): the primary homepage ("/") must show no
-// Academy option anywhere, including the footer. Every other corporate
-// page (About, Services, Ecosystem, Contact) shares this same footer and
-// keeps Academy listed as one ecosystem destination, so this is opt-in
-// per page via `hideAcademy`, not a global removal.
+// CTO reversal (2026-10-03): the 2026-09-27 decision to hide Academy from
+// the homepage footer is superseded — Academy is now one of Barada's two
+// primary routes and must be reachable from every page, including "/".
+// `hideAcademy` is kept as a prop for flexibility but is no longer passed
+// by any page.
 interface CorporateFooterProps {
   hideAcademy?: boolean
 }
@@ -56,12 +53,12 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
         </div>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', textDecoration: 'none' }}>bksatpathy.com</a>
+            <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', textDecoration: 'none' }}>bksatpathy.com</a>
             {[['Privacy', '/privacy'], ['Terms', '/terms']].map(([l, h]) => (
-              <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
+              <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
             ))}
           </div>
-          <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.72rem', margin: 0 }}>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.72rem', margin: 0 }}>
             &copy; 2026 Barada. A venture of Barada (OPC) Private Limited.
           </p>
         </div>
