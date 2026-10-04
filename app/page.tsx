@@ -66,77 +66,57 @@ export default function HomePage() {
 
       <CorporateHeader />
 
-      {/* HERO */}
-      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #1A2B5E 100%)`, padding: '7rem 2rem 5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      {/* HERO -- two-column layout added 2026-10-04 per BK's explicit
+          ask for the homepage to be "attractive with some image." The
+          previous version only had a faint (opacity 0.35) floating logo
+          mark behind the text, which read as empty on first glance and
+          especially on mobile where it sits behind centered text. This
+          replaces it with an original brand-colored SVG illustration
+          (public/images/hero-illustration.svg) depicting a learning
+          dashboard + certificate + growth chart -- drawn as vector
+          shapes (no emoji glyphs, so it renders identically across every
+          OS/browser) rather than a stock photo, to avoid licensing risk
+          on a live commercial site and keep the file lightweight. */}
+      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #1A2B5E 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
+          <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 300 }}>
+            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Bengaluru, India &mdash; Founded 2025</p>
+            <h1 style={{ fontSize: 'clamp(2.25rem,5vw,4.25rem)', fontWeight: 900, color: '#fff', lineHeight: 1.12, marginBottom: '1.5rem', letterSpacing: '-0.01em' }}>
+              BARADA
+            </h1>
+            <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.1rem,2.5vw,1.6rem)', fontWeight: 600, color: 'rgba(255,255,255,0.8)', lineHeight: 1.5, maxWidth: 520, margin: '0 0 2.5rem' }}>
+              Practical <span style={{ color: gold }}>learning</span> and business <span style={{ color: gold }}>execution</span>, built on professional experience.
+            </p>
+            <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <Link href="/academy" style={{ background: red, color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
+              <a href="https://partnerschaft.in" target="_blank" rel="noopener noreferrer" style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Visit Partnerschaft</a>
+            </div>
+          </div>
 
-        {/* Simplified decorative mark — a single glow behind the existing,
-            unmodified B mark. The previous orbiting multi-node "ecosystem"
-            graphic was removed: it visually implied five co-equal
-            destinations, which no longer matches a homepage built around
-            two primary routes. */}
-        <div className="barada-hero-visual" aria-hidden="true">
-          <div className="barada-hero-glow" />
-          <img
-            src="/logo/barada-symbol-512.png"
-            alt=""
-            width={200}
-            height={200}
-            className="barada-hero-mark"
-          />
-        </div>
-
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Bengaluru, India &mdash; Founded 2025</p>
-          <h1 style={{ fontSize: 'clamp(2.25rem,5vw,4.25rem)', fontWeight: 900, color: '#fff', lineHeight: 1.12, marginBottom: '1.5rem', letterSpacing: '-0.01em' }}>
-            BARADA
-          </h1>
-          <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.1rem,2.5vw,1.6rem)', fontWeight: 600, color: 'rgba(255,255,255,0.8)', lineHeight: 1.5, maxWidth: 640, margin: '0 auto 2.5rem' }}>
-            Practical <span style={{ color: gold }}>learning</span> and business <span style={{ color: gold }}>execution</span>, built on professional experience.
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/academy" style={{ background: red, color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
-            <a href="https://partnerschaft.in" target="_blank" rel="noopener noreferrer" style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Visit Partnerschaft</a>
+          <div className="barada-hero-illustration" style={{ flex: '1 1 380px', minWidth: 280, maxWidth: 480 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/hero-illustration.svg"
+              alt=""
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
           </div>
         </div>
 
         <style>{`
-          .barada-hero-visual {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.35;
-          }
-          .barada-hero-glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(227,30,36,0.3) 0%, rgba(212,175,55,0.15) 45%, rgba(13,24,61,0) 72%);
-            filter: blur(6px);
-            animation: baradaGlowPulse 7s ease-in-out infinite;
-          }
-          .barada-hero-mark {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            filter: drop-shadow(0 18px 34px rgba(0,0,0,0.45));
-            animation: baradaFloat 6.5s ease-in-out infinite;
-          }
-          @keyframes baradaFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-14px); }
-          }
-          @keyframes baradaGlowPulse {
-            0%, 100% { opacity: 0.55; transform: scale(1); }
-            50% { opacity: 0.85; transform: scale(1.07); }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .barada-hero-mark, .barada-hero-glow {
-              animation: none !important;
+          @media (max-width: 860px) {
+            .barada-hero-text {
+              text-align: center;
+            }
+            .barada-hero-text p,
+            .barada-hero-ctas {
+              margin-left: auto;
+              margin-right: auto;
+              justify-content: center;
+            }
+            .barada-hero-illustration {
+              max-width: 320px;
+              margin: 0 auto;
             }
           }
         `}</style>
