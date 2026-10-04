@@ -134,7 +134,7 @@ export default async function AcademyPage() {
           {ACADEMY_PHOTOS.map(({ src, name, desc }) => (
             <div key={name} style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
               <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 260px" style={{ objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,24,61,0.88) 0%, rgba(13,24,61,0.15) 55%, transparent 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,24,61,0.97) 0%, rgba(13,24,61,0.8) 42%, rgba(13,24,61,0.2) 75%, transparent 100%)' }} />
               <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
                 <p style={{ color: '#fff', fontWeight: 800, fontSize: '0.95rem', marginBottom: '0.25rem' }}>{name}</p>
                 <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.76rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
