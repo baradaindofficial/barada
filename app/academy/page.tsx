@@ -177,7 +177,6 @@ export default async function AcademyPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
             {[
               { icon: '✨', name: 'Gemini for Professionals' },
-              { icon: '🧠', name: 'Claude: Complete Mastery' },
               { icon: '💻', name: 'GitHub Copilot for Developers' },
               { icon: '🎵', name: 'Suno for Content Creators' },
               { icon: '🎤', name: 'ElevenLabs Voice AI' },
