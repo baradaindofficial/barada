@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import Logo from '@/components/shared/Logo'
 import AcademyHeader from '@/components/academy/Header'
@@ -24,6 +25,32 @@ export const metadata: Metadata = {
 const red = '#E31E24'
 const navy = '#0D183D'
 const gold = '#D4AF37'
+
+// Real, properly-licensed photography (Unsplash License) matching
+// Barada Academy's actual course categories -- added 2026-10-04 per
+// BK's ask for imagery on the Academy page.
+const ACADEMY_PHOTOS = [
+  {
+    src: 'https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?w=800&q=75&auto=format&fit=crop',
+    name: 'AI Tools',
+    desc: 'ChatGPT, Claude, and the AI tools professionals use every day.',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1742198914612-fc531719f1b4?w=800&q=75&auto=format&fit=crop',
+    name: 'Productivity & Tools',
+    desc: 'Excel, PowerPoint, and office tools powered by AI.',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1698047681432-006d2449c631?w=800&q=75&auto=format&fit=crop',
+    name: 'Career Development',
+    desc: 'LinkedIn, resume, and the skills that advance careers.',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=800&q=75&auto=format&fit=crop',
+    name: 'AI Fundamentals',
+    desc: 'A deeper, practical understanding of how AI actually works.',
+  },
+]
 
 export default async function AcademyPage() {
   const supabase = await createClient()
@@ -91,6 +118,27 @@ export default async function AcademyPage() {
             <div key={l}>
               <div style={{ fontSize: '1.35rem', fontWeight: 900, color: navy, fontFamily: 'Poppins, sans-serif' }}>{v}</div>
               <div style={{ fontSize: '0.72rem', color: '#9CA3AF', marginTop: 2 }}>{l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Category imagery -- added 2026-10-04 per BK's ask for imagery
+          on the Academy page. Real Unsplash photography matching the
+          actual course categories (not generic AI stock art). */}
+      <section style={{ background: '#F9FAFB', padding: '3.5rem 2rem' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto 2rem', textAlign: 'center' }}>
+          <Image src="/logo/barada-academy-lockup-white.png" alt="Barada Academy -- Learn AI. Build the Future." width={200} height={200} style={{ width: 160, height: 'auto', margin: '0 auto' }} />
+        </div>
+        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
+          {ACADEMY_PHOTOS.map(({ src, name, desc }) => (
+            <div key={name} style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
+              <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 260px" style={{ objectFit: 'cover' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,24,61,0.88) 0%, rgba(13,24,61,0.15) 55%, transparent 100%)' }} />
+              <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
+                <p style={{ color: '#fff', fontWeight: 800, fontSize: '0.95rem', marginBottom: '0.25rem' }}>{name}</p>
+                <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.76rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
+              </div>
             </div>
           ))}
         </div>

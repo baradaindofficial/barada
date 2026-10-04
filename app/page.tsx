@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
@@ -58,6 +59,42 @@ const PRIMARY_ROUTES = [
 const BUILDING: { icon: string; name: string; desc: string; registerInterest?: boolean }[] = [
   { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory and procurement transformation consulting — planned.', registerInterest: true },
   { icon: '🤖', name: 'Technology', desc: 'AI-powered tools and platforms for professionals.' },
+]
+
+// Real, properly-licensed photography (Unsplash License -- free for
+// commercial use) representing the actual breadth of the Barada
+// ecosystem, added 2026-10-04 per BK's ask for imagery on the homepage.
+// Captions describe Barada's real offerings (self-paced online courses,
+// B2B execution, advisory, AI tooling) -- deliberately not styled after
+// campus-photography sites with "MBA & Masters" / "Executive Education"
+// framing, since Barada doesn't grant degrees or run in-person cohorts
+// and that framing would misrepresent what these platforms are.
+const ECOSYSTEM_PHOTOS = [
+  {
+    src: 'https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=800&q=75&auto=format&fit=crop',
+    name: 'Barada Academy',
+    desc: 'Self-paced online courses on AI tools, productivity, and career skills.',
+    href: '/academy',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1758873269317-51888e824b28?w=800&q=75&auto=format&fit=crop',
+    name: 'Partnerschaft',
+    desc: 'Pan-India B2B mediation for retail execution and procurement.',
+    href: 'https://partnerschaft.in',
+    external: true,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1758518730083-4c12527b6742?w=800&q=75&auto=format&fit=crop',
+    name: 'Consulting',
+    desc: 'AI adoption advisory and corporate transformation -- planned.',
+    href: '/contact',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?w=800&q=75&auto=format&fit=crop',
+    name: 'Technology',
+    desc: 'AI-powered tools and platforms for professionals -- in development.',
+    href: '/ecosystem',
+  },
 ]
 
 export default function HomePage() {
@@ -125,6 +162,7 @@ export default function HomePage() {
       {/* WHO WE ARE */}
       <section style={{ background: '#fff', padding: '5rem 2rem' }}>
         <div style={{ maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
+          <Image src="/logo/barada-lockup-connect-build-grow.jpg" alt="Barada -- Connect. Build. Grow." width={220} height={220} style={{ width: 180, height: 'auto', margin: '0 auto 2rem' }} />
           <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Who We Are</p>
           <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, marginBottom: '1.25rem' }}>
             A parent brand, built for practical results.
@@ -133,6 +171,32 @@ export default function HomePage() {
             Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services and further ventures underway. Every Barada platform is built from 19+ years of real corporate experience.
           </p>
           <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
+        </div>
+      </section>
+
+      {/* ECOSYSTEM IMAGERY -- added 2026-10-04 per BK's ask for imagery
+          on the homepage. Real Unsplash photography (not stock campus
+          photos claiming programmes Barada doesn't run), captioned with
+          what each platform actually is. */}
+      <section style={{ background: '#fff', padding: '1rem 2rem 4rem' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1.25rem' }}>
+          {ECOSYSTEM_PHOTOS.map(({ src, name, desc, href, external }) => {
+            const card = (
+              <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
+                <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 280px" style={{ objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,24,61,0.88) 0%, rgba(13,24,61,0.15) 55%, transparent 100%)' }} />
+                <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
+                  <p style={{ color: '#fff', fontWeight: 800, fontSize: '1rem', marginBottom: '0.25rem' }}>{name}</p>
+                  <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.78rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
+                </div>
+              </div>
+            )
+            return external ? (
+              <a key={name} href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>{card}</a>
+            ) : (
+              <Link key={name} href={href} style={{ textDecoration: 'none' }}>{card}</Link>
+            )
+          })}
         </div>
       </section>
 
@@ -180,9 +244,6 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '1.75rem', fontSize: '0.85rem', color: '#6B7280' }}>
-            Also live: <a href="https://ayushman.world" target="_blank" rel="noopener noreferrer" style={{ color: '#18794E', fontWeight: 700, textDecoration: 'underline' }}>Ayushman &rarr;</a> &mdash; autism awareness and caregiver support.
           </div>
           <div style={{ textAlign: 'center', marginTop: '1rem' }}>
             <Link href="/ecosystem" style={{ color: navy, fontWeight: 700, textDecoration: 'underline', fontSize: '0.9rem' }}>View full ecosystem map &rarr;</Link>
