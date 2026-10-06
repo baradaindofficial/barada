@@ -43,10 +43,10 @@ export default function AboutPage() {
         <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB', marginBottom: '2rem' }}>
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.375rem', marginBottom: '1rem' }}>Professional Foundation</h2>
           <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '0.75rem' }}>
-            Barada&apos;s platforms are built and run by <strong>BK Satpathy</strong>, drawing on 19+ years of hands-on professional experience across procurement transformation, marketing, retail expansion, and AI adoption. This includes his professional experience at HCL Technologies, Dish TV, and Xiaomi India &mdash; named here as professional background, not as Barada clients or partners.
+            Barada&apos;s platforms are built and run by our founder, drawing on 19+ years of hands-on professional experience across procurement transformation, marketing, retail expansion, and AI adoption. This includes professional experience at HCL Technologies, Dish TV, and Xiaomi India &mdash; named here as professional background, not as Barada clients or partners.
           </p>
           <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '1.25rem' }}>
-            BK Satpathy: Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni &middot; Bengaluru, India
+            Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni &middot; Bengaluru, India
           </p>
           <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer"
             style={{ display: 'inline-block', background: '#0D183D', color: '#fff', padding: '0.625rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>
@@ -59,13 +59,33 @@ export default function AboutPage() {
           <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '1.25rem' }}>
             Barada (OPC) Private Limited is a growing professional ecosystem focused on technology, learning, business solutions and social impact.
           </p>
-          <dl style={{ margin: 0 }}>
-            <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Company</dt>
-            <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', fontWeight: 700, color: '#0D183D' }}>BARADA (OPC) PRIVATE LIMITED</dd>
-            <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Registered Office</dt>
-            <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D' }}>Bengaluru, Karnataka, India</dd>
-            <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Director</dt>
-            <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D' }}>Manaswini Satapathy</dd>
+          <dl style={{ margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem 2rem' }}>
+            <div>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Company</dt>
+              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', fontWeight: 700, color: '#0D183D' }}>BARADA (OPC) PRIVATE LIMITED</dd>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Director</dt>
+              <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D' }}>Manaswini Satapathy</dd>
+            </div>
+            <div>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>CIN</dt>
+              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D' }}>U70200KA2026OPC228497</dd>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>PAN</dt>
+              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D' }}>AAPCB1876R</dd>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>TAN</dt>
+              <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D' }}>BLRB33874B</dd>
+            </div>
+            <div>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Registered Office (as per ROC)</dt>
+              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D', lineHeight: 1.6 }}>155, DS MAX, Synergy Agrahara Layout, Yelahanka, Bangalore North, Bangalore &ndash; 560064, Karnataka</dd>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Head Office</dt>
+              <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D', lineHeight: 1.6 }}>No. 101, Ranpur, PS &ndash; Binjharpur, Jajpur, Odisha &ndash; 755012</dd>
+            </div>
+            <div>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Bangalore Operating Location</dt>
+              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D', lineHeight: 1.6 }}>No. 2060, JPLV-2, Kodichiknahalli, Bommanahalli, Bangalore &ndash; 560076</dd>
+              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Phone &amp; Email</dt>
+              <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D' }}>+91 91132 83848 &middot; info@barada.in</dd>
+            </div>
           </dl>
         </div>
 
