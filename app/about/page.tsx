@@ -40,53 +40,42 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB', marginBottom: '2rem' }}>
-          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.375rem', marginBottom: '1rem' }}>Professional Foundation</h2>
-          <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '0.75rem' }}>
-            Barada&apos;s platforms are built and run by our founder, drawing on 19+ years of hands-on professional experience across procurement transformation, marketing, retail expansion, and AI adoption. This includes professional experience at HCL Technologies, Dish TV, and Xiaomi India &mdash; named here as professional background, not as Barada clients or partners.
-          </p>
-          <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '1.25rem' }}>
-            Guinness World Record holder &middot; Rutgers University certified &middot; IIM Kozhikode alumni &middot; Bengaluru, India
-          </p>
-          <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-block', background: '#0D183D', color: '#fff', padding: '0.625rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>
-            Professional Background: bksatpathy.com &rarr;
-          </a>
-        </div>
+        <div style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', border: '1.5px solid #E5E7EB', marginBottom: '2rem', boxShadow: '0 1px 3px rgba(13,24,61,0.04)' }}>
+          <div style={{ height: 4, background: 'linear-gradient(90deg, #0D183D 0%, #0D183D 33%, #D4AF37 33%, #D4AF37 66%, #E31E24 66%, #E31E24 100%)' }} />
+          <div style={{ padding: '2.5rem' }}>
+            <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Registered Entity</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, color: '#0D183D', fontSize: '1.5rem', marginBottom: '0.375rem' }}>BARADA (OPC) PRIVATE LIMITED</h2>
+            <p style={{ color: '#9CA3AF', fontSize: '0.85rem', letterSpacing: '0.02em', marginBottom: '2rem' }}>Technology &middot; Consulting &middot; Learning &middot; Strategic Partnerships</p>
 
-        <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB', marginBottom: '2rem' }}>
-          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.375rem', marginBottom: '1rem' }}>Corporate Information</h2>
-          <p style={{ color: '#6B7280', lineHeight: 1.85, fontSize: '1rem', marginBottom: '1.25rem' }}>
-            Barada (OPC) Private Limited is a growing professional ecosystem focused on technology, learning, business solutions and social impact.
-          </p>
-          <dl style={{ margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem 2rem' }}>
-            <div>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Company</dt>
-              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', fontWeight: 700, color: '#0D183D' }}>BARADA (OPC) PRIVATE LIMITED</dd>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Director</dt>
-              <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D' }}>Manaswini Satapathy</dd>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.25rem', padding: '1.25rem 1.5rem', background: '#F9FAFB', borderRadius: 12, border: '1px solid #E5E7EB', marginBottom: '2rem' }}>
+              {[
+                ['CIN', 'U70200KA2026OPC228497'],
+                ['PAN', 'AAPCB1876R'],
+                ['TAN', 'BLRB33874B'],
+                ['Director', 'Manaswini Satapathy'],
+              ].map(([label, val]) => (
+                <div key={label}>
+                  <p style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.3rem' }}>{label}</p>
+                  <p style={{ fontSize: '0.88rem', color: '#0D183D', fontWeight: 700, margin: 0 }}>{val}</p>
+                </div>
+              ))}
             </div>
-            <div>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>CIN</dt>
-              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D' }}>U70200KA2026OPC228497</dd>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>PAN</dt>
-              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D' }}>AAPCB1876R</dd>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>TAN</dt>
-              <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D' }}>BLRB33874B</dd>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
+              {[
+                ['\uD83D\uDCCD', 'Registered Office (as per ROC)', '155, DS MAX, Synergy Agrahara Layout, Yelahanka, Bangalore North, Bangalore \u2013 560064, Karnataka'],
+                ['\uD83C\uDFE0', 'Head Office', 'No. 101, Ranpur, PS \u2013 Binjharpur, Jajpur, Odisha \u2013 755012'],
+                ['\uD83C\uDFE2', 'Bangalore Operating Location', 'No. 2060, JPLV-2, Kodichiknahalli, Bommanahalli, Bangalore \u2013 560076'],
+                ['\uD83D\uDCDE', 'Phone & Email', '+91 91132 83848 \u00b7 info@barada.in'],
+              ].map(([icon, label, val]) => (
+                <div key={label} style={{ padding: '1.25rem', border: '1px solid #E5E7EB', borderRadius: 12 }}>
+                  <span style={{ fontSize: '1.25rem', display: 'block', marginBottom: '0.5rem' }}>{icon}</span>
+                  <p style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.3rem' }}>{label}</p>
+                  <p style={{ fontSize: '0.85rem', color: '#0D183D', lineHeight: 1.6, margin: 0 }}>{val}</p>
+                </div>
+              ))}
             </div>
-            <div>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Registered Office (as per ROC)</dt>
-              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D', lineHeight: 1.6 }}>155, DS MAX, Synergy Agrahara Layout, Yelahanka, Bangalore North, Bangalore &ndash; 560064, Karnataka</dd>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Head Office</dt>
-              <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D', lineHeight: 1.6 }}>No. 101, Ranpur, PS &ndash; Binjharpur, Jajpur, Odisha &ndash; 755012</dd>
-            </div>
-            <div>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Bangalore Operating Location</dt>
-              <dd style={{ margin: '0 0 1rem', fontSize: '0.95rem', color: '#0D183D', lineHeight: 1.6 }}>No. 2060, JPLV-2, Kodichiknahalli, Bommanahalli, Bangalore &ndash; 560076</dd>
-              <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Phone &amp; Email</dt>
-              <dd style={{ margin: 0, fontSize: '0.95rem', color: '#0D183D' }}>+91 91132 83848 &middot; info@barada.in</dd>
-            </div>
-          </dl>
+          </div>
         </div>
 
         <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB', marginBottom: '2rem' }}>
