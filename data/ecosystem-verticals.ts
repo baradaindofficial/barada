@@ -55,7 +55,7 @@ export const ECOSYSTEM_VERTICALS: EcosystemVertical[] = [
     icon: '\uD83D\uDCCB',
     name: 'Consulting',
     tagline: 'Corporate Transformation',
-    desc: 'AI adoption advisory, procurement transformation, and corporate excellence consulting.',
+    desc: 'AI adoption advisory, AI and automation services, procurement transformation, and corporate excellence consulting.',
     href: '#',
     status: 'in_development',
     color: '#475569',

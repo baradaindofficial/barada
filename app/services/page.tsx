@@ -5,11 +5,11 @@ import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Barada is developing AI adoption advisory, procurement transformation consulting, and professional workshops \u2014 planned services, not yet open for engagements. Register your interest.',
+  description: 'Barada is developing AI adoption advisory, AI and automation services, procurement transformation consulting, and professional workshops \u2014 planned services, not yet open for engagements. Register your interest.',
   alternates: { canonical: 'https://barada.in/services' },
   openGraph: {
     title: 'Services | Barada',
-    description: 'Barada is developing AI adoption advisory, procurement transformation consulting, and professional workshops \u2014 planned, not yet available.',
+    description: 'Barada is developing AI adoption advisory, AI and automation services, procurement transformation consulting, and professional workshops \u2014 planned, not yet available.',
     url: 'https://barada.in/services',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
@@ -31,6 +31,17 @@ const SERVICES = [
     deliverables: 'A practical adoption assessment, a prioritised use-case shortlist for your team, and a rollout plan grounded in what actually works day-to-day, not theory.',
     format: 'Discussed on enquiry \u2014 scope depends on team size and starting point.',
     nextStep: 'Register your interest with your team size and current AI usage; this service is planned, not yet open \u2014 we\u2019ll follow up once it is.',
+  },
+  {
+    icon: '\u2699\uFE0F',
+    title: 'AI & Automation Services',
+    tagline: 'Practical AI and automation for everyday business work.',
+    whoFor: 'Small and mid-sized businesses, and finance, operations and procurement teams, that have already identified a repetitive task or workflow they want to improve.',
+    problem: 'Time lost to manual document handling, spreadsheet work, routine reporting and repeat tasks.',
+    deliverables: 'Implementing AI tools and automations for selected use cases, one at a time. Each use case is assessed for feasibility, built, tested with you and refined before another is started. Examples we would assess for feasibility (not guaranteed capabilities): extracting invoice data into a spreadsheet, processing purchase-order information, drafting recurring management reports, and summarising supplier documents for review. AI Adoption Advisory covers assessing needs and recommending tools and next steps; this service implements the use cases you choose. Either can be used on its own or one after the other.',
+    approach: 'Understand the task \u2192 Assess feasibility \u2192 Implement \u2192 Review with you \u2192 Improve',
+    format: 'Discussed on enquiry \u2014 one use case at a time; scope depends on your documents, data and tools.',
+    nextStep: 'This service is planned, not yet open. Tell us what task you would like to improve and we\u2019ll follow up once it is.',
   },
   {
     icon: '\uD83D\uDCCB',
@@ -59,18 +70,21 @@ export default function ServicesPage() {
 
       <section style={{ background: 'linear-gradient(135deg, #0D183D, #1A2B5E)', padding: '5rem 2rem', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4vw,3rem)', color: '#fff', marginBottom: '1rem' }}>Services</h1>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 600, margin: '0 auto' }}>AI adoption advisory, procurement transformation, and professional workshops &mdash; planned services, built on real corporate experience. Not yet open for engagements.</p>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 600, margin: '0 auto' }}>AI adoption advisory, AI and automation services, procurement transformation, and professional workshops &mdash; planned services, built on real corporate experience. Not yet open for engagements.</p>
         <p style={{ display: 'inline-block', marginTop: '1.25rem', background: 'rgba(212,175,55,0.15)', color: '#D4AF37', padding: '0.4rem 1rem', borderRadius: 20, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em' }}>Coming Soon &mdash; Register Your Interest</p>
       </section>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
         <div style={{ display: 'grid', gap: '1.5rem', marginBottom: '3rem' }}>
-          {SERVICES.map(({ icon, title, whoFor, problem, deliverables, format, nextStep }) => (
+          {SERVICES.map(({ icon, title, tagline, whoFor, problem, deliverables, approach, format, nextStep }) => (
             <div key={title} style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB' }}>
               <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
                 <span style={{ fontSize: '2rem', flexShrink: 0 }}>{icon}</span>
                 <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.15rem', margin: 0 }}>{title}</h2>
               </div>
+              {tagline && (
+                <p style={{ margin: '-0.5rem 0 1.25rem', color: '#0D183D', fontSize: '1rem', fontWeight: 600, lineHeight: 1.6 }}>{tagline}</p>
+              )}
               <dl style={{ margin: 0, display: 'grid', gap: '1rem' }}>
                 <div>
                   <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Who it&apos;s for</dt>
@@ -84,6 +98,12 @@ export default function ServicesPage() {
                   <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Proposed scope (planned, not yet confirmed)</dt>
                   <dd style={{ margin: 0, color: '#374151', fontSize: '0.9rem', lineHeight: 1.7 }}>{deliverables}</dd>
                 </div>
+                {approach && (
+                  <div>
+                    <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Approach</dt>
+                    <dd style={{ margin: 0, color: '#374151', fontSize: '0.9rem', lineHeight: 1.7 }}>{approach}</dd>
+                  </div>
+                )}
                 <div>
                   <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Format</dt>
                   <dd style={{ margin: 0, color: '#374151', fontSize: '0.9rem', lineHeight: 1.7 }}>{format}</dd>

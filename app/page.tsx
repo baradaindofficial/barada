@@ -57,7 +57,7 @@ const PRIMARY_ROUTES = [
 // ayushman.world (confirmed 2026-10-03) and is called out separately below
 // rather than listed here as "Coming Soon".
 const BUILDING: { icon: string; name: string; desc: string; registerInterest?: boolean }[] = [
-  { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory and procurement transformation consulting — planned.', registerInterest: true },
+  { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory, AI and automation services, and procurement transformation consulting — planned.', registerInterest: true },
   { icon: '🤖', name: 'Technology', desc: 'AI-powered tools and platforms for professionals.' },
 ]
 
@@ -86,7 +86,7 @@ const ECOSYSTEM_PHOTOS = [
   {
     src: 'https://images.unsplash.com/photo-1758518730083-4c12527b6742?w=800&q=75&auto=format&fit=crop',
     name: 'Consulting',
-    desc: 'AI adoption advisory and corporate transformation -- planned.',
+    desc: 'AI adoption advisory, AI and automation, and corporate transformation -- planned.',
     href: '/contact',
   },
   {
