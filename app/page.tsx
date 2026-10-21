@@ -168,7 +168,7 @@ export default function HomePage() {
             A parent brand, built for practical results.
           </h2>
           <p style={{ color: '#6B7280', fontSize: '1.05rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
-            Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services and further ventures underway. Every Barada platform is built from 19+ years of real corporate experience.
+            Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services planned and further ventures underway. Every Barada platform is built from 19+ years of real corporate experience.
           </p>
           <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
         </div>

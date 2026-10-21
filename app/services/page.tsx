@@ -57,6 +57,7 @@ const SERVICES = [
   {
     icon: '\uD83D\uDCCB',
     title: 'Procurement Transformation Consulting',
+    role: 'Transform',
     whoFor: 'Procurement and GBS leaders redesigning process, digital tooling, or operating model.',
     problem: 'Procurement transformation initiatives often fail to stick because the process redesign isn\u2019t grounded in how the organisation actually buys \u2014 not in a generic best-practice template.',
     deliverables: 'Process design and digital transformation recommendations, drawing on our founder\u2019s hands-on procurement leadership experience at HCL, Dish TV, and Xiaomi India \u2014 named here as professional background, not as Barada clients.',
