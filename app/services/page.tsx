@@ -5,11 +5,11 @@ import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Barada is developing AI adoption advisory, AI and automation services, procurement transformation consulting, and professional workshops \u2014 planned services, not yet open for engagements. Register your interest.',
+  description: 'Barada is developing AI adoption advisory, AI and automation for procurement and finance operations, procurement transformation consulting, and professional workshops \u2014 planned services, not yet open for engagements. Register your interest.',
   alternates: { canonical: 'https://barada.in/services' },
   openGraph: {
     title: 'Services | Barada',
-    description: 'Barada is developing AI adoption advisory, AI and automation services, procurement transformation consulting, and professional workshops \u2014 planned, not yet available.',
+    description: 'Barada is developing AI adoption advisory, AI and automation for procurement and finance operations, procurement transformation consulting, and professional workshops \u2014 planned, not yet available.',
     url: 'https://barada.in/services',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
@@ -26,6 +26,7 @@ const SERVICES = [
   {
     icon: '\uD83E\uDD16',
     title: 'AI Adoption Advisory',
+    role: 'Assess',
     whoFor: 'Organisations and teams bringing AI tools into real workflows for the first time, or stuck past an initial pilot.',
     problem: 'Most AI rollouts stall between "we tried ChatGPT once" and actual, repeatable use across a team \u2014 usually from unclear use cases, no rollout plan, or no one owning adoption.',
     deliverables: 'A practical adoption assessment, a prioritised use-case shortlist for your team, and a rollout plan grounded in what actually works day-to-day, not theory. Advisory covers assessment, recommendations and next steps; building a chosen solution is a separate service.',
@@ -35,12 +36,13 @@ const SERVICES = [
   },
   {
     icon: '\u2699\uFE0F',
-    title: 'AI & Automation for Procurement and Finance Operations',
+    title: 'AI & Automation for Procurement & Finance',
+    role: 'Implement',
     tagline: 'Turn repetitive procurement and finance work into practical workflows.',
     intro: 'Barada is planning AI and automation services for businesses looking to simplify repetitive work across procurement, finance and operations. We start with a specific business task, assess its feasibility, and work towards a practical solution \u2014 one use case at a time.',
     whoFor: 'Small and mid-sized businesses, and finance, operations and procurement teams, that have already identified a repetitive task or workflow they want to improve.',
     problem: 'Time lost to manual document handling, spreadsheet work, routine reporting and repeat tasks.',
-    deliverables: 'Implementing AI tools and automations for selected use cases, one at a time, after assessing feasibility. Each use case is built, tested with you and refined before another is started. This service can be used on its own or after AI Adoption Advisory.',
+    deliverables: 'Implementing AI tools and automations for selected use cases, after assessing feasibility. Each use case is built, tested with you and refined before the next is started. This service can be used on its own or after AI Adoption Advisory.',
     useCases: [
       'Invoice data extraction into structured spreadsheets',
       'Purchase-order information processing',
@@ -48,7 +50,7 @@ const SERVICES = [
       'Recurring management-report preparation',
     ],
     approach: 'Understand the task \u2192 Assess feasibility \u2192 Implement \u2192 Review with the client \u2192 Improve',
-    format: 'Discussed on enquiry \u2014 one use case at a time; scope depends on your documents, data and tools.',
+    format: 'Discussed on enquiry \u2014 scope depends on your documents, data and tools.',
     nextStep: 'This service is planned, not yet open. Tell us what task you would like to improve and we\u2019ll follow up once it is.',
     trainingLink: true,
   },
@@ -64,6 +66,7 @@ const SERVICES = [
   {
     icon: '\uD83C\uDF93',
     title: 'Professional Workshops',
+    role: 'Train',
     whoFor: 'Teams and organisations wanting structured, live training rather than self-paced courses.',
     problem: 'Self-paced learning doesn\u2019t fit every team \u2014 some need a live, practitioner-led session with room for their own questions and context.',
     deliverables: 'A structured, practitioner-led workshop on AI tools, productivity, or career skills \u2014 the same material behind Barada Academy, delivered live and adapted to your team.',
@@ -85,11 +88,16 @@ export default function ServicesPage() {
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
         <div style={{ display: 'grid', gap: '1.5rem', marginBottom: '3rem' }}>
-          {SERVICES.map(({ icon, title, tagline, intro, whoFor, problem, deliverables, useCases, approach, format, nextStep, trainingLink }) => (
+          {SERVICES.map(({ icon, title, role, tagline, intro, whoFor, problem, deliverables, useCases, approach, format, nextStep, trainingLink }) => (
             <div key={title} id={title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')} style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', scrollMarginTop: 96 }}>
               <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
                 <span style={{ fontSize: '2rem', flexShrink: 0 }}>{icon}</span>
-                <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.15rem', margin: 0 }}>{title}</h2>
+                <div>
+                  {role && (
+                    <span style={{ display: 'inline-block', marginBottom: '0.4rem', padding: '0.15rem 0.6rem', borderRadius: 20, background: 'rgba(13,24,61,0.06)', border: '1px solid rgba(13,24,61,0.14)', color: '#0D183D', fontSize: '0.66rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{role}</span>
+                  )}
+                  <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.15rem', margin: 0 }}>{title}</h2>
+                </div>
               </div>
               {tagline && (
                 <p style={{ margin: '-0.5rem 0 1.25rem', color: '#0D183D', fontSize: '1rem', fontWeight: 600, lineHeight: 1.6 }}>{tagline}</p>
