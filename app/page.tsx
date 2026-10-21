@@ -57,7 +57,7 @@ const PRIMARY_ROUTES = [
 // ayushman.world (confirmed 2026-10-03) and is called out separately below
 // rather than listed here as "Coming Soon".
 const BUILDING: { icon: string; name: string; desc: string; registerInterest?: boolean }[] = [
-  { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory and procurement transformation consulting — planned.', registerInterest: true },
+  { icon: '📋', name: 'Consulting', desc: 'AI adoption advisory, AI and automation services, and procurement transformation consulting — planned.', registerInterest: true },
   { icon: '🤖', name: 'Technology', desc: 'AI-powered tools and platforms for professionals.' },
 ]
 
@@ -86,7 +86,7 @@ const ECOSYSTEM_PHOTOS = [
   {
     src: 'https://images.unsplash.com/photo-1758518730083-4c12527b6742?w=800&q=75&auto=format&fit=crop',
     name: 'Consulting',
-    desc: 'AI adoption advisory and corporate transformation -- planned.',
+    desc: 'AI adoption advisory, AI and automation, and corporate transformation -- planned.',
     href: '/contact',
   },
   {
@@ -168,7 +168,7 @@ export default function HomePage() {
             A parent brand, built for practical results.
           </h2>
           <p style={{ color: '#6B7280', fontSize: '1.05rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
-            Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services and further ventures underway. Every Barada platform is built from 19+ years of real corporate experience.
+            Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services planned and further ventures underway. Every Barada platform is built from 19+ years of real corporate experience.
           </p>
           <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
         </div>

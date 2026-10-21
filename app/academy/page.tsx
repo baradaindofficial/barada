@@ -306,6 +306,10 @@ export default async function AcademyPage() {
             <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
           ))}
         </div>
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', marginTop: '1rem' }}>
+          Need this implemented for your business?{' '}
+          <Link href="/services" style={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'underline', display: 'inline-block', padding: '0.6rem 0' }}>Explore Barada&apos;s business services.</Link>
+        </p>
       </footer>
 
     </div>
