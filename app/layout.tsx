@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })();
           `}
         </Script>
-        <AuthProvider>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Barada', legalName: 'Barada (OPC) Private Limited', url: 'https://barada.in', areaServed: 'IN', sameAs: ['https://partnerschaft.in', 'https://ayushman.world'] }) }} /><AuthProvider>
           {children}
         </AuthProvider>
         {/* Google Analytics */}
