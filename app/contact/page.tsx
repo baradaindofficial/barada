@@ -4,11 +4,11 @@ import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with Barada for partnerships, consulting, media enquiries, or general questions.',
+  description: 'Contact Barada in Bengaluru for Academy questions, partnership and media enquiries, or to register your interest in planned business services.',
   alternates: { canonical: 'https://barada.in/contact' },
   openGraph: {
     title: 'Contact Barada',
-    description: 'Get in touch with Barada for partnerships, consulting, media enquiries, or general questions.',
+    description: 'Contact Barada in Bengaluru for Academy questions, partnership and media enquiries, or to register your interest in planned business services.',
     url: 'https://barada.in/contact',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
