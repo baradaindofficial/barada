@@ -53,7 +53,7 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
         </div>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <a href="https://bksatpathy.com" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', textDecoration: 'none' }}>bksatpathy.com</a>
+            
             {[['Privacy', '/privacy'], ['Terms', '/terms']].map(([l, h]) => (
               <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
             ))}
