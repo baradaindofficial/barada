@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'https://barada.in'),
   title: { default: 'Barada — Innovate. Empower. Grow.', template: '%s | Barada' },
   description: 'Barada — a professionally driven ecosystem of platforms spanning AI technology, professional excellence, business growth, and social impact.',
-  authors: [{ url: 'https://bksatpathy.com' }],
+
   creator: 'Barada (OPC) Private Limited',
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
