@@ -6,11 +6,11 @@ import { ECOSYSTEM_VERTICALS, STATUS_LABEL } from '@/data/ecosystem-verticals'
 
 export const metadata: Metadata = {
   title: 'Ecosystem',
-  description: 'One parent. Multiple platforms. Explore the Barada ecosystem of professional platforms.',
+  description: 'One parent, multiple platforms. Explore how Barada Academy, Partnerschaft and Ayushman fit together, and which ventures are active or still in development.',
   alternates: { canonical: 'https://barada.in/ecosystem' },
   openGraph: {
     title: 'The Barada Ecosystem',
-    description: 'One parent. Multiple platforms. Explore the Barada ecosystem of professional platforms.',
+    description: 'One parent, multiple platforms. Explore how Barada Academy, Partnerschaft and Ayushman fit together, and which ventures are active or still in development.',
     url: 'https://barada.in/ecosystem',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
