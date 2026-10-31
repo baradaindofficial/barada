@@ -116,7 +116,7 @@ export default function HomePage() {
           on a live commercial site and keep the file lightweight. */}
       <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #1A2B5E 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
-          <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 300 }}>
+          <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
             <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Bengaluru, India &mdash; Founded 2025</p>
             <h1 style={{ fontSize: 'clamp(2.25rem,5vw,4.25rem)', fontWeight: 900, color: '#fff', lineHeight: 1.12, marginBottom: '1.5rem', letterSpacing: '-0.01em' }}>
               BARADA
@@ -130,7 +130,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="barada-hero-illustration" style={{ flex: '1 1 380px', minWidth: 280, maxWidth: 480 }}>
+          <div className="barada-hero-illustration" style={{ flex: '1 1 380px', minWidth: 'min(280px, 100%)', maxWidth: 480 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/hero-illustration.svg"
@@ -207,7 +207,7 @@ export default function HomePage() {
             <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Two Ways to Work With Barada</p>
             <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, margin: 0 }}>Start here.</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
             {PRIMARY_ROUTES.map(({ icon, name, headline, desc, href, cta, external, color }) => (
               <div key={name} style={{ background: '#fff', borderRadius: 20, padding: '2.5rem', border: '1.5px solid #E5E7EB', borderTop: `4px solid ${color}` }}>
                 <span style={{ fontSize: '2.25rem', display: 'block', marginBottom: '1.25rem' }}>{icon}</span>
