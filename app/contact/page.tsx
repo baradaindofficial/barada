@@ -23,11 +23,11 @@ export default function ContactPage() {
       <CorporateHeader />
 
       <section style={{ background: 'linear-gradient(135deg, #0D183D, #1A2B5E)', padding: '5rem 2rem', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4vw,3rem)', color: '#fff', marginBottom: '1rem' }}>Get in Touch</h1>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Get in Touch</h1>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 500, margin: '0 auto' }}>For partnerships, consulting enquiries, media, or general questions.</p>
       </section>
 
-      <div style={{ maxWidth: 800, margin: '0 auto', padding: '4rem 2rem' }}>
+      <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
           {[
             { icon: '\uD83D\uDCE7', label: 'General Enquiries', value: 'info@barada.in', href: 'mailto:info@barada.in' },

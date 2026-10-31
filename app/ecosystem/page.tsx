@@ -32,7 +32,7 @@ export default function EcosystemPage() {
 
       <section style={{ background: 'linear-gradient(135deg, #0D183D, #1A2B5E)', padding: '5rem 2rem', textAlign: 'center' }}>
         <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>The Barada Ecosystem</p>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4vw,3rem)', color: '#fff', marginBottom: '1rem' }}>One parent. Multiple platforms.</h1>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>One parent. Multiple platforms.</h1>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 580, margin: '0 auto' }}>Each platform addresses a different professional need. All share the same founding values, brand, and infrastructure.</p>
       </section>
 
@@ -41,7 +41,7 @@ export default function EcosystemPage() {
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.5rem', marginBottom: '1rem' }}>How the ecosystem works</h2>
           <p style={{ color: '#6B7280', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 2rem' }}>Barada is the parent brand. It owns and governs a growing portfolio of independently operated platforms. Each platform has its own domain, brand identity, and user base &mdash; but all operate under the Barada umbrella of values and governance.</p>
           <div style={{ background: '#F9FAFB', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', display: 'inline-block', textAlign: 'left', minWidth: 'min(320px, 100%)' }}>
-            <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', textAlign: 'center', marginBottom: '1.5rem' }}>BARADA (Parent)</p>
+            <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0D183D', textAlign: 'center', marginBottom: '1.5rem' }}>BARADA (Parent)</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))', gap: '0.75rem' }}>
               {['Academy', 'Technology', 'Consulting', 'Partnerschaft', 'Ayushman', '+ Future'].map(v => (
                 <div key={v} style={{ background: '#fff', borderRadius: 8, padding: '0.5rem 0.75rem', border: '1px solid #E5E7EB', textAlign: 'center', fontSize: '0.75rem', fontWeight: 600, color: '#374151' }}>{v}</div>
@@ -59,7 +59,7 @@ export default function EcosystemPage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
                 <span style={{ background: stage.color, color: '#fff', width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.82rem', flexShrink: 0 }}>{stage.number}</span>
                 <div>
-                  <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', margin: 0 }}>Stage {stage.number} &mdash; {STATUS_LABEL[stage.status]}</p>
+                  <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0D183D', margin: 0 }}>Stage {stage.number} &mdash; {STATUS_LABEL[stage.status]}</p>
                   <p style={{ color: '#6B7280', fontSize: '0.78rem', margin: 0 }}>{stage.desc}</p>
                 </div>
               </div>
@@ -68,7 +68,7 @@ export default function EcosystemPage() {
                   <div key={name} style={{ background: '#fff', borderRadius: 12, padding: '1.25rem', border: '1.5px solid #E5E7EB', borderLeft: `4px solid ${color}` }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', marginBottom: '0.625rem' }}>
                       <span style={{ fontSize: '1.25rem' }}>{icon}</span>
-                      <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', margin: 0, fontSize: '0.9rem' }}>{name}</p>
+                      <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0D183D', margin: 0, fontSize: '0.9rem' }}>{name}</p>
                     </div>
                     <p style={{ color: '#6B7280', fontSize: '0.82rem', lineHeight: 1.65, marginBottom: '0.875rem' }}>{desc}</p>
                     {/* Consulting is the one not-yet-live vertical with a real
@@ -100,7 +100,7 @@ export default function EcosystemPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
             {[['2025', 'Foundation', 'Academy live. Partnerschaft live.'], ['2026', 'Growth', 'Technology. Consulting. Resources.'], ['2027', 'Scale', 'Enterprise. Multi-tenant. API.'], ['2028+', 'Expansion', 'Global. Mobile. Agent Layer.']].map(([year, title, desc]) => (
               <div key={year} style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <p style={{ color: '#D4AF37', fontWeight: 800, fontSize: '1.1rem', fontFamily: 'Poppins, sans-serif', marginBottom: '0.25rem' }}>{year}</p>
+                <p style={{ color: '#D4AF37', fontWeight: 800, fontSize: '1.1rem', fontFamily: 'Poppins, system-ui, sans-serif', marginBottom: '0.25rem' }}>{year}</p>
                 <p style={{ color: '#fff', fontWeight: 700, fontSize: '0.875rem', marginBottom: '0.5rem' }}>{title}</p>
                 <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.78rem', lineHeight: 1.6 }}>{desc}</p>
               </div>
