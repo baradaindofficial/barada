@@ -24,8 +24,6 @@ export const metadata: Metadata = {
 const red = '#E31E24'
 const navy = '#0D183D'
 const gold = '#D4AF37'
-const teal = '#2EE6D6'
-const ink = '#0A1020'
 
 // The two routes Barada actively wants every visitor to find in one click.
 // Kept as plain data (not sourced from ECOSYSTEM_VERTICALS) because this
@@ -116,23 +114,23 @@ export default function HomePage() {
       <CorporateHeader />
 
       {/* HERO -- refreshed 2026-10-31 per BK's ask for a distinctive,
-          technology-and-services look with a robot illustration. Dark ink
-          ground with a teal accent (Barada red kept for the primary CTA).
+          technology-and-services look with a robot illustration. Dark navy
+          ground with a gold accent (Barada red kept for the primary CTA).
           The robot is an original vector drawing with a light CSS tilt
           effect (components/corporate/HeroRobot.tsx); no 3D library. */}
-      <section style={{ background: `linear-gradient(135deg, ${ink} 0%, #121C3F 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #1A2B5E 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
-            <p style={{ color: teal, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Barada &middot; Bengaluru, India</p>
-            <h1 style={{ fontSize: 'clamp(2.1rem,5vw,3.75rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
-              AI, technology and business execution, <span style={{ color: teal }}>built on real experience.</span>
+            <p style={{ color: gold, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Barada &middot; Bengaluru, India</p>
+            <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
+              AI, technology and business execution, <span style={{ color: gold }}>built on real experience.</span>
             </h1>
             <p style={{ fontSize: 'clamp(1rem,2vw,1.2rem)', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, maxWidth: 540, margin: '0 0 2.5rem' }}>
               Barada brings practical AI skills, digital procurement know-how and retail execution together, drawing on 19+ years of corporate experience.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/academy" style={{ background: red, color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
-              <Link href="/services" style={{ border: `2px solid ${teal}`, color: teal, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>See planned services</Link>
+              <Link href="/services" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>See planned services</Link>
             </div>
           </div>
 
@@ -162,7 +160,7 @@ export default function HomePage() {
 
       {/* CAPABILITIES STRIP -- planned services only. Wording follows the
           /services page: planned, not open for booking, no pricing. */}
-      <section style={{ background: ink, padding: '0 2rem 3.5rem' }}>
+      <section style={{ background: navy, padding: '0 2rem 3.5rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '2rem' }}>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '1.25rem' }}>Planned services &middot; Coming Soon</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '1rem' }}>
