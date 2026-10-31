@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import Logo from '@/components/shared/Logo'
+import CorporateHeader from '@/components/corporate/Header'
+import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
@@ -10,15 +10,14 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', minHeight: '100vh', background: '#F9FAFB' }}>
-      <nav style={{ background: '#0D183D', padding: '0 2rem', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
-        <Link href="/" style={{ display: 'inline-block', lineHeight: 0 }}>
-          <Logo variant="corporate" height={40} />
-        </Link>
-        <Link href="/" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', fontSize: '0.82rem' }}>&larr; Back to Barada.in</Link>
-      </nav>
-      <div style={{ maxWidth: 800, margin: '4rem auto', padding: '0 2rem' }}>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '2rem', marginBottom: '0.5rem' }}>Terms of Use</h1>
-        <p style={{ color: '#9CA3AF', fontSize: '0.82rem', marginBottom: '2.5rem' }}>Last updated: August 2026</p>
+      <CorporateHeader />
+
+      <section style={{ background: 'linear-gradient(135deg, #0D183D, #1A2B5E)', padding: '5rem 2rem', textAlign: 'center' }}>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Terms of Use</h1>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', margin: 0 }}>Last updated: August 2026</p>
+      </section>
+
+      <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
         {[
           ['Acceptance', 'By accessing or using any Barada platform, you agree to be bound by these Terms of Use. If you do not agree, please do not use our services.'],
           ['Permitted Use', 'Barada Academy courses are for personal, non-commercial professional development. You may not reproduce, resell, or redistribute course content without written permission from Barada.'],
@@ -29,15 +28,13 @@ export default function TermsPage() {
           ['Governing Law', 'These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Bengaluru, Karnataka.'],
           ['Contact', 'For terms-related queries, contact info@barada.in or write to Barada (OPC) Private Limited, Bengaluru, Karnataka, India.'],
         ].map(([title, body]) => (
-          <div key={title} style={{ background: '#fff', borderRadius: 12, padding: '1.75rem', border: '1.5px solid #E5E7EB', marginBottom: '1rem' }}>
-            <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', fontSize: '1rem', marginBottom: '0.625rem' }}>{title}</h2>
+          <div key={title} style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', marginBottom: '1rem' }}>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0D183D', fontSize: '1rem', marginBottom: '0.625rem' }}>{title}</h2>
             <p style={{ color: '#6B7280', lineHeight: 1.8, fontSize: '0.9rem', margin: 0 }}>{body}</p>
           </div>
         ))}
       </div>
-      <footer style={{ background: '#060b18', padding: '1.5rem 2rem', textAlign: 'center' }}>
-        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', margin: 0 }}>&copy; 2026 Barada. A venture of Barada (OPC) Private Limited.</p>
-      </footer>
+      <CorporateFooter />
     </div>
   )
 }
