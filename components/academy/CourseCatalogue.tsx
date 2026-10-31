@@ -40,13 +40,24 @@ const chip = (active: boolean): React.CSSProperties => ({
   fontFamily: 'inherit',
 })
 
+// The course data holds three spellings of the same topic. Showing them as
+// one filter keeps the list readable until the data itself is cleaned up.
+const CATEGORY_ALIASES: Record<string, string> = {
+  'Productivity Tools': 'Productivity',
+  'Productivity & Tools': 'Productivity',
+}
+
 export default function CourseCatalogue({
-  courses,
+  courses: rawCourses,
   isLoggedIn,
 }: {
   courses: CatalogueCourse[]
   isLoggedIn: boolean
 }) {
+  const courses = useMemo(
+    () => rawCourses.map((c) => ({ ...c, category: CATEGORY_ALIASES[c.category] ?? c.category })),
+    [rawCourses],
+  )
   const [audience, setAudience] = useState<'individuals' | 'teams'>('individuals')
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('All')
