@@ -55,7 +55,7 @@ export default function RegisterForm() {
       {/* Left panel */}
       <div className="hidden lg:flex flex-col justify-between bg-[#0D183D] p-12" aria-hidden="true">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo/barada-icon-36.png" alt="Barada" width={36} height={36} className="rounded-lg" />
+          <Image src="/logo/barada-symbol-96.png" alt="Barada" width={36} height={36} className="rounded-lg" />
           <span className="font-display font-bold text-white text-lg">Barada Academy</span>
         </Link>
         <ul className="space-y-4" aria-label="Platform benefits">
