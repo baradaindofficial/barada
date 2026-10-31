@@ -40,7 +40,7 @@ export default function EcosystemPage() {
         <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.5rem', marginBottom: '1rem' }}>How the ecosystem works</h2>
           <p style={{ color: '#6B7280', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 2rem' }}>Barada is the parent brand. It owns and governs a growing portfolio of independently operated platforms. Each platform has its own domain, brand identity, and user base &mdash; but all operate under the Barada umbrella of values and governance.</p>
-          <div style={{ background: '#F9FAFB', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', display: 'inline-block', textAlign: 'left', minWidth: 320 }}>
+          <div style={{ background: '#F9FAFB', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', display: 'inline-block', textAlign: 'left', minWidth: 'min(320px, 100%)' }}>
             <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', textAlign: 'center', marginBottom: '1.5rem' }}>BARADA (Parent)</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))', gap: '0.75rem' }}>
               {['Academy', 'Technology', 'Consulting', 'Partnerschaft', 'Ayushman', '+ Future'].map(v => (
@@ -63,7 +63,7 @@ export default function EcosystemPage() {
                   <p style={{ color: '#6B7280', fontSize: '0.78rem', margin: 0 }}>{stage.desc}</p>
                 </div>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: '1rem' }}>
                 {ECOSYSTEM_VERTICALS.filter(v => v.status === stage.status).map(({ icon, name, desc, href, color, external }) => (
                   <div key={name} style={{ background: '#fff', borderRadius: 12, padding: '1.25rem', border: '1.5px solid #E5E7EB', borderLeft: `4px solid ${color}` }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', marginBottom: '0.625rem' }}>
