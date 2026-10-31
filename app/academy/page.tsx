@@ -175,7 +175,34 @@ export default async function AcademyPage() {
         </div>
       </section>
 
-      <section style={{ background: '#F9FAFB', padding: '4rem 2rem' }}>
+      {/* Entry paths -- added 2026-10-31. Helps a first-time visitor pick a
+          starting point instead of facing the full catalogue. Team training
+          is described as planned, in line with /services. */}
+      <section style={{ background: '#fff', padding: '4rem 2rem', borderBottom: '1px solid #E5E7EB' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Where to start</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: 0 }}>
+              Which of these sounds like you?
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '1.25rem' }}>
+            {[
+              { title: 'I am new to AI', body: 'Start with the beginner courses. No technical background needed, and every course is free to enroll.', cta: 'Browse beginner courses', href: '/academy#courses' },
+              { title: 'I use AI tools at work', body: 'Go deeper on the tools you already use, with structured lessons and a verifiable certificate when you pass.', cta: 'See all courses', href: '/academy#courses' },
+              { title: 'I lead a team', body: 'Team workshops are being planned and are not yet open for bookings. Register your interest and we will be in touch.', cta: 'Register your interest', href: '/services#professional-workshops' },
+            ].map(({ title, body, cta, href }) => (
+              <div key={title} style={{ background: '#F9FAFB', borderRadius: 16, padding: '1.5rem', border: '1.5px solid #E5E7EB', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1.05rem', margin: '0 0 0.5rem' }}>{title}</h3>
+                <p style={{ color: '#4B5563', fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 1rem', flex: 1 }}>{body}</p>
+                <Link href={href} style={{ color: red, fontWeight: 700, fontSize: '0.88rem', display: 'inline-block', padding: '0.5rem 0' }}>{cta} &rarr;</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="courses" style={{ background: '#F9FAFB', padding: '4rem 2rem', scrollMarginTop: 96 }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Course Catalogue</p>
