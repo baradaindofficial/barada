@@ -19,7 +19,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'https://barada.in'),
+  // Fixed to the public domain so canonical, Open Graph and sitemap URLs never
+  // resolve to the Vercel host (NEXT_PUBLIC_APP_URL points at barada.vercel.app).
+  metadataBase: new URL('https://barada.in'),
   title: { default: 'Barada — Innovate. Empower. Grow.', template: '%s | Barada' },
   description: 'Barada — a professionally driven ecosystem of platforms spanning AI technology, professional excellence, business growth, and social impact.',
 
