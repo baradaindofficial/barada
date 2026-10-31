@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
 import HeroRobot from '@/components/corporate/HeroRobot'
+import TiltCard from '@/components/corporate/TiltCard'
 
 export const metadata: Metadata = {
   title: 'Barada — Practical Learning and Business Execution',
@@ -208,9 +209,9 @@ export default function HomePage() {
               </div>
             )
             return external ? (
-              <a key={name} href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>{card}</a>
+              <TiltCard key={name}><a href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>{card}</a></TiltCard>
             ) : (
-              <Link key={name} href={href} style={{ textDecoration: 'none' }}>{card}</Link>
+              <TiltCard key={name}><Link href={href} style={{ textDecoration: 'none', display: 'block' }}>{card}</Link></TiltCard>
             )
           })}
         </div>

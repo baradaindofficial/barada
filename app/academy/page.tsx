@@ -5,7 +5,7 @@ import Logo from '@/components/shared/Logo'
 import AcademyHeader from '@/components/academy/Header'
 import { getAllPublishedCoursesWithCounts, getAcademyStats } from '@/lib/db/courses'
 import { createClient } from '@/lib/supabase/server'
-import CourseEnrollButton from '@/components/academy/CourseEnrollButton'
+import CourseCatalogue from '@/components/academy/CourseCatalogue'
 
 export const metadata: Metadata = {
   title: 'Barada Academy \u2014 Learn AI. Build the Future.',
@@ -211,45 +211,25 @@ export default async function AcademyPage() {
             </h2>
             <p style={{ color: '#6B7280', fontSize: '0.95rem' }}>Every course is free to enroll. Certificate available after passing the final assessment.</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: '1.25rem' }}>
-            {courses.map((course) => (
-              <div key={course.slug} style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', border: '1.5px solid #E5E7EB', borderTop: `4px solid ${course.themeColor || red}` }}>
-                <div style={{ padding: '1.5rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '0.875rem' }}>
-                    <span style={{ fontSize: '1.75rem' }}>{course.icon}</span>
-                    {course.enrollmentPaused ? (
-                      <span style={{ background: 'rgba(212,175,55,0.15)', color: '#8A6D1E', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Content Being Completed</span>
-                    ) : (
-                      <span style={{ background: 'rgba(22,163,74,0.1)', color: '#16a34a', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Available Now</span>
-                    )}
-                  </div>
-                  <p style={{ color: '#6B7280', fontSize: '0.72rem', marginBottom: '0.25rem' }}>{course.category} &middot; {course.difficulty}</p>
-                  <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.75rem', lineHeight: 1.4 }}>{course.title}</h3>
-                  <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: '#9CA3AF', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
-                    <span>{course.moduleCount} modules</span>
-                    <span>{course.lessonCount} lessons</span>
-                    {course.estimatedHours ? <span>{course.estimatedHours}h</span> : null}
-                    <span>Certificate: ₹299</span>
-                  </div>
-                  <CourseEnrollButton
-                    slug={course.slug}
-                    isLoggedIn={isLoggedIn}
-                    enrollmentPaused={course.enrollmentPaused}
-                    enrollmentPausedReason={course.enrollmentPausedReason}
-                  />
-                </div>
-                {course.enrollmentPaused ? (
-                  <div style={{ background: 'rgba(212,175,55,0.08)', borderTop: '1px solid rgba(212,175,55,0.2)', padding: '0.5rem 1.5rem' }}>
-                    <span style={{ fontSize: '0.7rem', color: '#8A6D1E', fontWeight: 700 }}>Content being completed &mdash; new enrolments temporarily paused.</span>
-                  </div>
-                ) : (
-                  <div style={{ background: 'rgba(22,163,74,0.05)', borderTop: '1px solid rgba(22,163,74,0.1)', padding: '0.5rem 1.5rem' }}>
-                    <span style={{ fontSize: '0.7rem', color: '#16a34a', fontWeight: 700 }}>&#10003; Enroll instantly &middot; No payment required</span>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          {/* Search, filters and the Individuals / Teams switcher live in the
+              client component; only plain course fields are passed down. */}
+          <CourseCatalogue
+            isLoggedIn={isLoggedIn}
+            courses={courses.map((c) => ({
+              slug: c.slug,
+              title: c.title,
+              subtitle: c.subtitle ?? null,
+              category: c.category,
+              difficulty: c.difficulty,
+              icon: c.icon ?? null,
+              themeColor: c.themeColor ?? null,
+              moduleCount: c.moduleCount,
+              lessonCount: c.lessonCount,
+              estimatedHours: c.estimatedHours ?? null,
+              enrollmentPaused: c.enrollmentPaused,
+              enrollmentPausedReason: c.enrollmentPausedReason ?? null,
+            }))}
+          />
         </div>
       </section>
 
@@ -313,6 +293,35 @@ export default async function AcademyPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Learner support -- added 2026-10-31. Points to the real contact
+          route only. No response-time or availability promises. */}
+      <section id="support" style={{ background: '#F9FAFB', padding: '4rem 2rem', borderTop: '1px solid #E5E7EB' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Learner support</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: 0 }}>
+              Stuck or have a question?
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '1.25rem' }}>
+            {[
+              { title: 'About a course', body: 'Not sure which course to start with, or what it covers? Ask us and we will point you to the right one.' },
+              { title: 'About your account', body: 'Trouble signing in or enrolling? Tell us what you see on screen and we will help you sort it out.' },
+              { title: 'About your certificate', body: 'Questions about getting or verifying a certificate? Include your certificate ID if you have one.' },
+            ].map(({ title, body }) => (
+              <div key={title} style={{ background: '#fff', borderRadius: 16, padding: '1.5rem', border: '1.5px solid #E5E7EB' }}>
+                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1rem', margin: '0 0 0.5rem' }}>{title}</h3>
+                <p style={{ color: '#4B5563', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>{body}</p>
+              </div>
+            ))}
+          </div>
+          <p style={{ textAlign: 'center', color: '#4B5563', fontSize: '0.95rem', margin: '2rem 0 0' }}>
+            Write to <a href="mailto:info@barada.in" style={{ color: red, fontWeight: 700 }}>info@barada.in</a> or use the{' '}
+            <Link href="/contact" style={{ color: red, fontWeight: 700 }}>contact form</Link>.
+          </p>
         </div>
       </section>
 
