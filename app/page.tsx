@@ -3,6 +3,7 @@ import Image from 'next/image'
 import type { Metadata } from 'next'
 import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
+import HeroRobot from '@/components/corporate/HeroRobot'
 
 export const metadata: Metadata = {
   title: 'Barada — Practical Learning and Business Execution',
@@ -22,6 +23,8 @@ export const metadata: Metadata = {
 const red = '#E31E24'
 const navy = '#0D183D'
 const gold = '#D4AF37'
+const teal = '#2EE6D6'
+const ink = '#0A1020'
 
 // The two routes Barada actively wants every visitor to find in one click.
 // Kept as plain data (not sourced from ECOSYSTEM_VERTICALS) because this
@@ -97,46 +100,43 @@ const ECOSYSTEM_PHOTOS = [
   },
 ]
 
+// Planned services shown on the hero strip. Mirrors the BUILDING/Consulting
+// description above and the /services page: planned, not open for booking.
+const CAPABILITIES = [
+  { name: 'AI and automation', desc: 'Practical AI adoption and workflow automation for business teams.' },
+  { name: 'Procurement transformation', desc: 'Source-to-Pay and digital procurement advisory, drawn from hands-on experience.' },
+  { name: 'Team workshops', desc: 'Hands-on AI skills workshops for teams. Register your interest to be contacted.' },
+]
+
 export default function HomePage() {
   return (
     <div style={{ margin: 0, padding: 0, color: '#111' }}>
 
       <CorporateHeader />
 
-      {/* HERO -- two-column layout added 2026-10-04 per BK's explicit
-          ask for the homepage to be "attractive with some image." The
-          previous version only had a faint (opacity 0.35) floating logo
-          mark behind the text, which read as empty on first glance and
-          especially on mobile where it sits behind centered text. This
-          replaces it with an original brand-colored SVG illustration
-          (public/images/hero-illustration.svg) depicting a learning
-          dashboard + certificate + growth chart -- drawn as vector
-          shapes (no emoji glyphs, so it renders identically across every
-          OS/browser) rather than a stock photo, to avoid licensing risk
-          on a live commercial site and keep the file lightweight. */}
-      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #1A2B5E 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
+      {/* HERO -- refreshed 2026-10-31 per BK's ask for a distinctive,
+          technology-and-services look with a robot illustration. Dark ink
+          ground with a teal accent (Barada red kept for the primary CTA).
+          The robot is an original vector drawing with a light CSS tilt
+          effect (components/corporate/HeroRobot.tsx); no 3D library. */}
+      <section style={{ background: `linear-gradient(135deg, ${ink} 0%, #121C3F 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Bengaluru, India &mdash; Founded 2025</p>
-            <h1 style={{ fontSize: 'clamp(2.25rem,5vw,4.25rem)', fontWeight: 900, color: '#fff', lineHeight: 1.12, marginBottom: '1.5rem', letterSpacing: '-0.01em' }}>
-              BARADA
+            <p style={{ color: teal, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Barada &middot; Bengaluru, India</p>
+            <h1 style={{ fontSize: 'clamp(2.1rem,5vw,3.75rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
+              AI, technology and business execution, <span style={{ color: teal }}>built on real experience.</span>
             </h1>
-            <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.1rem,2.5vw,1.6rem)', fontWeight: 600, color: 'rgba(255,255,255,0.8)', lineHeight: 1.5, maxWidth: 520, margin: '0 0 2.5rem' }}>
-              Practical <span style={{ color: gold }}>learning</span> and business <span style={{ color: gold }}>execution</span>, built on professional experience.
+            <p style={{ fontSize: 'clamp(1rem,2vw,1.2rem)', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, maxWidth: 540, margin: '0 0 2.5rem' }}>
+              Barada brings practical AI skills, digital procurement know-how and retail execution together, drawing on 19+ years of corporate experience.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/academy" style={{ background: red, color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
-              <a href="https://partnerschaft.in" target="_blank" rel="noopener noreferrer" style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Visit Partnerschaft</a>
+              <Link href="/services" style={{ border: `2px solid ${teal}`, color: teal, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>See planned services</Link>
             </div>
           </div>
 
           <div className="barada-hero-illustration" style={{ flex: '1 1 380px', minWidth: 'min(280px, 100%)', maxWidth: 480 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/hero-illustration.svg"
-              alt=""
-              style={{ width: '100%', height: 'auto', display: 'block' }}
-            />
+            <HeroRobot />
           </div>
         </div>
 
@@ -157,6 +157,22 @@ export default function HomePage() {
             }
           }
         `}</style>
+      </section>
+
+      {/* CAPABILITIES STRIP -- planned services only. Wording follows the
+          /services page: planned, not open for booking, no pricing. */}
+      <section style={{ background: ink, padding: '0 2rem 3.5rem' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '2rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '1.25rem' }}>Planned services &middot; Coming Soon</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '1rem' }}>
+            {CAPABILITIES.map(({ name, desc }) => (
+              <Link key={name} href="/services" style={{ display: 'block', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 14, padding: '1.25rem 1.5rem', background: 'rgba(255,255,255,0.03)' }}>
+                <p style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', margin: '0 0 0.35rem' }}>{name}</p>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* WHO WE ARE */}
