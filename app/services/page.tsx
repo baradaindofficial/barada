@@ -82,7 +82,7 @@ export default function ServicesPage() {
       <CorporateHeader />
 
       <section style={{ background: 'linear-gradient(135deg, #0D183D, #1A2B5E)', padding: '5rem 2rem', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4vw,3rem)', color: '#fff', marginBottom: '1rem' }}>Services</h1>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Services</h1>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 600, margin: '0 auto' }}>AI adoption advisory, AI and automation services, procurement transformation, and professional workshops &mdash; planned services, built on real corporate experience. Not yet open for engagements.</p>
         <p style={{ display: 'inline-block', marginTop: '1.25rem', background: 'rgba(212,175,55,0.15)', color: '#D4AF37', padding: '0.4rem 1rem', borderRadius: 20, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em' }}>Coming Soon &mdash; Register Your Interest</p>
       </section>
