@@ -152,7 +152,7 @@ export default async function AcademyPage() {
           filled with placeholder sample data. */}
       <section style={{ background: '#fff', padding: '4rem 2rem', borderBottom: '1px solid #E5E7EB' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ flex: '1 1 380px', minWidth: 300 }}>
+          <div style={{ flex: '1 1 380px', minWidth: 'min(300px, 100%)' }}>
             <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Your Certificate</p>
             <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.6rem,3vw,2.1rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>
               A verifiable credential, not just a PDF
@@ -164,7 +164,7 @@ export default async function AcademyPage() {
               Sample shown for illustration. Your certificate carries your name, your course, and your own certificate ID.
             </p>
           </div>
-          <div style={{ flex: '1 1 420px', minWidth: 300 }}>
+          <div style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/academy/sample-certificate.png"
@@ -184,7 +184,7 @@ export default async function AcademyPage() {
             </h2>
             <p style={{ color: '#6B7280', fontSize: '0.95rem' }}>Every course is free to enroll. Certificate available after passing the final assessment.</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.25rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: '1.25rem' }}>
             {courses.map((course) => (
               <div key={course.slug} style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', border: '1.5px solid #E5E7EB', borderTop: `4px solid ${course.themeColor || red}` }}>
                 <div style={{ padding: '1.5rem' }}>
