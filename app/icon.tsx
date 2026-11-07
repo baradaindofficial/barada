@@ -10,7 +10,7 @@ const B_PATH =
 export default function Icon() {
   return new ImageResponse(
     (
-      <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0B3D2E', borderRadius: 12 }}>
+      <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0D4638', borderRadius: 12 }}>
         <svg width="52" height="52" viewBox="0 0 512 512">
           <path fill="#D4AF37" fillRule="evenodd" d={B_PATH} />
         </svg>
