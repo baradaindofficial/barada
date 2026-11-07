@@ -19,7 +19,7 @@ export default function AcademyHeader() {
 
   return (
     <nav style={{ background: navy, padding: '0 1rem', position: 'sticky', top: 0, zIndex: 100 }} className="md:px-8">
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64, maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 0 }} className="md:gap-6">
           <Link href="/" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '0.78rem', fontWeight: 500, flexShrink: 0 }} className="hidden md:inline">&larr; Barada.in</Link>
           <Link href="/academy" style={{ display: 'flex', alignItems: 'center', lineHeight: 0, minWidth: 0 }}>
