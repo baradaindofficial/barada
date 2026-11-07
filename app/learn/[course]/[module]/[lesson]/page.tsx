@@ -99,9 +99,9 @@ export default async function LessonPage({ params }: Props) {
   ].filter(Boolean).join('. ')
 
   return (
-    <div style={{ minHeight: '100vh', background: '#07241A', fontFamily: 'Inter, system-ui, sans-serif' }}>
+    <div style={{ minHeight: '100vh', background: '#072E24', fontFamily: 'Inter, system-ui, sans-serif' }}>
       <nav style={{
-        background: '#0B3D2E', borderBottom: '1px solid rgba(255,255,255,0.06)',
+        background: '#0D4638', borderBottom: '1px solid rgba(255,255,255,0.06)',
         padding: '0 1.5rem', height: 56,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         position: 'sticky', top: 0, zIndex: 100,
@@ -242,14 +242,14 @@ export default async function LessonPage({ params }: Props) {
               </Link>
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#D4AF37', borderRadius: 10, padding: '0.75rem 1.25rem', flex: 1 }}>
-                <p style={{ color: '#0B3D2E', fontWeight: 700, fontSize: '0.875rem' }}>Course Complete &#127881;</p>
+                <p style={{ color: '#0D4638', fontWeight: 700, fontSize: '0.875rem' }}>Course Complete &#127881;</p>
               </div>
             )}
           </div>
         </div>
 
         <div>
-          <div style={{ background: '#0B3D2E', borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
+          <div style={{ background: '#0D4638', borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
             <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
               Course Content
             </p>
