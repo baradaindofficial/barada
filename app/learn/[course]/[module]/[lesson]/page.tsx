@@ -99,9 +99,9 @@ export default async function LessonPage({ params }: Props) {
   ].filter(Boolean).join('. ')
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0a0f1e', fontFamily: 'Inter, system-ui, sans-serif' }}>
+    <div style={{ minHeight: '100vh', background: '#07241A', fontFamily: 'Inter, system-ui, sans-serif' }}>
       <nav style={{
-        background: '#0D183D', borderBottom: '1px solid rgba(255,255,255,0.06)',
+        background: '#0B3D2E', borderBottom: '1px solid rgba(255,255,255,0.06)',
         padding: '0 1.5rem', height: 56,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         position: 'sticky', top: 0, zIndex: 100,
@@ -231,7 +231,7 @@ export default async function LessonPage({ params }: Props) {
             {nextLesson ? (
               <Link href={navUrl(nextLesson)} style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '0.5rem',
-                background: '#E31E24', borderRadius: 10,
+                background: '#0E7A58', borderRadius: 10,
                 padding: '0.75rem 1.25rem', textDecoration: 'none', flex: 1,
               }}>
                 <div style={{ textAlign: 'right' }}>
@@ -242,14 +242,14 @@ export default async function LessonPage({ params }: Props) {
               </Link>
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#D4AF37', borderRadius: 10, padding: '0.75rem 1.25rem', flex: 1 }}>
-                <p style={{ color: '#0D183D', fontWeight: 700, fontSize: '0.875rem' }}>Course Complete &#127881;</p>
+                <p style={{ color: '#0B3D2E', fontWeight: 700, fontSize: '0.875rem' }}>Course Complete &#127881;</p>
               </div>
             )}
           </div>
         </div>
 
         <div>
-          <div style={{ background: '#0D183D', borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
+          <div style={{ background: '#0B3D2E', borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
             <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
               Course Content
             </p>
@@ -265,12 +265,12 @@ export default async function LessonPage({ params }: Props) {
                     <Link key={l.lesson_id} href={navUrl(l)} style={{
                       display: 'flex', alignItems: 'center', gap: '0.625rem',
                       padding: '0.5rem 0.75rem', borderRadius: 8, textDecoration: 'none',
-                      background: isActive ? 'rgba(227,30,36,0.15)' : 'transparent',
-                      border: isActive ? '1px solid rgba(227,30,36,0.3)' : '1px solid transparent',
+                      background: isActive ? 'rgba(14,122,88,0.15)' : 'transparent',
+                      border: isActive ? '1px solid rgba(14,122,88,0.3)' : '1px solid transparent',
                     }}>
                       <span style={{
                         width: 20, height: 20, borderRadius: '50%',
-                        background: isActive ? '#E31E24' : 'rgba(255,255,255,0.08)',
+                        background: isActive ? '#0E7A58' : 'rgba(255,255,255,0.08)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: '0.6rem', color: '#fff', flexShrink: 0, fontWeight: 700,
                       }}>
