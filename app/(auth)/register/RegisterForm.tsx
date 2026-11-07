@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
+import BaradaMark from '@/components/shared/BaradaMark'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
 import { createClient } from '@/lib/supabase/client'
 
 export default function RegisterForm() {
@@ -53,9 +53,9 @@ export default function RegisterForm() {
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
       {/* Left panel */}
-      <div className="hidden lg:flex flex-col justify-between bg-[#0D183D] p-12" aria-hidden="true">
+      <div className="hidden lg:flex flex-col justify-between bg-[#0B3D2E] p-12" aria-hidden="true">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo/barada-symbol-96.png" alt="Barada" width={36} height={36} className="rounded-lg" />
+          <BaradaMark size={36} />
           <span className="font-display font-bold text-white text-lg">Barada Academy</span>
         </Link>
         <ul className="space-y-4" aria-label="Platform benefits">
@@ -78,10 +78,10 @@ export default function RegisterForm() {
       {/* Right panel */}
       <div className="flex items-center justify-center p-8 overflow-y-auto">
         <div className="w-full max-w-md">
-          <Link href="/" className="text-sm text-gray-500 hover:text-gray-700 mb-8 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D183D] rounded">
+          <Link href="/" className="text-sm text-gray-500 hover:text-gray-700 mb-8 inline-block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0B3D2E] rounded">
             ← Back to Barada.in
           </Link>
-          <h1 className="font-display font-bold text-3xl text-[#0D183D] mb-2">Create your free account.</h1>
+          <h1 className="font-display font-bold text-3xl text-[#0B3D2E] mb-2">Create your free account.</h1>
           <p className="text-gray-500 text-sm mb-8">Join professionals across India learning with Barada Academy.</p>
 
           {error && (
@@ -93,44 +93,44 @@ export default function RegisterForm() {
           <form onSubmit={handleRegister} className="space-y-4" noValidate>
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label htmlFor="firstName" className="block text-sm font-semibold text-[#0D183D] mb-1.5">First name</label>
+                <label htmlFor="firstName" className="block text-sm font-semibold text-[#0B3D2E] mb-1.5">First name</label>
                 <input id="firstName" type="text" required value={form.firstName}
                   onChange={e => setForm(f => ({ ...f, firstName: e.target.value }))}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0B3D2E] focus:ring-2 focus:ring-[#0B3D2E]/10"
                   placeholder="Rahul" autoComplete="given-name" />
               </div>
               <div>
-                <label htmlFor="lastName" className="block text-sm font-semibold text-[#0D183D] mb-1.5">Last name</label>
+                <label htmlFor="lastName" className="block text-sm font-semibold text-[#0B3D2E] mb-1.5">Last name</label>
                 <input id="lastName" type="text" required value={form.lastName}
                   onChange={e => setForm(f => ({ ...f, lastName: e.target.value }))}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0B3D2E] focus:ring-2 focus:ring-[#0B3D2E]/10"
                   placeholder="Sharma" autoComplete="family-name" />
               </div>
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-[#0D183D] mb-1.5">Email address</label>
+              <label htmlFor="email" className="block text-sm font-semibold text-[#0B3D2E] mb-1.5">Email address</label>
               <input id="email" type="email" required value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0B3D2E] focus:ring-2 focus:ring-[#0B3D2E]/10"
                 placeholder="you@company.com" autoComplete="email" inputMode="email" />
             </div>
 
             <div>
-              <label htmlFor="profession" className="block text-sm font-semibold text-[#0D183D] mb-1.5">
+              <label htmlFor="profession" className="block text-sm font-semibold text-[#0B3D2E] mb-1.5">
                 Profession <span className="text-gray-400 font-normal">(optional)</span>
               </label>
               <input id="profession" type="text" value={form.profession}
                 onChange={e => setForm(f => ({ ...f, profession: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0B3D2E] focus:ring-2 focus:ring-[#0B3D2E]/10"
                 placeholder="e.g. Marketing Manager, Business Analyst" />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-[#0D183D] mb-1.5">Password</label>
+              <label htmlFor="password" className="block text-sm font-semibold text-[#0B3D2E] mb-1.5">Password</label>
               <input id="password" type="password" required minLength={8} value={form.password}
                 onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#0B3D2E] focus:ring-2 focus:ring-[#0B3D2E]/10"
                 placeholder="Minimum 8 characters" autoComplete="new-password"
                 aria-describedby="password-hint" />
               <p id="password-hint" className="text-xs text-gray-400 mt-1">Minimum 8 characters</p>
@@ -138,20 +138,20 @@ export default function RegisterForm() {
 
             <p className="text-xs text-gray-500">
               By creating an account you agree to our{' '}
-              <Link href="/terms" className="text-[#0D183D] font-semibold hover:underline">Terms</Link>{' '}
+              <Link href="/terms" className="text-[#0B3D2E] font-semibold hover:underline">Terms</Link>{' '}
               and{' '}
-              <Link href="/privacy" className="text-[#0D183D] font-semibold hover:underline">Privacy Policy</Link>.
+              <Link href="/privacy" className="text-[#0B3D2E] font-semibold hover:underline">Privacy Policy</Link>.
             </p>
 
             <button type="submit" disabled={loading} aria-busy={loading}
-              className="w-full bg-[#E31E24] text-white py-3 rounded-lg font-bold text-sm hover:bg-[#B1171C] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E31E24]">
+              className="w-full bg-[#0E7A58] text-white py-3 rounded-lg font-bold text-sm hover:bg-[#0A5F45] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E7A58]">
               {loading ? 'Creating account…' : 'Create Free Account →'}
             </button>
           </form>
 
           <p className="text-sm text-gray-500 text-center mt-6">
             Already have an account?{' '}
-            <Link href="/login" className="font-bold text-[#0D183D] hover:underline">Sign in →</Link>
+            <Link href="/login" className="font-bold text-[#0B3D2E] hover:underline">Sign in →</Link>
           </p>
         </div>
       </div>
