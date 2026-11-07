@@ -18,7 +18,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-[#0D183D] text-white sticky top-0 z-10">
+      <header className="bg-[#0B3D2E] text-white sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <span className="font-display font-bold">Barada Admin</span>

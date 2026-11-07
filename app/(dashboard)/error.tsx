@@ -22,7 +22,7 @@ export default function DashboardError({ error, reset }: ErrorProps) {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
       <div className="bg-white rounded-2xl border border-gray-200 p-10 max-w-md w-full text-center shadow-sm">
         <div className="text-4xl mb-4" aria-hidden="true">⚠️</div>
-        <h1 className="font-display font-bold text-xl text-[#0D183D] mb-2">
+        <h1 className="font-display font-bold text-xl text-[#0B3D2E] mb-2">
           Something went wrong
         </h1>
         <p className="text-gray-500 text-sm mb-6 leading-relaxed">
@@ -31,7 +31,7 @@ export default function DashboardError({ error, reset }: ErrorProps) {
         <div className="flex gap-3 justify-center flex-wrap">
           <button
             onClick={reset}
-            className="bg-[#E31E24] text-white font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#B1171C] transition-colors"
+            className="bg-[#0E7A58] text-white font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#0A5F45] transition-colors"
           >
             Try again
           </button>

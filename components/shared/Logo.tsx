@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import BaradaMark from '@/components/shared/BaradaMark'
 
 type LogoVariant = 'corporate' | 'academy' | 'icon' | 'footer'
 
@@ -54,14 +55,18 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
 
   const img = (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-      <Image src={src} alt={alt} width={width} height={height} className={className} priority />
+      {variant === 'icon' ? (
+        <Image src={src} alt={alt} width={width} height={height} className={className} priority />
+      ) : (
+        <BaradaMark size={height} label={alt} className={className} />
+      )}
       {(variant === 'corporate' || variant === 'footer') && (
         <span style={{ fontWeight: 800, fontSize: height * 0.45, color: '#fff', letterSpacing: 0.5 }}>BARADA</span>
       )}
       {variant === 'academy' && (
         <span style={{ fontWeight: 800, fontSize: height * 0.4, letterSpacing: 0.5 }}>
           <span style={{ color: '#fff' }}>BARADA</span>{' '}
-          <span style={{ color: '#E31E24' }}>ACADEMY</span>
+          <span style={{ color: '#D4AF37' }}>ACADEMY</span>
         </span>
       )}
     </span>

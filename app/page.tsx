@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BaradaMark from '@/components/shared/BaradaMark'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import CorporateHeader from '@/components/corporate/Header'
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
   },
 }
 
-const red = '#E31E24'
-const navy = '#0D183D'
+const red = '#0E7A58'
+const navy = '#0B3D2E'
 const gold = '#D4AF37'
 
 // The two routes Barada actively wants every visitor to find in one click.
@@ -118,7 +119,7 @@ export default function HomePage() {
           ground with a gold accent (Barada red kept for the primary CTA).
           The robot is an original vector drawing with a light CSS tilt
           effect (components/corporate/HeroRobot.tsx); no 3D library. */}
-      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #1A2B5E 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #14573F 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
             <p style={{ color: gold, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Barada &middot; Bengaluru, India</p>
@@ -129,7 +130,7 @@ export default function HomePage() {
               Barada brings practical AI skills, digital procurement know-how and retail execution together, drawing on 19+ years of corporate experience.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link href="/academy" style={{ background: red, color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
+              <Link href="/academy" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
               <Link href="/services" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>See planned services</Link>
             </div>
           </div>
@@ -177,7 +178,11 @@ export default function HomePage() {
       {/* WHO WE ARE */}
       <section style={{ background: '#fff', padding: '5rem 2rem' }}>
         <div style={{ maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
-          <Image src="/logo/barada-lockup-connect-build-grow.jpg" alt="Barada -- Connect. Build. Grow." width={220} height={220} style={{ width: 180, height: 'auto', margin: '0 auto 2rem' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', margin: '0 auto 2rem' }}>
+            <BaradaMark size={72} color={navy} label="Barada" />
+            <span style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, letterSpacing: '0.14em', color: navy }}>BARADA</span>
+            <span style={{ color: '#6B7280', fontSize: '0.78rem', letterSpacing: '0.14em' }}>CONNECT. BUILD. GROW.</span>
+          </div>
           <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Who We Are</p>
           <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, marginBottom: '1.25rem' }}>
             A parent brand, built for practical results.
@@ -199,7 +204,7 @@ export default function HomePage() {
             const card = (
               <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
                 <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 280px" style={{ objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,24,61,0.97) 0%, rgba(13,24,61,0.8) 42%, rgba(13,24,61,0.2) 75%, transparent 100%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(11,61,46,0.97) 0%, rgba(11,61,46,0.8) 42%, rgba(11,61,46,0.2) 75%, transparent 100%)' }} />
                 <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
                   <p style={{ color: '#fff', fontWeight: 800, fontSize: '1rem', marginBottom: '0.25rem' }}>{name}</p>
                   <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.78rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>

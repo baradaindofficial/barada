@@ -11,8 +11,8 @@
        Academy's own dashboard theme tokens (--color-brand-* below, under
        "Sprint 4.4d -- Dashboard theme tokens") which keep Academy's
        existing values and are not touched here. */
-    --barada-red:        #E31E24;
-    --barada-navy:       #0D183D;
+    --barada-red:        #0E7A58;
+    --barada-navy:       #0B3D2E;
     --barada-gold:       #D4AF37;
     --barada-slate:      #475569;
     --barada-light-gray: #F1F5F9;
@@ -43,7 +43,7 @@
 
   /* Skip to main content — hidden until focused */
   .skip-link {
-    @apply absolute -top-full left-4 z-50 bg-white text-[#0D183D] font-bold px-4 py-2 rounded-lg border-2 border-[#0D183D] text-sm;
+    @apply absolute -top-full left-4 z-50 bg-white text-[#0B3D2E] font-bold px-4 py-2 rounded-lg border-2 border-[#0B3D2E] text-sm;
     transition: top 0.1s;
   }
   .skip-link:focus {
@@ -52,13 +52,13 @@
 }
 
 @layer components {
-  .btn-primary { @apply bg-[#E31E24] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#B1171C] transition-colors focus-visible:outline-2 focus-visible:outline-[#E31E24]; }
-  .btn-navy    { @apply bg-[#0D183D] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#1a2b5e] transition-colors; }
-  .btn-gold    { @apply bg-[#D4AF37] text-[#0D183D] font-bold px-6 py-3 rounded-xl hover:bg-[#c4a030] transition-colors; }
+  .btn-primary { @apply bg-[#0E7A58] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#0A5F45] transition-colors focus-visible:outline-2 focus-visible:outline-[#0E7A58]; }
+  .btn-navy    { @apply bg-[#0B3D2E] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#14573F] transition-colors; }
+  .btn-gold    { @apply bg-[#D4AF37] text-[#0B3D2E] font-bold px-6 py-3 rounded-xl hover:bg-[#c4a030] transition-colors; }
   .btn-outline { @apply border-2 border-current font-bold px-6 py-3 rounded-xl hover:bg-current/10 transition-colors; }
   .container   { @apply max-w-6xl mx-auto px-4 md:px-8; }
   .section     { @apply py-16 md:py-24; }
-  .input-field { @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0D183D] focus:ring-2 focus:ring-[#0D183D]/10 transition-all; }
+  .input-field { @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0B3D2E] focus:ring-2 focus:ring-[#0B3D2E]/10 transition-all; }
 }
 
 
@@ -76,17 +76,17 @@
   --color-surface: #FFFFFF;
   --color-surface-alt: #F3F4F6;
   --color-border: #E5E7EB;
-  --color-text-primary: #0D183D;
+  --color-text-primary: #0B3D2E;
   --color-text-secondary: #6B7280;
   --color-text-muted: #9CA3AF;
 
-  --color-brand-red: #E31E24;
-  --color-brand-navy: #0D183D;
+  --color-brand-red: #0E7A58;
+  --color-brand-navy: #0B3D2E;
   --color-brand-gold: #D4AF37;
 
-  --shadow-sm: 0 1px 2px rgba(13, 24, 61, 0.06);
-  --shadow-md: 0 4px 16px rgba(13, 24, 61, 0.10);
-  --shadow-lg: 0 12px 32px rgba(13, 24, 61, 0.16);
+  --shadow-sm: 0 1px 2px rgba(11,61,46, 0.06);
+  --shadow-md: 0 4px 16px rgba(11,61,46, 0.10);
+  --shadow-lg: 0 12px 32px rgba(11,61,46, 0.16);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -99,19 +99,19 @@
 }
 
 [data-theme="dark"] {
-  --color-bg: #0B1120;
-  --color-surface: #131B33;
-  --color-surface-alt: #1A2547;
+  --color-bg: #07140F;
+  --color-surface: #0E241B;
+  --color-surface-alt: #143327;
   --color-border: rgba(255, 255, 255, 0.08);
   --color-text-primary: #F3F4F6;
-  --color-text-secondary: #A3ACC2;
+  --color-text-secondary: #A5BFB3;
   --color-text-muted: #6B7280;
 
   /* Brand red/gold stay constant across themes for brand consistency.
-     Navy lightens on dark surfaces — the literal brand navy (#0D183D) is
+     Navy lightens on dark surfaces — the literal brand navy (#0B3D2E) is
      too close to the dark background to read as an accent/text color. */
-  --color-brand-red: #E31E24;
-  --color-brand-navy: #7C89B8;
+  --color-brand-red: #0E7A58;
+  --color-brand-navy: #7FC4A6;
   --color-brand-gold: #D4AF37;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);

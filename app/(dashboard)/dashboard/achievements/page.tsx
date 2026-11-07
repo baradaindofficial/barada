@@ -33,14 +33,14 @@ export default async function AchievementsPage() {
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div>
             <Link href="/dashboard" className="text-xs text-gray-400 hover:text-gray-600">&larr; Dashboard</Link>
-            <div className="font-display font-bold text-[#0D183D] text-lg">Achievements</div>
+            <div className="font-display font-bold text-[#0B3D2E] text-lg">Achievements</div>
           </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-8">
         <div className="mb-6">
-          <h1 className="font-display font-bold text-2xl text-[#0D183D] mb-1">Your Achievements</h1>
+          <h1 className="font-display font-bold text-2xl text-[#0B3D2E] mb-1">Your Achievements</h1>
           <p className="text-gray-500 text-sm">{earnedCount} of {achievements.length} unlocked</p>
         </div>
 
@@ -55,7 +55,7 @@ export default async function AchievementsPage() {
               }`}
             >
               <div className="text-4xl mb-3">{ICON_MAP[a.icon] ?? '\uD83C\uDFC5'}</div>
-              <div className="font-bold text-sm text-[#0D183D] mb-1">{a.title}</div>
+              <div className="font-bold text-sm text-[#0B3D2E] mb-1">{a.title}</div>
               <div className="text-xs text-gray-500 mb-2">{a.description}</div>
               {a.earned ? (
                 <div className="text-xs font-semibold text-[#1A7F56]">
