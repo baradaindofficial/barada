@@ -20,16 +20,16 @@ export default async function CertificatesPage() {
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', padding: '2rem', maxWidth: 900, margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem' }}>
-        <Link href="/dashboard" style={{ color: '#6B7280', fontSize: '0.82rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0B3D2E', fontSize: '1.75rem', marginTop: '0.5rem' }}>My Certificates</h1>
-        <p style={{ color: '#6B7280' }}>{certificates?.length || 0} certificate{(certificates?.length || 0) !== 1 ? 's' : ''} earned</p>
+        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.82rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D4638', fontSize: '1.75rem', marginTop: '0.5rem' }}>My Certificates</h1>
+        <p style={{ color: '#69717D' }}>{certificates?.length || 0} certificate{(certificates?.length || 0) !== 1 ? 's' : ''} earned</p>
       </div>
 
       {!certificates || certificates.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '4rem 2rem', background: '#F9FAFB', borderRadius: 16, border: '1.5px dashed #E5E7EB' }}>
           <p style={{ fontSize: '2rem', marginBottom: '1rem' }}>🏆</p>
-          <p style={{ color: '#374151', fontWeight: 600, marginBottom: '0.5rem' }}>No certificates yet</p>
-          <p style={{ color: '#6B7280', fontSize: '0.875rem', marginBottom: '1.5rem' }}>Complete a course and pass the assessment to earn your certificate for &#8377;299.</p>
+          <p style={{ color: '#162622', fontWeight: 600, marginBottom: '0.5rem' }}>No certificates yet</p>
+          <p style={{ color: '#69717D', fontSize: '0.875rem', marginBottom: '1.5rem' }}>Complete a course and pass the assessment to earn your certificate for &#8377;299.</p>
           <Link href="/academy" style={{ background: '#0E7A58', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
             Start Learning
           </Link>
@@ -37,7 +37,7 @@ export default async function CertificatesPage() {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
           {(certificates as any[]).map((cert: any) => (
-            <div key={cert.certificate_id} style={{ background: 'linear-gradient(135deg, #0B3D2E, #14573F)', borderRadius: 14, padding: '1.75rem', border: '1px solid rgba(212,175,55,0.3)' }}>
+            <div key={cert.certificate_id} style={{ background: 'linear-gradient(135deg, #0D4638, #165A48)', borderRadius: 14, padding: '1.75rem', border: '1px solid rgba(212,175,55,0.3)' }}>
               <div style={{ fontSize: '2rem', marginBottom: '0.875rem' }}>🏆</div>
               <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.375rem' }}>Certificate of Completion</p>
               <p style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: '0.375rem' }}>
@@ -48,7 +48,7 @@ export default async function CertificatesPage() {
               </p>
               {cert.certificate_url && (
                 <a href={cert.certificate_url} target="_blank" rel="noopener noreferrer"
-                  style={{ display: 'inline-block', background: '#D4AF37', color: '#0B3D2E', padding: '0.5rem 1rem', borderRadius: 8, textDecoration: 'none', fontWeight: 700, fontSize: '0.78rem' }}>
+                  style={{ display: 'inline-block', background: '#D4AF37', color: '#0D4638', padding: '0.5rem 1rem', borderRadius: 8, textDecoration: 'none', fontWeight: 700, fontSize: '0.78rem' }}>
                   Download PDF
                 </a>
               )}
