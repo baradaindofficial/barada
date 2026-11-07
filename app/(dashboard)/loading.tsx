@@ -15,7 +15,7 @@ export default function DashboardLoading() {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Welcome banner skeleton */}
-        <div className="bg-gradient-to-br from-[#0D183D] to-[#1A2B5E] rounded-2xl p-8 mb-6 animate-pulse">
+        <div className="bg-gradient-to-br from-[#0B3D2E] to-[#14573F] rounded-2xl p-8 mb-6 animate-pulse">
           <div className="h-4 w-32 bg-white/10 rounded mb-3" />
           <div className="h-8 w-64 bg-white/10 rounded mb-2" />
           <div className="h-4 w-48 bg-white/10 rounded mb-6" />
