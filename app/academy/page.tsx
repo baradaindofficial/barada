@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BaradaMark from '@/components/shared/BaradaMark'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import Logo from '@/components/shared/Logo'
@@ -128,7 +129,11 @@ export default async function AcademyPage() {
           actual course categories (not generic AI stock art). */}
       <section style={{ background: '#F9FAFB', padding: '3.5rem 2rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto 2rem', textAlign: 'center' }}>
-          <Image src="/logo/barada-academy-lockup-white.png" alt="Barada Academy -- Learn AI. Build the Future." width={200} height={200} style={{ width: 160, height: 'auto', margin: '0 auto' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+            <BaradaMark size={64} color={navy} label="Barada Academy" />
+            <span style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, letterSpacing: '0.14em', color: navy }}>BARADA <span style={{ color: '#B8962E' }}>ACADEMY</span></span>
+            <span style={{ color: '#6B7280', fontSize: '0.78rem', letterSpacing: '0.14em' }}>LEARN AI. BUILD THE FUTURE.</span>
+          </div>
         </div>
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
           {ACADEMY_PHOTOS.map(({ src, name, desc }) => (
