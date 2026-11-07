@@ -21,15 +21,15 @@ export default async function ProfilePage() {
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', padding: '2rem', maxWidth: 700, margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem' }}>
         <Link href="/dashboard" style={{ color: '#6B7280', fontSize: '0.82rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.75rem', marginTop: '0.5rem' }}>My Profile</h1>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0B3D2E', fontSize: '1.75rem', marginTop: '0.5rem' }}>My Profile</h1>
       </div>
       <div style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', marginBottom: '1.25rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1.5rem' }}>
-          <div style={{ width: 64, height: 64, background: '#E31E24', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: '1.5rem', fontFamily: 'Poppins, sans-serif' }}>
+          <div style={{ width: 64, height: 64, background: '#0E7A58', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: '1.5rem', fontFamily: 'Poppins, sans-serif' }}>
             {initial}
           </div>
           <div>
-            <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', fontSize: '1.125rem' }}>
+            <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0B3D2E', fontSize: '1.125rem' }}>
               {displayName}
             </p>
             <p style={{ color: '#6B7280', fontSize: '0.875rem' }}>{user.email}</p>
@@ -43,7 +43,7 @@ export default async function ProfilePage() {
         ].map(([label, value]) => (
           <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.75rem 0', borderBottom: '1px solid #F3F4F6' }}>
             <span style={{ color: '#6B7280', fontSize: '0.875rem' }}>{label}</span>
-            <span style={{ color: '#0D183D', fontWeight: 600, fontSize: '0.875rem' }}>{value}</span>
+            <span style={{ color: '#0B3D2E', fontWeight: 600, fontSize: '0.875rem' }}>{value}</span>
           </div>
         ))}
       </div>
