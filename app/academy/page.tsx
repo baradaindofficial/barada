@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
 }
 
-const red = '#E31E24'
-const navy = '#0D183D'
+const red = '#0E7A58'
+const navy = '#0B3D2E'
 const gold = '#D4AF37'
 
 // Real, properly-licensed photography (Unsplash License) matching
@@ -77,7 +77,7 @@ export default async function AcademyPage() {
         </p>
       </div>
 
-      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #1A2B5E 100%)`, padding: '4.5rem 2rem 3.5rem', textAlign: 'center' }}>
+      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #14573F 100%)`, padding: '4.5rem 2rem 3.5rem', textAlign: 'center' }}>
         <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Barada Academy</p>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '0.5rem' }}>
           Learn AI.
@@ -89,7 +89,7 @@ export default async function AcademyPage() {
           Structured, self-paced professional courses on AI tools, productivity, and career skills. Built by a practitioner. Immediately applicable to your work.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link href="/register" style={{ background: red, color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Start Learning Free &rarr;</Link>
+          <Link href="/register" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Start Learning Free &rarr;</Link>
           <Link href="/login" style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem' }}>Sign In</Link>
         </div>
         <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', marginTop: '3rem', flexWrap: 'wrap' }}>
@@ -134,7 +134,7 @@ export default async function AcademyPage() {
           {ACADEMY_PHOTOS.map(({ src, name, desc }) => (
             <div key={name} style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
               <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 260px" style={{ objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,24,61,0.97) 0%, rgba(13,24,61,0.8) 42%, rgba(13,24,61,0.2) 75%, transparent 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(11,61,46,0.97) 0%, rgba(11,61,46,0.8) 42%, rgba(11,61,46,0.2) 75%, transparent 100%)' }} />
               <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
                 <p style={{ color: '#fff', fontWeight: 800, fontSize: '0.95rem', marginBottom: '0.25rem' }}>{name}</p>
                 <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.76rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
@@ -169,7 +169,7 @@ export default async function AcademyPage() {
             <img
               src="/images/academy/sample-certificate.png"
               alt="Sample Barada Academy certificate of completion, with a verification QR code and certificate ID"
-              style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(13,24,61,0.25)' }}
+              style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(11,61,46,0.25)' }}
             />
           </div>
         </div>
@@ -334,7 +334,7 @@ export default async function AcademyPage() {
         </div>
       </section>
 
-      <footer style={{ background: '#060b18', padding: '2rem', textAlign: 'center' }}>
+      <footer style={{ background: '#052A1F', padding: '2rem', textAlign: 'center' }}>
         <Logo variant="academy" height={36} />
         <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', marginTop: '0.75rem' }}>&copy; 2026 Barada Academy &middot; A Barada Platform</p>
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '0.5rem' }}>
