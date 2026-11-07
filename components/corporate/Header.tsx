@@ -34,7 +34,7 @@ export default function CorporateHeader() {
       style={{ background: '#0B3D2E', position: 'sticky', top: 0, zIndex: 100 }}
       className="px-4 md:px-8"
     >
-      <div className="flex items-center justify-between" style={{ height: 64 }}>
+      <div className="flex items-center justify-between" style={{ height: 64, maxWidth: 1200, margin: '0 auto' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', lineHeight: 0 }}>
           <Logo variant="corporate" height={40} />
         </Link>
@@ -61,7 +61,7 @@ export default function CorporateHeader() {
         {/* Mobile hamburger toggle */}
         <button
           type="button"
-          className="md:hidden"
+          className="md:hidden flex"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           aria-controls="corporate-mobile-menu"
@@ -71,7 +71,6 @@ export default function CorporateHeader() {
             border: 'none',
             color: '#fff',
             padding: 8,
-            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
@@ -93,6 +92,8 @@ export default function CorporateHeader() {
           id="corporate-mobile-menu"
           className="md:hidden"
           style={{
+            maxWidth: 1200,
+            margin: '0 auto',
             borderTop: '1px solid rgba(255,255,255,0.1)',
             paddingTop: '0.75rem',
             paddingBottom: '1.25rem',
