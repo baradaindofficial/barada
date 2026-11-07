@@ -11,7 +11,7 @@ export default function GlobalError({
 }) {
   return (
     <html lang="en-IN">
-      <body className="min-h-screen bg-[#0D183D] flex items-center justify-center p-8 font-sans">
+      <body className="min-h-screen bg-[#0B3D2E] flex items-center justify-center p-8 font-sans">
         <div className="text-center max-w-md">
           <div className="text-6xl mb-4" aria-hidden="true">⚠️</div>
           <h1 className="font-bold text-2xl text-white mb-3">Something went wrong</h1>
@@ -21,7 +21,7 @@ export default function GlobalError({
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <button onClick={reset}
-              className="bg-[#E31E24] text-white font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#B1171C] transition-colors">
+              className="bg-[#0E7A58] text-white font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#0A5F45] transition-colors">
               Try again
             </button>
             <Link href="/"
