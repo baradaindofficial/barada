@@ -20,7 +20,7 @@ function BarChart({ data, valueKey, label, color }: { data: any[]; valueKey: str
   const max = Math.max(1, ...data.map((d) => d[valueKey]))
   return (
     <div>
-      <div className="text-sm font-semibold text-[#0B3D2E] mb-3">{label}</div>
+      <div className="text-sm font-semibold text-[#0D4638] mb-3">{label}</div>
       {data.length === 0 ? (
         <div className="text-xs text-gray-400 py-8 text-center">No activity yet</div>
       ) : (
@@ -64,7 +64,7 @@ function ActivityHeatmap({ data }: { data: { date: string; hasActivity: boolean;
 
   return (
     <div>
-      <div className="text-sm font-semibold text-[#0B3D2E] mb-3">Activity (last 90 days)</div>
+      <div className="text-sm font-semibold text-[#0D4638] mb-3">Activity (last 90 days)</div>
       <div className="flex gap-1 overflow-x-auto pb-2">
         {weeks.map((week, wi) => (
           <div key={wi} className="flex flex-col gap-1">
@@ -103,17 +103,17 @@ export default async function AnalyticsPage() {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <Link href="/dashboard" className="text-xs text-gray-400 hover:text-gray-600">&larr; Dashboard</Link>
-          <div className="font-display font-bold text-[#0B3D2E] text-lg">My Analytics</div>
+          <div className="font-display font-bold text-[#0D4638] text-lg">My Analytics</div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-8 space-y-6">
         <div className="bg-white border border-gray-200 rounded-xl p-5">
-          <div className="text-sm font-semibold text-[#0B3D2E] mb-1">Completion Pace</div>
+          <div className="text-sm font-semibold text-[#0D4638] mb-1">Completion Pace</div>
           {velocity.averageDaysPerLesson === null ? (
             <div className="text-xs text-gray-400">Complete a few more lessons to see your pace.</div>
           ) : (
-            <div className="text-2xl font-black text-[#0B3D2E]">
+            <div className="text-2xl font-black text-[#0D4638]">
               {velocity.averageDaysPerLesson} <span className="text-sm font-normal text-gray-400">days per lesson on average</span>
             </div>
           )}
@@ -124,7 +124,7 @@ export default async function AnalyticsPage() {
             <BarChart data={weekly} valueKey="totalSeconds" label="Weekly Time Spent" color="#0E7A58" />
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-5">
-            <BarChart data={weekly} valueKey="lessonsCompleted" label="Lessons Completed per Week" color="#0B3D2E" />
+            <BarChart data={weekly} valueKey="lessonsCompleted" label="Lessons Completed per Week" color="#0D4638" />
           </div>
         </div>
 
