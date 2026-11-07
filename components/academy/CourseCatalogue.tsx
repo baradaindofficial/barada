@@ -9,8 +9,8 @@ import CourseEnrollButton from '@/components/academy/CourseEnrollButton'
 // that exist in the published courses, so nothing is invented. Team
 // workshops are described as planned, in line with /services.
 
-const red = '#E31E24'
-const navy = '#0D183D'
+const red = '#0E7A58'
+const navy = '#0B3D2E'
 
 export type CatalogueCourse = {
   slug: string
