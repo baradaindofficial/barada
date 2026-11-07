@@ -73,7 +73,7 @@ export default async function AcademyPage() {
 
       <div style={{ background: red, padding: '0.625rem', textAlign: 'center' }}>
         <p style={{ color: '#fff', fontSize: '0.82rem', margin: 0 }}>
-          <strong>Now Enrolling</strong> &mdash; All courses live &middot; Free to learn &middot; Certificate available &middot;{' '}
+          <strong>Now Enrolling</strong> &mdash; Free to learn &middot; Certificate available &middot;{' '}
           <Link href="/register" style={{ color: gold, fontWeight: 700 }}>Start Today &rarr;</Link>
         </p>
       </div>
