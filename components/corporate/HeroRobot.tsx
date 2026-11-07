@@ -65,13 +65,13 @@ export default function HeroRobot() {
           <defs>
             <linearGradient id="brBody" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#1E5A44" />
-              <stop offset="1" stopColor="#0F3D2E" />
+              <stop offset="1" stopColor="#0F4638" />
             </linearGradient>
           </defs>
           <line x1="210" y1="60" x2="210" y2="95" stroke="#5B6A8C" strokeWidth="6" strokeLinecap="round" />
           <circle className="b-beacon" cx="210" cy="50" r="12" fill="#F2D675" />
           <rect x="105" y="95" width="210" height="150" rx="38" fill="url(#brBody)" stroke="#2F7D61" strokeWidth="3" />
-          <rect x="130" y="130" width="160" height="72" rx="28" fill="#04201A" stroke="#D4AF37" strokeWidth="3" />
+          <rect x="130" y="130" width="160" height="72" rx="28" fill="#052A21" stroke="#D4AF37" strokeWidth="3" />
           <ellipse className="b-eye" cx="177" cy="166" rx="16" ry="19" fill="#D4AF37" />
           <ellipse className="b-eye" cx="243" cy="166" rx="16" ry="19" fill="#D4AF37" />
           <rect x="188" y="222" width="44" height="6" rx="3" fill="#2F7D61" />
@@ -79,7 +79,7 @@ export default function HeroRobot() {
           <rect x="314" y="145" width="18" height="50" rx="9" fill="#2F7D61" />
           <rect x="190" y="245" width="40" height="22" fill="#2F7D61" />
           <rect x="120" y="267" width="180" height="140" rx="34" fill="url(#brBody)" stroke="#2F7D61" strokeWidth="3" />
-          <rect x="160" y="300" width="100" height="64" rx="14" fill="#04201A" stroke="#246B52" strokeWidth="2" />
+          <rect x="160" y="300" width="100" height="64" rx="14" fill="#052A21" stroke="#246B52" strokeWidth="2" />
           <polyline points="172,345 192,325 208,338 228,312 248,330" fill="none" stroke="#D4AF37" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
           <circle cx="150" cy="385" r="5" fill="#2FD6A0" />
           <circle cx="170" cy="385" r="5" fill="#D4AF37" />
