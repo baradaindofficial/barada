@@ -35,15 +35,15 @@ export default function ResetPasswordPage() {
           <Link href="/academy" style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
             <Logo variant="academy" height={40} />
           </Link>
-          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0B3D2E', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D4638', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
             Set new password
           </h1>
-          <p style={{ color: '#6B7280', fontSize: '0.875rem' }}>Choose a strong password for your account.</p>
+          <p style={{ color: '#69717D', fontSize: '0.875rem' }}>Choose a strong password for your account.</p>
         </div>
         <div style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB' }}>
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div>
-              <label style={{ display: 'block', color: '#374151', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>New password</label>
+              <label style={{ display: 'block', color: '#162622', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>New password</label>
               <input
                 type="password"
                 value={password}
@@ -54,7 +54,7 @@ export default function ResetPasswordPage() {
               />
             </div>
             <div>
-              <label style={{ display: 'block', color: '#374151', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>Confirm password</label>
+              <label style={{ display: 'block', color: '#162622', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>Confirm password</label>
               <input
                 type="password"
                 value={confirm}
