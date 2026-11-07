@@ -33,7 +33,7 @@ export default function ForgotPasswordPage() {
           <Link href="/academy" style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
             <Logo variant="academy" height={40} />
           </Link>
-          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D183D', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0B3D2E', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
             Reset your password
           </h1>
           <p style={{ color: '#6B7280', fontSize: '0.875rem' }}>
@@ -44,11 +44,11 @@ export default function ForgotPasswordPage() {
         {sent ? (
           <div style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', textAlign: 'center' }}>
             <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📧</div>
-            <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0D183D', fontSize: '1.125rem', marginBottom: '0.5rem' }}>Check your email</h2>
+            <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0B3D2E', fontSize: '1.125rem', marginBottom: '0.5rem' }}>Check your email</h2>
             <p style={{ color: '#6B7280', fontSize: '0.875rem', lineHeight: 1.7 }}>
               We sent a password reset link to <strong>{email}</strong>. Click the link in the email to reset your password.
             </p>
-            <Link href="/login" style={{ display: 'inline-block', marginTop: '1.5rem', color: '#E31E24', fontWeight: 700, fontSize: '0.875rem', textDecoration: 'none' }}>
+            <Link href="/login" style={{ display: 'inline-block', marginTop: '1.5rem', color: '#0E7A58', fontWeight: 700, fontSize: '0.875rem', textDecoration: 'none' }}>
               Back to Sign In
             </Link>
           </div>
@@ -70,14 +70,14 @@ export default function ForgotPasswordPage() {
               <button
                 type="submit"
                 disabled={loading}
-                style={{ background: '#E31E24', color: '#fff', border: 'none', borderRadius: 10, padding: '0.875rem', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', opacity: loading ? 0.7 : 1 }}
+                style={{ background: '#0E7A58', color: '#fff', border: 'none', borderRadius: 10, padding: '0.875rem', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', opacity: loading ? 0.7 : 1 }}
               >
                 {loading ? 'Sending...' : 'Send Reset Link'}
               </button>
             </form>
             <p style={{ textAlign: 'center', marginTop: '1.25rem', color: '#6B7280', fontSize: '0.875rem' }}>
               Remember your password?{' '}
-              <Link href="/login" style={{ color: '#E31E24', fontWeight: 700, textDecoration: 'none' }}>Sign in</Link>
+              <Link href="/login" style={{ color: '#0E7A58', fontWeight: 700, textDecoration: 'none' }}>Sign in</Link>
             </p>
           </div>
         )}
