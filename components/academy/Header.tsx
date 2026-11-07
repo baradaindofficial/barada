@@ -37,7 +37,7 @@ export default function AcademyHeader() {
         {/* Mobile hamburger toggle */}
         <button
           type="button"
-          className="md:hidden"
+          className="md:hidden flex"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           aria-controls="academy-mobile-menu"
@@ -48,7 +48,6 @@ export default function AcademyHeader() {
             color: '#fff',
             padding: 8,
             flexShrink: 0,
-            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
