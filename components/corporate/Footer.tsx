@@ -25,7 +25,7 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
     : ECOSYSTEM_VERTICALS
 
   return (
-    <footer style={{ background: '#060b18', padding: '3.5rem 2rem 2rem' }}>
+    <footer style={{ background: '#052A1F', padding: '3.5rem 2rem 2rem' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
           <div>
