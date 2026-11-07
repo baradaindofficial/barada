@@ -61,7 +61,7 @@ export default function CorporateHeader() {
         {/* Mobile hamburger toggle */}
         <button
           type="button"
-          className="md:hidden"
+          className="md:hidden flex"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           aria-controls="corporate-mobile-menu"
@@ -71,7 +71,6 @@ export default function CorporateHeader() {
             border: 'none',
             color: '#fff',
             padding: 8,
-            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
