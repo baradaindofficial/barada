@@ -116,7 +116,7 @@ function ResourceRow({ resource, lessonId }: { resource: Resource; lessonId: str
             aria-label={`Download ${resource.title}`}
             title="Download"
             style={{
-              background: downloading ? 'rgba(255,255,255,0.05)' : '#E31E24',
+              background: downloading ? 'rgba(255,255,255,0.05)' : '#0E7A58',
               border: 'none', borderRadius: 6,
               padding: '0.375rem 0.75rem',
               color: '#fff', fontWeight: 700, fontSize: '0.72rem',
