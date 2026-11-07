@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: 'Verify the authenticity of a Barada Academy certificate.',
 }
 
-const red = '#E31E24'
-const navy = '#0D183D'
+const red = '#0E7A58'
+const navy = '#0B3D2E'
 const gold = '#D4AF37'
 
 interface VerifiedCertificate {
