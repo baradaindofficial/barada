@@ -23,7 +23,7 @@ import { useRouter } from 'next/navigation'
 import { useTextToSpeech } from '@/hooks/useTextToSpeech'
 import { useVoiceCommands } from '@/hooks/useVoiceCommands'
 
-const navy = '#0B3D2E'
+const navy = '#0D4638'
 const red = '#0E7A58'
 const gold = '#D4AF37'
 

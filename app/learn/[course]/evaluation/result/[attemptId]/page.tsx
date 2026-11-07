@@ -97,8 +97,8 @@ export default async function ResultPage({ params }: Props) {
   const scoreColor = attempt.passed ? '#16a34a' : '#E31E24'
 
   return (
-    <div style={{ minHeight: '100vh', background: '#07241A', fontFamily: 'Inter, system-ui, sans-serif' }}>
-      <nav style={{ background: '#0B3D2E', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 1.5rem', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
+    <div style={{ minHeight: '100vh', background: '#072E24', fontFamily: 'Inter, system-ui, sans-serif' }}>
+      <nav style={{ background: '#0D4638', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 1.5rem', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
         <Link href="/academy" style={{ lineHeight: 0 }}>
           <Logo variant="academy" height={32} />
         </Link>
@@ -107,7 +107,7 @@ export default async function ResultPage({ params }: Props) {
 
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '3rem 1.5rem' }}>
         {/* Score card */}
-        <div style={{ background: 'linear-gradient(135deg, #0B3D2E, #14573F)', borderRadius: 20, padding: '2.5rem', border: `1.5px solid ${attempt.passed ? 'rgba(22,163,74,0.3)' : 'rgba(14,122,88,0.2)'}`, textAlign: 'center', marginBottom: '2rem' }}>
+        <div style={{ background: 'linear-gradient(135deg, #0D4638, #165A48)', borderRadius: 20, padding: '2.5rem', border: `1.5px solid ${attempt.passed ? 'rgba(22,163,74,0.3)' : 'rgba(14,122,88,0.2)'}`, textAlign: 'center', marginBottom: '2rem' }}>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
             {course?.title} &mdash; Course Evaluation
           </p>

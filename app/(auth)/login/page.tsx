@@ -28,7 +28,7 @@ export default function LoginPage() {
 function LoginShell() {
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
-      <div className="hidden lg:block bg-[#0B3D2E]" />
+      <div className="hidden lg:block bg-[#0D4638]" />
       <div className="flex items-center justify-center p-8">
         <div className="w-full max-w-md space-y-4 animate-pulse">
           <div className="h-8 bg-gray-200 rounded w-48" />

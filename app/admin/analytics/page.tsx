@@ -28,11 +28,11 @@ export default async function AdminAnalyticsPage() {
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-8 space-y-6">
-      <h1 className="font-display font-bold text-2xl text-[#0B3D2E]">Platform Analytics</h1>
+      <h1 className="font-display font-bold text-2xl text-[#0D4638]">Platform Analytics</h1>
 
       {/* Active learners trend */}
       <div className="bg-white border border-gray-200 rounded-xl p-5">
-        <div className="text-sm font-semibold text-[#0B3D2E] mb-3">Active Learners per Week</div>
+        <div className="text-sm font-semibold text-[#0D4638] mb-3">Active Learners per Week</div>
         {activeLearners.length === 0 ? (
           <div className="text-xs text-gray-400 py-8 text-center">No activity yet</div>
         ) : (
@@ -41,7 +41,7 @@ export default async function AdminAnalyticsPage() {
               <div key={i} className="flex-1 flex flex-col items-center gap-1">
                 <div className="w-full flex items-end h-24">
                   <div
-                    className="w-full rounded-t bg-[#0B3D2E]"
+                    className="w-full rounded-t bg-[#0D4638]"
                     style={{ height: `${Math.max(4, (w.activeLearnerCount / maxActive) * 100)}%`, minHeight: 2 }}
                     title={`${w.weekStart}: ${w.activeLearnerCount} active`}
                   />
@@ -58,7 +58,7 @@ export default async function AdminAnalyticsPage() {
       <div className="grid md:grid-cols-2 gap-6">
         {/* Course popularity */}
         <div className="bg-white border border-gray-200 rounded-xl p-5">
-          <div className="text-sm font-semibold text-[#0B3D2E] mb-3">Course Popularity</div>
+          <div className="text-sm font-semibold text-[#0D4638] mb-3">Course Popularity</div>
           {popularity.length === 0 ? (
             <div className="text-xs text-gray-400 py-8 text-center">No courses yet</div>
           ) : (
@@ -81,7 +81,7 @@ export default async function AdminAnalyticsPage() {
 
         {/* Completion rates */}
         <div className="bg-white border border-gray-200 rounded-xl p-5">
-          <div className="text-sm font-semibold text-[#0B3D2E] mb-3">Completion Rate by Course</div>
+          <div className="text-sm font-semibold text-[#0D4638] mb-3">Completion Rate by Course</div>
           {completionRates.length === 0 ? (
             <div className="text-xs text-gray-400 py-8 text-center">No enrollment data yet</div>
           ) : (
@@ -89,7 +89,7 @@ export default async function AdminAnalyticsPage() {
               {completionRates.map((c) => (
                 <div key={c.courseId} className="flex items-center justify-between text-xs">
                   <span className="text-gray-600 truncate">{c.title}</span>
-                  <span className="font-semibold text-[#0B3D2E] flex-shrink-0 ml-2">
+                  <span className="font-semibold text-[#0D4638] flex-shrink-0 ml-2">
                     {c.completionRatePct}% ({c.completedEnrollments}/{c.totalEnrollments})
                   </span>
                 </div>
@@ -102,13 +102,13 @@ export default async function AdminAnalyticsPage() {
       {/* Revenue estimate */}
       <div className="bg-white border border-gray-200 rounded-xl p-5">
         <div className="flex items-center justify-between mb-1">
-          <div className="text-sm font-semibold text-[#0B3D2E]">Estimated Certificate Revenue</div>
+          <div className="text-sm font-semibold text-[#0D4638]">Estimated Certificate Revenue</div>
           <span className="text-[10px] uppercase tracking-wide text-gray-400 bg-gray-100 px-2 py-0.5 rounded">Estimate only</span>
         </div>
         <p className="text-[11px] text-gray-400 mb-4">
           Based on issued certificates × list price. No payment records exist to verify actual transactions.
         </p>
-        <div className="text-2xl font-black text-[#0B3D2E] mb-4">
+        <div className="text-2xl font-black text-[#0D4638] mb-4">
           {formatRupees(revenue.estimatedRevenueRupees)}
           <span className="text-sm font-normal text-gray-400 ml-2">
             from {revenue.totalIssuedCertificates} certificate{revenue.totalIssuedCertificates !== 1 ? 's' : ''}

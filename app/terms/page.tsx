@@ -12,7 +12,7 @@ export default function TermsPage() {
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', minHeight: '100vh', background: '#F9FAFB' }}>
       <CorporateHeader />
 
-      <section style={{ background: 'linear-gradient(135deg, #0B3D2E, #14573F)', padding: '5rem 2rem', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0D4638, #165A48)', padding: '5rem 2rem', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Terms of Use</h1>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', margin: 0 }}>Last updated: August 2026</p>
       </section>
@@ -29,8 +29,8 @@ export default function TermsPage() {
           ['Contact', 'For terms-related queries, contact info@barada.in or write to Barada (OPC) Private Limited, Bengaluru, Karnataka, India.'],
         ].map(([title, body]) => (
           <div key={title} style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', marginBottom: '1rem' }}>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0B3D2E', fontSize: '1rem', marginBottom: '0.625rem' }}>{title}</h2>
-            <p style={{ color: '#6B7280', lineHeight: 1.8, fontSize: '0.9rem', margin: 0 }}>{body}</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0D4638', fontSize: '1rem', marginBottom: '0.625rem' }}>{title}</h2>
+            <p style={{ color: '#69717D', lineHeight: 1.8, fontSize: '0.9rem', margin: 0 }}>{body}</p>
           </div>
         ))}
       </div>

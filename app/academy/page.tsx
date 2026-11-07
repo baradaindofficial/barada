@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 }
 
 const red = '#0E7A58'
-const navy = '#0B3D2E'
+const navy = '#0D4638'
 const gold = '#D4AF37'
 
 // Real, properly-licensed photography (Unsplash License) matching
@@ -78,7 +78,7 @@ export default async function AcademyPage() {
         </p>
       </div>
 
-      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #14573F 100%)`, padding: '4.5rem 2rem 3.5rem', textAlign: 'center' }}>
+      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #165A48 100%)`, padding: '4.5rem 2rem 3.5rem', textAlign: 'center' }}>
         <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Barada Academy</p>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '0.5rem' }}>
           Learn AI.
@@ -132,14 +132,14 @@ export default async function AcademyPage() {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
             <BaradaMark size={64} color={navy} label="Barada Academy" />
             <span style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, letterSpacing: '0.14em', color: navy }}>BARADA <span style={{ color: '#B8962E' }}>ACADEMY</span></span>
-            <span style={{ color: '#6B7280', fontSize: '0.78rem', letterSpacing: '0.14em' }}>LEARN AI. BUILD THE FUTURE.</span>
+            <span style={{ color: '#69717D', fontSize: '0.78rem', letterSpacing: '0.14em' }}>LEARN AI. BUILD THE FUTURE.</span>
           </div>
         </div>
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
           {ACADEMY_PHOTOS.map(({ src, name, desc }) => (
             <div key={name} style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
               <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 260px" style={{ objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(11,61,46,0.97) 0%, rgba(11,61,46,0.8) 42%, rgba(11,61,46,0.2) 75%, transparent 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,70,56,0.97) 0%, rgba(13,70,56,0.8) 42%, rgba(13,70,56,0.2) 75%, transparent 100%)' }} />
               <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
                 <p style={{ color: '#fff', fontWeight: 800, fontSize: '0.95rem', marginBottom: '0.25rem' }}>{name}</p>
                 <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.76rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
@@ -174,7 +174,7 @@ export default async function AcademyPage() {
             <img
               src="/images/academy/sample-certificate.png"
               alt="Sample Barada Academy certificate of completion, with a verification QR code and certificate ID"
-              style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(11,61,46,0.25)' }}
+              style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(13,70,56,0.25)' }}
             />
           </div>
         </div>
@@ -214,7 +214,7 @@ export default async function AcademyPage() {
             <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: '0 0 0.5rem' }}>
               All courses &mdash; free to start
             </h2>
-            <p style={{ color: '#6B7280', fontSize: '0.95rem' }}>Every course is free to enroll. Certificate available after passing the final assessment.</p>
+            <p style={{ color: '#69717D', fontSize: '0.95rem' }}>Every course is free to enroll. Certificate available after passing the final assessment.</p>
           </div>
           {/* Search, filters and the Individuals / Teams switcher live in the
               client component; only plain course fields are passed down. */}
@@ -245,7 +245,7 @@ export default async function AcademyPage() {
             <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: '0 0 0.5rem' }}>
               More courses in the works
             </h2>
-            <p style={{ color: '#6B7280', fontSize: '0.95rem', maxWidth: 640, margin: '0 auto' }}>
+            <p style={{ color: '#69717D', fontSize: '0.95rem', maxWidth: 640, margin: '0 auto' }}>
               We&apos;re building out the catalogue tool by tool. Each one goes live only once it meets the same bar as our published courses &mdash; real lessons, real assessments, a real certificate. No placeholders launched early.
             </p>
           </div>
@@ -294,7 +294,7 @@ export default async function AcademyPage() {
             ].map((item) => (
               <div key={item.q} style={{ borderBottom: '1px solid #E5E7EB', paddingBottom: '1.25rem' }}>
                 <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.5rem' }}>{item.q}</h3>
-                <p style={{ color: '#6B7280', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
+                <p style={{ color: '#69717D', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
               </div>
             ))}
           </div>
@@ -339,7 +339,7 @@ export default async function AcademyPage() {
         </div>
       </section>
 
-      <footer style={{ background: '#052A1F', padding: '2rem', textAlign: 'center' }}>
+      <footer style={{ background: '#08372C', padding: '2rem', textAlign: 'center' }}>
         <Logo variant="academy" height={36} />
         <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', marginTop: '0.75rem' }}>&copy; 2026 Barada Academy &middot; A Barada Platform</p>
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '0.5rem' }}>

@@ -11,7 +11,7 @@ export default function GlobalError({
 }) {
   return (
     <html lang="en-IN">
-      <body className="min-h-screen bg-[#0B3D2E] flex items-center justify-center p-8 font-sans">
+      <body className="min-h-screen bg-[#0D4638] flex items-center justify-center p-8 font-sans">
         <div className="text-center max-w-md">
           <div className="text-6xl mb-4" aria-hidden="true">⚠️</div>
           <h1 className="font-bold text-2xl text-white mb-3">Something went wrong</h1>

@@ -22,7 +22,7 @@ export default function DashboardError({ error, reset }: ErrorProps) {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
       <div className="bg-white rounded-2xl border border-gray-200 p-10 max-w-md w-full text-center shadow-sm">
         <div className="text-4xl mb-4" aria-hidden="true">⚠️</div>
-        <h1 className="font-display font-bold text-xl text-[#0B3D2E] mb-2">
+        <h1 className="font-display font-bold text-xl text-[#0D4638] mb-2">
           Something went wrong
         </h1>
         <p className="text-gray-500 text-sm mb-6 leading-relaxed">

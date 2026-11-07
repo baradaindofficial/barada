@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         brand: {
           red:   '#D11A1A',
-          navy:  '#0B3D2E',
+          navy:  '#0D4638',
           gold:  '#D4AF37',
           black: '#111111',
           white: '#FFFFFF',

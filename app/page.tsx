@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 }
 
 const red = '#0E7A58'
-const navy = '#0B3D2E'
+const navy = '#0D4638'
 const gold = '#D4AF37'
 
 // The two routes Barada actively wants every visitor to find in one click.
@@ -119,7 +119,7 @@ export default function HomePage() {
           ground with a gold accent (Barada red kept for the primary CTA).
           The robot is an original vector drawing with a light CSS tilt
           effect (components/corporate/HeroRobot.tsx); no 3D library. */}
-      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #14573F 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #165A48 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
             <p style={{ color: gold, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Barada &middot; Bengaluru, India</p>
@@ -181,13 +181,13 @@ export default function HomePage() {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', margin: '0 auto 2rem' }}>
             <BaradaMark size={72} color={navy} label="Barada" />
             <span style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, letterSpacing: '0.14em', color: navy }}>BARADA</span>
-            <span style={{ color: '#6B7280', fontSize: '0.78rem', letterSpacing: '0.14em' }}>CONNECT. BUILD. GROW.</span>
+            <span style={{ color: '#69717D', fontSize: '0.78rem', letterSpacing: '0.14em' }}>CONNECT. BUILD. GROW.</span>
           </div>
           <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Who We Are</p>
           <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, marginBottom: '1.25rem' }}>
             A parent brand, built for practical results.
           </h2>
-          <p style={{ color: '#6B7280', fontSize: '1.05rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
+          <p style={{ color: '#69717D', fontSize: '1.05rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
             Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services planned and further ventures underway. Every Barada platform is built from 19+ years of real corporate experience.
           </p>
           <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
@@ -204,7 +204,7 @@ export default function HomePage() {
             const card = (
               <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
                 <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 280px" style={{ objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(11,61,46,0.97) 0%, rgba(11,61,46,0.8) 42%, rgba(11,61,46,0.2) 75%, transparent 100%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,70,56,0.97) 0%, rgba(13,70,56,0.8) 42%, rgba(13,70,56,0.2) 75%, transparent 100%)' }} />
                 <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
                   <p style={{ color: '#fff', fontWeight: 800, fontSize: '1rem', marginBottom: '0.25rem' }}>{name}</p>
                   <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.78rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
@@ -233,7 +233,7 @@ export default function HomePage() {
                 <span style={{ fontSize: '2.25rem', display: 'block', marginBottom: '1.25rem' }}>{icon}</span>
                 <p style={{ color: color, fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{name}</p>
                 <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: navy, fontSize: '1.375rem', marginBottom: '0.875rem' }}>{headline}</h3>
-                <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1.75rem' }}>{desc}</p>
+                <p style={{ color: '#69717D', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1.75rem' }}>{desc}</p>
                 {external ? (
                   <a href={href} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', background: color, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>{cta} &rarr;</a>
                 ) : (
@@ -257,7 +257,7 @@ export default function HomePage() {
                 <span style={{ fontSize: '1.5rem' }}>{icon}</span>
                 <div>
                   <p style={{ fontWeight: 700, color: navy, fontSize: '0.9rem', margin: '0 0 0.25rem' }}>{name} <span style={{ color: '#9CA3AF', fontWeight: 600, fontSize: '0.7rem' }}>&middot; Coming Soon</span></p>
-                  <p style={{ color: '#6B7280', fontSize: '0.82rem', lineHeight: 1.6, margin: '0 0 0.5rem' }}>{desc}</p>
+                  <p style={{ color: '#69717D', fontSize: '0.82rem', lineHeight: 1.6, margin: '0 0 0.5rem' }}>{desc}</p>
                   {registerInterest && (
                     <Link href="/contact" style={{ color: red, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'underline' }}>Coming Soon &mdash; Register Your Interest &rarr;</Link>
                   )}
@@ -286,7 +286,7 @@ export default function HomePage() {
       <section style={{ background: '#F9FAFB', padding: '4rem 2rem', textAlign: 'center' }}>
         <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Get in Touch</p>
         <h2 style={{ fontSize: 'clamp(1.25rem,2.5vw,1.75rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>Let&apos;s build something together.</h2>
-        <p style={{ color: '#6B7280', marginBottom: '1.5rem' }}>For partnerships, consulting, or media enquiries.</p>
+        <p style={{ color: '#69717D', marginBottom: '1.5rem' }}>For partnerships, consulting, or media enquiries.</p>
         <Link href="/contact" style={{ background: navy, color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>Contact Barada &rarr;</Link>
         <p style={{ color: '#9CA3AF', fontSize: '0.82rem', marginTop: '1rem' }}>info@barada.in</p>
       </section>

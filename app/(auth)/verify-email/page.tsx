@@ -10,10 +10,10 @@ export default function VerifyEmailPage() {
         </Link>
         <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB' }}>
           <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📧</div>
-          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0B3D2E', fontSize: '1.5rem', marginBottom: '0.75rem' }}>
+          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D4638', fontSize: '1.5rem', marginBottom: '0.75rem' }}>
             Check your inbox
           </h1>
-          <p style={{ color: '#6B7280', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
+          <p style={{ color: '#69717D', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
             We sent you a verification email. Click the link in the email to activate your Barada Academy account and start learning.
           </p>
           <p style={{ color: '#9CA3AF', fontSize: '0.78rem', marginBottom: '1.5rem' }}>
@@ -22,7 +22,7 @@ export default function VerifyEmailPage() {
           </p>
           <Link
             href="/login"
-            style={{ display: 'inline-block', background: '#0B3D2E', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}
+            style={{ display: 'inline-block', background: '#0D4638', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}
           >
             Go to Sign In
           </Link>

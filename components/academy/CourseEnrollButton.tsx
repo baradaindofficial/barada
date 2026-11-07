@@ -15,7 +15,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const navy = '#0B3D2E'
+const navy = '#0D4638'
 const red = '#0E7A58'
 
 const buttonStyle: React.CSSProperties = {
@@ -57,7 +57,7 @@ export default function CourseEnrollButton({
         style={{
           ...buttonStyle,
           background: '#F3F4F6',
-          color: '#6B7280',
+          color: '#69717D',
           border: '1px solid #E5E7EB',
           cursor: 'default',
         }}

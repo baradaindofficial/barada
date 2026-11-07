@@ -31,7 +31,7 @@ export default function CorporateHeader() {
 
   return (
     <nav
-      style={{ background: '#0B3D2E', position: 'sticky', top: 0, zIndex: 100 }}
+      style={{ background: '#0D4638', position: 'sticky', top: 0, zIndex: 100 }}
       className="px-4 md:px-8"
     >
       <div className="flex items-center justify-between" style={{ height: 64, maxWidth: 1200, margin: '0 auto' }}>
@@ -52,7 +52,7 @@ export default function CorporateHeader() {
           ))}
           <Link
             href="/academy"
-            style={{ background: '#D4AF37', color: '#0B3D2E', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}
+            style={{ background: '#D4AF37', color: '#0D4638', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}
           >
             Explore Academy
           </Link>
@@ -123,7 +123,7 @@ export default function CorporateHeader() {
             onClick={() => setMenuOpen(false)}
             style={{
               background: '#D4AF37',
-              color: '#0B3D2E',
+              color: '#0D4638',
               padding: '0.65rem 1.25rem',
               borderRadius: 8,
               textDecoration: 'none',

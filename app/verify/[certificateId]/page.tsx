@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 }
 
 const red = '#0E7A58'
-const navy = '#0B3D2E'
+const navy = '#0D4638'
 const gold = '#D4AF37'
 
 interface VerifiedCertificate {
@@ -82,12 +82,12 @@ export default async function VerifyCertificatePage({
               <dd style={{ margin: '0 0 1.25rem', fontSize: '0.95rem', color: navy }}>{issuedDate}</dd>
 
               <dt style={{ fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Certificate ID</dt>
-              <dd style={{ margin: 0, fontSize: '0.85rem', color: '#6B7280', fontFamily: 'monospace' }}>{result.certificate_id}</dd>
+              <dd style={{ margin: 0, fontSize: '0.85rem', color: '#69717D', fontFamily: 'monospace' }}>{result.certificate_id}</dd>
             </dl>
           </div>
         ) : (
           <div style={{ background: '#fff', borderRadius: 16, border: '1.5px solid #E5E7EB', borderTop: `4px solid #9CA3AF`, padding: '2rem', textAlign: 'center' }}>
-            <p style={{ color: '#6B7280', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
+            <p style={{ color: '#69717D', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
               We couldn&apos;t verify a certificate with this ID. It may be entered incorrectly, or the certificate may not have been issued yet. If you believe this is an error,{' '}
               <Link href="/contact" style={{ color: red, fontWeight: 700 }}>contact us</Link>.
             </p>

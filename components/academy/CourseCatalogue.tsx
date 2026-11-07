@@ -10,7 +10,7 @@ import CourseEnrollButton from '@/components/academy/CourseEnrollButton'
 // workshops are described as planned, in line with /services.
 
 const red = '#0E7A58'
-const navy = '#0B3D2E'
+const navy = '#0D4638'
 
 export type CatalogueCourse = {
   slug: string
@@ -33,7 +33,7 @@ const chip = (active: boolean): React.CSSProperties => ({
   borderRadius: 999,
   border: `1.5px solid ${active ? navy : '#D1D5DB'}`,
   background: active ? navy : '#fff',
-  color: active ? '#fff' : '#374151',
+  color: active ? '#fff' : '#162622',
   fontSize: '0.8rem',
   fontWeight: 600,
   cursor: 'pointer',
@@ -130,7 +130,7 @@ export default function CourseCatalogue({
                 ))}
               </div>
             )}
-            <p aria-live="polite" style={{ color: '#6B7280', fontSize: '0.82rem', margin: '1rem 0 0' }}>
+            <p aria-live="polite" style={{ color: '#69717D', fontSize: '0.82rem', margin: '1rem 0 0' }}>
               Showing {shown.length} of {courses.length} courses
               {filtered && (
                 <button type="button" onClick={clear} style={{ marginLeft: '0.75rem', background: 'none', border: 'none', color: red, fontWeight: 700, cursor: 'pointer', fontSize: '0.82rem', fontFamily: 'inherit', textDecoration: 'underline', padding: '0.5rem 0' }}>Clear filters</button>
@@ -156,9 +156,9 @@ export default function CourseCatalogue({
                         <span style={{ background: 'rgba(22,163,74,0.1)', color: '#15803d', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Available Now</span>
                       )}
                     </div>
-                    <p style={{ color: '#6B7280', fontSize: '0.72rem', marginBottom: '0.25rem' }}>{course.category} &middot; {course.difficulty}</p>
+                    <p style={{ color: '#69717D', fontSize: '0.72rem', marginBottom: '0.25rem' }}>{course.category} &middot; {course.difficulty}</p>
                     <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.75rem', lineHeight: 1.4 }}>{course.title}</h3>
-                    <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: '#6B7280', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: '#69717D', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
                       <span>{course.moduleCount} modules</span>
                       <span>{course.lessonCount} lessons</span>
                       {course.estimatedHours ? <span>{course.estimatedHours}h</span> : null}

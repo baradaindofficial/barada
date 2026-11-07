@@ -34,7 +34,7 @@ export default function LoginForm() {
   return (
     <div style={{ minHeight: '100vh', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
       {/* Left panel */}
-      <div style={{ background: '#0B3D2E', padding: '3rem 2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <div style={{ background: '#0D4638', padding: '3rem 2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <Link href="/" style={{ display: 'inline-block', lineHeight: 0 }}>
           <Logo variant="academy" height={44} />
         </Link>
@@ -50,22 +50,22 @@ export default function LoginForm() {
       {/* Right panel */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem 2rem', background: '#fff' }}>
         <div style={{ width: '100%', maxWidth: 420 }}>
-          <Link href="/" style={{ color: '#6B7280', textDecoration: 'none', fontSize: '0.82rem', display: 'block', marginBottom: '2rem' }}>&larr; Back to Barada.in</Link>
-          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: '1.875rem', color: '#0B3D2E', marginBottom: '0.5rem' }}>Welcome back.</h1>
-          <p style={{ color: '#6B7280', fontSize: '0.875rem', marginBottom: '2rem' }}>Sign in to continue your learning journey.</p>
+          <Link href="/" style={{ color: '#69717D', textDecoration: 'none', fontSize: '0.82rem', display: 'block', marginBottom: '2rem' }}>&larr; Back to Barada.in</Link>
+          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: '1.875rem', color: '#0D4638', marginBottom: '0.5rem' }}>Welcome back.</h1>
+          <p style={{ color: '#69717D', fontSize: '0.875rem', marginBottom: '2rem' }}>Sign in to continue your learning journey.</p>
           {error && <div role="alert" style={{ background: '#FEF2F2', border: '1px solid #FECACA', color: '#B91C1C', fontSize: '0.875rem', borderRadius: 8, padding: '0.75rem 1rem', marginBottom: '1.5rem' }}>{error}</div>}
           <form onSubmit={handleLogin} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div>
-              <label htmlFor="email" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#0B3D2E', marginBottom: '0.375rem' }}>Email address</label>
+              <label htmlFor="email" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#0D4638', marginBottom: '0.375rem' }}>Email address</label>
               <input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required autoComplete="email" inputMode="email" placeholder="you@example.com"
                 style={{ width: '100%', padding: '0.75rem 1rem', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: '0.875rem', outline: 'none', boxSizing: 'border-box' }} />
             </div>
             <div>
-              <label htmlFor="password" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#0B3D2E', marginBottom: '0.375rem' }}>Password</label>
+              <label htmlFor="password" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#0D4638', marginBottom: '0.375rem' }}>Password</label>
               <input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required autoComplete="current-password"
                 style={{ width: '100%', padding: '0.75rem 1rem', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: '0.875rem', outline: 'none', boxSizing: 'border-box' }} />
               <div style={{ textAlign: 'right', marginTop: '0.375rem' }}>
-                <Link href="/forgot-password" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#0B3D2E', textDecoration: 'none' }}>Forgot password?</Link>
+                <Link href="/forgot-password" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#0D4638', textDecoration: 'none' }}>Forgot password?</Link>
               </div>
             </div>
             <button type="submit" disabled={loading} aria-busy={loading}
@@ -73,9 +73,9 @@ export default function LoginForm() {
               {loading ? 'Signing in\u2026' : 'Sign In \u2192'}
             </button>
           </form>
-          <p style={{ textAlign: 'center', fontSize: '0.875rem', color: '#6B7280', marginTop: '1.5rem' }}>
+          <p style={{ textAlign: 'center', fontSize: '0.875rem', color: '#69717D', marginTop: '1.5rem' }}>
             Don&apos;t have an account?{' '}
-            <Link href="/register" style={{ fontWeight: 700, color: '#0B3D2E', textDecoration: 'none' }}>Create one free &rarr;</Link>
+            <Link href="/register" style={{ fontWeight: 700, color: '#0D4638', textDecoration: 'none' }}>Create one free &rarr;</Link>
           </p>
         </div>
       </div>
