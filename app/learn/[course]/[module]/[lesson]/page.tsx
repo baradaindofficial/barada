@@ -146,7 +146,7 @@ export default async function LessonPage({ params }: Props) {
                 allowFullScreen
               />
             </div>
-          ) : (
+          ) : lesson.body && downloadableAssets.length === 0 ? null : (
             <div style={{ marginBottom: '1.5rem' }}>
               <ContentComingSoon
                 lessonTitle={lesson.title}
