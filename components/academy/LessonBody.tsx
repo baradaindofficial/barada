@@ -61,6 +61,21 @@ function renderBlock(block: string, key: number) {
 }
 
 export default function LessonBody({ text }: { text: string }) {
-  const blocks = text.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean)
-  return <div>{blocks.map((b, i) => renderBlock(b, i))}</div>
+  // Code fences (```) are kept whole; everything else splits on blank lines.
+  const parts = text.split(/(```[\s\S]*?```)/g)
+  const nodes: React.ReactNode[] = []
+  let key = 0
+  for (const part of parts) {
+    if (part.startsWith('```')) {
+      const code = part.replace(/^```[^\n]*\n?/, '').replace(/```$/, '').replace(/\n$/, '')
+      nodes.push(
+        <pre key={key++} style={{ background: '#04201A', color: '#E8F5EE', borderRadius: 10, padding: '0.9rem', overflowX: 'auto', fontSize: '0.8rem', lineHeight: 1.6, margin: '0 0 1rem' }}>
+          <code>{code}</code>
+        </pre>
+      )
+    } else {
+      part.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean).forEach((b) => nodes.push(renderBlock(b, key++)))
+    }
+  }
+  return <div>{nodes}</div>
 }
