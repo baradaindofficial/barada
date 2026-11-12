@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Structured, self-paced professional courses on AI tools, productivity, and career skills. Free to learn. Verified certificates available.',
     url: 'https://barada.in/academy',
     siteName: 'Barada',
-    images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada Academy' }],
+    images: [{ url: '/og/academy-og.png', width: 1200, height: 630, alt: 'Barada Academy' }],
     locale: 'en_IN',
     type: 'website',
   },
@@ -341,7 +341,7 @@ export default async function AcademyPage() {
 
       <footer style={{ background: '#08372C', padding: '2rem', textAlign: 'center' }}>
         <Logo variant="academy" height={36} />
-        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', marginTop: '0.75rem' }}>&copy; 2026 Barada Academy &middot; A Barada Platform</p>
+        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', marginTop: '0.75rem' }}>&copy; 2026 Barada Academy &middot; A Barada Brand &middot; Practical Learning. Real Impact.</p>
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '0.5rem' }}>
           {[['Barada.in', '/'], ['Privacy', '/privacy'], ['Terms', '/terms'], ['Contact', '/contact']].map(([l, h]) => (
             <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
