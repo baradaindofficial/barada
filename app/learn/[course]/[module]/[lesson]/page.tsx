@@ -3,8 +3,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import Logo from '@/components/shared/Logo'
 import ContentComingSoon from '@/components/academy/ContentComingSoon'
-import LessonBody from '@/components/academy/LessonBody'
-import VoiceControls from '@/components/academy/VoiceControls'
+import LessonPlayer from '@/components/academy/LessonPlayer'
 
 interface Props {
   params: { course: string; module: string; lesson: string }
@@ -73,7 +72,7 @@ export default async function LessonPage({ params }: Props) {
 
   const { data: allLessonsRaw } = await supabase
     .from('lessons')
-    .select('lesson_id, lesson_number, title, module_id, sort_order, modules(module_number)')
+    .select('lesson_id, lesson_number, title, module_id, sort_order, key_points, modules(module_number)')
     .eq('course_id', course.course_id)
     .eq('status', 'published')
     .order('sort_order')
@@ -86,17 +85,11 @@ export default async function LessonPage({ params }: Props) {
   const navUrl = (l: any) =>
     `/learn/${course.slug}/module-${(l.modules as any)?.module_number || moduleNumber}/lesson-${l.lesson_number}`
 
-  // Voice Activation (Sprint 5 follow-on, 2026-10-02 CTO approved): plain-text
-  // assembly of the lesson's readable content for text-to-speech. Strips the
-  // lightweight '- '/'1. '/'### ' block markers LessonBody understands, since
-  // those are rendering hints, not words to speak aloud.
-  const readableText = [
-    lesson.title,
-    lesson.description,
-    lesson.body ? (lesson.body as string).replace(/^#{1,6}\s+/gm, '').replace(/^[-\d.]+\s+/gm, '') : null,
-    lesson.practice_task,
-    ...(lesson.key_points || []),
-  ].filter(Boolean).join('. ')
+  // Slide player (2026-11-12): narration + checkpoint are handled in LessonPlayer.
+  const distractorPool = flatLessons
+    .filter((l: any) => l.lesson_id !== lesson.lesson_id)
+    .flatMap((l: any) => (l.key_points || []) as string[])
+  const evaluationHref = `/learn/${course.slug}/evaluation`
 
   return (
     <div style={{ minHeight: '100vh', background: '#072E24', fontFamily: 'Inter, system-ui, sans-serif' }}>
@@ -120,7 +113,8 @@ export default async function LessonPage({ params }: Props) {
         </Link>
       </nav>
 
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: '1fr 300px', gap: '2rem' }}>
+      <style>{`@media (max-width: 880px){.lesson-grid{grid-template-columns: minmax(0,1fr) !important}.lesson-side{order:2}}`}</style>
+      <div className="lesson-grid" style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 300px', gap: '2rem' }}>
         <div>
           <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
             Module {moduleNumber} &middot; Lesson {lessonNumber}
@@ -128,14 +122,6 @@ export default async function LessonPage({ params }: Props) {
           <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', marginBottom: '1.5rem' }}>
             {lesson.title}
           </h1>
-
-          <VoiceControls
-            text={readableText}
-            enableCommands
-            nextHref={nextLesson ? navUrl(nextLesson) : undefined}
-            prevHref={prevLesson ? navUrl(prevLesson) : undefined}
-            label="Read lesson aloud"
-          />
 
           {videoAsset && videoAsset.provider_id === 'youtube' && videoAsset.provider_ref ? (
             <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 12, overflow: 'hidden', marginBottom: '1.5rem' }}>
@@ -159,58 +145,23 @@ export default async function LessonPage({ params }: Props) {
             </div>
           )}
 
-          {lesson.objectives && lesson.objectives.length > 0 && (
-            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }}>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Learning Objectives</p>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                {(lesson.objectives as string[]).map((obj: string, i: number) => (
-                  <li key={i} style={{ display: 'flex', gap: '0.625rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.6 }}>
-                    <span style={{ color: '#D4AF37', flexShrink: 0 }}>&#10003;</span>
-                    {obj}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {lesson.description && (
-            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }}>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Introduction</p>
-              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '0.95rem' }}>
-                {lesson.description}
-              </p>
-            </div>
-          )}
-
-          {lesson.body && (
-            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }}>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Detailed Content</p>
-              <LessonBody text={lesson.body} />
-            </div>
-          )}
-
-          {lesson.practice_task && (
-            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }}>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Exercise</p>
-              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '0.95rem', whiteSpace: 'pre-wrap' }}>
-                {lesson.practice_task}
-              </p>
-            </div>
-          )}
-
-          {lesson.key_points && lesson.key_points.length > 0 && (
-            <div style={{ background: 'rgba(212,175,55,0.05)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(212,175,55,0.15)', marginBottom: '1.5rem' }}>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Key Takeaways</p>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                {(lesson.key_points as string[]).map((point: string, i: number) => (
-                  <li key={i} style={{ display: 'flex', gap: '0.625rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.6 }}>
-                    <span style={{ color: '#D4AF37', flexShrink: 0 }}>&#10003;</span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <LessonPlayer
+            lessonKey={`${course.slug}-${lesson.lesson_id}`}
+            title={lesson.title}
+            moduleNumber={moduleNumber}
+            lessonNumber={lessonNumber}
+            objectives={(lesson.objectives || []) as string[]}
+            description={lesson.description || null}
+            body={lesson.body || null}
+            practiceTask={lesson.practice_task || null}
+            keyPoints={(lesson.key_points || []) as string[]}
+            checkpoint={Array.isArray(lesson.checkpoint) ? lesson.checkpoint : null}
+            distractorPool={distractorPool}
+            nextHref={nextLesson ? navUrl(nextLesson) : undefined}
+            nextLabel={nextLesson ? nextLesson.title : ''}
+            isLast={!nextLesson}
+            evaluationHref={evaluationHref}
+          />
 
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', marginTop: '2rem' }}>
             {prevLesson ? (
@@ -228,27 +179,12 @@ export default async function LessonPage({ params }: Props) {
               </Link>
             ) : <div style={{ flex: 1 }} />}
 
-            {nextLesson ? (
-              <Link href={navUrl(nextLesson)} style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '0.5rem',
-                background: '#0E7A58', borderRadius: 10,
-                padding: '0.75rem 1.25rem', textDecoration: 'none', flex: 1,
-              }}>
-                <div style={{ textAlign: 'right' }}>
-                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Next</p>
-                  <p style={{ color: '#fff', fontSize: '0.82rem', fontWeight: 600 }}>{nextLesson.title}</p>
-                </div>
-                <span style={{ color: 'rgba(255,255,255,0.8)' }}>&rarr;</span>
-              </Link>
-            ) : (
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#D4AF37', borderRadius: 10, padding: '0.75rem 1.25rem', flex: 1 }}>
-                <p style={{ color: '#0D4638', fontWeight: 700, fontSize: '0.875rem' }}>Course Complete &#127881;</p>
-              </div>
-            )}
+            {/* Next lesson is unlocked by the checkpoint inside LessonPlayer. */}
+            <div style={{ flex: 1 }} />
           </div>
         </div>
 
-        <div>
+        <div className="lesson-side">
           <div style={{ background: '#0D4638', borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
             <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
               Course Content
