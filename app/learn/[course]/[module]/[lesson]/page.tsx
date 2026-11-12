@@ -77,7 +77,10 @@ export default async function LessonPage({ params }: Props) {
     .eq('status', 'published')
     .order('sort_order')
 
-  const flatLessons = (allLessonsRaw || []) as any[]
+  // sort_order is 0 for several courses, so order by module then lesson number
+  const flatLessons = ((allLessonsRaw || []) as any[]).slice().sort((a: any, b: any) =>
+    (((a.modules as any)?.module_number || 0) - ((b.modules as any)?.module_number || 0)) ||
+    ((a.lesson_number || 0) - (b.lesson_number || 0)))
   const currentIndex = flatLessons.findIndex((l: any) => l.lesson_id === lesson.lesson_id)
   const prevLesson = currentIndex > 0 ? flatLessons[currentIndex - 1] : null
   const nextLesson = currentIndex < flatLessons.length - 1 ? flatLessons[currentIndex + 1] : null
