@@ -194,7 +194,7 @@ export async function POST(request: NextRequest) {
     const sequence = (count ?? 0) + 1 + attempt
     certificateId = buildCertificateId(course.slug, sequence)
 
-    const verificationUrl = `${(process.env.NEXT_PUBLIC_APP_URL || 'https://www.barada.in').replace(/\/$/, '')}/verify/${certificateId}`
+    const verificationUrl = `${('https://www.barada.in').replace(/\/$/, '')}/verify/${certificateId}`
 
     const { error: certInsertError } = await admin.from('certificates').insert({
       certificate_id: certificateId,
