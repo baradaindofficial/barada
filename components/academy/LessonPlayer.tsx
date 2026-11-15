@@ -253,6 +253,59 @@ function Mascot({ mood }: { mood: 'wave' | 'happy' | 'think' }) {
   )
 }
 
+function splitPrompt(text: string): { before: string; prompt: string; after: string } | null {
+  const m = text.match(/["“]([^"”]{15,}?)["”]/)
+  if (!m || m.index === undefined) return null
+  return { before: text.slice(0, m.index).trim(), prompt: m[1].trim(), after: text.slice(m.index + m[0].length).trim() }
+}
+
+// "Try it yourself" slide: when the exercise contains a quoted prompt, show it in
+// a search-bar style box (Copy + open-in-assistant) instead of a plain text block.
+function ExerciseSlide({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false)
+  const parts = splitPrompt(text)
+  if (!parts) {
+    return (
+      <div style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 14, padding: '1.1rem 1.2rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.75, whiteSpace: 'pre-wrap', fontSize: '1rem' }}>
+        {text}
+      </div>
+    )
+  }
+  const lead = parts.before
+  const brand = /claude/i.test(lead) ? 'claude' : /chatgpt|openai/i.test(lead) ? 'chatgpt' : ''
+  const openUrl = brand === 'claude' ? 'https://claude.ai/new?q=' + encodeURIComponent(parts.prompt) : brand === 'chatgpt' ? 'https://chatgpt.com/?q=' + encodeURIComponent(parts.prompt) : ''
+  const copy = () => {
+    try {
+      navigator.clipboard.writeText(parts.prompt).then(() => {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 1800)
+      })
+    } catch {
+      /* clipboard unavailable: learner can select the text */
+    }
+  }
+  return (
+    <div>
+      {lead && <p style={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.7, fontSize: '1rem', marginBottom: '0.8rem' }}>{lead}</p>}
+      <div style={{ background: '#FAF9F5', border: '1px solid #E5DFD3', borderRadius: 22, boxShadow: '0 8px 28px rgba(0,0,0,0.28)', padding: '1rem 1.1rem 0.8rem', color: '#29261B' }}>
+        <p style={{ margin: 0, fontSize: '1.02rem', lineHeight: 1.6, fontWeight: 500 }}>{parts.prompt}</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.9rem', flexWrap: 'wrap' }}>
+          <span aria-hidden="true" style={{ width: 30, height: 30, borderRadius: '50%', border: '1px solid #D9D2C3', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6B6558', fontSize: '1.1rem' }}>+</span>
+          <button type="button" onClick={copy} style={{ marginLeft: 'auto', background: 'transparent', border: '1px solid #D9D2C3', borderRadius: 10, padding: '0.4rem 0.8rem', fontSize: '0.78rem', fontWeight: 700, color: '#29261B', cursor: 'pointer', fontFamily: 'inherit' }}>
+            {copied ? 'Copied ✓' : 'Copy prompt'}
+          </button>
+          {openUrl && (
+            <a href={openUrl} target="_blank" rel="noopener noreferrer" aria-label={'Open this prompt in ' + (brand === 'claude' ? 'Claude' : 'ChatGPT')} title={'Open in ' + (brand === 'claude' ? 'Claude' : 'ChatGPT')} style={{ width: 34, height: 34, borderRadius: 10, background: brand === 'claude' ? '#D97757' : '#10A37F', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontWeight: 800, fontSize: '1.05rem' }}>
+              &uarr;
+            </a>
+          )}
+        </div>
+      </div>
+      {parts.after && <p style={{ color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, fontSize: '1rem', marginTop: '0.9rem' }}>{parts.after}</p>}
+    </div>
+  )
+}
+
 export default function LessonPlayer(props: Props) {
   const slides = useMemo(() => buildSlides(props), [props])
   const total = slides.length
@@ -493,13 +546,9 @@ export default function LessonPlayer(props: Props) {
                     return null
                   })}
 
-                {slide.type === 'exercise' && (
-                  <div style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 14, padding: '1.1rem 1.2rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.75, whiteSpace: 'pre-wrap', fontSize: '1rem' }}>
-                    {slide.text}
-                  </div>
-                )}
+                {slide.type === 'exercise' && <ExerciseSlide text={slide.text} />}
 
-                {slide.type === 'takeaways' && (
+{slide.type === 'takeaways' && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                     {slide.items.map((it, i) => (
                       <div key={i} style={{ display: 'flex', gap: '0.7rem', background: 'rgba(212,175,55,0.08)', borderRadius: 12, padding: '0.7rem 0.9rem', color: '#fff', lineHeight: 1.55, fontSize: '0.97rem' }}>
@@ -595,7 +644,14 @@ export default function LessonPlayer(props: Props) {
                 {narrating ? '⏹ Stop narration' : '🔊 Narrate'}
               </button>
             )}
-            <button type="button" className="bb-btn" onClick={() => setShowTranscript((v) => !v)} aria-expanded={showTranscript}>
+            {tts.supported && tts.voices.length > 1 && (
+<select aria-label="Narration voice" title="Narration voice" value={tts.voiceName} onChange={(e) => tts.setVoiceName(e.target.value)} className="bb-btn" style={{ maxWidth: 230 }}>
+{tts.voices.map((v) => (
+<option key={v.name} value={v.name} style={{ color: '#000' }}>{v.label}</option>
+))}
+</select>
+)}
+<button type="button" className="bb-btn" onClick={() => setShowTranscript((v) => !v)} aria-expanded={showTranscript}>
               {showTranscript ? 'Hide transcript' : '📄 Transcript'}
             </button>
             <button type="button" className="bb-btn" onClick={toggleFull} aria-label="Toggle full screen">
