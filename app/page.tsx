@@ -9,7 +9,7 @@ import TiltCard from '@/components/corporate/TiltCard'
 
 export const metadata: Metadata = {
   title: 'Barada — Practical Learning and Business Execution',
-  description: 'Barada is the parent brand behind Barada Academy (practical AI skills training) and Partnerschaft (retail execution and procurement support), built on 19+ years of real corporate experience. Bengaluru, India.',
+  description: 'Barada is the parent brand behind Barada Academy (practical AI skills training) and Partnerschaft (retail execution and procurement support), built on real corporate experience. Bengaluru, India.',
   alternates: { canonical: 'https://barada.in' },
   openGraph: {
     title: 'Barada',
@@ -144,7 +144,7 @@ export default function HomePage() {
               AI, technology and business execution, <span style={{ color: gold }}>built on real experience.</span>
             </h1>
             <p style={{ fontSize: 'clamp(1rem,2vw,1.2rem)', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, maxWidth: 540, margin: '0 0 2.5rem' }}>
-              Barada brings practical AI skills, digital procurement know-how and retail execution together, drawing on 19+ years of corporate experience.
+              Barada brings practical AI skills, digital procurement know-how and retail execution together, drawing on real corporate experience.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/academy" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
@@ -236,7 +236,7 @@ export default function HomePage() {
             A parent brand, built for practical results.
           </h2>
           <p style={{ color: '#69717D', fontSize: '1.05rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
-            Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services planned and further ventures underway. Every Barada platform is built from 19+ years of real corporate experience.
+            Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services planned and further ventures underway. Every Barada platform is built from real corporate experience.
           </p>
           <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
         </div>
