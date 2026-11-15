@@ -19,6 +19,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useTextToSpeech } from '@/hooks/useTextToSpeech'
 import LessonBody from '@/components/academy/LessonBody'
+import SubjectVisual, { pickVisual } from '@/components/academy/SubjectVisual'
 import { courseTheme, type WatermarkKind } from '@/lib/academy/courseTheme'
 
 const FOREST = '#0D4638'
@@ -486,7 +487,18 @@ export default function LessonPlayer(props: Props) {
   const total = slides.length
   const seed = useMemo(() => props.lessonKey.split('').reduce((a, c) => a + c.charCodeAt(0), 7), [props.lessonKey])
   const questions = useMemo<CheckpointQuestion[]>(() => {
-    if (props.checkpoint && props.checkpoint.length) return props.checkpoint
+    const valid = (Array.isArray(props.checkpoint) ? props.checkpoint : []).filter(
+      (q) =>
+        q &&
+        typeof q.question === 'string' &&
+        Array.isArray(q.options) &&
+        q.options.length >= 2 &&
+        q.options.every((o) => typeof o === 'string') &&
+        Number.isInteger(q.answer) &&
+        q.answer >= 0 &&
+        q.answer < q.options.length
+    )
+    if (valid.length) return valid
     return buildFallbackQuestions(props.keyPoints, props.distractorPool, seed)
   }, [props.checkpoint, props.keyPoints, props.distractorPool, seed])
 
@@ -794,6 +806,12 @@ export default function LessonPlayer(props: Props) {
                           </div>
                         </div>
                       )}
+
+                      {slide.type === 'content' && (() => {
+                        const txt = slide.heading + ' ' + slide.blocks.map((b) => ('text' in b ? b.text : b.items.join(' '))).join(' ')
+                        const v = pickVisual(props.courseSlug || '', props.courseTitle || '', txt)
+                        return v ? <SubjectVisual kind={v.kind} focus={v.focus} accent={GOLD} /> : null
+                      })()}
 
                       {slide.type === 'content' && (
                         <ExampleFrame show={/example/i.test(slide.heading)} accent={GOLD}>
