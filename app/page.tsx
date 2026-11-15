@@ -108,6 +108,23 @@ const CAPABILITIES = [
   { name: 'Team workshops', desc: 'Hands-on AI skills workshops for teams. Register your interest to be contacted.' },
 ]
 
+const FEATURED_COURSES = [
+  { name: 'ChatGPT: Beginner to Workplace Power User', lessons: 40, tag: 'Flagship' },
+  { name: 'Claude AI for Professionals', lessons: 13, tag: 'AI tools' },
+  { name: 'Excel with AI', lessons: 14, tag: 'Productivity' },
+  { name: 'PowerPoint with AI', lessons: 13, tag: 'Productivity' },
+  { name: 'Mastery in Prompt Engineering', lessons: 16, tag: 'Skills' },
+  { name: 'LinkedIn Profile Optimisation', lessons: 13, tag: 'Career' },
+]
+
+const LESSON_STEPS = [
+  { n: '1', t: 'Narrated slides', d: 'Short slides with the line being spoken highlighted as you listen.' },
+  { n: '2', t: 'A real scenario', d: 'A workplace situation you could face this week, not a textbook case.' },
+  { n: '3', t: 'Try it yourself', d: 'A practice prompt to run in the tool you already use.' },
+  { n: '4', t: 'Checkpoint', d: 'A scenario question with an explanation of the right answer.' },
+  { n: '5', t: 'Certificate', d: 'Pass the course and receive a verifiable certificate.' },
+]
+
 export default function HomePage() {
   return (
     <div style={{ margin: 0, padding: 0, color: '#111' }}>
@@ -131,7 +148,7 @@ export default function HomePage() {
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/academy" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
-              <Link href="/services" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>See planned services</Link>
+              <Link href="/academy#courses" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Browse 19 courses</Link>
             </div>
           </div>
 
@@ -171,6 +188,37 @@ export default function HomePage() {
                 <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{desc}</p>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LIVE NOW -- Academy is the only live product; show it concretely. */}
+      <section style={{ background: '#F4F8F6', padding: '4.5rem 2rem' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Live now &middot; Barada Academy</p>
+          <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 0.75rem' }}>19 practical AI courses, free to enroll.</h2>
+          <p style={{ color: '#69717D', textAlign: 'center', maxWidth: 620, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>Over 250 lessons for working professionals, each built around a real workplace scenario.</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1rem', marginBottom: '3rem' }}>
+            {FEATURED_COURSES.map(({ name, lessons, tag }) => (
+              <Link key={name} href="/academy#courses" style={{ display: 'block', textDecoration: 'none', background: '#fff', border: '1px solid #DCE8E3', borderRadius: 14, padding: '1.25rem 1.5rem' }}>
+                <p style={{ color: red, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.4rem' }}>{tag}</p>
+                <p style={{ color: navy, fontWeight: 700, fontSize: '1rem', margin: '0 0 0.35rem', lineHeight: 1.35 }}>{name}</p>
+                <p style={{ color: '#69717D', fontSize: '0.82rem', margin: 0 }}>{lessons} lessons &middot; certificate on completion</p>
+              </Link>
+            ))}
+          </div>
+          <h3 style={{ color: navy, fontSize: '1.15rem', fontWeight: 800, textAlign: 'center', margin: '0 0 1.25rem' }}>How a lesson works</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(190px, 100%), 1fr))', gap: '1rem', marginBottom: '2.25rem' }}>
+            {LESSON_STEPS.map(({ n, t, d }) => (
+              <div key={n} style={{ padding: '1rem 0.5rem', textAlign: 'center' }}>
+                <div style={{ width: 34, height: 34, borderRadius: '50%', background: navy, color: '#fff', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 0.6rem' }}>{n}</div>
+                <p style={{ color: navy, fontWeight: 700, margin: '0 0 0.3rem' }}>{t}</p>
+                <p style={{ color: '#69717D', fontSize: '0.84rem', lineHeight: 1.55, margin: 0 }}>{d}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <Link href="/academy#courses" style={{ background: navy, color: '#fff', padding: '0.8rem 1.9rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem' }}>See all 19 courses &rarr;</Link>
           </div>
         </div>
       </section>
