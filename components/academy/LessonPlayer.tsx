@@ -19,7 +19,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useTextToSpeech } from '@/hooks/useTextToSpeech'
 import LessonBody from '@/components/academy/LessonBody'
-import SubjectVisual, { pickVisual } from '@/components/academy/SubjectVisual'
+import SubjectVisual, { brandOf, pickVisual } from '@/components/academy/SubjectVisual'
 import { courseTheme, type WatermarkKind } from '@/lib/academy/courseTheme'
 
 const FOREST = '#0D4638'
@@ -68,6 +68,7 @@ type Block =
 type Slide =
   | { type: 'title'; heading: string; items: string[] }
   | { type: 'content'; heading: string; blocks: Block[] }
+  | { type: 'scenario'; heading: string; text: string; ask: string }
   | { type: 'exercise'; heading: string; text: string }
   | { type: 'takeaways'; heading: string; items: string[] }
 
@@ -152,6 +153,11 @@ function buildSlides(p: Props): Slide[] {
     slides.push({ type: 'content', heading: 'Why this matters', blocks: [{ kind: 'p', text: p.description }] })
   }
 
+  const sc = (Array.isArray(p.checkpoint) ? p.checkpoint : []).find((q) => q && typeof q.scenario === 'string' && q.scenario.length > 20)
+  if (sc && sc.scenario) {
+    slides.push({ type: 'scenario', heading: 'A real workplace scenario', text: sc.scenario, ask: 'Keep this situation in mind as you go through the lesson. You will be asked what to do at the end.' })
+  }
+
   if (p.body) {
     const blocks = parseBlocks(p.body)
     let heading = 'The big picture'
@@ -234,6 +240,9 @@ function slideSegments(s: Slide): string[] {
       else if (b.kind === 'ul' || b.kind === 'ol') b.items.forEach((i) => out.push(withEnd(i)))
       else if (b.kind === 'code') out.push('A short code example is on screen.')
     }
+  } else if (s.type === 'scenario') {
+    sentences(s.text).forEach((x) => out.push(withEnd(x)))
+    out.push(withEnd(s.ask))
   } else if (s.type === 'exercise') {
     const parts = splitPrompt(s.text)
     if (!parts) sentences(s.text).forEach((x) => out.push(withEnd(x)))
@@ -810,7 +819,10 @@ export default function LessonPlayer(props: Props) {
                       {slide.type === 'content' && (() => {
                         const txt = slide.heading + ' ' + slide.blocks.map((b) => ('text' in b ? b.text : b.items.join(' '))).join(' ')
                         const v = pickVisual(props.courseSlug || '', props.courseTitle || '', txt)
-                        return v ? <SubjectVisual kind={v.kind} focus={v.focus} accent={GOLD} /> : null
+                        if (!v) return null
+                        const pq = props.practiceTask ? splitPrompt(props.practiceTask) : null
+                        const sample = pq ? pq.prompt : (props.practiceTask || props.title).split(/(?<=[.!?])\s/)[0].slice(0, 170)
+                        return <SubjectVisual kind={v.kind} focus={v.focus} accent={GOLD} brand={brandOf(props.courseSlug || '', props.courseTitle || '')} heading={slide.heading} sample={sample} />
                       })()}
 
                       {slide.type === 'content' && (
@@ -850,6 +862,25 @@ export default function LessonPlayer(props: Props) {
                             return null
                           })}
                         </ExampleFrame>
+                      )}
+
+                      {slide.type === 'scenario' && (
+                        <div style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid ' + GOLD + '55', background: 'rgba(0,0,0,0.28)', boxShadow: '0 12px 34px rgba(0,0,0,0.35)' }}>
+                          <ChatChrome label={'Scenario \u00b7 a situation you could face this week'} />
+                          <div style={{ padding: '1.1rem 1rem 0.8rem' }}>
+                            <Bubble accent={GOLD} dark={FOREST}>
+                              <span style={{ display: 'block', color: GOLD, fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>Situation</span>
+                              {sentences(slide.text).map((x) => (
+                                <Hl key={k} inline on={on(k++)} accent={GOLD}>
+                                  {x}{' '}
+                                </Hl>
+                              ))}
+                            </Bubble>
+                            <Bubble accent={GOLD} dark={FOREST}>
+                              <Hl inline on={on(k++)} accent={GOLD}>{slide.ask}</Hl>
+                            </Bubble>
+                          </div>
+                        </div>
                       )}
 
                       {slide.type === 'exercise' && <ExerciseSlide text={slide.text} act={act} base={1} accent={GOLD} />}
