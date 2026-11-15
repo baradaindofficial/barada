@@ -12,9 +12,16 @@
  */
 import React from 'react'
 
-export type VisualKind = 'linkedin' | 'excel' | 'ppt' | 'resume' | 'prompt' | 'copilot'
+export type VisualKind = 'linkedin' | 'excel' | 'ppt' | 'resume' | 'prompt' | 'copilot' | 'chat'
+
+export type Brand = 'claude' | 'chatgpt' | 'copilot' | 'gemini' | 'ai'
 
 const has = (t: string, re: RegExp) => re.test(t)
+
+export function brandOf(courseSlug: string, courseTitle: string): Brand {
+  const c = (courseSlug + ' ' + courseTitle).toLowerCase()
+  return /claude/.test(c) ? 'claude' : /chatgpt|openai|gpt/.test(c) ? 'chatgpt' : /copilot|microsoft/.test(c) ? 'copilot' : /gemini|google/.test(c) ? 'gemini' : 'ai'
+}
 
 export function pickVisual(courseSlug: string, courseTitle: string, text: string): { kind: VisualKind; focus: string } | null {
   const c = (courseSlug + ' ' + courseTitle).toLowerCase()
@@ -35,11 +42,9 @@ export function pickVisual(courseSlug: string, courseTitle: string, text: string
     const focus = has(t, /summary|profile|objective/) ? 'summary' : has(t, /skill|keyword|ats/) ? 'skills' : has(t, /bullet|achievement|impact|metric|quantif/) ? 'bullets' : 'layout'
     return { kind: 'resume', focus }
   }
-  if (/copilot|microsoft/.test(c)) return { kind: 'copilot', focus: has(t, /agent|automat|flow/) ? 'agent' : has(t, /secur|govern|permission|data/) ? 'govern' : 'ask' }
-  if (has(t, /prompt|context|role\b|persona|format|instruction|example|constraint|few-shot|chain/)) {
-    const focus = has(t, /role|persona/) ? 'role' : has(t, /context|background/) ? 'context' : has(t, /format|table|bullet|length/) ? 'format' : has(t, /example|few-shot/) ? 'example' : 'task'
-    return { kind: 'prompt', focus }
-  }
+  if (/copilot|microsoft/.test(c) && !/chatgpt|claude/.test(c)) return { kind: 'copilot', focus: has(t, /agent|automat|flow/) ? 'agent' : has(t, /secur|govern|permission|data/) ? 'govern' : 'ask' }
+  const focus = has(t, /role|persona/) ? 'role' : has(t, /context|background/) ? 'context' : has(t, /format|table|bullet|length|structure/) ? 'format' : has(t, /example|few-shot/) ? 'example' : 'task'
+  if (/claude|chatgpt|gemini|prompt|\bai\b|artificial|productiv|tools|automation|agent|llm|developer/.test(c) || has(t, /prompt|context|persona|few-shot|chain/)) return { kind: 'chat', focus }
   return null
 }
 
@@ -121,7 +126,7 @@ function Excel({ focus, accent }: { focus: string; accent: string }) {
   const rows = [['Region', 'Qtr', 'Sales', 'Cost'], ['North', 'Q1', '4,200', '3,100'], ['South', 'Q1', '3,800', '2,900'], ['North', 'Q2', '5,100', '3,600'], ['East', 'Q1', '2,700', '2,000']]
   return (
     <Frame label="Excel · worksheet" accent={accent}>
-      <div style={{ background: '#fff', borderRadius: 8, overflow: 'hidden', color: '#1d2226', fontSize: '0.74rem' }}>
+      <div style={{ background: '#fff', borderRadius: 8, overflow: 'hidden', color: '#1d2226', fontSize: '0.74rem', paddingTop: 10 }}>
         <Zone on accent={accent} tag={focus.toUpperCase()} style={{ borderRadius: 0, padding: '5px 8px', background: '#f3f6f4', borderBottom: '1px solid #d7ddd9', outlineOffset: -2 }}>
           <span style={{ color: '#1d6f42', fontWeight: 800, marginRight: 8 }}>fx</span>
           <span style={{ fontFamily: 'ui-monospace, Menlo, monospace' }}>{f[focus] || f.formula}</span>
@@ -226,6 +231,41 @@ function Prompt({ focus, accent }: { focus: string; accent: string }) {
   )
 }
 
+
+const BRANDS: Record<Brand, { name: string; color: string; bg: string; ink: string }> = {
+  claude: { name: 'Claude', color: '#D97757', bg: '#F5F1E6', ink: '#29261B' },
+  chatgpt: { name: 'ChatGPT', color: '#10A37F', bg: '#FFFFFF', ink: '#202123' },
+  copilot: { name: 'Microsoft Copilot', color: '#0F6CBD', bg: '#F5F8FC', ink: '#1B2A3A' },
+  gemini: { name: 'Gemini', color: '#6C7BF0', bg: '#F6F7FF', ink: '#1F2340' },
+  ai: { name: 'AI assistant', color: '#E8956C', bg: '#F7F3EA', ink: '#29261B' },
+}
+
+function Chat({ focus, accent, brand, heading, sample }: { focus: string; accent: string; brand: Brand; heading: string; sample: string }) {
+  const b = BRANDS[brand]
+  const chips: [string, string][] = [['role', 'Role'], ['context', 'Context'], ['task', 'Task'], ['format', 'Format'], ['example', 'Example']]
+  return (
+    <Frame label={b.name + ' \u00b7 how this looks in practice'} accent={accent}>
+      <div style={{ background: b.bg, borderRadius: 14, padding: '0.9rem', color: b.ink }}>
+        <div style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: b.color, marginBottom: 6 }}>Topic: {heading.slice(0, 60)}</div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div style={{ background: '#fff', border: '1px solid rgba(0,0,0,0.12)', borderRadius: '14px 14px 4px 14px', padding: '0.6rem 0.8rem', fontSize: '0.84rem', lineHeight: 1.5, maxWidth: '92%' }}>{sample}</div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, marginTop: 10, alignItems: 'flex-start' }}>
+          <span aria-hidden="true" style={{ width: 24, height: 24, borderRadius: '50%', background: b.color, flexShrink: 0, color: '#fff', textAlign: 'center', lineHeight: '24px', fontSize: '0.8rem' }}>&#10022;</span>
+          <div style={{ flex: 1 }}>
+            <div style={line('94%', 'rgba(0,0,0,0.16)', 8)} /><div style={line('82%', 'rgba(0,0,0,0.12)', 8)} /><div style={line('68%', 'rgba(0,0,0,0.10)', 8)} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 12 }}>
+          {chips.map(([k, l]) => (
+            <span key={k} style={{ fontSize: '0.66rem', fontWeight: 700, borderRadius: 999, padding: '2px 9px', border: '1px solid ' + b.color, background: focus === k ? b.color : 'transparent', color: focus === k ? '#fff' : b.color }}>{l}</span>
+          ))}
+        </div>
+      </div>
+    </Frame>
+  )
+}
+
 function Copilot({ focus, accent }: { focus: string; accent: string }) {
   const msg = focus === 'agent' ? 'Agent: when a PO is over 5 lakh, route to the approver and notify the buyer.' : focus === 'govern' ? 'Admin: label sensitive files, restrict who Copilot can read from.' : 'Summarise the last 3 emails from the supplier and draft a reply.'
   return (
@@ -238,7 +278,8 @@ function Copilot({ focus, accent }: { focus: string; accent: string }) {
   )
 }
 
-export default function SubjectVisual({ kind, focus, accent }: { kind: VisualKind; focus: string; accent: string }) {
+export default function SubjectVisual({ kind, focus, accent, brand = 'ai', heading = '', sample = '' }: { kind: VisualKind; focus: string; accent: string; brand?: Brand; heading?: string; sample?: string }) {
+  if (kind === 'chat') return <Chat focus={focus} accent={accent} brand={brand} heading={heading} sample={sample || 'Help me with this at work.'} />
   if (kind === 'linkedin') return <LinkedIn focus={focus} accent={accent} />
   if (kind === 'excel') return <Excel focus={focus} accent={accent} />
   if (kind === 'ppt') return <Ppt focus={focus} accent={accent} />
