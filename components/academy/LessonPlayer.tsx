@@ -19,6 +19,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useTextToSpeech } from '@/hooks/useTextToSpeech'
 import LessonBody from '@/components/academy/LessonBody'
+import { courseTheme, type WatermarkKind } from '@/lib/academy/courseTheme'
 
 const FOREST = '#0D4638'
 const DEEP = '#08372C'
@@ -50,6 +51,10 @@ interface Props {
   nextLabel: string
   isLast: boolean
   evaluationHref: string
+  courseSlug?: string
+  courseTitle?: string
+  courseIcon?: string | null
+  themeColor?: string | null
 }
 
 type Block =
@@ -179,19 +184,50 @@ function buildSlides(p: Props): Slide[] {
   return slides
 }
 
-function slideSpeech(s: Slide): string {
-  if (s.type === 'title') {
-    return `${s.heading}. ${s.items.length ? 'By the end of this lesson you will be able to: ' + s.items.join('. ') : ''}`
+function sentences(text: string): string[] {
+  const raw = text.match(/[^.!?]+(?:[.!?]+["\u201D')\]]*|$)\s*/g) || [text]
+  const out: string[] = []
+  for (const r of raw) {
+    const t = r.trim()
+    if (!t) continue
+    const prev = out[out.length - 1]
+    if (prev && (prev.length < 20 || t.length <= 3 || /\b(e|i)\.$/i.test(prev))) out[out.length - 1] = prev + ' ' + t
+    else out.push(t)
   }
-  if (s.type === 'exercise') return `${s.heading}. ${s.text}`
-  if (s.type === 'takeaways') return `${s.heading}. ${s.items.join('. ')}`
-  const parts = s.blocks.map((b) => {
-    if (b.kind === 'code') return 'A short code example is on screen.'
-    if (b.kind === 'ul' || b.kind === 'ol') return b.items.join('. ')
-    if (b.kind === 'h') return ''
-    return b.text
-  })
-  return `${s.heading}. ${parts.join(' ')}`
+  return out.length ? out : [text]
+}
+
+function withEnd(t: string): string {
+  const x = t.trim()
+  return /[.!?:;]["\u201D')\]]*$/.test(x) ? x : x + '.'
+}
+
+// One entry per highlightable "line" of a slide, in the exact order the slide renders them.
+function slideSegments(s: Slide): string[] {
+  const out: string[] = [withEnd(s.heading)]
+  if (s.type === 'title') {
+    if (s.items.length) {
+      out.push('By the end of this lesson you will be able to:')
+      s.items.forEach((i) => out.push(withEnd(i)))
+    }
+  } else if (s.type === 'content') {
+    for (const b of s.blocks) {
+      if (b.kind === 'p') sentences(b.text).forEach((x) => out.push(withEnd(x)))
+      else if (b.kind === 'ul' || b.kind === 'ol') b.items.forEach((i) => out.push(withEnd(i)))
+      else if (b.kind === 'code') out.push('A short code example is on screen.')
+    }
+  } else if (s.type === 'exercise') {
+    const parts = splitPrompt(s.text)
+    if (!parts) sentences(s.text).forEach((x) => out.push(withEnd(x)))
+    else {
+      if (parts.before) sentences(parts.before).forEach((x) => out.push(withEnd(x)))
+      out.push(withEnd(parts.prompt))
+      if (parts.after) sentences(parts.after).forEach((x) => out.push(withEnd(x)))
+    }
+  } else {
+    s.items.forEach((i) => out.push(withEnd(i)))
+  }
+  return out
 }
 
 function shuffle<T>(arr: T[], seed: number): T[] {
@@ -253,6 +289,50 @@ function Mascot({ mood }: { mood: 'wave' | 'happy' | 'think' }) {
   )
 }
 
+function Hl({ on, accent, inline, tag, style, children }: { on: boolean; accent: string; inline?: boolean; tag?: 'div' | 'p' | 'h2'; style?: React.CSSProperties; children: React.ReactNode }) {
+  const ref = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (on && ref.current && typeof ref.current.scrollIntoView === 'function') ref.current.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  }, [on])
+  const hl: React.CSSProperties = on
+    ? inline
+      ? { background: accent + '40', boxShadow: '0 0 0 2px ' + accent + '40', borderRadius: 4 }
+      : { background: accent + '2e', boxShadow: 'inset 3px 0 0 ' + accent }
+    : {}
+  const Tag: any = inline ? 'span' : tag || 'div'
+  return (
+    <Tag ref={ref} style={{ transition: 'background .25s, box-shadow .25s', ...style, ...hl }}>
+      {children}
+    </Tag>
+  )
+}
+
+function Watermark({ kind, color }: { kind: WatermarkKind; color: string }) {
+  const common = { position: 'absolute' as const, right: '-4%', bottom: '-6%', width: 'min(58%, 380px)', opacity: 0.1, pointerEvents: 'none' as const, zIndex: 0 }
+  if (kind === 'barada')
+    return <img src="/logo/barada-symbol-512.png" alt="" aria-hidden="true" style={{ ...common, height: 'auto', opacity: 0.07 }} />
+  let shapes: React.ReactNode = null
+  if (kind === 'spark')
+    shapes = Array.from({ length: 12 }).map((_, i) => (
+      <line key={i} x1="100" y1="100" x2="100" y2={i % 2 ? 28 : 8} stroke={color} strokeWidth="13" strokeLinecap="round" transform={'rotate(' + i * 30 + ' 100 100)'} />
+    ))
+  else if (kind === 'ring')
+    shapes = Array.from({ length: 6 }).map((_, i) => (
+      <ellipse key={i} cx="100" cy="58" rx="22" ry="44" fill="none" stroke={color} strokeWidth="9" transform={'rotate(' + i * 60 + ' 100 100)'} />
+    ))
+  else if (kind === 'blocks')
+    shapes = [[20, 20], [108, 20], [20, 108], [108, 108]].map(([x, y], i) => <rect key={i} x={x} y={y} width="72" height="72" rx="12" fill={color} />)
+  else if (kind === 'dots')
+    shapes = [[62, 62], [138, 62], [62, 138], [138, 138]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="34" fill={color} />)
+  else if (kind === 'grid')
+    shapes = [0, 1, 2].flatMap((r) => [0, 1, 2].map((c) => <rect key={r + '-' + c} x={22 + c * 58} y={22 + r * 58} width="48" height="48" rx="8" fill={color} />))
+  return (
+    <svg viewBox="0 0 200 200" aria-hidden="true" style={common}>
+      {shapes}
+    </svg>
+  )
+}
+
 function splitPrompt(text: string): { before: string; prompt: string; after: string } | null {
   const m = text.match(/["“]([^"”]{15,}?)["”]/)
   if (!m || m.index === undefined) return null
@@ -261,13 +341,20 @@ function splitPrompt(text: string): { before: string; prompt: string; after: str
 
 // "Try it yourself" slide: when the exercise contains a quoted prompt, show it in
 // a search-bar style box (Copy + open-in-assistant) instead of a plain text block.
-function ExerciseSlide({ text }: { text: string }) {
+function ExerciseSlide({ text, act, base, accent }: { text: string; act: number; base: number; accent: string }) {
   const [copied, setCopied] = useState(false)
   const parts = splitPrompt(text)
+  let k = base
+  const spans = (t: string, color: string) =>
+    sentences(t).map((x) => (
+      <Hl key={k} inline on={act === k++} accent={accent} style={{ color }}>
+        {x}{' '}
+      </Hl>
+    ))
   if (!parts) {
     return (
-      <div style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 14, padding: '1.1rem 1.2rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.75, whiteSpace: 'pre-wrap', fontSize: '1rem' }}>
-        {text}
+      <div style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid ' + accent + '4d', borderRadius: 14, padding: '1.1rem 1.2rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.75, whiteSpace: 'pre-wrap', fontSize: '1rem' }}>
+        {spans(text, 'inherit')}
       </div>
     )
   }
@@ -284,10 +371,13 @@ function ExerciseSlide({ text }: { text: string }) {
       /* clipboard unavailable: learner can select the text */
     }
   }
+  const leadSpans = lead ? spans(lead, 'rgba(255,255,255,0.88)') : null
+  const promptOn = act === k++
+  const afterSpans = parts.after ? spans(parts.after, 'rgba(255,255,255,0.85)') : null
   return (
     <div>
-      {lead && <p style={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.7, fontSize: '1rem', marginBottom: '0.8rem' }}>{lead}</p>}
-      <div style={{ background: '#FAF9F5', border: '1px solid #E5DFD3', borderRadius: 22, boxShadow: '0 8px 28px rgba(0,0,0,0.28)', padding: '1rem 1.1rem 0.8rem', color: '#29261B' }}>
+      {lead && <p style={{ lineHeight: 1.7, fontSize: '1rem', marginBottom: '0.8rem' }}>{leadSpans}</p>}
+      <div style={{ background: '#FAF9F5', border: '1px solid ' + (promptOn ? accent : '#E5DFD3'), borderRadius: 22, boxShadow: promptOn ? '0 0 0 4px ' + accent + '66, 0 8px 28px rgba(0,0,0,0.28)' : '0 8px 28px rgba(0,0,0,0.28)', transition: 'box-shadow .25s, border-color .25s', padding: '1rem 1.1rem 0.8rem', color: '#29261B' }}>
         <p style={{ margin: 0, fontSize: '1.02rem', lineHeight: 1.6, fontWeight: 500 }}>{parts.prompt}</p>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.9rem', flexWrap: 'wrap' }}>
           <span aria-hidden="true" style={{ width: 30, height: 30, borderRadius: '50%', border: '1px solid #D9D2C3', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6B6558', fontSize: '1.1rem' }}>+</span>
@@ -301,13 +391,31 @@ function ExerciseSlide({ text }: { text: string }) {
           )}
         </div>
       </div>
-      {parts.after && <p style={{ color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, fontSize: '1rem', marginTop: '0.9rem' }}>{parts.after}</p>}
+      {afterSpans && <p style={{ lineHeight: 1.7, fontSize: '1rem', marginTop: '0.9rem' }}>{afterSpans}</p>}
     </div>
   )
 }
 
 export default function LessonPlayer(props: Props) {
   const slides = useMemo(() => buildSlides(props), [props])
+  const theme = useMemo(() => courseTheme(props.courseSlug || '', props.courseTitle || '', props.themeColor), [props.courseSlug, props.courseTitle, props.themeColor])
+  const GOLD = theme.accent
+  const GREEN = theme.mid
+  const FOREST = theme.dark
+  const segData = useMemo(
+    () =>
+      slides.map((sl) => {
+        const segs = slideSegments(sl)
+        const starts: number[] = []
+        let pos = 0
+        segs.forEach((x) => {
+          starts.push(pos)
+          pos += x.length + 1
+        })
+        return { text: segs.join(' '), starts }
+      }),
+    [slides]
+  )
   const total = slides.length
   const seed = useMemo(() => props.lessonKey.split('').reduce((a, c) => a + c.charCodeAt(0), 7), [props.lessonKey])
   const questions = useMemo<CheckpointQuestion[]>(() => {
@@ -319,6 +427,9 @@ export default function LessonPlayer(props: Props) {
   const [index, setIndex] = useState(0) // 0..total-1 slides, total = checkpoint
   const [showTranscript, setShowTranscript] = useState(false)
   const [narrating, setNarrating] = useState(false)
+  const [activeSeg, setActiveSeg] = useState(-1)
+  const [needTap, setNeedTap] = useState(false)
+  const autoStarted = useRef(false)
   const [passed, setPassed] = useState(false)
   const [qIndex, setQIndex] = useState(0)
   const [picked, setPicked] = useState<number | null>(null)
@@ -354,28 +465,62 @@ export default function LessonPlayer(props: Props) {
     [total]
   )
 
+  const AUTO_KEY = 'barada-tts-auto'
+  const setAutoPref = (on: boolean) => {
+    try {
+      window.localStorage.setItem(AUTO_KEY, on ? 'on' : 'off')
+    } catch {
+      /* storage unavailable: fine */
+    }
+  }
+
   const narrateFrom = useCallback(
     (n: number) => {
       if (n >= total) {
         narratingRef.current = false
         setNarrating(false)
+        setActiveSeg(-1)
         setIndex(total)
         return
       }
       setIndex(n)
-      tts.speak(slideSpeech(slides[n]), () => {
-        if (narratingRef.current) narrateFrom(n + 1)
-      })
+      setActiveSeg(0)
+      const d = segData[n]
+      tts.speak(
+        d.text,
+        () => {
+          if (narratingRef.current) narrateFrom(n + 1)
+        },
+        {
+          onProgress: (ci) => {
+            let a = 0
+            for (let i = 0; i < d.starts.length; i++) {
+              if (d.starts[i] <= ci) a = i
+              else break
+            }
+            setActiveSeg(a)
+          },
+          onBlocked: () => {
+            narratingRef.current = false
+            setNarrating(false)
+            setNeedTap(true)
+          },
+        }
+      )
     },
-    [slides, total, tts]
+    [segData, total, tts]
   )
 
   const toggleNarration = () => {
     if (narrating) {
       narratingRef.current = false
       setNarrating(false)
+      setActiveSeg(-1)
       tts.stop()
+      setAutoPref(false)
     } else {
+      setNeedTap(false)
+      setAutoPref(true)
       narratingRef.current = true
       setNarrating(true)
       narrateFrom(atCheckpoint ? 0 : index)
@@ -383,13 +528,59 @@ export default function LessonPlayer(props: Props) {
   }
 
   const manualGo = (n: number) => {
+    const t = Math.max(0, Math.min(total, n))
+    if (narratingRef.current && t < total) {
+      go(t)
+      narrateFrom(t)
+      return
+    }
     if (narratingRef.current) {
       narratingRef.current = false
       setNarrating(false)
+      setActiveSeg(-1)
       tts.stop()
     }
-    go(n)
+    go(t)
   }
+
+  // Narration starts by itself when the lesson opens (unless the learner turned it off).
+  // Browsers may block speech until the page has had a click or key press; if so, the first
+  // tap or key press anywhere starts it.
+  useEffect(() => {
+    if (!tts.supported || autoStarted.current) return
+    let pref: string | null = null
+    try {
+      pref = window.localStorage.getItem(AUTO_KEY)
+    } catch {
+      /* storage unavailable: default on */
+    }
+    if (pref === 'off') return
+    const t = setTimeout(() => {
+      autoStarted.current = true
+      narratingRef.current = true
+      setNarrating(true)
+      narrateFrom(0)
+    }, tts.voices.length > 0 ? 300 : 1500)
+    return () => clearTimeout(t)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tts.supported, tts.voices.length])
+
+  useEffect(() => {
+    if (!needTap) return
+    const start = () => {
+      setNeedTap(false)
+      narratingRef.current = true
+      setNarrating(true)
+      narrateFrom(index >= total ? 0 : index)
+    }
+    window.addEventListener('pointerdown', start, { once: true })
+    window.addEventListener('keydown', start, { once: true })
+    return () => {
+      window.removeEventListener('pointerdown', start)
+      window.removeEventListener('keydown', start)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [needTap])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -444,6 +635,7 @@ export default function LessonPlayer(props: Props) {
   }
 
   const slide = !atCheckpoint ? slides[index] : null
+  const act = narrating ? activeSeg : -1
   const cta = props.nextHref ? (
     <Link href={props.nextHref} className="bb-cta">
       Next lesson: {props.nextLabel} &rarr;
@@ -455,8 +647,9 @@ export default function LessonPlayer(props: Props) {
   )
 
   const card: React.CSSProperties = {
-    background: 'linear-gradient(145deg, #0D4638 0%, #08372C 100%)',
-    border: '1px solid rgba(212,175,55,0.25)',
+    position: 'relative',
+    background: 'radial-gradient(circle at 88% 0%, ' + GOLD + '26 0%, transparent 55%), linear-gradient(145deg, ' + theme.mid + ' 0%, ' + theme.dark + ' 100%)',
+    border: '1px solid ' + GOLD + '40',
     borderRadius: 18,
     boxShadow: '0 18px 50px rgba(0,0,0,0.35)',
     overflow: 'hidden',
@@ -476,88 +669,116 @@ export default function LessonPlayer(props: Props) {
         .bb-slide{animation:bbslide .35s ease both}
         @keyframes bbslide{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
         .bb-btn{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:.55rem .95rem;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit}
-        .bb-btn:hover{background:${GREEN}}
+        .bb-btn:hover{background:${GOLD}40}
         .bb-btn:disabled{opacity:.35;cursor:default}
         .bb-btn.gold{background:${GOLD};color:${FOREST};border-color:${GOLD}}
         .bb-cta{display:inline-block;background:${GOLD};color:${FOREST};font-weight:800;font-size:.95rem;border-radius:12px;padding:.8rem 1.4rem;text-decoration:none}
         .bb-opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.14);border-radius:12px;padding:.8rem 1rem;font-size:.92rem;line-height:1.5;cursor:pointer;font-family:inherit;margin-bottom:.6rem}
         .bb-opt:hover:enabled{border-color:${GOLD}}
-        .bb-stage:fullscreen{background:#072E24;display:flex;flex-direction:column;justify-content:center;padding:2rem}
+        .bb-stage:fullscreen{background:${theme.page};display:flex;flex-direction:column;justify-content:center;padding:2rem}
         .bb-stage:fullscreen .bb-body{font-size:1.25rem}
+        .bb-chip{display:none}
+        @media(min-width:760px){.bb-chip{display:inline-flex}}
       `}</style>
 
       <div ref={stageRef} className="bb-stage">
         <div style={card}>
-          <div style={{ height: 5, background: 'rgba(255,255,255,0.08)' }}>
+          <Watermark kind={theme.mark} color={GOLD} />
+          <div style={{ position: 'relative', zIndex: 1, height: 5, background: 'rgba(255,255,255,0.08)' }}>
             <div style={{ height: '100%', width: `${Math.round((Math.min(index, total) / total) * 100)}%`, background: GOLD, transition: 'width .3s' }} />
           </div>
 
-          <div className="bb-body" style={{ padding: 'clamp(1.25rem, 3vw, 2.25rem)', minHeight: 360 }}>
+          <div className="bb-body" style={{ position: 'relative', zIndex: 1, padding: 'clamp(1.25rem, 3vw, 2.25rem)', minHeight: 360 }}>
+            {props.courseTitle && (
+              <span className="bb-chip" style={{ position: 'absolute', top: 14, right: 18, alignItems: 'center', gap: 6, fontSize: '0.7rem', fontWeight: 700, color: GOLD, background: 'rgba(0,0,0,0.25)', border: '1px solid ' + GOLD + '40', borderRadius: 999, padding: '0.25rem 0.7rem' }}>
+                {props.courseIcon ? <span aria-hidden="true">{props.courseIcon}</span> : null}
+                {props.courseTitle}
+              </span>
+            )}
+            {needTap && (
+              <button type="button" onClick={() => { /* window listener starts narration */ }} style={{ display: 'block', margin: '0 0 0.9rem', background: GOLD, color: FOREST, border: 'none', borderRadius: 999, padding: '0.5rem 1rem', fontWeight: 800, fontSize: '0.82rem', cursor: 'pointer', fontFamily: 'inherit' }}>
+                🔊 Tap anywhere to start narration
+              </button>
+            )}
             {slide && (
               <div key={index} className="bb-slide">
                 <p style={{ color: GOLD, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
                   {slide.type === 'title' ? `Module ${props.moduleNumber} · Lesson ${props.lessonNumber}` : `Slide ${index + 1} of ${total}`}
                 </p>
-                <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: slide.type === 'title' ? 'clamp(1.6rem, 4vw, 2.4rem)' : 'clamp(1.25rem, 3vw, 1.8rem)', lineHeight: 1.25, marginBottom: '1.1rem' }}>
-                  {slide.heading}
-                </h2>
+                {(() => {
+                  let k = 1
+                  const on = (i: number) => act === i
+                  return (
+                    <>
+                      <Hl tag="h2" on={on(0)} accent={GOLD} style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: slide.type === 'title' ? 'clamp(1.6rem, 4vw, 2.4rem)' : 'clamp(1.25rem, 3vw, 1.8rem)', lineHeight: 1.25, marginBottom: '1.1rem', borderRadius: 8 }}>
+                        {slide.heading}
+                      </Hl>
 
-                {slide.type === 'title' && slide.items.length > 0 && (
-                  <div>
-                    <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.8rem', marginBottom: '0.6rem' }}>By the end you will be able to:</p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-                      {slide.items.map((o, i) => (
-                        <div key={i} style={{ display: 'flex', gap: '0.7rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.88)', lineHeight: 1.55, fontSize: '0.95rem' }}>
-                          <span style={{ color: GOLD, fontWeight: 800 }}>&#10003;</span>
-                          {o}
+                      {slide.type === 'title' && slide.items.length > 0 && (
+                        <div>
+                          <Hl tag="p" on={on(k++)} accent={GOLD} style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', marginBottom: '0.6rem' }}>By the end you will be able to:</Hl>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                            {slide.items.map((o, i) => (
+                              <Hl key={i} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.7rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.88)', lineHeight: 1.55, fontSize: '0.95rem' }}>
+                                <span style={{ color: GOLD, fontWeight: 800 }}>&#10003;</span>
+                                {o}
+                              </Hl>
+                            ))}
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                      )}
 
-                {slide.type === 'content' &&
-                  slide.blocks.map((b, i) => {
-                    if (b.kind === 'p')
-                      return (
-                        <p key={i} style={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.75, fontSize: '1.02rem', marginBottom: '0.9rem' }}>
-                          {b.text}
-                        </p>
-                      )
-                    if (b.kind === 'ul' || b.kind === 'ol')
-                      return (
-                        <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', marginBottom: '0.9rem' }}>
-                          {b.items.map((it, j) => (
-                            <div key={j} style={{ display: 'flex', gap: '0.75rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.55, fontSize: '0.97rem' }}>
-                              <span style={{ background: GOLD, color: FOREST, borderRadius: '50%', width: 22, height: 22, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 800 }}>
-                                {j + 1}
-                              </span>
+                      {slide.type === 'content' &&
+                        slide.blocks.map((b, i) => {
+                          if (b.kind === 'p')
+                            return (
+                              <p key={i} style={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.75, fontSize: '1.02rem', marginBottom: '0.9rem' }}>
+                                {sentences(b.text).map((x) => (
+                                  <Hl key={k} inline on={on(k++)} accent={GOLD}>
+                                    {x}{' '}
+                                  </Hl>
+                                ))}
+                              </p>
+                            )
+                          if (b.kind === 'ul' || b.kind === 'ol')
+                            return (
+                              <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', marginBottom: '0.9rem' }}>
+                                {b.items.map((it, j) => (
+                                  <Hl key={j} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.75rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.55, fontSize: '0.97rem' }}>
+                                    <span style={{ background: GOLD, color: FOREST, borderRadius: '50%', width: 22, height: 22, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 800 }}>
+                                      {j + 1}
+                                    </span>
+                                    {it}
+                                  </Hl>
+                                ))}
+                              </div>
+                            )
+                          if (b.kind === 'code')
+                            return (
+                              <Hl key={i} on={on(k++)} accent={GOLD} style={{ borderRadius: 12, marginBottom: '0.9rem' }}>
+                                <pre style={{ background: '#04201A', color: '#E8F5EE', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
+                                  <code>{b.text}</code>
+                                </pre>
+                              </Hl>
+                            )
+                          return null
+                        })}
+
+                      {slide.type === 'exercise' && <ExerciseSlide text={slide.text} act={act} base={1} accent={GOLD} />}
+
+                      {slide.type === 'takeaways' && (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                          {slide.items.map((it, i) => (
+                            <Hl key={i} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.7rem', background: GOLD + '14', borderRadius: 12, padding: '0.7rem 0.9rem', color: '#fff', lineHeight: 1.55, fontSize: '0.97rem' }}>
+                              <span style={{ color: GOLD, fontWeight: 800 }}>&#9733;</span>
                               {it}
-                            </div>
+                            </Hl>
                           ))}
                         </div>
-                      )
-                    if (b.kind === 'code')
-                      return (
-                        <pre key={i} style={{ background: '#04201A', color: '#E8F5EE', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid rgba(212,175,55,0.2)', marginBottom: '0.9rem' }}>
-                          <code>{b.text}</code>
-                        </pre>
-                      )
-                    return null
-                  })}
-
-                {slide.type === 'exercise' && <ExerciseSlide text={slide.text} />}
-
-{slide.type === 'takeaways' && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-                    {slide.items.map((it, i) => (
-                      <div key={i} style={{ display: 'flex', gap: '0.7rem', background: 'rgba(212,175,55,0.08)', borderRadius: 12, padding: '0.7rem 0.9rem', color: '#fff', lineHeight: 1.55, fontSize: '0.97rem' }}>
-                        <span style={{ color: GOLD, fontWeight: 800 }}>&#9733;</span>
-                        {it}
-                      </div>
-                    ))}
-                  </div>
-                )}
+                      )}
+                    </>
+                  )
+                })()}
               </div>
             )}
 
@@ -634,7 +855,7 @@ export default function LessonPlayer(props: Props) {
             )}
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', padding: '0.75rem 1rem', borderTop: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.18)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', position: 'relative', zIndex: 1, padding: '0.75rem 1rem', borderTop: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.18)' }}>
             <button type="button" className="bb-btn" onClick={() => manualGo(index - 1)} disabled={index === 0} aria-label="Previous slide">&larr; Back</button>
             <button type="button" className="bb-btn" onClick={() => manualGo(index + 1)} disabled={atCheckpoint} aria-label="Next slide">
               {index === total - 1 ? 'Checkpoint →' : 'Next →'}
@@ -665,7 +886,7 @@ export default function LessonPlayer(props: Props) {
       </div>
 
       {tts.supported && tts.voiceLabel && (
-        <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.7rem', margin: '0.5rem 0 0' }}>Voice: {tts.voiceLabel}</p>
+        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', margin: '0.5rem 0 0' }}>Narration plays automatically &mdash; press Stop anytime and it stays off. Voice: {tts.voiceLabel}</p>
       )}
 
       {showTranscript && (

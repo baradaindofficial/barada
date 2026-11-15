@@ -101,34 +101,94 @@ export function useTextToSpeech() {
     }
   }, [])
 
+  const tokenRef = useRef(0)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const clearTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current)
+      timerRef.current = null
+    }
+  }
+
   const stop = useCallback(() => {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return
+    tokenRef.current++
+    clearTimer()
     window.speechSynthesis.cancel()
     setSpeaking(false)
   }, [])
 
-  const speak = useCallback((text: string, onEnd?: () => void) => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window) || !text.trim()) return
-    window.speechSynthesis.cancel()
-    const utterance = new SpeechSynthesisUtterance(text)
-    const voice = voiceRef.current || pickVoice(readStored())
-    if (voice) {
-      utterance.voice = voice
-      utterance.lang = voice.lang
-    } else {
-      utterance.lang = 'en-IN'
-    }
-    utterance.rate = 0.96
-    utterance.pitch = 1
-    utterance.onstart = () => setSpeaking(true)
-    utterance.onend = () => {
-      setSpeaking(false)
-      if (onEnd) onEnd()
-    }
-    utterance.onerror = () => setSpeaking(false)
-    utteranceRef.current = utterance
-    window.speechSynthesis.speak(utterance)
-  }, [])
+  // extra.onProgress(charIndex): called as the voice speaks (real word boundaries where the
+  // voice supports them, otherwise a time-based estimate) so the UI can highlight the line.
+  // extra.onBlocked(): the browser refused to speak (autoplay policy: no user gesture yet).
+  const speak = useCallback(
+    (text: string, onEnd?: () => void, extra?: { onProgress?: (charIndex: number) => void; onBlocked?: () => void }) => {
+      if (typeof window === 'undefined' || !('speechSynthesis' in window) || !text.trim()) return
+      const token = ++tokenRef.current
+      clearTimer()
+      window.speechSynthesis.cancel()
+      const utterance = new SpeechSynthesisUtterance(text)
+      const voice = voiceRef.current || pickVoice(readStored())
+      if (voice) {
+        utterance.voice = voice
+        utterance.lang = voice.lang
+      } else {
+        utterance.lang = 'en-IN'
+      }
+      utterance.rate = 0.96
+      utterance.pitch = 1
+      let gotBoundary = false
+      let started = false
+      const startedAt = { t: 0 }
+      utterance.onstart = () => {
+        if (token !== tokenRef.current) return
+        started = true
+        startedAt.t = Date.now()
+        setSpeaking(true)
+        if (extra?.onProgress) {
+          extra.onProgress(0)
+          // Some voices (e.g. network voices) never fire boundary events: estimate by time.
+          setTimeout(() => {
+            if (token !== tokenRef.current || gotBoundary || !extra.onProgress) return
+            const cps = 14.5
+            timerRef.current = setInterval(() => {
+              if (token !== tokenRef.current) return clearTimer()
+              const est = Math.min(text.length - 1, Math.floor(((Date.now() - startedAt.t) / 1000) * cps))
+              extra.onProgress!(est)
+            }, 250)
+          }, 900)
+        }
+      }
+      utterance.onboundary = (e: SpeechSynthesisEvent) => {
+        if (token !== tokenRef.current) return
+        gotBoundary = true
+        clearTimer()
+        if (extra?.onProgress) extra.onProgress(e.charIndex)
+      }
+      utterance.onend = () => {
+        if (token !== tokenRef.current) return
+        clearTimer()
+        setSpeaking(false)
+        if (onEnd) onEnd()
+      }
+      utterance.onerror = (e: SpeechSynthesisErrorEvent) => {
+        if (token !== tokenRef.current) return
+        clearTimer()
+        setSpeaking(false)
+        if (e.error === 'not-allowed' && extra?.onBlocked) extra.onBlocked()
+      }
+      utteranceRef.current = utterance
+      window.speechSynthesis.speak(utterance)
+      // Safety net: some browsers neither speak nor error when blocked.
+      if (extra?.onBlocked) {
+        setTimeout(() => {
+          if (token === tokenRef.current && !started && !window.speechSynthesis.speaking) extra.onBlocked!()
+        }, 2500)
+      }
+    },
+    []
+  )
 
   const toggle = useCallback((text: string) => {
     if (speaking) stop()
