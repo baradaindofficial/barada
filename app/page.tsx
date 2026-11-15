@@ -148,7 +148,7 @@ export default function HomePage() {
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/academy" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
-              <Link href="/academy#courses" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Browse 19 courses</Link>
+              <Link href="/academy#courses" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Browse 23 courses</Link>
             </div>
           </div>
 
@@ -196,7 +196,7 @@ export default function HomePage() {
       <section style={{ background: '#F4F8F6', padding: '4.5rem 2rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Live now &middot; Barada Academy</p>
-          <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 0.75rem' }}>19 practical AI courses, free to enroll.</h2>
+          <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 0.75rem' }}>23 practical AI courses, free to enroll.</h2>
           <p style={{ color: '#69717D', textAlign: 'center', maxWidth: 620, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>Over 250 lessons for working professionals, each built around a real workplace scenario.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1rem', marginBottom: '3rem' }}>
             {FEATURED_COURSES.map(({ name, lessons, tag }) => (
@@ -218,7 +218,7 @@ export default function HomePage() {
             ))}
           </div>
           <div style={{ textAlign: 'center' }}>
-            <Link href="/academy#courses" style={{ background: navy, color: '#fff', padding: '0.8rem 1.9rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem' }}>See all 19 courses &rarr;</Link>
+            <Link href="/academy#courses" style={{ background: navy, color: '#fff', padding: '0.8rem 1.9rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem' }}>See all 23 courses &rarr;</Link>
           </div>
         </div>
       </section>
