@@ -185,15 +185,32 @@ function buildSlides(p: Props): Slide[] {
 }
 
 function sentences(text: string): string[] {
-  const raw = text.match(/[^.!?]+(?:[.!?]+["\u201D')\]]*|$)\s*/g) || [text]
   const out: string[] = []
-  for (const r of raw) {
-    const t = r.trim()
-    if (!t) continue
+  const add = (raw: string) => {
+    const t = raw.trim()
+    if (!t) return
     const prev = out[out.length - 1]
-    if (prev && (prev.length < 20 || t.length <= 3 || /\b(e|i)\.$/i.test(prev))) out[out.length - 1] = prev + ' ' + t
+    if (prev && prev.length < 20) out[out.length - 1] = prev + ' ' + t
     else out.push(t)
   }
+  let cur = ''
+  for (let i = 0; i < text.length; i++) {
+    cur += text[i]
+    if ('.!?'.includes(text[i])) {
+      let j = i + 1
+      while (j < text.length && '"\u201D\')]'.includes(text[j])) {
+        cur += text[j]
+        j++
+      }
+      // A sentence ends only where the punctuation is followed by whitespace or the end (so "Claude.ai" and "e.g." stay whole).
+      if (j >= text.length || /\s/.test(text[j])) {
+        add(cur)
+        cur = ''
+      }
+      i = j - 1
+    }
+  }
+  add(cur)
   return out.length ? out : [text]
 }
 
@@ -371,27 +388,77 @@ function ExerciseSlide({ text, act, base, accent }: { text: string; act: number;
       /* clipboard unavailable: learner can select the text */
     }
   }
-  const leadSpans = lead ? spans(lead, 'rgba(255,255,255,0.88)') : null
+  const label = brand === 'claude' ? 'Claude' : brand === 'chatgpt' ? 'ChatGPT' : 'AI assistant'
+  const leadSpans = lead ? spans(lead, '#5A5242') : null
   const promptOn = act === k++
-  const afterSpans = parts.after ? spans(parts.after, 'rgba(255,255,255,0.85)') : null
+  const afterSpans = parts.after ? spans(parts.after, '#5A5242') : null
   return (
-    <div>
-      {lead && <p style={{ lineHeight: 1.7, fontSize: '1rem', marginBottom: '0.8rem' }}>{leadSpans}</p>}
-      <div style={{ background: '#FAF9F5', border: '1px solid ' + (promptOn ? accent : '#E5DFD3'), borderRadius: 22, boxShadow: promptOn ? '0 0 0 4px ' + accent + '66, 0 8px 28px rgba(0,0,0,0.28)' : '0 8px 28px rgba(0,0,0,0.28)', transition: 'box-shadow .25s, border-color .25s', padding: '1rem 1.1rem 0.8rem', color: '#29261B' }}>
-        <p style={{ margin: 0, fontSize: '1.02rem', lineHeight: 1.6, fontWeight: 500 }}>{parts.prompt}</p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.9rem', flexWrap: 'wrap' }}>
-          <span aria-hidden="true" style={{ width: 30, height: 30, borderRadius: '50%', border: '1px solid #D9D2C3', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6B6558', fontSize: '1.1rem' }}>+</span>
-          <button type="button" onClick={copy} style={{ marginLeft: 'auto', background: 'transparent', border: '1px solid #D9D2C3', borderRadius: 10, padding: '0.4rem 0.8rem', fontSize: '0.78rem', fontWeight: 700, color: '#29261B', cursor: 'pointer', fontFamily: 'inherit' }}>
-            {copied ? 'Copied ✓' : 'Copy prompt'}
-          </button>
-          {openUrl && (
-            <a href={openUrl} target="_blank" rel="noopener noreferrer" aria-label={'Open this prompt in ' + (brand === 'claude' ? 'Claude' : 'ChatGPT')} title={'Open in ' + (brand === 'claude' ? 'Claude' : 'ChatGPT')} style={{ width: 34, height: 34, borderRadius: 10, background: brand === 'claude' ? '#D97757' : '#10A37F', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontWeight: 800, fontSize: '1.05rem' }}>
-              &uarr;
-            </a>
-          )}
+    <div style={{ borderRadius: 20, overflow: 'hidden', border: '1px solid ' + accent + '66', boxShadow: '0 14px 40px rgba(0,0,0,0.4)' }}>
+      <ChatChrome label={label + ' \u00b7 try it live'} />
+      <div style={{ background: 'linear-gradient(180deg, #F5F1E6 0%, #EFE9DA 100%)', padding: '1.5rem 1.2rem 1.3rem' }}>
+        <p style={{ textAlign: 'center', fontFamily: 'Georgia, serif', fontSize: 'clamp(1.15rem, 3vw, 1.5rem)', color: '#3B3326', margin: '0 0 1.1rem' }}>
+          <span style={{ color: '#D97757' }}>&#10022;</span> How can I help you today?
+        </p>
+        {lead && <p style={{ lineHeight: 1.65, fontSize: '0.95rem', marginBottom: '0.9rem' }}>{leadSpans}</p>}
+        <div style={{ background: '#FFFFFF', border: '1.5px solid ' + (promptOn ? accent : '#E5DFD3'), borderRadius: 24, boxShadow: promptOn ? '0 0 0 5px ' + accent + '66, 0 10px 30px rgba(0,0,0,0.16)' : '0 10px 30px rgba(0,0,0,0.14)', transition: 'box-shadow .25s, border-color .25s', padding: '1.1rem 1.2rem 0.9rem', color: '#29261B' }}>
+          <p style={{ margin: 0, fontSize: '1.12rem', lineHeight: 1.6, fontWeight: 500 }}>{parts.prompt}</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+            <span aria-hidden="true" style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid #D9D2C3', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6B6558', fontSize: '1.15rem' }}>+</span>
+            <button type="button" onClick={copy} style={{ marginLeft: 'auto', background: 'transparent', border: '1px solid #D9D2C3', borderRadius: 10, padding: '0.45rem 0.9rem', fontSize: '0.8rem', fontWeight: 700, color: '#29261B', cursor: 'pointer', fontFamily: 'inherit' }}>
+              {copied ? 'Copied \u2713' : 'Copy prompt'}
+            </button>
+            {openUrl && (
+              <a href={openUrl} target="_blank" rel="noopener noreferrer" aria-label={'Open this prompt in ' + label} title={'Open in ' + label} style={{ width: 36, height: 36, borderRadius: 10, background: brand === 'claude' ? '#D97757' : '#10A37F', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontWeight: 800, fontSize: '1.1rem' }}>
+                &uarr;
+              </a>
+            )}
+          </div>
         </div>
+        {afterSpans && <p style={{ lineHeight: 1.65, fontSize: '0.95rem', marginTop: '0.9rem' }}>{afterSpans}</p>}
       </div>
-      {afterSpans && <p style={{ lineHeight: 1.7, fontSize: '1rem', marginTop: '0.9rem' }}>{afterSpans}</p>}
+    </div>
+  )
+}
+
+function ChatChrome({ label }: { label: string }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '0.55rem 0.9rem', background: 'rgba(0,0,0,0.4)' }}>
+      {['#FF6B6B', '#F5C451', '#3DDC97'].map((c) => (
+        <span key={c} aria-hidden="true" style={{ width: 9, height: 9, borderRadius: '50%', background: c, opacity: 0.85 }} />
+      ))}
+      <span style={{ marginLeft: 8, fontSize: '0.72rem', fontWeight: 700, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.04em' }}>{label}</span>
+    </div>
+  )
+}
+
+function Avatar({ accent }: { accent: string }) {
+  return (
+    <span aria-hidden="true" style={{ width: 34, height: 34, borderRadius: '50%', background: accent, color: '#1b1b1b', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1rem' }}>
+      &#10022;
+    </span>
+  )
+}
+
+// AI-chat styled frame for "Example" slides.
+function ExampleFrame({ show, accent, children }: { show: boolean; accent: string; children: React.ReactNode }) {
+  if (!show) return <>{children}</>
+  return (
+    <div style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid ' + accent + '55', background: 'rgba(0,0,0,0.28)', boxShadow: '0 12px 34px rgba(0,0,0,0.35)' }}>
+      <ChatChrome label="Example conversation" />
+      <div style={{ display: 'flex', gap: '0.8rem', padding: '1.1rem 1rem 0.4rem' }}>
+        <Avatar accent={accent} />
+        <div style={{ flex: 1, minWidth: 0 }}>{children}</div>
+      </div>
+    </div>
+  )
+}
+
+// One chat message bubble (assistant on the left, learner on the right).
+function Bubble({ me, accent, dark, children }: { me?: boolean; accent: string; dark: string; children: React.ReactNode }) {
+  return (
+    <div style={{ display: 'flex', gap: '0.7rem', margin: '0 0 0.8rem', justifyContent: me ? 'flex-end' : 'flex-start' }}>
+      {!me && <Avatar accent={accent} />}
+      <div style={{ maxWidth: '86%', background: me ? accent : 'rgba(255,255,255,0.08)', color: me ? dark : '#fff', borderRadius: me ? '16px 16px 4px 16px' : '16px 16px 16px 4px', padding: '0.75rem 1rem', lineHeight: 1.6, fontSize: '0.95rem', fontWeight: me ? 700 : 400 }}>{children}</div>
     </div>
   )
 }
@@ -728,41 +795,44 @@ export default function LessonPlayer(props: Props) {
                         </div>
                       )}
 
-                      {slide.type === 'content' &&
-                        slide.blocks.map((b, i) => {
-                          if (b.kind === 'p')
-                            return (
-                              <p key={i} style={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.75, fontSize: '1.02rem', marginBottom: '0.9rem' }}>
-                                {sentences(b.text).map((x) => (
-                                  <Hl key={k} inline on={on(k++)} accent={GOLD}>
-                                    {x}{' '}
-                                  </Hl>
-                                ))}
-                              </p>
-                            )
-                          if (b.kind === 'ul' || b.kind === 'ol')
-                            return (
-                              <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', marginBottom: '0.9rem' }}>
-                                {b.items.map((it, j) => (
-                                  <Hl key={j} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.75rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.55, fontSize: '0.97rem' }}>
-                                    <span style={{ background: GOLD, color: FOREST, borderRadius: '50%', width: 22, height: 22, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 800 }}>
-                                      {j + 1}
-                                    </span>
-                                    {it}
-                                  </Hl>
-                                ))}
-                              </div>
-                            )
-                          if (b.kind === 'code')
-                            return (
-                              <Hl key={i} on={on(k++)} accent={GOLD} style={{ borderRadius: 12, marginBottom: '0.9rem' }}>
-                                <pre style={{ background: '#04201A', color: '#E8F5EE', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
-                                  <code>{b.text}</code>
-                                </pre>
-                              </Hl>
-                            )
-                          return null
-                        })}
+                      {slide.type === 'content' && (
+                        <ExampleFrame show={/example/i.test(slide.heading)} accent={GOLD}>
+                          {slide.blocks.map((b, i) => {
+                            if (b.kind === 'p')
+                              return (
+                                <p key={i} style={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.75, fontSize: '1.02rem', marginBottom: '0.9rem' }}>
+                                  {sentences(b.text).map((x) => (
+                                    <Hl key={k} inline on={on(k++)} accent={GOLD}>
+                                      {x}{' '}
+                                    </Hl>
+                                  ))}
+                                </p>
+                              )
+                            if (b.kind === 'ul' || b.kind === 'ol')
+                              return (
+                                <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', marginBottom: '0.9rem' }}>
+                                  {b.items.map((it, j) => (
+                                    <Hl key={j} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.75rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.55, fontSize: '0.97rem' }}>
+                                      <span style={{ background: GOLD, color: FOREST, borderRadius: '50%', width: 22, height: 22, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 800 }}>
+                                        {j + 1}
+                                      </span>
+                                      {it}
+                                    </Hl>
+                                  ))}
+                                </div>
+                              )
+                            if (b.kind === 'code')
+                              return (
+                                <Hl key={i} on={on(k++)} accent={GOLD} style={{ borderRadius: 12, marginBottom: '0.9rem' }}>
+                                  <pre style={{ background: '#04201A', color: '#E8F5EE', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
+                                    <code>{b.text}</code>
+                                  </pre>
+                                </Hl>
+                              )
+                            return null
+                          })}
+                        </ExampleFrame>
+                      )}
 
                       {slide.type === 'exercise' && <ExerciseSlide text={slide.text} act={act} base={1} accent={GOLD} />}
 
@@ -803,37 +873,43 @@ export default function LessonPlayer(props: Props) {
                 )}
 
                 {questions.length > 0 && !finished && (
-                  <div>
-                    <p style={{ color: GOLD, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-                      Scenario {qIndex + 1} of {questions.length}
-                    </p>
-                    {questions[qIndex].scenario && (
-                      <p style={{ color: 'rgba(255,255,255,0.85)', background: 'rgba(255,255,255,0.05)', borderLeft: `3px solid ${GOLD}`, borderRadius: 8, padding: '0.7rem 0.9rem', lineHeight: 1.65, fontSize: '0.95rem', marginBottom: '0.8rem' }}>
-                        {questions[qIndex].scenario}
-                      </p>
-                    )}
-                    <p style={{ color: '#fff', fontWeight: 700, fontSize: '1.02rem', lineHeight: 1.5, marginBottom: '0.8rem' }}>{questions[qIndex].question}</p>
-                    {questions[qIndex].options.map((o, i) => {
-                      const isAns = i === questions[qIndex].answer
-                      const show = picked !== null
-                      const border = show ? (isAns ? '#3DDC97' : i === picked ? '#FF6B6B' : 'rgba(255,255,255,0.14)') : undefined
-                      return (
-                        <button key={i} type="button" className="bb-opt" disabled={show} onClick={() => answer(i)} style={{ borderColor: border, background: show && isAns ? 'rgba(61,220,151,0.12)' : undefined }}>
-                          <strong style={{ color: GOLD, marginRight: 8 }}>{String.fromCharCode(65 + i)}</strong>
-                          {o}
-                        </button>
-                      )
-                    })}
-                    {picked !== null && (
-                      <div>
-                        {questions[qIndex].explain && (
-                          <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.65, fontSize: '0.9rem', margin: '0.4rem 0 0.9rem' }}>{questions[qIndex].explain}</p>
-                        )}
-                        <button type="button" className="bb-btn gold" onClick={nextQuestion}>
-                          {qIndex + 1 < questions.length ? 'Next scenario →' : 'See my score'}
-                        </button>
-                      </div>
-                    )}
+                  <div style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid ' + GOLD + '55', background: 'rgba(0,0,0,0.28)', boxShadow: '0 12px 34px rgba(0,0,0,0.35)' }}>
+                    <ChatChrome label={'Chat with Bara \u00b7 Scenario ' + (qIndex + 1) + ' of ' + questions.length} />
+                    <div style={{ padding: '1.1rem 1rem 0.6rem' }}>
+                      {questions[qIndex].scenario && (
+                        <Bubble accent={GOLD} dark={FOREST}>
+                          <span style={{ display: 'block', color: GOLD, fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>Situation</span>
+                          {questions[qIndex].scenario}
+                        </Bubble>
+                      )}
+                      <Bubble accent={GOLD} dark={FOREST}>
+                        <strong>{questions[qIndex].question}</strong>
+                      </Bubble>
+                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0.2rem 0 0.5rem' }}>Choose your reply</p>
+                      {questions[qIndex].options.map((o, i) => {
+                        const isAns = i === questions[qIndex].answer
+                        const show = picked !== null
+                        const border = show ? (isAns ? '#3DDC97' : i === picked ? '#FF6B6B' : 'rgba(255,255,255,0.14)') : undefined
+                        return (
+                          <button key={i} type="button" className="bb-opt" disabled={show} onClick={() => answer(i)} style={{ borderColor: border, background: show && isAns ? 'rgba(61,220,151,0.12)' : undefined }}>
+                            <strong style={{ color: GOLD, marginRight: 8 }}>{String.fromCharCode(65 + i)}</strong>
+                            {o}
+                          </button>
+                        )
+                      })}
+                      {picked !== null && (
+                        <div style={{ marginTop: '0.4rem' }}>
+                          <Bubble me accent={GOLD} dark={FOREST}>{questions[qIndex].options[picked]}</Bubble>
+                          <Bubble accent={GOLD} dark={FOREST}>
+                            <strong style={{ color: picked === questions[qIndex].answer ? '#3DDC97' : '#FF9B9B' }}>{picked === questions[qIndex].answer ? 'Correct.' : 'Not quite.'}</strong>{' '}
+                            {questions[qIndex].explain}
+                          </Bubble>
+                          <button type="button" className="bb-btn gold" onClick={nextQuestion} style={{ marginBottom: '0.6rem' }}>
+                            {qIndex + 1 < questions.length ? 'Next scenario →' : 'See my score'}
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
 
