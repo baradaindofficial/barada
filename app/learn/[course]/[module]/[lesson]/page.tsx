@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import Logo from '@/components/shared/Logo'
 import ContentComingSoon from '@/components/academy/ContentComingSoon'
 import LessonPlayer from '@/components/academy/LessonPlayer'
+import { courseTheme } from '@/lib/academy/courseTheme'
 
 interface Props {
   params: { course: string; module: string; lesson: string }
@@ -94,10 +95,12 @@ export default async function LessonPage({ params }: Props) {
     .flatMap((l: any) => (l.key_points || []) as string[])
   const evaluationHref = `/learn/${course.slug}/evaluation`
 
+  const theme = courseTheme(course.slug, course.title, course.theme_color)
+
   return (
-    <div style={{ minHeight: '100vh', background: '#072E24', fontFamily: 'Inter, system-ui, sans-serif' }}>
+    <div style={{ minHeight: '100vh', background: theme.page, fontFamily: 'Inter, system-ui, sans-serif' }}>
       <nav style={{
-        background: '#0D4638', borderBottom: '1px solid rgba(255,255,255,0.06)',
+        background: theme.nav, borderBottom: '1px solid rgba(255,255,255,0.06)',
         padding: '0 1.5rem', height: 56,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         position: 'sticky', top: 0, zIndex: 100,
@@ -164,6 +167,10 @@ export default async function LessonPage({ params }: Props) {
             nextLabel={nextLesson ? nextLesson.title : ''}
             isLast={!nextLesson}
             evaluationHref={evaluationHref}
+            courseSlug={course.slug}
+            courseTitle={course.title}
+            courseIcon={course.icon}
+            themeColor={course.theme_color}
           />
 
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', marginTop: '2rem' }}>
@@ -188,7 +195,7 @@ export default async function LessonPage({ params }: Props) {
         </div>
 
         <div className="lesson-side">
-          <div style={{ background: '#0D4638', borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
+          <div style={{ background: theme.nav, borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
             <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
               Course Content
             </p>
