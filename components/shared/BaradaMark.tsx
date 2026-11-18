@@ -4,7 +4,7 @@
 // exactly where the PNG did.
 export default function BaradaMark({
   size = 40,
-  color = '#FF7A12',
+  color = '#1278EA',
   label = 'Barada',
   className,
 }: {
