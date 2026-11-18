@@ -29,11 +29,11 @@ function mix(hex: string, other: string, t: number): string {
 }
 
 export const BARADA_THEME: CourseTheme = {
-  accent: '#D4AF37',
-  mid: '#0D4638',
-  dark: '#08372C',
-  page: '#072E24',
-  nav: '#0D4638',
+  accent: '#FF7A12',
+  mid: '#0A1A52',
+  dark: '#060F36',
+  page: '#060F36',
+  nav: '#0A1A52',
   mark: 'barada',
 }
 
