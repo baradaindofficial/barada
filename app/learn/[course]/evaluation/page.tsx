@@ -105,7 +105,7 @@ export default function EvaluationPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#060F36', fontFamily: 'Inter, system-ui, sans-serif' }}>
       <nav style={{ background: '#0A1A52', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 1.5rem', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
-        <Link href="/academy" style={{ lineHeight: 0 }}>
+        <Link href="/qorvian" style={{ lineHeight: 0 }}>
           <Logo variant="academy" height={32} />
         </Link>
         <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem' }}>Course Evaluation</span>
