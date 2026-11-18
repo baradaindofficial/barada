@@ -69,7 +69,7 @@ export default function LessonBody({ text }: { text: string }) {
     if (part.startsWith('```')) {
       const code = part.replace(/^```[^\n]*\n?/, '').replace(/```$/, '').replace(/\n$/, '')
       nodes.push(
-        <pre key={key++} style={{ background: '#04201A', color: '#E8F1FF', borderRadius: 10, padding: '0.9rem', overflowX: 'auto', fontSize: '0.8rem', lineHeight: 1.6, margin: '0 0 1rem' }}>
+        <pre key={key++} style={{ background: '#060F36', color: '#E8F1FF', borderRadius: 10, padding: '0.9rem', overflowX: 'auto', fontSize: '0.8rem', lineHeight: 1.6, margin: '0 0 1rem' }}>
           <code>{code}</code>
         </pre>
       )
