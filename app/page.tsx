@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
 }
 
-const red = '#0E7A58'
-const navy = '#0D4638'
-const gold = '#D4AF37'
+const red = '#0B63CE'
+const navy = '#0A1A52'
+const gold = '#FF7A12'
 
 // The two routes Barada actively wants every visitor to find in one click.
 // Kept as plain data (not sourced from ECOSYSTEM_VERTICALS) because this
@@ -36,7 +36,7 @@ const PRIMARY_ROUTES = [
     name: 'QORVIAN by Barada',
     headline: 'AI capability for institutes, professionals and businesses',
     desc: 'Structured, practical AI courses, verified certificates and team programs — free to start for individuals, tailored programs for organisations.',
-    href: '/academy',
+    href: '/qorvian',
     cta: 'Explore QORVIAN',
     color: red,
   },
@@ -77,7 +77,7 @@ const ECOSYSTEM_PHOTOS = [
     src: 'https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=800&q=75&auto=format&fit=crop',
     name: 'QORVIAN',
     desc: 'AI capability programs for institutes, professionals and businesses.',
-    href: '/academy',
+    href: '/qorvian',
   },
   {
     src: 'https://images.unsplash.com/photo-1758873269317-51888e824b28?w=800&q=75&auto=format&fit=crop',
@@ -136,7 +136,7 @@ export default function HomePage() {
           ground with a gold accent (Barada red kept for the primary CTA).
           The robot is an original vector drawing with a light CSS tilt
           effect (components/corporate/HeroRobot.tsx); no 3D library. */}
-      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #165A48 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #123C8F 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
             <p style={{ color: gold, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Barada &middot; Bengaluru, India</p>
@@ -147,8 +147,8 @@ export default function HomePage() {
               Barada brings practical AI skills, digital procurement know-how and retail execution together, drawing on real corporate experience.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link href="/academy" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore QORVIAN &rarr;</Link>
-              <Link href="/academy#courses" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Browse 23 courses</Link>
+              <Link href="/qorvian" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore QORVIAN &rarr;</Link>
+              <Link href="/qorvian#courses" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Browse 23 courses</Link>
             </div>
           </div>
 
@@ -193,14 +193,14 @@ export default function HomePage() {
       </section>
 
       {/* LIVE NOW -- Academy is the only live product; show it concretely. */}
-      <section style={{ background: '#F4F8F6', padding: '4.5rem 2rem' }}>
+      <section style={{ background: '#F2F6FF', padding: '4.5rem 2rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Live now &middot; QORVIAN by Barada</p>
           <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 0.75rem' }}>23 practical AI courses, free to enroll.</h2>
           <p style={{ color: '#69717D', textAlign: 'center', maxWidth: 620, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>Over 250 lessons for working professionals, each built around a real workplace scenario.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1rem', marginBottom: '3rem' }}>
             {FEATURED_COURSES.map(({ name, lessons, tag }) => (
-              <Link key={name} href="/academy#courses" style={{ display: 'block', textDecoration: 'none', background: '#fff', border: '1px solid #DCE8E3', borderRadius: 14, padding: '1.25rem 1.5rem' }}>
+              <Link key={name} href="/qorvian#courses" style={{ display: 'block', textDecoration: 'none', background: '#fff', border: '1px solid #D6E3F8', borderRadius: 14, padding: '1.25rem 1.5rem' }}>
                 <p style={{ color: red, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.4rem' }}>{tag}</p>
                 <p style={{ color: navy, fontWeight: 700, fontSize: '1rem', margin: '0 0 0.35rem', lineHeight: 1.35 }}>{name}</p>
                 <p style={{ color: '#69717D', fontSize: '0.82rem', margin: 0 }}>{lessons} lessons &middot; certificate on completion</p>
@@ -218,7 +218,7 @@ export default function HomePage() {
             ))}
           </div>
           <div style={{ textAlign: 'center' }}>
-            <Link href="/academy#courses" style={{ background: navy, color: '#fff', padding: '0.8rem 1.9rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem' }}>See all 23 courses &rarr;</Link>
+            <Link href="/qorvian#courses" style={{ background: navy, color: '#fff', padding: '0.8rem 1.9rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem' }}>See all 23 courses &rarr;</Link>
           </div>
         </div>
       </section>
@@ -252,7 +252,7 @@ export default function HomePage() {
             const card = (
               <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
                 <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 280px" style={{ objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,70,56,0.97) 0%, rgba(13,70,56,0.8) 42%, rgba(13,70,56,0.2) 75%, transparent 100%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,26,82,0.97) 0%, rgba(10,26,82,0.8) 42%, rgba(10,26,82,0.2) 75%, transparent 100%)' }} />
                 <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
                   <p style={{ color: '#fff', fontWeight: 800, fontSize: '1rem', marginBottom: '0.25rem' }}>{name}</p>
                   <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.78rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
