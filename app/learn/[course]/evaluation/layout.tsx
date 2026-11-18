@@ -23,7 +23,7 @@ export default async function EvaluationLayout({ children, params }: Props) {
     .eq('learner_id', user.id)
     .maybeSingle()
 
-  if (!enrollment) redirect(`/academy`)
+  if (!enrollment) redirect(`/qorvian`)
 
   return <>{children}</>
 }
