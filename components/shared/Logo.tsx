@@ -54,32 +54,21 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
   const { src, alt, width } = config[variant]
 
   if (variant === 'academy') {
-    // QORVIAN by Barada lockup, cropped from the supplied logo (tagline row hidden).
-    const k = height / 400
+    // Full QORVIAN by Barada logo (icon, wordmark, by BARADA and tagline), shown whole.
+    const h = Math.round(height * 1.5)
+    const w = h * 3
     const lockup = (
       <span
-        role="img"
-        aria-label={alt}
         style={{
-          display: 'inline-block',
-          position: 'relative',
+          display: 'inline-flex',
           flexShrink: 0,
-          width: Math.round(1970 * k),
-          height: Math.round(400 * k),
-          overflow: 'hidden',
           background: '#fff',
           borderRadius: Math.max(6, Math.round(height * 0.2)),
           lineHeight: 0,
+          overflow: 'hidden',
         }}
       >
-        <Image
-          src="/qorvian-logo/image.png"
-          alt=""
-          width={Math.round(2172 * k)}
-          height={Math.round(724 * k)}
-          unoptimized
-          style={{ position: 'absolute', left: -Math.round(90 * k), top: -Math.round(80 * k), maxWidth: 'none' }}
-        />
+        <Image src="/qorvian-logo/image.png" alt={alt} width={w} height={h} unoptimized style={{ width: w, height: h, maxWidth: 'none' }} />
       </span>
     )
     if (linkTo) {
