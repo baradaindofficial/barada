@@ -19,7 +19,7 @@ export default function PrivacyPage() {
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
         {[
-          ['Information We Collect', 'We collect your name, email address, and professional details when you register for Barada Academy. We also collect usage data such as course progress, quiz scores, and lesson completion to improve your learning experience.'],
+          ['Information We Collect', 'We collect your name, email address, and professional details when you register for QORVIAN by Barada. We also collect usage data such as course progress, quiz scores, and lesson completion to improve your learning experience.'],
           ['How We Use Your Information', 'Your information is used to provide and improve our learning platform, send you course updates and certificate notifications, and personalise your dashboard experience. We do not sell your personal data to third parties.'],
           ['Data Storage', 'Your data is stored securely on Supabase infrastructure. All data is encrypted in transit and at rest.'],
           ['Analytics', 'We use Google Analytics 4 and Microsoft Clarity to understand how learners use our platform. These services may collect anonymised usage data. You can opt out via your browser settings.'],
