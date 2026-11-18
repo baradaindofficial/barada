@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import BaradaMark from '@/components/shared/BaradaMark'
+import Logo from '@/components/shared/Logo'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import CorporateHeader from '@/components/corporate/Header'
@@ -227,9 +227,7 @@ export default function HomePage() {
       <section style={{ background: '#fff', padding: '5rem 2rem' }}>
         <div style={{ maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', margin: '0 auto 2rem' }}>
-            <BaradaMark size={72} color="#1278EA" label="Barada" />
-            <span style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, letterSpacing: '0.14em', color: navy }}>BARADA</span>
-            <span style={{ fontSize: '0.78rem', letterSpacing: '0.14em', fontWeight: 600 }}><span style={{ color: navy }}>CONNECT.</span> <span style={{ color: '#FF7A12' }}>BUILD. GROW.</span></span>
+            <Logo variant="full" height={200} />
           </div>
           <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Who We Are</p>
           <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, marginBottom: '1.25rem' }}>
