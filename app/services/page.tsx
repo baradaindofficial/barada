@@ -70,7 +70,7 @@ const SERVICES = [
     role: 'Train',
     whoFor: 'Teams and organisations wanting structured, live training rather than self-paced courses.',
     problem: 'Self-paced learning doesn\u2019t fit every team \u2014 some need a live, practitioner-led session with room for their own questions and context.',
-    deliverables: 'A structured, practitioner-led workshop on AI tools, productivity, or career skills \u2014 the same material behind Barada Academy, delivered live and adapted to your team.',
+    deliverables: 'A structured, practitioner-led workshop on AI tools, productivity, or career skills \u2014 the same material behind QORVIAN, delivered live and adapted to your team.',
     format: 'Discussed on enquiry \u2014 session length and group size flexible.',
     nextStep: 'Register your interest with your team size and topic; this service is planned, not yet open \u2014 we\u2019ll follow up once it is.',
   },
