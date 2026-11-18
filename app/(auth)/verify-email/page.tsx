@@ -14,7 +14,7 @@ export default function VerifyEmailPage() {
             Check your inbox
           </h1>
           <p style={{ color: '#69717D', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
-            We sent you a verification email. Click the link in the email to activate your Barada Academy account and start learning.
+            We sent you a verification email. Click the link in the email to activate your QORVIAN account and start learning.
           </p>
           <p style={{ color: '#9CA3AF', fontSize: '0.78rem', marginBottom: '1.5rem' }}>
             Did not receive it? Check your spam folder, or{' '}
