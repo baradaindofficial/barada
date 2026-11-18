@@ -23,9 +23,9 @@ import { useRouter } from 'next/navigation'
 import { useTextToSpeech } from '@/hooks/useTextToSpeech'
 import { useVoiceCommands } from '@/hooks/useVoiceCommands'
 
-const navy = '#0D4638'
-const red = '#0E7A58'
-const gold = '#D4AF37'
+const navy = '#0A1A52'
+const red = '#0B63CE'
+const gold = '#FF7A12'
 
 interface VoiceControlsProps {
   /** Plain text to read aloud. */
@@ -108,7 +108,7 @@ export default function VoiceControls({
           aria-label={voice.listening ? 'Stop voice commands' : 'Start voice commands'}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem',
-            background: voice.listening ? 'rgba(212,175,55,0.15)' : 'transparent',
+            background: voice.listening ? 'rgba(255,122,18,0.15)' : 'transparent',
             color: voice.listening ? gold : 'rgba(255,255,255,0.6)',
             border: `1.5px solid ${voice.listening ? gold : 'rgba(255,255,255,0.15)'}`,
             borderRadius: 8, padding: '0.5rem 0.875rem', fontSize: '0.8rem', fontWeight: 700,
