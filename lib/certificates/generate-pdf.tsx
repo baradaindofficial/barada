@@ -148,7 +148,7 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
         <View style={styles.border}>
           <View style={styles.header}>
             <Image src={BARADA_SYMBOL_MARK_PNG_DATA_URI} style={styles.mark} />
-            <Text style={styles.brand}>BARADA ACADEMY</Text>
+            <Text style={styles.brand}>QORVIAN BY BARADA</Text>
             <Text style={styles.tagline}>CERTIFICATE OF COMPLETION</Text>
           </View>
 
