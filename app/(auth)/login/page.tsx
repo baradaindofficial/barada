@@ -12,7 +12,7 @@ import LoginForm from './LoginForm'
 
 export const metadata: Metadata = {
   title: 'Sign In',
-  description: 'Sign in to your Barada Academy account.',
+  description: 'Sign in to your QORVIAN account.',
   robots: { index: false },
 }
 
