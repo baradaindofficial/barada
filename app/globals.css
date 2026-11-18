@@ -11,9 +11,9 @@
        Academy's own dashboard theme tokens (--color-brand-* below, under
        "Sprint 4.4d -- Dashboard theme tokens") which keep Academy's
        existing values and are not touched here. */
-    --barada-red:        #0E7A58;
-    --barada-navy:       #0D4638;
-    --barada-gold:       #D4AF37;
+    --barada-red:        #0B63CE;
+    --barada-navy:       #0A1A52;
+    --barada-gold:       #FF7A12;
     --barada-slate:      #475569;
     --barada-light-gray: #F1F5F9;
     --font-display: 'Poppins', system-ui, sans-serif;
@@ -43,7 +43,7 @@
 
   /* Skip to main content — hidden until focused */
   .skip-link {
-    @apply absolute -top-full left-4 z-50 bg-white text-[#0D4638] font-bold px-4 py-2 rounded-lg border-2 border-[#0D4638] text-sm;
+    @apply absolute -top-full left-4 z-50 bg-white text-[#0A1A52] font-bold px-4 py-2 rounded-lg border-2 border-[#0A1A52] text-sm;
     transition: top 0.1s;
   }
   .skip-link:focus {
@@ -52,13 +52,13 @@
 }
 
 @layer components {
-  .btn-primary { @apply bg-[#0E7A58] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#0A5F45] transition-colors focus-visible:outline-2 focus-visible:outline-[#0E7A58]; }
-  .btn-navy    { @apply bg-[#0D4638] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#165A48] transition-colors; }
-  .btn-gold    { @apply bg-[#D4AF37] text-[#0D4638] font-bold px-6 py-3 rounded-xl hover:bg-[#c4a030] transition-colors; }
+  .btn-primary { @apply bg-[#0B63CE] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#0A4FA6] transition-colors focus-visible:outline-2 focus-visible:outline-[#0B63CE]; }
+  .btn-navy    { @apply bg-[#0A1A52] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#123C8F] transition-colors; }
+  .btn-gold    { @apply bg-[#FF7A12] text-[#0A1A52] font-bold px-6 py-3 rounded-xl hover:bg-[#E5660A] transition-colors; }
   .btn-outline { @apply border-2 border-current font-bold px-6 py-3 rounded-xl hover:bg-current/10 transition-colors; }
   .container   { @apply max-w-6xl mx-auto px-4 md:px-8; }
   .section     { @apply py-16 md:py-24; }
-  .input-field { @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0D4638] focus:ring-2 focus:ring-[#0D4638]/10 transition-all; }
+  .input-field { @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0A1A52] focus:ring-2 focus:ring-[#0A1A52]/10 transition-all; }
 }
 
 
