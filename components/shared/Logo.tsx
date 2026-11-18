@@ -55,7 +55,7 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
 
   if (variant === 'academy') {
     // QORVIAN by Barada lockup, cropped from the supplied logo (tagline row hidden).
-    const k = height / 380
+    const k = height / 400
     const lockup = (
       <span
         role="img"
@@ -64,8 +64,8 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
           display: 'inline-block',
           position: 'relative',
           flexShrink: 0,
-          width: Math.round(1940 * k),
-          height: Math.round(380 * k),
+          width: Math.round(1970 * k),
+          height: Math.round(400 * k),
           overflow: 'hidden',
           background: '#fff',
           borderRadius: Math.max(6, Math.round(height * 0.2)),
@@ -78,7 +78,7 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
           width={Math.round(2172 * k)}
           height={Math.round(724 * k)}
           unoptimized
-          style={{ position: 'absolute', left: -Math.round(110 * k), top: -Math.round(90 * k), maxWidth: 'none' }}
+          style={{ position: 'absolute', left: -Math.round(90 * k), top: -Math.round(80 * k), maxWidth: 'none' }}
         />
       </span>
     )
