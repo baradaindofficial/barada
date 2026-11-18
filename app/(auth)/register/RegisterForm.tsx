@@ -56,7 +56,7 @@ export default function RegisterForm() {
       <div className="hidden lg:flex flex-col justify-between bg-[#0D4638] p-12" aria-hidden="true">
         <Link href="/" className="flex items-center gap-3">
           <BaradaMark size={36} />
-          <span className="font-display font-bold text-white text-lg">Barada Academy</span>
+          <span className="font-display font-bold text-white text-lg">QORVIAN</span>
         </Link>
         <ul className="space-y-4" aria-label="Platform benefits">
           {[
@@ -82,7 +82,7 @@ export default function RegisterForm() {
             ← Back to Barada.in
           </Link>
           <h1 className="font-display font-bold text-3xl text-[#0D4638] mb-2">Create your free account.</h1>
-          <p className="text-gray-500 text-sm mb-8">Join professionals across India learning with Barada Academy.</p>
+          <p className="text-gray-500 text-sm mb-8">Join professionals across India learning with QORVIAN.</p>
 
           {error && (
             <div role="alert" className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg p-3 mb-6">
