@@ -50,7 +50,7 @@ export default async function DashboardPage() {
             <div className="text-gray-400 text-xs">QORVIAN by Barada</div>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/academy" className="text-sm text-gray-600 hover:text-[#0A1A52] font-medium">Browse Courses</Link>
+            <Link href="/qorvian" className="text-sm text-gray-600 hover:text-[#0A1A52] font-medium">Browse Courses</Link>
             <form action="/api/auth/signout" method="POST">
               <button className="text-sm text-gray-400 hover:text-gray-600">Sign out</button>
             </form>
@@ -89,14 +89,14 @@ export default async function DashboardPage() {
               <p className="text-white/60 text-sm mb-4">
                 You have {enrolledCourses.length} course{enrolledCourses.length > 1 ? 's' : ''} in progress.
               </p>
-              <Link href="/academy" className="inline-block bg-[#FF7A12] text-[#0A1A52] font-bold px-5 py-2 rounded-lg text-sm hover:bg-[#E5660A] transition-colors">
+              <Link href="/qorvian" className="inline-block bg-[#FF7A12] text-[#0A1A52] font-bold px-5 py-2 rounded-lg text-sm hover:bg-[#E5660A] transition-colors">
                 Continue Learning →
               </Link>
             </>
           ) : (
             <>
               <p className="text-white/60 text-sm mb-4">Start your first course today — free to learn.</p>
-              <Link href="/academy" className="inline-block bg-[#FF7A12] text-[#0A1A52] font-bold px-5 py-2 rounded-lg text-sm hover:bg-[#E5660A] transition-colors">
+              <Link href="/qorvian" className="inline-block bg-[#FF7A12] text-[#0A1A52] font-bold px-5 py-2 rounded-lg text-sm hover:bg-[#E5660A] transition-colors">
                 Browse Courses →
               </Link>
             </>
@@ -123,7 +123,7 @@ export default async function DashboardPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-display font-bold text-lg text-[#0A1A52]">My Courses</h2>
-            <Link href="/academy" className="text-sm font-semibold text-[#0A1A52] hover:underline">Browse all →</Link>
+            <Link href="/qorvian" className="text-sm font-semibold text-[#0A1A52] hover:underline">Browse all →</Link>
           </div>
 
           {enrolledCourses.length === 0 ? (
@@ -131,7 +131,7 @@ export default async function DashboardPage() {
               <div className="text-4xl mb-3">📚</div>
               <h3 className="font-bold text-[#0A1A52] mb-2">No courses yet</h3>
               <p className="text-gray-500 text-sm mb-4">Browse our 10 flagship courses — all free to start.</p>
-              <Link href="/academy" className="inline-block bg-[#0A1A52] text-white px-5 py-2 rounded-lg font-bold text-sm">Browse Courses</Link>
+              <Link href="/qorvian" className="inline-block bg-[#0A1A52] text-white px-5 py-2 rounded-lg font-bold text-sm">Browse Courses</Link>
             </div>
           ) : (
             <div className="space-y-3">
@@ -167,7 +167,7 @@ export default async function DashboardPage() {
               {recommendations.map(({ course, reason }) => (
                 <Link
                   key={course.slug}
-                  href={`/academy`}
+                  href={`/qorvian`}
                   className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow"
                 >
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-3" style={{ background: `${course.themeColor}22` }}>
