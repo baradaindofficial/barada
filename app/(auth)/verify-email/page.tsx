@@ -5,7 +5,7 @@ export default function VerifyEmailPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#F9FAFB', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', fontFamily: 'Inter, system-ui, sans-serif' }}>
       <div style={{ width: '100%', maxWidth: 420, textAlign: 'center' }}>
-        <Link href="/academy" style={{ display: 'inline-block', marginBottom: '2rem' }}>
+        <Link href="/qorvian" style={{ display: 'inline-block', marginBottom: '2rem' }}>
           <Logo variant="academy" height={40} />
         </Link>
         <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB' }}>
