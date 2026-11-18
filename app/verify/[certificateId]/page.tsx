@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   description: 'Verify the authenticity of a QORVIAN certificate.',
 }
 
-const red = '#0E7A58'
-const navy = '#0D4638'
-const gold = '#D4AF37'
+const red = '#0B63CE'
+const navy = '#0A1A52'
+const gold = '#FF7A12'
 
 interface VerifiedCertificate {
   certificate_id: string
