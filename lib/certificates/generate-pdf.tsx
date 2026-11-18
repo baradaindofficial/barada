@@ -18,7 +18,7 @@ import { BARADA_SYMBOL_MARK_PNG_DATA_URI } from './brand-mark'
 
 const NAVY = '#0D183D'
 const RED = '#E31E24'
-const GOLD = '#D4AF37'
+const GOLD = '#FF7A12'
 const INK = '#374151'
 const MUTED = '#6B7280'
 
