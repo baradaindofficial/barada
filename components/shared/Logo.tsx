@@ -36,7 +36,7 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
     },
     academy: {
       src: '/logo/barada-symbol-96.png',
-      alt: 'Barada Academy',
+      alt: 'QORVIAN by Barada',
       width: Math.round(height * 1),
     },
     icon: {
