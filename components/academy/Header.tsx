@@ -11,8 +11,8 @@ import Logo from '@/components/shared/Logo'
 // 2026-10-03). Extracted here as a client component so it can carry its
 // own responsive hamburger state, matching the pattern already used by
 // components/corporate/Header.tsx.
-const red = '#0E7A58'
-const navy = '#0D4638'
+const red = '#0B63CE'
+const navy = '#0A1A52'
 
 export default function AcademyHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -31,7 +31,7 @@ export default function AcademyHeader() {
         <div className="hidden md:flex" style={{ gap: '1.25rem', alignItems: 'center' }}>
           <Link href="/academy" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>Courses</Link>
           <Link href="/login" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>Sign In</Link>
-          <Link href="/register" style={{ background: '#D4AF37', color: '#0D4638', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.82rem', fontWeight: 700 }}>Start Free</Link>
+          <Link href="/register" style={{ background: '#FF7A12', color: '#0A1A52', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.82rem', fontWeight: 700 }}>Start Free</Link>
         </div>
 
         {/* Mobile hamburger toggle */}
@@ -84,8 +84,8 @@ export default function AcademyHeader() {
             href="/register"
             onClick={() => setMenuOpen(false)}
             style={{
-              background: '#D4AF37',
-              color: '#0D4638',
+              background: '#FF7A12',
+              color: '#0A1A52',
               padding: '0.65rem 1.25rem',
               borderRadius: 8,
               textDecoration: 'none',
