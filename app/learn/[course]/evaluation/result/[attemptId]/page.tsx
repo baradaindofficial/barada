@@ -97,8 +97,8 @@ export default async function ResultPage({ params }: Props) {
   const scoreColor = attempt.passed ? '#16a34a' : '#E31E24'
 
   return (
-    <div style={{ minHeight: '100vh', background: '#072E24', fontFamily: 'Inter, system-ui, sans-serif' }}>
-      <nav style={{ background: '#0D4638', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 1.5rem', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
+    <div style={{ minHeight: '100vh', background: '#060F36', fontFamily: 'Inter, system-ui, sans-serif' }}>
+      <nav style={{ background: '#0A1A52', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 1.5rem', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
         <Link href="/academy" style={{ lineHeight: 0 }}>
           <Logo variant="academy" height={32} />
         </Link>
@@ -107,7 +107,7 @@ export default async function ResultPage({ params }: Props) {
 
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '3rem 1.5rem' }}>
         {/* Score card */}
-        <div style={{ background: 'linear-gradient(135deg, #0D4638, #165A48)', borderRadius: 20, padding: '2.5rem', border: `1.5px solid ${attempt.passed ? 'rgba(22,163,74,0.3)' : 'rgba(14,122,88,0.2)'}`, textAlign: 'center', marginBottom: '2rem' }}>
+        <div style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', borderRadius: 20, padding: '2.5rem', border: `1.5px solid ${attempt.passed ? 'rgba(22,163,74,0.3)' : 'rgba(11,99,206,0.2)'}`, textAlign: 'center', marginBottom: '2rem' }}>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
             {course?.title} &mdash; Course Evaluation
           </p>
@@ -124,24 +124,24 @@ export default async function ResultPage({ params }: Props) {
           {/* AI Feedback */}
           {feedback && (
             <div style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'left', marginBottom: '1.5rem' }}>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>AI Feedback</p>
+              <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>AI Feedback</p>
               <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem', lineHeight: 1.75 }}>{feedback}</p>
             </div>
           )}
 
           {/* Certificate eligibility */}
           {attempt.passed && eligibility?.eligible ? (
-            <div style={{ background: 'rgba(212,175,55,0.08)', borderRadius: 12, padding: '1.25rem', border: '1.5px solid rgba(212,175,55,0.3)' }}>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Certificate Available</p>
+            <div style={{ background: 'rgba(255,122,18,0.08)', borderRadius: 12, padding: '1.25rem', border: '1.5px solid rgba(255,122,18,0.3)' }}>
+              <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Certificate Available</p>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.82rem', marginBottom: '1rem' }}>{eligibility.reason}</p>
-              <div style={{ background: 'rgba(212,175,55,0.15)', borderRadius: 8, padding: '0.625rem 1.25rem', display: 'inline-block', border: '1px dashed rgba(212,175,55,0.4)' }}>
-                <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.78rem' }}>
+              <div style={{ background: 'rgba(255,122,18,0.15)', borderRadius: 8, padding: '0.625rem 1.25rem', display: 'inline-block', border: '1px dashed rgba(255,122,18,0.4)' }}>
+                <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.78rem' }}>
                   Payment coming in Sprint 5 &mdash; Certificate at &#8377;{Math.round((eligibility.certificatePricePaise || 29900) / 100)}
                 </p>
               </div>
             </div>
           ) : !attempt.passed ? (
-            <Link href={`/learn/${params.course}/evaluation`} style={{ display: 'inline-block', background: '#0E7A58', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
+            <Link href={`/learn/${params.course}/evaluation`} style={{ display: 'inline-block', background: '#0B63CE', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
               Try Again
             </Link>
           ) : null}
@@ -186,7 +186,7 @@ export default async function ResultPage({ params }: Props) {
             Browse Courses
           </Link>
           {!attempt.passed && (
-            <Link href={`/learn/${params.course}/evaluation`} style={{ background: '#0E7A58', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
+            <Link href={`/learn/${params.course}/evaluation`} style={{ background: '#0B63CE', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
               Retake Evaluation
             </Link>
           )}
