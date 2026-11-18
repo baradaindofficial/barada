@@ -76,17 +76,17 @@
   --color-surface: #FFFFFF;
   --color-surface-alt: #F3F4F6;
   --color-border: #E5E7EB;
-  --color-text-primary: #0D4638;
+  --color-text-primary: #0A1A52;
   --color-text-secondary: #69717D;
   --color-text-muted: #9CA3AF;
 
-  --color-brand-red: #0E7A58;
-  --color-brand-navy: #0D4638;
-  --color-brand-gold: #D4AF37;
+  --color-brand-red: #0B63CE;
+  --color-brand-navy: #0A1A52;
+  --color-brand-gold: #FF7A12;
 
-  --shadow-sm: 0 1px 2px rgba(13,70,56, 0.06);
-  --shadow-md: 0 4px 16px rgba(13,70,56, 0.10);
-  --shadow-lg: 0 12px 32px rgba(13,70,56, 0.16);
+  --shadow-sm: 0 1px 2px rgba(10,26,82, 0.06);
+  --shadow-md: 0 4px 16px rgba(10,26,82, 0.10);
+  --shadow-lg: 0 12px 32px rgba(10,26,82, 0.16);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -99,24 +99,24 @@
 }
 
 [data-theme="dark"] {
-  --color-bg: #07140F;
-  --color-surface: #0E241B;
-  --color-surface-alt: #143327;
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-bg: #060B1E;
+  --color-surface: #0C1630;
+  --color-surface-alt: #132048;
+  --color-border: rgba(255,255,255, 0.08);
   --color-text-primary: #F3F4F6;
-  --color-text-secondary: #A5BFB3;
+  --color-text-secondary: #A9B8D6;
   --color-text-muted: #69717D;
 
   /* Brand red/gold stay constant across themes for brand consistency.
-     Navy lightens on dark surfaces — the literal brand navy (#0D4638) is
+     Navy lightens on dark surfaces — the literal brand navy (#0A1A52) is
      too close to the dark background to read as an accent/text color. */
-  --color-brand-red: #0E7A58;
-  --color-brand-navy: #7FC4A6;
-  --color-brand-gold: #D4AF37;
+  --color-brand-red: #0B63CE;
+  --color-brand-navy: #8FB4F5;
+  --color-brand-gold: #FF7A12;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 1px 2px rgba(0,0,0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0,0,0, 0.6);
 }
 
 /* Responsive helpers — media queries cannot be expressed via inline styles */
