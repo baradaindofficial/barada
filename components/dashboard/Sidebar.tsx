@@ -70,7 +70,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
       >
         <div style={{ padding: '0 1.25rem', marginBottom: '2rem' }}>
           <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-brand-navy)' }}>
-            Barada Academy
+            QORVIAN
           </span>
         </div>
         {navList}
@@ -98,7 +98,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           >
             <div style={{ padding: '0 1.25rem', marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-brand-navy)' }}>
-                Barada Academy
+                QORVIAN
               </span>
               <button
                 onClick={onClose}
