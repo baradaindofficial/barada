@@ -19,7 +19,7 @@ import Logo from '@/components/shared/Logo'
 // not yet built (BARADA_CORPORATE_WEBSITE_IMPLEMENTATION_BRIEF.md, FUTURE).
 // Re-add once real pages exist.
 const NAV_LINKS = [
-  { label: 'Academy', href: '/academy' },
+  { label: 'QORVIAN', href: '/academy' },
   { label: 'Services', href: '/services' },
   { label: 'Ecosystem', href: '/ecosystem' },
   { label: 'About', href: '/about' },
@@ -54,7 +54,7 @@ export default function CorporateHeader() {
             href="/academy"
             style={{ background: '#D4AF37', color: '#0D4638', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}
           >
-            Explore Academy
+            Explore QORVIAN
           </Link>
         </div>
 
@@ -133,7 +133,7 @@ export default function CorporateHeader() {
               marginTop: '0.5rem',
             }}
           >
-            Explore Academy
+            Explore QORVIAN
           </Link>
         </div>
       )}
