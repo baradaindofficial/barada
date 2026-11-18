@@ -9,15 +9,15 @@ import { createClient } from '@/lib/supabase/server'
 import CourseCatalogue from '@/components/academy/CourseCatalogue'
 
 export const metadata: Metadata = {
-  title: 'Barada Academy \u2014 Learn AI. Build the Future.',
+  title: 'QORVIAN by Barada \u2014 AI Capability for Institutes, Professionals and Businesses',
   alternates: { canonical: 'https://barada.in/academy' },
-  description: 'Structured, self-paced professional courses on AI tools, productivity, and career skills. Free to learn. Verified certificates available.',
+  description: 'AI capability programs for institutes, working professionals and businesses: structured, practical courses with verifiable certificates, plus team programs and workshops.',
   openGraph: {
-    title: 'Barada Academy \u2014 Learn AI. Build the Future.',
-    description: 'Structured, self-paced professional courses on AI tools, productivity, and career skills. Free to learn. Verified certificates available.',
+    title: 'QORVIAN by Barada \u2014 AI Capability for Institutes, Professionals and Businesses',
+    description: 'AI capability programs for institutes, working professionals and businesses: structured, practical courses with verifiable certificates, plus team programs and workshops.',
     url: 'https://barada.in/academy',
     siteName: 'Barada',
-    images: [{ url: '/og/academy-og.png', width: 1200, height: 630, alt: 'Barada Academy' }],
+    images: [{ url: '/og/academy-og.png', width: 1200, height: 630, alt: 'QORVIAN by Barada' }],
     locale: 'en_IN',
     type: 'website',
   },
@@ -79,18 +79,19 @@ export default async function AcademyPage() {
       </div>
 
       <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #165A48 100%)`, padding: '4.5rem 2rem 3.5rem', textAlign: 'center' }}>
-        <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Barada Academy</p>
+        <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>QORVIAN by Barada</p>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '0.5rem' }}>
-          Learn AI.
+          AI capability for
         </h1>
         <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: gold, lineHeight: 1.15, marginBottom: '1.25rem' }}>
-          Build the Future.
+          teams that deliver.
         </h2>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 580, margin: '0 auto 2.5rem', lineHeight: 1.85 }}>
-          Structured, self-paced professional courses on AI tools, productivity, and career skills. Built by a practitioner. Immediately applicable to your work.
+          Practical AI programs for institutes, working professionals and businesses. Structured courses, verifiable certificates and team programs, built by a practitioner and applied to real work.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/register" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Start Learning Free &rarr;</Link>
+          <Link href="/contact" style={{ border: '2px solid rgba(212,175,55,0.7)', color: '#D4AF37', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Enquire for your team</Link>
           <Link href="/login" style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem' }}>Sign In</Link>
         </div>
         <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', marginTop: '3rem', flexWrap: 'wrap' }}>
@@ -100,6 +101,29 @@ export default async function AcademyPage() {
               <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>{l}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* WHO IT IS FOR -- B2B positioning (2026-11-18). Offer details are
+          deliberately general; refine once the first pilot scopes are set. */}
+      <section style={{ background: '#fff', padding: '4rem 2rem', borderBottom: '1px solid #E5E7EB' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Who it is for</p>
+          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 2rem' }}>One platform, three ways to build AI capability</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1.25rem' }}>
+            {[
+              ['For businesses', 'Team programs and workshops', 'Role-based learning pathways, live workshops and programs adapted to your teams and tools, with completion tracking and verifiable certificates.', 'Enquire for your team'],
+              ['For institutes', 'Curriculum and faculty enablement', 'Practical AI course content for your students, and trainer enablement so your faculty can teach it with confidence.', 'Talk to us about your institute'],
+              ['For professionals', 'Self-paced courses and certificates', 'Free-to-start courses built around real workplace scenarios, with a verifiable certificate you can share with employers.', 'Browse the courses'],
+            ].map(([tag, head, body, cta], i) => (
+              <div key={tag} style={{ border: '1px solid #DCE8E3', borderRadius: 14, padding: '1.5rem', background: '#F4F8F6' }}>
+                <p style={{ color: red, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.5rem' }}>{tag}</p>
+                <h3 style={{ color: navy, fontSize: '1.1rem', fontWeight: 800, margin: '0 0 0.6rem' }}>{head}</h3>
+                <p style={{ color: '#4B5563', fontSize: '0.92rem', lineHeight: 1.7, margin: '0 0 1rem' }}>{body}</p>
+                <Link href={i === 2 ? '#courses' : '/contact'} style={{ color: navy, fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>{cta} &rarr;</Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -130,9 +154,9 @@ export default async function AcademyPage() {
       <section style={{ background: '#F9FAFB', padding: '3.5rem 2rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto 2rem', textAlign: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
-            <BaradaMark size={64} color={navy} label="Barada Academy" />
-            <span style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, letterSpacing: '0.14em', color: navy }}>BARADA <span style={{ color: '#B8962E' }}>ACADEMY</span></span>
-            <span style={{ color: '#69717D', fontSize: '0.78rem', letterSpacing: '0.14em' }}>LEARN AI. BUILD THE FUTURE.</span>
+            <BaradaMark size={64} color={navy} label="QORVIAN by Barada" />
+            <span style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, letterSpacing: '0.14em', color: navy }}>QORVIAN <span style={{ color: '#B8962E' }}>BY BARADA</span></span>
+            <span style={{ color: '#69717D', fontSize: '0.78rem', letterSpacing: '0.14em' }}>AI CAPABILITY FOR TEAMS THAT DELIVER</span>
           </div>
         </div>
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
@@ -163,7 +187,7 @@ export default async function AcademyPage() {
               A verifiable credential, not just a PDF
             </h2>
             <p style={{ color: '#4B5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1rem' }}>
-              Every Barada Academy certificate carries a unique certificate ID and a QR code that resolves to a public verification page — so anyone you share it with (a recruiter, a manager) can confirm it&apos;s real in one scan.
+              Every QORVIAN certificate carries a unique certificate ID and a QR code that resolves to a public verification page — so anyone you share it with (a recruiter, a manager) can confirm it&apos;s real in one scan.
             </p>
             <p style={{ color: '#9CA3AF', fontSize: '0.82rem' }}>
               Sample shown for illustration. Your certificate carries your name, your course, and your own certificate ID.
@@ -173,7 +197,7 @@ export default async function AcademyPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/academy/sample-certificate.png"
-              alt="Sample Barada Academy certificate of completion, with a verification QR code and certificate ID"
+              alt="Sample QORVIAN certificate of completion, with a verification QR code and certificate ID"
               style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(13,70,56,0.25)' }}
             />
           </div>
@@ -341,7 +365,7 @@ export default async function AcademyPage() {
 
       <footer style={{ background: '#08372C', padding: '2rem', textAlign: 'center' }}>
         <Logo variant="academy" height={36} />
-        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', marginTop: '0.75rem' }}>&copy; 2026 Barada Academy &middot; A Barada Brand &middot; Practical Learning. Real Impact.</p>
+        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', marginTop: '0.75rem' }}>&copy; 2026 QORVIAN by Barada &middot; Practical Learning. Real Impact.</p>
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '0.5rem' }}>
           {[['Barada.in', '/'], ['Privacy', '/privacy'], ['Terms', '/terms'], ['Contact', '/contact']].map(([l, h]) => (
             <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
