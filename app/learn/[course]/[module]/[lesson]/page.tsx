@@ -25,7 +25,7 @@ export default async function LessonPage({ params }: Props) {
     .eq('status', 'published')
     .single()
 
-  if (!courseRaw) redirect('/academy')
+  if (!courseRaw) redirect('/qorvian')
   const course = courseRaw as any
 
   const { data: enrollmentRaw } = await supabase
@@ -43,7 +43,7 @@ export default async function LessonPage({ params }: Props) {
     .eq('module_number', moduleNumber)
     .single()
 
-  if (!modRaw) redirect('/academy')
+  if (!modRaw) redirect('/qorvian')
   const mod = modRaw as any
 
   const { data: lessonRaw } = await supabase
@@ -53,10 +53,10 @@ export default async function LessonPage({ params }: Props) {
     .eq('lesson_number', lessonNumber)
     .single()
 
-  if (!lessonRaw) redirect('/academy')
+  if (!lessonRaw) redirect('/qorvian')
   const lesson = lessonRaw as any
 
-  if (!enrollment && !lesson.is_free_preview) redirect('/academy')
+  if (!enrollment && !lesson.is_free_preview) redirect('/qorvian')
 
   const { data: attachments } = await supabase
     .from('asset_attachments')
@@ -106,7 +106,7 @@ export default async function LessonPage({ params }: Props) {
         position: 'sticky', top: 0, zIndex: 100,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <Link href="/academy" style={{ lineHeight: 0 }}>
+          <Link href="/qorvian" style={{ lineHeight: 0 }}>
             <Logo variant="academy" height={32} />
           </Link>
           <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.75rem' }}>/</span>
