@@ -192,12 +192,43 @@ export default async function AcademyPage() {
             </p>
           </div>
           <div style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/academy/sample-certificate.png"
-              alt="Sample QORVIAN certificate of completion, with a verification QR code and certificate ID"
-              style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(10,26,82,0.25)' }}
-            />
+            <svg viewBox="0 0 1414 1000" role="img" aria-label="Sample QORVIAN certificate of completion, with a verification QR code and certificate ID" style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(10,26,82,0.25)' }}>
+              <rect width="1414" height="1000" fill="#FFFFFF" />
+              <rect x="70" y="70" width="1274" height="860" fill="none" stroke="#FF7A12" strokeWidth="6" />
+              <text x="707" y="215" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="58" fill="#0A1A52" fontWeight="700" letterSpacing="10">QORVIAN BY BARADA</text>
+              <text x="707" y="262" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="24" fill="#0B63CE" letterSpacing="5">CERTIFICATE OF COMPLETION</text>
+              <text x="707" y="385" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="26" fill="#374151" letterSpacing="6">THIS CERTIFIES THAT</text>
+              <text x="707" y="475" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="72" fill="#0A1A52" fontWeight="700">Aditi Sharma</text>
+              <line x1="450" y1="508" x2="964" y2="508" stroke="#FF7A12" strokeWidth="2" />
+              <text x="707" y="575" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="28" fill="#374151">has successfully completed the course</text>
+              <text x="707" y="640" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="40" fill="#0B63CE" fontWeight="700">ChatGPT: From Beginner to Workplace Power User</text>
+              <text x="707" y="712" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="26" fill="#374151">and has demonstrated proficiency in the associated evaluation,</text>
+              <text x="707" y="750" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="26" fill="#374151">issued on 4 October 2026.</text>
+              <text x="250" y="850" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="22" fill="#0A1A52" fontWeight="700">BA-2026-SAMPLE01</text>
+              <text x="250" y="882" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="17" fill="#6B7280" letterSpacing="3">CERTIFICATE ID</text>
+              <text x="707" y="882" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="17" fill="#6B7280" letterSpacing="3">SCAN TO VERIFY</text>
+              <text x="1164" y="882" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="17" fill="#6B7280" letterSpacing="3">ISSUED BY BARADA</text>
+              <g transform="translate(647 722)">
+              <rect x="0" y="0" width="42" height="42" fill="none" stroke="#0A1A52" strokeWidth="7" /><rect x="14" y="14" width="14" height="14" fill="#0A1A52" />              <rect x="78" y="0" width="42" height="42" fill="none" stroke="#0A1A52" strokeWidth="7" /><rect x="92" y="14" width="14" height="14" fill="#0A1A52" />              <rect x="0" y="78" width="42" height="42" fill="none" stroke="#0A1A52" strokeWidth="7" /><rect x="14" y="92" width="14" height="14" fill="#0A1A52" />              <rect x="60" y="8" width="12" height="12" fill="#0A1A52" />
+              <rect x="78" y="8" width="12" height="12" fill="#0A1A52" />
+              <rect x="96" y="22" width="12" height="12" fill="#0A1A52" />
+              <rect x="60" y="26" width="12" height="12" fill="#0A1A52" />
+              <rect x="80" y="40" width="12" height="12" fill="#0A1A52" />
+              <rect x="100" y="50" width="12" height="12" fill="#0A1A52" />
+              <rect x="8" y="60" width="12" height="12" fill="#0A1A52" />
+              <rect x="26" y="72" width="12" height="12" fill="#0A1A52" />
+              <rect x="46" y="66" width="12" height="12" fill="#0A1A52" />
+              <rect x="64" y="64" width="12" height="12" fill="#0A1A52" />
+              <rect x="84" y="78" width="12" height="12" fill="#0A1A52" />
+              <rect x="104" y="92" width="12" height="12" fill="#0A1A52" />
+              <rect x="60" y="100" width="12" height="12" fill="#0A1A52" />
+              <rect x="78" y="96" width="12" height="12" fill="#0A1A52" />
+              <rect x="96" y="108" width="12" height="12" fill="#0A1A52" />
+              <rect x="40" y="90" width="12" height="12" fill="#0A1A52" />
+              <rect x="10" y="92" width="12" height="12" fill="#0A1A52" />
+              <rect x="20" y="110" width="12" height="12" fill="#0A1A52" />
+              </g>
+            </svg>
           </div>
         </div>
       </section>
