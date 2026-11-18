@@ -99,7 +99,7 @@ export default async function ResultPage({ params }: Props) {
   return (
     <div style={{ minHeight: '100vh', background: '#060F36', fontFamily: 'Inter, system-ui, sans-serif' }}>
       <nav style={{ background: '#0A1A52', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '0 1.5rem', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
-        <Link href="/academy" style={{ lineHeight: 0 }}>
+        <Link href="/qorvian" style={{ lineHeight: 0 }}>
           <Logo variant="academy" height={32} />
         </Link>
         <Link href="/dashboard" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', textDecoration: 'none' }}>Dashboard</Link>
@@ -182,7 +182,7 @@ export default async function ResultPage({ params }: Props) {
           <Link href={`/learn/${params.course}/module-1/lesson-1`} style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.7)', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem', border: '1px solid rgba(255,255,255,0.1)' }}>
             Review Course
           </Link>
-          <Link href="/academy" style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.7)', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+          <Link href="/qorvian" style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.7)', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem', border: '1px solid rgba(255,255,255,0.1)' }}>
             Browse Courses
           </Link>
           {!attempt.passed && (
