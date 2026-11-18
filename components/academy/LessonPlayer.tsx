@@ -854,7 +854,7 @@ export default function LessonPlayer(props: Props) {
                             if (b.kind === 'code')
                               return (
                                 <Hl key={i} on={on(k++)} accent={GOLD} style={{ borderRadius: 12, marginBottom: '0.9rem' }}>
-                                  <pre style={{ background: '#04201A', color: '#E8F1FF', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
+                                  <pre style={{ background: '#060F36', color: '#E8F1FF', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
                                     <code>{b.text}</code>
                                   </pre>
                                 </Hl>
