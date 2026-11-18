@@ -8,13 +8,13 @@ import { createClient } from '@/lib/supabase/server'
 import CourseCatalogue from '@/components/academy/CourseCatalogue'
 
 export const metadata: Metadata = {
-  title: 'QORVIAN by Barada \u2014 AI Capability for Institutes, Professionals and Businesses',
-  alternates: { canonical: 'https://barada.in/academy' },
+  title: { absolute: 'QORVIAN by Barada \u2014 AI Capability for Institutes, Professionals and Businesses' },
+  alternates: { canonical: 'https://barada.in/qorvian' },
   description: 'AI capability programs for institutes, working professionals and businesses: structured, practical courses with verifiable certificates, plus team programs and workshops.',
   openGraph: {
     title: 'QORVIAN by Barada \u2014 AI Capability for Institutes, Professionals and Businesses',
     description: 'AI capability programs for institutes, working professionals and businesses: structured, practical courses with verifiable certificates, plus team programs and workshops.',
-    url: 'https://barada.in/academy',
+    url: 'https://barada.in/qorvian',
     siteName: 'Barada',
     images: [{ url: '/og/academy-og.png', width: 1200, height: 630, alt: 'QORVIAN by Barada' }],
     locale: 'en_IN',
@@ -215,8 +215,8 @@ export default async function AcademyPage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '1.25rem' }}>
             {[
-              { title: 'I am new to AI', body: 'Start with the beginner courses. No technical background needed, and every course is free to enroll.', cta: 'Browse beginner courses', href: '/academy#courses' },
-              { title: 'I use AI tools at work', body: 'Go deeper on the tools you already use, with structured lessons and a verifiable certificate when you pass.', cta: 'See all courses', href: '/academy#courses' },
+              { title: 'I am new to AI', body: 'Start with the beginner courses. No technical background needed, and every course is free to enroll.', cta: 'Browse beginner courses', href: '/qorvian#courses' },
+              { title: 'I use AI tools at work', body: 'Go deeper on the tools you already use, with structured lessons and a verifiable certificate when you pass.', cta: 'See all courses', href: '/qorvian#courses' },
               { title: 'I lead a team', body: 'Team workshops are being planned and are not yet open for bookings. Register your interest and we will be in touch.', cta: 'Register your interest', href: '/services#professional-workshops' },
             ].map(({ title, body, cta, href }) => (
               <div key={title} style={{ background: '#F9FAFB', borderRadius: 16, padding: '1.5rem', border: '1.5px solid #E5E7EB', display: 'flex', flexDirection: 'column' }}>
