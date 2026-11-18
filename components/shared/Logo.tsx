@@ -53,6 +53,45 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
 
   const { src, alt, width } = config[variant]
 
+  if (variant === 'academy') {
+    // QORVIAN by Barada lockup, cropped from the supplied logo (tagline row hidden).
+    const k = height / 380
+    const lockup = (
+      <span
+        role="img"
+        aria-label={alt}
+        style={{
+          display: 'inline-block',
+          position: 'relative',
+          flexShrink: 0,
+          width: Math.round(1940 * k),
+          height: Math.round(380 * k),
+          overflow: 'hidden',
+          background: '#fff',
+          borderRadius: Math.max(6, Math.round(height * 0.2)),
+          lineHeight: 0,
+        }}
+      >
+        <Image
+          src="/qorvian-logo/image.png"
+          alt=""
+          width={Math.round(2172 * k)}
+          height={Math.round(724 * k)}
+          unoptimized
+          style={{ position: 'absolute', left: -Math.round(110 * k), top: -Math.round(90 * k), maxWidth: 'none' }}
+        />
+      </span>
+    )
+    if (linkTo) {
+      return (
+        <Link href={linkTo} style={{ display: 'inline-block', lineHeight: 0 }}>
+          {lockup}
+        </Link>
+      )
+    }
+    return lockup
+  }
+
   const img = (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
       {variant === 'icon' ? (
@@ -62,12 +101,6 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
       )}
       {(variant === 'corporate' || variant === 'footer') && (
         <span style={{ fontWeight: 800, fontSize: height * 0.45, color: '#fff', letterSpacing: 0.5 }}>BARADA</span>
-      )}
-      {variant === 'academy' && (
-        <span style={{ fontWeight: 800, fontSize: height * 0.4, letterSpacing: 0.5 }}>
-          <span style={{ color: '#fff' }}>QORVIAN</span>{' '}
-          <span style={{ color: '#D4AF37' }}>BY BARADA</span>
-        </span>
       )}
     </span>
   )
