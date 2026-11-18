@@ -6,11 +6,11 @@ import { ECOSYSTEM_VERTICALS, STATUS_LABEL } from '@/data/ecosystem-verticals'
 
 export const metadata: Metadata = {
   title: 'Ecosystem',
-  description: 'One parent, multiple platforms. Explore how Barada Academy, Partnerschaft and Ayushman fit together, and which ventures are active or still in development.',
+  description: 'One parent, multiple platforms. Explore how QORVIAN, Partnerschaft and Ayushman fit together, and which ventures are active or still in development.',
   alternates: { canonical: 'https://barada.in/ecosystem' },
   openGraph: {
     title: 'The Barada Ecosystem',
-    description: 'One parent, multiple platforms. Explore how Barada Academy, Partnerschaft and Ayushman fit together, and which ventures are active or still in development.',
+    description: 'One parent, multiple platforms. Explore how QORVIAN, Partnerschaft and Ayushman fit together, and which ventures are active or still in development.',
     url: 'https://barada.in/ecosystem',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
@@ -43,7 +43,7 @@ export default function EcosystemPage() {
           <div style={{ background: '#F9FAFB', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', display: 'inline-block', textAlign: 'left', minWidth: 'min(320px, 100%)' }}>
             <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0D4638', textAlign: 'center', marginBottom: '1.5rem' }}>BARADA (Parent)</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))', gap: '0.75rem' }}>
-              {['Academy', 'Technology', 'Consulting', 'Partnerschaft', 'Ayushman', '+ Future'].map(v => (
+              {['QORVIAN', 'Technology', 'Consulting', 'Partnerschaft', 'Ayushman', '+ Future'].map(v => (
                 <div key={v} style={{ background: '#fff', borderRadius: 8, padding: '0.5rem 0.75rem', border: '1px solid #E5E7EB', textAlign: 'center', fontSize: '0.75rem', fontWeight: 600, color: '#162622' }}>{v}</div>
               ))}
             </div>
@@ -98,7 +98,7 @@ export default function EcosystemPage() {
         <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: '1.5rem', marginBottom: '2rem' }}>Ecosystem roadmap</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
-            {[['2025', 'Foundation', 'Academy live. Partnerschaft live.'], ['2026', 'Growth', 'Technology. Consulting. Resources.'], ['2027', 'Scale', 'Enterprise. Multi-tenant. API.'], ['2028+', 'Expansion', 'Global. Mobile. Agent Layer.']].map(([year, title, desc]) => (
+            {[['2025', 'Foundation', 'QORVIAN live. Partnerschaft live.'], ['2026', 'Growth', 'Technology. Consulting. Resources.'], ['2027', 'Scale', 'Enterprise. Multi-tenant. API.'], ['2028+', 'Expansion', 'Global. Mobile. Agent Layer.']].map(([year, title, desc]) => (
               <div key={year} style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '1.5rem', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <p style={{ color: '#D4AF37', fontWeight: 800, fontSize: '1.1rem', fontFamily: 'Poppins, system-ui, sans-serif', marginBottom: '0.25rem' }}>{year}</p>
                 <p style={{ color: '#fff', fontWeight: 700, fontSize: '0.875rem', marginBottom: '0.5rem' }}>{title}</p>
