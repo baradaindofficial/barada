@@ -33,7 +33,7 @@ const chip = (active: boolean): React.CSSProperties => ({
   borderRadius: 999,
   border: `1.5px solid ${active ? navy : '#D1D5DB'}`,
   background: active ? navy : '#fff',
-  color: active ? '#fff' : '#162622',
+  color: active ? '#fff' : '#0C1740',
   fontSize: '0.8rem',
   fontWeight: 600,
   cursor: 'pointer',
