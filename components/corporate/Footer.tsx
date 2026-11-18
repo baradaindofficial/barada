@@ -21,7 +21,7 @@ interface CorporateFooterProps {
 
 export default function CorporateFooter({ hideAcademy = false }: CorporateFooterProps) {
   const footerVerticals = hideAcademy
-    ? ECOSYSTEM_VERTICALS.filter((v) => v.name !== 'Barada Academy')
+    ? ECOSYSTEM_VERTICALS.filter((v) => v.name !== 'QORVIAN')
     : ECOSYSTEM_VERTICALS
 
   return (
