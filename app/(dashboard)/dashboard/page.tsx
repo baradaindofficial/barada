@@ -47,7 +47,7 @@ export default async function DashboardPage() {
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div>
             <div className="font-display font-bold text-[#0D4638] text-lg">Dashboard</div>
-            <div className="text-gray-400 text-xs">Barada Academy</div>
+            <div className="text-gray-400 text-xs">QORVIAN by Barada</div>
           </div>
           <div className="flex items-center gap-3">
             <Link href="/academy" className="text-sm text-gray-600 hover:text-[#0D4638] font-medium">Browse Courses</Link>
