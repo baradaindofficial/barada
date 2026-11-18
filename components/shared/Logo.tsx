@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import BaradaMark from '@/components/shared/BaradaMark'
 
-type LogoVariant = 'corporate' | 'academy' | 'icon' | 'footer'
+type LogoVariant = 'corporate' | 'academy' | 'icon' | 'footer' | 'full'
 
 interface LogoProps {
   variant: LogoVariant
@@ -49,9 +49,56 @@ export default function Logo({ variant, height = 40, linkTo, className = '' }: L
       alt: 'Barada',
       width: Math.round(height * 1),
     },
+    full: {
+      src: '/brand/image.png',
+      alt: 'Barada. Connect. Build. Grow.',
+      width: Math.round(height * 1.16),
+    },
   }
 
   const { src, alt, width } = config[variant]
+
+  if (variant === 'full') {
+    // Full Barada logo (blue B, BARADA, Connect. Build. Grow.), cropped from the padded source image.
+    const k = height / 1018
+    const w = Math.round(1180 * k)
+    const sz = Math.round(2000 * k)
+    const full = (
+      <span
+        role="img"
+        aria-label={alt}
+        style={{
+          display: 'inline-block',
+          position: 'relative',
+          flexShrink: 0,
+          width: w,
+          height,
+          overflow: 'hidden',
+          lineHeight: 0,
+        }}
+      >
+        <Image
+          src="/brand/image.png"
+          alt=""
+          width={sz}
+          height={sz}
+          unoptimized
+          style={{ position: 'absolute', left: -Math.round(426 * k), top: -Math.round(446 * k), maxWidth: 'none' }}
+        />
+      </span>
+    )
+    const plate = (
+      <span style={{ display: 'inline-block', background: '#fff', borderRadius: 14, padding: 12, lineHeight: 0 }}>{full}</span>
+    )
+    if (linkTo) {
+      return (
+        <Link href={linkTo} style={{ display: 'inline-block', lineHeight: 0 }}>
+          {plate}
+        </Link>
+      )
+    }
+    return plate
+  }
 
   if (variant === 'academy') {
     // Full QORVIAN by Barada logo (icon, wordmark, by BARADA and tagline), shown whole.
