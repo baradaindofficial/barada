@@ -36,7 +36,7 @@ export default function DashboardError({ error, reset }: ErrorProps) {
             Try again
           </button>
           <Link
-            href="/academy"
+            href="/qorvian"
             className="bg-gray-100 text-gray-700 font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-gray-200 transition-colors"
           >
             Browse Courses
