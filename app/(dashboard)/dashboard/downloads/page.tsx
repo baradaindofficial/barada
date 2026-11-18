@@ -29,9 +29,9 @@ export default async function DownloadsPage() {
       {downloads.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '4rem 2rem', background: '#F9FAFB', borderRadius: 16, border: '1.5px dashed #E5E7EB' }}>
           <p style={{ fontSize: '2rem', marginBottom: '1rem' }}>📥</p>
-          <p style={{ color: '#162622', fontWeight: 600, marginBottom: '0.5rem' }}>No downloads yet</p>
+          <p style={{ color: '#0C1740', fontWeight: 600, marginBottom: '0.5rem' }}>No downloads yet</p>
           <p style={{ color: '#69717D', fontSize: '0.875rem', marginBottom: '1.5rem' }}>Resources you download from lessons will appear here.</p>
-          <Link href="/academy" style={{ background: '#0B63CE', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
+          <Link href="/qorvian" style={{ background: '#0B63CE', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
             Browse Courses
           </Link>
         </div>
