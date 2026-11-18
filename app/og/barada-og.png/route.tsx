@@ -35,7 +35,7 @@ export async function GET() {
           built on real experience.
         </div>
         <div style={{ display: 'flex', fontSize: 28, marginTop: 36, color: 'rgba(255,255,255,0.75)' }}>
-          Barada Academy  ·  Services  ·  Bengaluru, India  ·  barada.in
+          QORVIAN  ·  Services  ·  Bengaluru, India  ·  barada.in
         </div>
       </div>
     ),
