@@ -28,7 +28,7 @@ export const ECOSYSTEM_VERTICALS: EcosystemVertical[] = [
     name: 'QORVIAN',
     tagline: 'AI Capability for Teams',
     desc: 'AI capability programs for institutes, professionals and businesses. Structured courses, verified certificates and team programs.',
-    href: '/academy',
+    href: '/qorvian',
     status: 'live',
     color: '#E31E24',
   },
