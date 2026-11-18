@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import BaradaMark from '@/components/shared/BaradaMark'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import Logo from '@/components/shared/Logo'
@@ -23,9 +22,9 @@ export const metadata: Metadata = {
   },
 }
 
-const red = '#0E7A58'
-const navy = '#0D4638'
-const gold = '#D4AF37'
+const red = '#0B63CE'
+const navy = '#0A1A52'
+const gold = '#FF7A12'
 
 // Real, properly-licensed photography (Unsplash License) matching
 // Barada Academy's actual course categories -- added 2026-10-04 per
@@ -78,7 +77,7 @@ export default async function AcademyPage() {
         </p>
       </div>
 
-      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #165A48 100%)`, padding: '4.5rem 2rem 3.5rem', textAlign: 'center' }}>
+      <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #123C8F 100%)`, padding: '4.5rem 2rem 3.5rem', textAlign: 'center' }}>
         <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>QORVIAN by Barada</p>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '0.5rem' }}>
           AI capability for
@@ -91,7 +90,7 @@ export default async function AcademyPage() {
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/register" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Start Learning Free &rarr;</Link>
-          <Link href="/contact" style={{ border: '2px solid rgba(212,175,55,0.7)', color: '#D4AF37', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Enquire for your team</Link>
+          <Link href="/contact" style={{ border: '2px solid rgba(255,122,18,0.7)', color: '#FF7A12', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Enquire for your team</Link>
           <Link href="/login" style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem' }}>Sign In</Link>
         </div>
         <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', marginTop: '3rem', flexWrap: 'wrap' }}>
@@ -116,7 +115,7 @@ export default async function AcademyPage() {
               ['For institutes', 'Curriculum and faculty enablement', 'Practical AI course content for your students, and trainer enablement so your faculty can teach it with confidence.', 'Talk to us about your institute'],
               ['For professionals', 'Self-paced courses and certificates', 'Free-to-start courses built around real workplace scenarios, with a verifiable certificate you can share with employers.', 'Browse the courses'],
             ].map(([tag, head, body, cta], i) => (
-              <div key={tag} style={{ border: '1px solid #DCE8E3', borderRadius: 14, padding: '1.5rem', background: '#F4F8F6' }}>
+              <div key={tag} style={{ border: '1px solid #D6E3F8', borderRadius: 14, padding: '1.5rem', background: '#F2F6FF' }}>
                 <p style={{ color: red, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.5rem' }}>{tag}</p>
                 <h3 style={{ color: navy, fontSize: '1.1rem', fontWeight: 800, margin: '0 0 0.6rem' }}>{head}</h3>
                 <p style={{ color: '#4B5563', fontSize: '0.92rem', lineHeight: 1.7, margin: '0 0 1rem' }}>{body}</p>
@@ -154,8 +153,7 @@ export default async function AcademyPage() {
       <section style={{ background: '#F9FAFB', padding: '3.5rem 2rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto 2rem', textAlign: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
-            <BaradaMark size={64} color={navy} label="QORVIAN by Barada" />
-            <span style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, letterSpacing: '0.14em', color: navy }}>QORVIAN <span style={{ color: '#B8962E' }}>BY BARADA</span></span>
+            <Logo variant="academy" height={52} />
             <span style={{ color: '#69717D', fontSize: '0.78rem', letterSpacing: '0.14em' }}>AI CAPABILITY FOR TEAMS THAT DELIVER</span>
           </div>
         </div>
@@ -163,7 +161,7 @@ export default async function AcademyPage() {
           {ACADEMY_PHOTOS.map(({ src, name, desc }) => (
             <div key={name} style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
               <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 260px" style={{ objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,70,56,0.97) 0%, rgba(13,70,56,0.8) 42%, rgba(13,70,56,0.2) 75%, transparent 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,26,82,0.97) 0%, rgba(10,26,82,0.8) 42%, rgba(10,26,82,0.2) 75%, transparent 100%)' }} />
               <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
                 <p style={{ color: '#fff', fontWeight: 800, fontSize: '0.95rem', marginBottom: '0.25rem' }}>{name}</p>
                 <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.76rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
@@ -198,7 +196,7 @@ export default async function AcademyPage() {
             <img
               src="/images/academy/sample-certificate.png"
               alt="Sample QORVIAN certificate of completion, with a verification QR code and certificate ID"
-              style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(13,70,56,0.25)' }}
+              style={{ width: '100%', height: 'auto', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(10,26,82,0.25)' }}
             />
           </div>
         </div>
@@ -363,7 +361,7 @@ export default async function AcademyPage() {
         </div>
       </section>
 
-      <footer style={{ background: '#08372C', padding: '2rem', textAlign: 'center' }}>
+      <footer style={{ background: '#060F36', padding: '2rem', textAlign: 'center' }}>
         <Logo variant="academy" height={36} />
         <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', marginTop: '0.75rem' }}>&copy; 2026 QORVIAN by Barada &middot; Practical Learning. Real Impact.</p>
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '0.5rem' }}>
