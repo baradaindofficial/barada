@@ -27,18 +27,16 @@ export async function GET() {
             <path fill="#D4AF37" fillRule="evenodd" d={B_PATH} />
           </svg>
           <div style={{ display: 'flex', fontSize: 92, fontWeight: 900, marginLeft: 30 }}>
-            <span>BARADA</span>
-            <span style={{ color: '#D4AF37', marginLeft: 24 }}>ACADEMY</span>
+            <span>QORVIAN</span>
+            <span style={{ color: '#D4AF37', marginLeft: 24 }}>BY BARADA</span>
           </div>
         </div>
         <div style={{ display: 'flex', fontSize: 56, fontWeight: 800, marginTop: 40 }}>
-          <span>Learn</span>
-          <span style={{ color: '#D4AF37', marginLeft: 14 }}>AI.</span>
-          <span style={{ marginLeft: 14 }}>Build the</span>
-          <span style={{ color: '#D4AF37', marginLeft: 14 }}>Future.</span>
+          <span>AI capability for</span>
+          <span style={{ color: '#D4AF37', marginLeft: 14 }}>teams that deliver.</span>
         </div>
         <div style={{ display: 'flex', fontSize: 28, marginTop: 44, letterSpacing: 4, color: '#D4AF37', fontWeight: 700 }}>
-          A BARADA BRAND  ·  barada.in/academy
+          INSTITUTES  ·  PROFESSIONALS  ·  BUSINESSES
         </div>
       </div>
     ),
