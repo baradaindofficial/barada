@@ -65,7 +65,7 @@ export default function HeroRobot() {
           <defs>
             <linearGradient id="brBody" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#1C4DB0" />
-              <stop offset="1" stopColor="#0F4638" />
+              <stop offset="1" stopColor="#0A1A52" />
             </linearGradient>
           </defs>
           <line x1="210" y1="60" x2="210" y2="95" stroke="#5B6A8C" strokeWidth="6" strokeLinecap="round" />
