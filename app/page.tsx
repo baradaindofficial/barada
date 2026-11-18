@@ -9,7 +9,7 @@ import TiltCard from '@/components/corporate/TiltCard'
 
 export const metadata: Metadata = {
   title: 'Barada — Practical Learning and Business Execution',
-  description: 'Barada is the parent brand behind Barada Academy (practical AI skills training) and Partnerschaft (retail execution and procurement support), built on real corporate experience. Bengaluru, India.',
+  description: 'Barada is the parent brand behind QORVIAN (AI capability programs for institutes, professionals and businesses) and Partnerschaft (retail execution and procurement support), built on real corporate experience. Bengaluru, India.',
   alternates: { canonical: 'https://barada.in' },
   openGraph: {
     title: 'Barada',
@@ -33,11 +33,11 @@ const gold = '#D4AF37'
 const PRIMARY_ROUTES = [
   {
     icon: '🎓',
-    name: 'Barada Academy',
-    headline: 'Learn practical AI skills',
-    desc: 'Structured, self-paced courses on AI tools, productivity, and career skills — free to start, with a verified certificate available on completion.',
+    name: 'QORVIAN by Barada',
+    headline: 'AI capability for institutes, professionals and businesses',
+    desc: 'Structured, practical AI courses, verified certificates and team programs — free to start for individuals, tailored programs for organisations.',
     href: '/academy',
-    cta: 'Explore Barada Academy',
+    cta: 'Explore QORVIAN',
     color: red,
   },
   {
@@ -75,8 +75,8 @@ const BUILDING: { icon: string; name: string; desc: string; registerInterest?: b
 const ECOSYSTEM_PHOTOS = [
   {
     src: 'https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=800&q=75&auto=format&fit=crop',
-    name: 'Barada Academy',
-    desc: 'Self-paced online courses on AI tools, productivity, and career skills.',
+    name: 'QORVIAN',
+    desc: 'AI capability programs for institutes, professionals and businesses.',
     href: '/academy',
   },
   {
@@ -147,7 +147,7 @@ export default function HomePage() {
               Barada brings practical AI skills, digital procurement know-how and retail execution together, drawing on real corporate experience.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link href="/academy" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore Barada Academy &rarr;</Link>
+              <Link href="/academy" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore QORVIAN &rarr;</Link>
               <Link href="/academy#courses" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Browse 23 courses</Link>
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function HomePage() {
       {/* LIVE NOW -- Academy is the only live product; show it concretely. */}
       <section style={{ background: '#F4F8F6', padding: '4.5rem 2rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Live now &middot; Barada Academy</p>
+          <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Live now &middot; QORVIAN by Barada</p>
           <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 0.75rem' }}>23 practical AI courses, free to enroll.</h2>
           <p style={{ color: '#69717D', textAlign: 'center', maxWidth: 620, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>Over 250 lessons for working professionals, each built around a real workplace scenario.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1rem', marginBottom: '3rem' }}>
@@ -236,7 +236,7 @@ export default function HomePage() {
             A parent brand, built for practical results.
           </h2>
           <p style={{ color: '#69717D', fontSize: '1.05rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
-            Barada is the parent brand behind Barada Academy and Partnerschaft, with consulting services planned and further ventures underway. Every Barada platform is built from real corporate experience.
+            Barada is the parent brand behind QORVIAN and Partnerschaft, with consulting services planned and further ventures underway. Every Barada platform is built from real corporate experience.
           </p>
           <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
         </div>
