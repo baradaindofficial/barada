@@ -289,7 +289,7 @@ function buildFallbackQuestions(keyPoints: string[], pool: string[], seed: numbe
 
 function Mascot({ mood }: { mood: 'wave' | 'happy' | 'think' }) {
   return (
-    <svg viewBox="0 0 120 130" width="104" height="112" role="img" aria-label="Bara, the Barada Academy guide" className="bb-pop">
+    <svg viewBox="0 0 120 130" width="104" height="112" role="img" aria-label="Bara, the QORVIAN guide" className="bb-pop">
       <line x1="60" y1="8" x2="60" y2="24" stroke={GOLD} strokeWidth="4" strokeLinecap="round" />
       <circle cx="60" cy="8" r="6" fill={GOLD} className="bb-glow" />
       <rect x="14" y="52" width="10" height="26" rx="5" fill={GOLD} />
