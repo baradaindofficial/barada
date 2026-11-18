@@ -4,8 +4,8 @@ import Logo from '@/components/shared/Logo'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
-  title: 'Verify Certificate \u2014 Barada Academy',
-  description: 'Verify the authenticity of a Barada Academy certificate.',
+  title: 'Verify Certificate \u2014 QORVIAN by Barada',
+  description: 'Verify the authenticity of a QORVIAN certificate.',
 }
 
 const red = '#0E7A58'
@@ -95,7 +95,7 @@ export default async function VerifyCertificatePage({
         )}
 
         <p style={{ textAlign: 'center', fontSize: '0.78rem', color: '#9CA3AF', marginTop: '2rem' }}>
-          <Link href="/academy" style={{ color: gold, fontWeight: 700, textDecoration: 'none' }}>Explore Barada Academy courses &rarr;</Link>
+          <Link href="/academy" style={{ color: gold, fontWeight: 700, textDecoration: 'none' }}>Explore QORVIAN courses &rarr;</Link>
         </p>
       </div>
     </div>
