@@ -3,6 +3,11 @@ import { createClient } from '@/lib/supabase/server'
 import { ThemeProvider } from '@/context/ThemeContext'
 import DashboardShell from '@/components/dashboard/DashboardShell'
 import { getLearnerFirstName } from '@/lib/utils/learner-display'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: { default: 'QORVIAN by Barada', template: '%s | QORVIAN by Barada' },
+}
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient()
