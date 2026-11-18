@@ -29,7 +29,7 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
           <div>
-            <Logo variant="footer" height={44} />
+            <Logo variant="full" height={110} />
             <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', lineHeight: 1.7, marginTop: '0.75rem' }}>A professionally driven ecosystem of platforms built from real corporate experience.</p>
           </div>
           <div>
