@@ -52,7 +52,7 @@ function Frame({ label, accent, children }: { label: string; accent: string; chi
   return (
     <div style={{ borderRadius: 14, overflow: 'hidden', border: '1px solid ' + accent + '55', background: 'rgba(0,0,0,0.3)', margin: '0 0 1rem', boxShadow: '0 10px 28px rgba(0,0,0,0.3)' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '0.4rem 0.8rem', background: 'rgba(0,0,0,0.4)' }}>
-        {['#FF6B6B', '#F5C451', '#3DDC97'].map((c) => (
+        {['#FF6B6B', '#FFB020', '#3DDC97'].map((c) => (
           <span key={c} aria-hidden="true" style={{ width: 8, height: 8, borderRadius: '50%', background: c, opacity: 0.85 }} />
         ))}
         <span style={{ marginLeft: 8, fontSize: '0.68rem', fontWeight: 700, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.04em' }}>{label}</span>
@@ -127,7 +127,7 @@ function Excel({ focus, accent }: { focus: string; accent: string }) {
   return (
     <Frame label="Excel · worksheet" accent={accent}>
       <div style={{ background: '#fff', borderRadius: 8, overflow: 'hidden', color: '#1d2226', fontSize: '0.74rem', paddingTop: 10 }}>
-        <Zone on accent={accent} tag={focus.toUpperCase()} style={{ borderRadius: 0, padding: '5px 8px', background: '#f3f6f4', borderBottom: '1px solid #d7ddd9', outlineOffset: -2 }}>
+        <Zone on accent={accent} tag={focus.toUpperCase()} style={{ borderRadius: 0, padding: '5px 8px', background: '#f3f6f4', borderBottom: '1px solid #D3DDEE', outlineOffset: -2 }}>
           <span style={{ color: '#1d6f42', fontWeight: 800, marginRight: 8 }}>fx</span>
           <span style={{ fontFamily: 'ui-monospace, Menlo, monospace' }}>{f[focus] || f.formula}</span>
         </Zone>
@@ -139,15 +139,15 @@ function Excel({ focus, accent }: { focus: string; accent: string }) {
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: '28px repeat(4, 1fr)' }}>
-            <div style={{ background: '#eef1ef' }} />
+            <div style={{ background: '#EEF3FB' }} />
             {cols.map((c) => (
-              <div key={c} style={{ background: '#eef1ef', textAlign: 'center', fontWeight: 700, padding: '2px 0', borderLeft: '1px solid #d7ddd9' }}>{c}</div>
+              <div key={c} style={{ background: '#EEF3FB', textAlign: 'center', fontWeight: 700, padding: '2px 0', borderLeft: '1px solid #D3DDEE' }}>{c}</div>
             ))}
             {rows.map((r, ri) => (
               <React.Fragment key={ri}>
-                <div style={{ background: '#eef1ef', textAlign: 'center', borderTop: '1px solid #d7ddd9', padding: '2px 0' }}>{ri + 1}</div>
+                <div style={{ background: '#EEF3FB', textAlign: 'center', borderTop: '1px solid #D3DDEE', padding: '2px 0' }}>{ri + 1}</div>
                 {r.map((v, ci) => (
-                  <div key={ci} style={{ borderTop: '1px solid #e3e7e4', borderLeft: '1px solid #e3e7e4', padding: '2px 6px', fontWeight: ri === 0 ? 700 : 400, background: ri > 0 && ci === 2 && focus !== 'clean' ? accent + '33' : undefined }}>{v}</div>
+                  <div key={ci} style={{ borderTop: '1px solid #DDE6F5', borderLeft: '1px solid #DDE6F5', padding: '2px 6px', fontWeight: ri === 0 ? 700 : 400, background: ri > 0 && ci === 2 && focus !== 'clean' ? accent + '33' : undefined }}>{v}</div>
                 ))}
               </React.Fragment>
             ))}
