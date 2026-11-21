@@ -70,7 +70,7 @@ const SERVICES = [
     role: 'Train',
     whoFor: 'Teams and organisations wanting structured, live training rather than self-paced courses.',
     problem: 'Self-paced learning doesn\u2019t fit every team \u2014 some need a live, practitioner-led session with room for their own questions and context.',
-    deliverables: 'A structured, practitioner-led workshop on AI tools, productivity, or career skills \u2014 the same material behind Barada Academy, delivered live and adapted to your team.',
+    deliverables: 'A structured, practitioner-led workshop on AI tools, productivity, or career skills \u2014 the same material behind QORVIAN, delivered live and adapted to your team.',
     format: 'Discussed on enquiry \u2014 session length and group size flexible.',
     nextStep: 'Register your interest with your team size and topic; this service is planned, not yet open \u2014 we\u2019ll follow up once it is.',
   },
@@ -81,10 +81,10 @@ export default function ServicesPage() {
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', minHeight: '100vh', background: '#F9FAFB' }}>
       <CorporateHeader />
 
-      <section style={{ background: 'linear-gradient(135deg, #0D4638, #165A48)', padding: '5rem 2rem', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', padding: '5rem 2rem', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Services</h1>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 600, margin: '0 auto' }}>AI adoption advisory, AI and automation services, procurement transformation, and professional workshops &mdash; planned services, built on real corporate experience. Not yet open for engagements.</p>
-        <p style={{ display: 'inline-block', marginTop: '1.25rem', background: 'rgba(212,175,55,0.15)', color: '#D4AF37', padding: '0.4rem 1rem', borderRadius: 20, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em' }}>Coming Soon &mdash; Register Your Interest</p>
+        <p style={{ display: 'inline-block', marginTop: '1.25rem', background: 'rgba(255,122,18,0.15)', color: '#FF7A12', padding: '0.4rem 1rem', borderRadius: 20, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em' }}>Coming Soon &mdash; Register Your Interest</p>
       </section>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
@@ -95,34 +95,34 @@ export default function ServicesPage() {
                 <span style={{ fontSize: '2rem', flexShrink: 0 }}>{icon}</span>
                 <div>
                   {role && (
-                    <span style={{ display: 'inline-block', marginBottom: '0.4rem', padding: '0.15rem 0.6rem', borderRadius: 20, background: 'rgba(13,70,56,0.06)', border: '1px solid rgba(13,70,56,0.14)', color: '#0D4638', fontSize: '0.66rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{role}</span>
+                    <span style={{ display: 'inline-block', marginBottom: '0.4rem', padding: '0.15rem 0.6rem', borderRadius: 20, background: 'rgba(10,26,82,0.06)', border: '1px solid rgba(10,26,82,0.14)', color: '#0A1A52', fontSize: '0.66rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>{role}</span>
                   )}
-                  <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D4638', fontSize: '1.15rem', margin: 0 }}>{title}</h2>
+                  <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.15rem', margin: 0 }}>{title}</h2>
                 </div>
               </div>
               {tagline && (
-                <p style={{ margin: '-0.5rem 0 1.25rem', color: '#0D4638', fontSize: '1rem', fontWeight: 600, lineHeight: 1.6 }}>{tagline}</p>
+                <p style={{ margin: '-0.5rem 0 1.25rem', color: '#0A1A52', fontSize: '1rem', fontWeight: 600, lineHeight: 1.6 }}>{tagline}</p>
               )}
               {intro && (
-                <p style={{ margin: '0 0 1.25rem', color: '#162622', fontSize: '0.9rem', lineHeight: 1.7 }}>{intro}</p>
+                <p style={{ margin: '0 0 1.25rem', color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.7 }}>{intro}</p>
               )}
               <dl style={{ margin: 0, display: 'grid', gap: '1rem' }}>
                 <div>
                   <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Who it&apos;s for</dt>
-                  <dd style={{ margin: 0, color: '#162622', fontSize: '0.9rem', lineHeight: 1.7 }}>{whoFor}</dd>
+                  <dd style={{ margin: 0, color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.7 }}>{whoFor}</dd>
                 </div>
                 <div>
                   <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>The problem it addresses</dt>
-                  <dd style={{ margin: 0, color: '#162622', fontSize: '0.9rem', lineHeight: 1.7 }}>{problem}</dd>
+                  <dd style={{ margin: 0, color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.7 }}>{problem}</dd>
                 </div>
                 <div>
                   <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Proposed scope (planned, not yet confirmed)</dt>
-                  <dd style={{ margin: 0, color: '#162622', fontSize: '0.9rem', lineHeight: 1.7 }}>{deliverables}</dd>
+                  <dd style={{ margin: 0, color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.7 }}>{deliverables}</dd>
                 </div>
                 {useCases && (
                   <div>
                     <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Illustrative use cases to assess (examples, not existing capabilities)</dt>
-                    <dd style={{ margin: 0, color: '#162622', fontSize: '0.9rem', lineHeight: 1.7 }}>
+                    <dd style={{ margin: 0, color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.7 }}>
                       <ul style={{ margin: 0, paddingLeft: '1.25rem', listStyle: 'disc' }}>
                         {useCases.map((u) => (<li key={u}>{u}</li>))}
                       </ul>
@@ -132,31 +132,31 @@ export default function ServicesPage() {
                 {approach && (
                   <div>
                     <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Approach</dt>
-                    <dd style={{ margin: 0, color: '#162622', fontSize: '0.9rem', lineHeight: 1.7 }}>{approach}</dd>
+                    <dd style={{ margin: 0, color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.7 }}>{approach}</dd>
                   </div>
                 )}
                 <div>
                   <dt style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Format</dt>
-                  <dd style={{ margin: 0, color: '#162622', fontSize: '0.9rem', lineHeight: 1.7 }}>{format}</dd>
+                  <dd style={{ margin: 0, color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.7 }}>{format}</dd>
                 </div>
                 <div style={{ paddingTop: '0.5rem', borderTop: '1px solid #F3F4F6' }}>
-                  <dt style={{ fontSize: '0.68rem', color: '#0E7A58', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Coming Soon &mdash; Register Your Interest</dt>
-                  <dd style={{ margin: 0, color: '#162622', fontSize: '0.9rem', lineHeight: 1.7, fontWeight: 600 }}>{nextStep}</dd>
+                  <dt style={{ fontSize: '0.68rem', color: '#0B63CE', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.25rem' }}>Coming Soon &mdash; Register Your Interest</dt>
+                  <dd style={{ margin: 0, color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.7, fontWeight: 600 }}>{nextStep}</dd>
                 </div>
               </dl>
               {trainingLink && (
-                <p style={{ margin: '1.25rem 0 0', color: '#162622', fontSize: '0.88rem' }}>
-                  Need to train your team? <Link href="/services#professional-workshops" style={{ color: '#0E7A58', fontWeight: 700, display: 'inline-block', padding: '0.8rem 0', lineHeight: 1.4 }}>Explore Professional Workshops</Link>.
+                <p style={{ margin: '1.25rem 0 0', color: '#0C1740', fontSize: '0.88rem' }}>
+                  Need to train your team? <Link href="/services#professional-workshops" style={{ color: '#0B63CE', fontWeight: 700, display: 'inline-block', padding: '0.8rem 0', lineHeight: 1.4 }}>Explore Professional Workshops</Link>.
                 </p>
               )}
             </div>
           ))}
         </div>
 
-        <p style={{ color: '#162622', fontSize: '0.9rem', lineHeight: 1.6, textAlign: 'center', margin: '0 auto 2rem', maxWidth: 640 }}>Related: Partnerschaft India, our group company for retail execution and vendor operations, is also planning Digital Enablement support. <a href="https://partnerschaft.in/services" target="_blank" rel="noopener noreferrer" style={{ color: '#0E7A58', fontWeight: 700 }}>See its services</a>.</p><div style={{ background: '#0D4638', borderRadius: 16, padding: '2.5rem', textAlign: 'center' }}>
+        <p style={{ color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.6, textAlign: 'center', margin: '0 auto 2rem', maxWidth: 640 }}>Related: Partnerschaft India, our group company for retail execution and vendor operations, is also planning Digital Enablement support. <a href="https://partnerschaft.in/services" target="_blank" rel="noopener noreferrer" style={{ color: '#0B63CE', fontWeight: 700 }}>See its services</a>.</p><div style={{ background: '#0A1A52', borderRadius: 16, padding: '2.5rem', textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: '1.375rem', marginBottom: '0.75rem' }}>Coming Soon &mdash; Register Your Interest</h2>
           <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem' }}>These services are planned, not yet open for engagements. Tell us what you need and we&apos;ll follow up once they are.</p>
-          <Link href="/contact" style={{ display: 'inline-block', background: '#0E7A58', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Register Your Interest &rarr;</Link>
+          <Link href="/contact" style={{ display: 'inline-block', background: '#0B63CE', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Register Your Interest &rarr;</Link>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.82rem', marginTop: '1rem' }}>or email info@barada.in directly</p>
         </div>
       </div>

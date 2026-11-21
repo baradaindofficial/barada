@@ -32,10 +32,10 @@ export default function ResetPasswordPage() {
     <div style={{ minHeight: '100vh', background: '#F9FAFB', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', fontFamily: 'Inter, system-ui, sans-serif' }}>
       <div style={{ width: '100%', maxWidth: 420 }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <Link href="/academy" style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
+          <Link href="/qorvian" style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
             <Logo variant="academy" height={40} />
           </Link>
-          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0D4638', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
             Set new password
           </h1>
           <p style={{ color: '#69717D', fontSize: '0.875rem' }}>Choose a strong password for your account.</p>
@@ -43,7 +43,7 @@ export default function ResetPasswordPage() {
         <div style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB' }}>
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div>
-              <label style={{ display: 'block', color: '#162622', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>New password</label>
+              <label style={{ display: 'block', color: '#0C1740', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>New password</label>
               <input
                 type="password"
                 value={password}
@@ -54,7 +54,7 @@ export default function ResetPasswordPage() {
               />
             </div>
             <div>
-              <label style={{ display: 'block', color: '#162622', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>Confirm password</label>
+              <label style={{ display: 'block', color: '#0C1740', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.375rem' }}>Confirm password</label>
               <input
                 type="password"
                 value={confirm}
@@ -68,7 +68,7 @@ export default function ResetPasswordPage() {
             <button
               type="submit"
               disabled={loading}
-              style={{ background: '#0E7A58', color: '#fff', border: 'none', borderRadius: 10, padding: '0.875rem', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', opacity: loading ? 0.7 : 1 }}
+              style={{ background: '#0B63CE', color: '#fff', border: 'none', borderRadius: 10, padding: '0.875rem', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', opacity: loading ? 0.7 : 1 }}
             >
               {loading ? 'Updating...' : 'Update Password'}
             </button>

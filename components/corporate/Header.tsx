@@ -19,7 +19,7 @@ import Logo from '@/components/shared/Logo'
 // not yet built (BARADA_CORPORATE_WEBSITE_IMPLEMENTATION_BRIEF.md, FUTURE).
 // Re-add once real pages exist.
 const NAV_LINKS = [
-  { label: 'Academy', href: '/academy' },
+  { label: 'QORVIAN', href: '/qorvian' },
   { label: 'Services', href: '/services' },
   { label: 'Ecosystem', href: '/ecosystem' },
   { label: 'About', href: '/about' },
@@ -31,7 +31,7 @@ export default function CorporateHeader() {
 
   return (
     <nav
-      style={{ background: '#0D4638', position: 'sticky', top: 0, zIndex: 100 }}
+      style={{ background: '#0A1A52', position: 'sticky', top: 0, zIndex: 100 }}
       className="px-4 md:px-8"
     >
       <div className="flex items-center justify-between" style={{ height: 64, maxWidth: 1200, margin: '0 auto' }}>
@@ -51,10 +51,10 @@ export default function CorporateHeader() {
             </Link>
           ))}
           <Link
-            href="/academy"
-            style={{ background: '#D4AF37', color: '#0D4638', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}
+            href="/qorvian"
+            style={{ background: '#FF7A12', color: '#0A1A52', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}
           >
-            Explore Academy
+            Explore QORVIAN
           </Link>
         </div>
 
@@ -119,11 +119,11 @@ export default function CorporateHeader() {
             </Link>
           ))}
           <Link
-            href="/academy"
+            href="/qorvian"
             onClick={() => setMenuOpen(false)}
             style={{
-              background: '#D4AF37',
-              color: '#0D4638',
+              background: '#FF7A12',
+              color: '#0A1A52',
               padding: '0.65rem 1.25rem',
               borderRadius: 8,
               textDecoration: 'none',
@@ -133,7 +133,7 @@ export default function CorporateHeader() {
               marginTop: '0.5rem',
             }}
           >
-            Explore Academy
+            Explore QORVIAN
           </Link>
         </div>
       )}

@@ -25,10 +25,10 @@ export const STATUS_LABEL: Record<VerticalStatus, string> = {
 export const ECOSYSTEM_VERTICALS: EcosystemVertical[] = [
   {
     icon: '\uD83C\uDF93',
-    name: 'Barada Academy',
-    tagline: 'AI & Professional Learning',
-    desc: 'Structured professional courses on AI tools, productivity, and career skills. Free to learn.',
-    href: '/academy',
+    name: 'QORVIAN',
+    tagline: 'AI Capability for Teams',
+    desc: 'AI capability programs for institutes, professionals and businesses. Structured courses, verified certificates and team programs.',
+    href: '/qorvian',
     status: 'live',
     color: '#E31E24',
   },

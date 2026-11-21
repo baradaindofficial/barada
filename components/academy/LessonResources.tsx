@@ -116,7 +116,7 @@ function ResourceRow({ resource, lessonId }: { resource: Resource; lessonId: str
             aria-label={`Download ${resource.title}`}
             title="Download"
             style={{
-              background: downloading ? 'rgba(255,255,255,0.05)' : '#0E7A58',
+              background: downloading ? 'rgba(255,255,255,0.05)' : '#0B63CE',
               border: 'none', borderRadius: 6,
               padding: '0.375rem 0.75rem',
               color: '#fff', fontWeight: 700, fontSize: '0.72rem',
@@ -175,7 +175,7 @@ export default function LessonResources({ lessonId }: LessonResourcesProps) {
 
   return (
     <div>
-      <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+      <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
         Resources ({resources.length})
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }} role="list" aria-label="Lesson resources">

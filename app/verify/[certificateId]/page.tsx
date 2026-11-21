@@ -4,13 +4,13 @@ import Logo from '@/components/shared/Logo'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
-  title: 'Verify Certificate \u2014 Barada Academy',
-  description: 'Verify the authenticity of a Barada Academy certificate.',
+  title: { absolute: 'Verify Certificate \u2014 QORVIAN by Barada' },
+  description: 'Verify the authenticity of a QORVIAN certificate.',
 }
 
-const red = '#0E7A58'
-const navy = '#0D4638'
-const gold = '#D4AF37'
+const red = '#0B63CE'
+const navy = '#0A1A52'
+const gold = '#FF7A12'
 
 interface VerifiedCertificate {
   certificate_id: string
@@ -50,10 +50,10 @@ export default async function VerifyCertificatePage({
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', margin: 0, padding: 0, minHeight: '100vh', background: '#F9FAFB' }}>
       <nav style={{ background: navy, padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
-        <Link href="/academy" style={{ display: 'flex', alignItems: 'center', lineHeight: 0 }}>
+        <Link href="/qorvian" style={{ display: 'flex', alignItems: 'center', lineHeight: 0 }}>
           <Logo variant="academy" height={40} />
         </Link>
-        <Link href="/academy" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>&larr; Back to Academy</Link>
+        <Link href="/qorvian" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>&larr; Back to Academy</Link>
       </nav>
 
       <div style={{ maxWidth: 560, margin: '0 auto', padding: '4rem 1.5rem' }}>
@@ -95,7 +95,7 @@ export default async function VerifyCertificatePage({
         )}
 
         <p style={{ textAlign: 'center', fontSize: '0.78rem', color: '#9CA3AF', marginTop: '2rem' }}>
-          <Link href="/academy" style={{ color: gold, fontWeight: 700, textDecoration: 'none' }}>Explore Barada Academy courses &rarr;</Link>
+          <Link href="/qorvian" style={{ color: gold, fontWeight: 700, textDecoration: 'none' }}>Explore QORVIAN courses &rarr;</Link>
         </p>
       </div>
     </div>

@@ -19,7 +19,7 @@
 
     <!-- window dots -->
     <circle cx="100" cy="118" r="5" fill="#E31E24"/>
-    <circle cx="118" cy="118" r="5" fill="#D4AF37"/>
+    <circle cx="118" cy="118" r="5" fill="#FF7A12"/>
     <circle cx="136" cy="118" r="5" fill="#0D183D" opacity="0.4"/>
 
     <!-- title bar -->
@@ -29,7 +29,7 @@
     <!-- progress rows -->
     <g>
       <rect x="96" y="190" width="220" height="10" rx="5" fill="#E5E7EB"/>
-      <rect x="96" y="190" width="170" height="10" rx="5" fill="#D4AF37"/>
+      <rect x="96" y="190" width="170" height="10" rx="5" fill="#FF7A12"/>
 
       <rect x="96" y="214" width="220" height="10" rx="5" fill="#E5E7EB"/>
       <rect x="96" y="214" width="120" height="10" rx="5" fill="#E31E24"/>
@@ -42,7 +42,7 @@
     <g>
       <rect x="96" y="320" width="26" height="46" rx="4" fill="url(#barGrad)"/>
       <rect x="132" y="296" width="26" height="70" rx="4" fill="#0D183D"/>
-      <rect x="168" y="276" width="26" height="90" rx="4" fill="#D4AF37"/>
+      <rect x="168" y="276" width="26" height="90" rx="4" fill="#FF7A12"/>
       <rect x="204" y="256" width="26" height="110" rx="4" fill="url(#barGrad)"/>
       <rect x="240" y="306" width="26" height="60" rx="4" fill="#0D183D" opacity="0.75"/>
     </g>
@@ -50,7 +50,7 @@
     <!-- certificate chip -->
     <g>
       <rect x="290" y="190" width="100" height="120" rx="14" fill="#FFFFFF" stroke="#E5E7EB"/>
-      <circle cx="340" cy="228" r="20" fill="none" stroke="#D4AF37" stroke-width="4"/>
+      <circle cx="340" cy="228" r="20" fill="none" stroke="#FF7A12" stroke-width="4"/>
       <path d="M332 228 l6 7 l12 -16" stroke="#0D183D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
       <rect x="306" y="262" width="68" height="8" rx="4" fill="#9CA3AF"/>
       <rect x="316" y="278" width="48" height="8" rx="4" fill="#E5E7EB"/>
@@ -78,7 +78,7 @@
 
   <!-- floating badge: growth (arrow chart) -->
   <g>
-    <circle cx="450" cy="340" r="30" fill="#D4AF37"/>
+    <circle cx="450" cy="340" r="30" fill="#FF7A12"/>
     <g transform="translate(450,340)" stroke="#0D183D" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="-14,8 -4,-2 4,4 14,-10"/>
       <polyline points="6,-10 14,-10 14,-2"/>
@@ -86,7 +86,7 @@
   </g>
 
   <!-- floating small dots -->
-  <circle cx="60" cy="300" r="6" fill="#D4AF37"/>
+  <circle cx="60" cy="300" r="6" fill="#FF7A12"/>
   <circle cx="420" cy="60" r="5" fill="#E31E24"/>
   <circle cx="500" cy="260" r="4" fill="#FFFFFF" opacity="0.6"/>
 </svg>

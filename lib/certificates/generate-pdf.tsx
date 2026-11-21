@@ -14,11 +14,10 @@
  */
 import { Document, Page, View, Text, Image, StyleSheet, renderToBuffer } from '@react-pdf/renderer'
 import { generateVerificationQrPng } from './qr'
-import { BARADA_SYMBOL_MARK_PNG_DATA_URI } from './brand-mark'
 
-const NAVY = '#0D183D'
-const RED = '#E31E24'
-const GOLD = '#D4AF37'
+const NAVY = '#0A1A52'
+const RED = '#0B63CE'
+const GOLD = '#FF7A12'
 const INK = '#374151'
 const MUTED = '#6B7280'
 
@@ -147,8 +146,7 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
       <Page size="A4" orientation="landscape" style={styles.page}>
         <View style={styles.border}>
           <View style={styles.header}>
-            <Image src={BARADA_SYMBOL_MARK_PNG_DATA_URI} style={styles.mark} />
-            <Text style={styles.brand}>BARADA ACADEMY</Text>
+            <Text style={styles.brand}>QORVIAN BY BARADA</Text>
             <Text style={styles.tagline}>CERTIFICATE OF COMPLETION</Text>
           </View>
 
@@ -174,7 +172,6 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
               <Text style={styles.footerLabel}>SCAN TO VERIFY</Text>
             </View>
             <View style={styles.footerCol}>
-              <Image src={BARADA_SYMBOL_MARK_PNG_DATA_URI} style={styles.footerMark} />
               <Text style={styles.footerLabel}>ISSUED BY BARADA</Text>
             </View>
           </View>

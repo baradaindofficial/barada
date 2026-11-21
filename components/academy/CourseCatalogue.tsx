@@ -9,8 +9,8 @@ import CourseEnrollButton from '@/components/academy/CourseEnrollButton'
 // that exist in the published courses, so nothing is invented. Team
 // workshops are described as planned, in line with /services.
 
-const red = '#0E7A58'
-const navy = '#0D4638'
+const red = '#0B63CE'
+const navy = '#0A1A52'
 
 export type CatalogueCourse = {
   slug: string
@@ -33,7 +33,7 @@ const chip = (active: boolean): React.CSSProperties => ({
   borderRadius: 999,
   border: `1.5px solid ${active ? navy : '#D1D5DB'}`,
   background: active ? navy : '#fff',
-  color: active ? '#fff' : '#162622',
+  color: active ? '#fff' : '#0C1740',
   fontSize: '0.8rem',
   fontWeight: 600,
   cursor: 'pointer',
@@ -151,7 +151,7 @@ export default function CourseCatalogue({
                     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '0.875rem' }}>
                       <span style={{ fontSize: '1.75rem' }}>{course.icon}</span>
                       {course.enrollmentPaused ? (
-                        <span style={{ background: 'rgba(212,175,55,0.15)', color: '#8A6D1E', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Content Being Completed</span>
+                        <span style={{ background: 'rgba(255,122,18,0.15)', color: '#B34A00', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Content Being Completed</span>
                       ) : (
                         <span style={{ background: 'rgba(22,163,74,0.1)', color: '#15803d', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Available Now</span>
                       )}
@@ -172,8 +172,8 @@ export default function CourseCatalogue({
                     />
                   </div>
                   {course.enrollmentPaused ? (
-                    <div style={{ background: 'rgba(212,175,55,0.08)', borderTop: '1px solid rgba(212,175,55,0.2)', padding: '0.5rem 1.5rem' }}>
-                      <span style={{ fontSize: '0.7rem', color: '#8A6D1E', fontWeight: 700 }}>Content being completed &mdash; new enrolments temporarily paused.</span>
+                    <div style={{ background: 'rgba(255,122,18,0.08)', borderTop: '1px solid rgba(255,122,18,0.2)', padding: '0.5rem 1.5rem' }}>
+                      <span style={{ fontSize: '0.7rem', color: '#B34A00', fontWeight: 700 }}>Content being completed &mdash; new enrolments temporarily paused.</span>
                     </div>
                   ) : (
                     <div style={{ background: 'rgba(22,163,74,0.05)', borderTop: '1px solid rgba(22,163,74,0.1)', padding: '0.5rem 1.5rem' }}>

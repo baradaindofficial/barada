@@ -25,7 +25,7 @@ export default async function LessonPage({ params }: Props) {
     .eq('status', 'published')
     .single()
 
-  if (!courseRaw) redirect('/academy')
+  if (!courseRaw) redirect('/qorvian')
   const course = courseRaw as any
 
   const { data: enrollmentRaw } = await supabase
@@ -43,7 +43,7 @@ export default async function LessonPage({ params }: Props) {
     .eq('module_number', moduleNumber)
     .single()
 
-  if (!modRaw) redirect('/academy')
+  if (!modRaw) redirect('/qorvian')
   const mod = modRaw as any
 
   const { data: lessonRaw } = await supabase
@@ -53,10 +53,10 @@ export default async function LessonPage({ params }: Props) {
     .eq('lesson_number', lessonNumber)
     .single()
 
-  if (!lessonRaw) redirect('/academy')
+  if (!lessonRaw) redirect('/qorvian')
   const lesson = lessonRaw as any
 
-  if (!enrollment && !lesson.is_free_preview) redirect('/academy')
+  if (!enrollment && !lesson.is_free_preview) redirect('/qorvian')
 
   const { data: attachments } = await supabase
     .from('asset_attachments')
@@ -106,7 +106,7 @@ export default async function LessonPage({ params }: Props) {
         position: 'sticky', top: 0, zIndex: 100,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <Link href="/academy" style={{ lineHeight: 0 }}>
+          <Link href="/qorvian" style={{ lineHeight: 0 }}>
             <Logo variant="academy" height={32} />
           </Link>
           <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.75rem' }}>/</span>
@@ -196,7 +196,7 @@ export default async function LessonPage({ params }: Props) {
 
         <div className="lesson-side">
           <div style={{ background: theme.nav, borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
-            <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+            <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
               Course Content
             </p>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', fontWeight: 600, marginBottom: '0.875rem' }}>
@@ -211,12 +211,12 @@ export default async function LessonPage({ params }: Props) {
                     <Link key={l.lesson_id} href={navUrl(l)} style={{
                       display: 'flex', alignItems: 'center', gap: '0.625rem',
                       padding: '0.5rem 0.75rem', borderRadius: 8, textDecoration: 'none',
-                      background: isActive ? 'rgba(14,122,88,0.15)' : 'transparent',
-                      border: isActive ? '1px solid rgba(14,122,88,0.3)' : '1px solid transparent',
+                      background: isActive ? 'rgba(11,99,206,0.15)' : 'transparent',
+                      border: isActive ? '1px solid rgba(11,99,206,0.3)' : '1px solid transparent',
                     }}>
                       <span style={{
                         width: 20, height: 20, borderRadius: '50%',
-                        background: isActive ? '#0E7A58' : 'rgba(255,255,255,0.08)',
+                        background: isActive ? '#0B63CE' : 'rgba(255,255,255,0.08)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: '0.6rem', color: '#fff', flexShrink: 0, fontWeight: 700,
                       }}>

@@ -4,11 +4,11 @@ import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contact Barada in Bengaluru for Academy questions, partnership and media enquiries, or to register your interest in planned business services.',
+  description: 'Contact Barada in Bengaluru for QORVIAN questions, team programs, partnership and media enquiries, or to register your interest in planned business services.',
   alternates: { canonical: 'https://barada.in/contact' },
   openGraph: {
     title: 'Contact Barada',
-    description: 'Contact Barada in Bengaluru for Academy questions, partnership and media enquiries, or to register your interest in planned business services.',
+    description: 'Contact Barada in Bengaluru for QORVIAN questions, team programs, partnership and media enquiries, or to register your interest in planned business services.',
     url: 'https://barada.in/contact',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
@@ -22,7 +22,7 @@ export default function ContactPage() {
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', minHeight: '100vh', background: '#F9FAFB' }}>
       <CorporateHeader />
 
-      <section style={{ background: 'linear-gradient(135deg, #0D4638, #165A48)', padding: '5rem 2rem', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', padding: '5rem 2rem', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Get in Touch</h1>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 500, margin: '0 auto' }}>For partnerships, consulting enquiries, media, or general questions.</p>
       </section>
@@ -31,7 +31,7 @@ export default function ContactPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
           {[
             { icon: '\uD83D\uDCE7', label: 'General Enquiries', value: 'info@barada.in', href: 'mailto:info@barada.in' },
-            { icon: '\uD83C\uDF93', label: 'Academy Support', value: 'academy@barada.in', href: 'mailto:academy@barada.in' },
+            { icon: '\uD83C\uDF93', label: 'QORVIAN Support', value: 'academy@barada.in', href: 'mailto:academy@barada.in' },
             { icon: '\uD83D\uDCBC', label: 'Business & Partnerships', value: 'business@partnerschaft.in', href: 'mailto:business@partnerschaft.in' },
             { icon: '\uD83D\uDCDE', label: 'Phone', value: '+91 91132 83848', href: 'tel:+919113283848' },
             { icon: '\uD83C\uDFE2', label: 'Bangalore Operating Location', value: 'No. 2060, JPLV-2, Kodichiknahalli, Bommanahalli, Bangalore \u2013 560076', href: null },
@@ -41,15 +41,15 @@ export default function ContactPage() {
               <span style={{ fontSize: '1.75rem', display: 'block', marginBottom: '0.875rem' }}>{icon}</span>
               <p style={{ color: '#69717D', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.375rem' }}>{label}</p>
               {href ? (
-                <a href={href} style={{ color: '#0D4638', fontWeight: 700, textDecoration: 'none', fontSize: '0.95rem' }}>{value}</a>
+                <a href={href} style={{ color: '#0A1A52', fontWeight: 700, textDecoration: 'none', fontSize: '0.95rem' }}>{value}</a>
               ) : (
-                <p style={{ color: '#0D4638', fontWeight: 700, fontSize: '0.95rem', margin: 0 }}>{value}</p>
+                <p style={{ color: '#0A1A52', fontWeight: 700, fontSize: '0.95rem', margin: 0 }}>{value}</p>
               )}
             </div>
           ))}
         </div>
-        <div style={{ background: '#0D4638', borderRadius: 16, padding: '2rem', textAlign: 'center' }}>
-          <p style={{ color: '#D4AF37', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Response Time</p>
+        <div style={{ background: '#0A1A52', borderRadius: 16, padding: '2rem', textAlign: 'center' }}>
+          <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Response Time</p>
           <p style={{ color: '#fff', fontSize: '1rem', marginBottom: '0.5rem' }}>We aim to respond within 2 business days.</p>
           <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.82rem' }}>Monday to Friday &middot; 9am to 6pm IST</p>
         </div>

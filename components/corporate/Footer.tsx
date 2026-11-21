@@ -21,15 +21,15 @@ interface CorporateFooterProps {
 
 export default function CorporateFooter({ hideAcademy = false }: CorporateFooterProps) {
   const footerVerticals = hideAcademy
-    ? ECOSYSTEM_VERTICALS.filter((v) => v.name !== 'Barada Academy')
+    ? ECOSYSTEM_VERTICALS.filter((v) => v.name !== 'QORVIAN')
     : ECOSYSTEM_VERTICALS
 
   return (
-    <footer style={{ background: '#08372C', padding: '3.5rem 2rem 2rem' }}>
+    <footer style={{ background: '#060F36', padding: '3.5rem 2rem 2rem' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
           <div>
-            <Logo variant="footer" height={44} />
+            <Logo variant="full" height={110} />
             <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', lineHeight: 1.7, marginTop: '0.75rem' }}>A professionally driven ecosystem of platforms built from real corporate experience.</p>
           </div>
           <div>

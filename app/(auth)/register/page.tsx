@@ -4,7 +4,7 @@ import RegisterForm from './RegisterForm'
 
 export const metadata: Metadata = {
   title: 'Create Free Account',
-  description: 'Join Barada Academy — free professional AI courses with verified certificates.',
+  description: 'Join QORVIAN — free professional AI courses with verified certificates.',
   robots: { index: false },
 }
 

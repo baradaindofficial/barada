@@ -8,7 +8,7 @@ interface ContentComingSoonProps {
 export default function ContentComingSoon({ lessonTitle, availableAssets = [] }: ContentComingSoonProps) {
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #0D4638, #165A48)',
+      background: 'linear-gradient(135deg, #0A1A52, #123C8F)',
       borderRadius: 16,
       padding: '3rem 2rem',
       textAlign: 'center',
@@ -32,7 +32,7 @@ export default function ContentComingSoon({ lessonTitle, availableAssets = [] }:
       </div>
       <div>
         <p style={{
-          color: '#D4AF37', fontWeight: 700,
+          color: '#FF7A12', fontWeight: 700,
           fontSize: '0.72rem', letterSpacing: '0.12em',
           textTransform: 'uppercase', marginBottom: '0.5rem',
         }}>

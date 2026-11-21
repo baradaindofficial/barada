@@ -18,27 +18,25 @@ export async function GET() {
           flexDirection: 'column',
           justifyContent: 'center',
           padding: '0 90px',
-          background: 'linear-gradient(135deg, #0D4638 0%, #08372C 100%)',
+          background: 'linear-gradient(135deg, #0A1A52 0%, #060F36 100%)',
           color: '#fff',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <svg width="170" height="170" viewBox="0 0 512 512">
-            <path fill="#D4AF37" fillRule="evenodd" d={B_PATH} />
+            <path fill="#FF7A12" fillRule="evenodd" d={B_PATH} />
           </svg>
           <div style={{ display: 'flex', fontSize: 92, fontWeight: 900, marginLeft: 30 }}>
-            <span>BARADA</span>
-            <span style={{ color: '#D4AF37', marginLeft: 24 }}>ACADEMY</span>
+            <span>QORVIAN</span>
+            <span style={{ color: '#FF7A12', marginLeft: 24 }}>BY BARADA</span>
           </div>
         </div>
         <div style={{ display: 'flex', fontSize: 56, fontWeight: 800, marginTop: 40 }}>
-          <span>Learn</span>
-          <span style={{ color: '#D4AF37', marginLeft: 14 }}>AI.</span>
-          <span style={{ marginLeft: 14 }}>Build the</span>
-          <span style={{ color: '#D4AF37', marginLeft: 14 }}>Future.</span>
+          <span>AI capability for</span>
+          <span style={{ color: '#FF7A12', marginLeft: 14 }}>teams that deliver.</span>
         </div>
-        <div style={{ display: 'flex', fontSize: 28, marginTop: 44, letterSpacing: 4, color: '#D4AF37', fontWeight: 700 }}>
-          A BARADA BRAND  ·  barada.in/academy
+        <div style={{ display: 'flex', fontSize: 28, marginTop: 44, letterSpacing: 4, color: '#FF7A12', fontWeight: 700 }}>
+          INSTITUTES  ·  PROFESSIONALS  ·  BUSINESSES
         </div>
       </div>
     ),

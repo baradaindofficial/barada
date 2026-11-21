@@ -13,6 +13,6 @@ export async function generateVerificationQrPng(certificateId: string): Promise<
     errorCorrectionLevel: 'M',
     margin: 1,
     scale: 6,
-    color: { dark: '#0D183D', light: '#FFFFFF' },
+    color: { dark: '#0A1A52', light: '#FFFFFF' },
   })
 }

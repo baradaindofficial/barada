@@ -22,10 +22,10 @@ import LessonBody from '@/components/academy/LessonBody'
 import SubjectVisual, { brandOf, pickVisual } from '@/components/academy/SubjectVisual'
 import { courseTheme, type WatermarkKind } from '@/lib/academy/courseTheme'
 
-const FOREST = '#0D4638'
-const DEEP = '#08372C'
-const GREEN = '#0E7A58'
-const GOLD = '#D4AF37'
+const FOREST = '#0A1A52'
+const DEEP = '#060F36'
+const GREEN = '#0B63CE'
+const GOLD = '#FF7A12'
 const PASS_PCT = 60
 
 export interface CheckpointQuestion {
@@ -289,7 +289,7 @@ function buildFallbackQuestions(keyPoints: string[], pool: string[], seed: numbe
 
 function Mascot({ mood }: { mood: 'wave' | 'happy' | 'think' }) {
   return (
-    <svg viewBox="0 0 120 130" width="104" height="112" role="img" aria-label="Bara, the Barada Academy guide" className="bb-pop">
+    <svg viewBox="0 0 120 130" width="104" height="112" role="img" aria-label="Bara, the QORVIAN guide" className="bb-pop">
       <line x1="60" y1="8" x2="60" y2="24" stroke={GOLD} strokeWidth="4" strokeLinecap="round" />
       <circle cx="60" cy="8" r="6" fill={GOLD} className="bb-glow" />
       <rect x="14" y="52" width="10" height="26" rx="5" fill={GOLD} />
@@ -433,7 +433,7 @@ function ExerciseSlide({ text, act, base, accent }: { text: string; act: number;
 function ChatChrome({ label }: { label: string }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '0.55rem 0.9rem', background: 'rgba(0,0,0,0.4)' }}>
-      {['#FF6B6B', '#F5C451', '#3DDC97'].map((c) => (
+      {['#FF6B6B', '#FFB020', '#3DDC97'].map((c) => (
         <span key={c} aria-hidden="true" style={{ width: 9, height: 9, borderRadius: '50%', background: c, opacity: 0.85 }} />
       ))}
       <span style={{ marginLeft: 8, fontSize: '0.72rem', fontWeight: 700, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.04em' }}>{label}</span>
@@ -854,7 +854,7 @@ export default function LessonPlayer(props: Props) {
                             if (b.kind === 'code')
                               return (
                                 <Hl key={i} on={on(k++)} accent={GOLD} style={{ borderRadius: 12, marginBottom: '0.9rem' }}>
-                                  <pre style={{ background: '#04201A', color: '#E8F5EE', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
+                                  <pre style={{ background: '#060F36', color: '#E8F1FF', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
                                     <code>{b.text}</code>
                                   </pre>
                                 </Hl>

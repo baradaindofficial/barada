@@ -18,24 +18,24 @@ export async function GET() {
           flexDirection: 'column',
           justifyContent: 'center',
           padding: '0 90px',
-          background: 'linear-gradient(135deg, #0D4638 0%, #165A48 100%)',
+          background: 'linear-gradient(135deg, #0A1A52 0%, #123C8F 100%)',
           color: '#fff',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <svg width="150" height="150" viewBox="0 0 512 512">
-            <path fill="#D4AF37" fillRule="evenodd" d={B_PATH} />
+            <path fill="#FF7A12" fillRule="evenodd" d={B_PATH} />
           </svg>
           <div style={{ display: 'flex', fontSize: 84, fontWeight: 900, letterSpacing: 6, marginLeft: 28 }}>BARADA</div>
         </div>
         <div style={{ display: 'flex', fontSize: 52, fontWeight: 800, marginTop: 44, lineHeight: 1.15 }}>
           AI, technology and business execution
         </div>
-        <div style={{ display: 'flex', fontSize: 52, fontWeight: 800, color: '#D4AF37', lineHeight: 1.15 }}>
+        <div style={{ display: 'flex', fontSize: 52, fontWeight: 800, color: '#FF7A12', lineHeight: 1.15 }}>
           built on real experience.
         </div>
         <div style={{ display: 'flex', fontSize: 28, marginTop: 36, color: 'rgba(255,255,255,0.75)' }}>
-          Barada Academy  ·  Services  ·  Bengaluru, India  ·  barada.in
+          QORVIAN  ·  Services  ·  Bengaluru, India  ·  barada.in
         </div>
       </div>
     ),

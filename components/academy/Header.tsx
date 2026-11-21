@@ -11,8 +11,8 @@ import Logo from '@/components/shared/Logo'
 // 2026-10-03). Extracted here as a client component so it can carry its
 // own responsive hamburger state, matching the pattern already used by
 // components/corporate/Header.tsx.
-const red = '#0E7A58'
-const navy = '#0D4638'
+const red = '#0B63CE'
+const navy = '#0A1A52'
 
 export default function AcademyHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -22,16 +22,16 @@ export default function AcademyHeader() {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64, maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 0 }} className="md:gap-6">
           <Link href="/" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '0.78rem', fontWeight: 500, flexShrink: 0 }} className="hidden md:inline">&larr; Barada.in</Link>
-          <Link href="/academy" style={{ display: 'flex', alignItems: 'center', lineHeight: 0, minWidth: 0 }}>
+          <Link href="/qorvian" style={{ display: 'flex', alignItems: 'center', lineHeight: 0, minWidth: 0 }}>
             <Logo variant="academy" height={36} />
           </Link>
         </div>
 
         {/* Desktop nav */}
         <div className="hidden md:flex" style={{ gap: '1.25rem', alignItems: 'center' }}>
-          <Link href="/academy" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>Courses</Link>
+          <Link href="/qorvian" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>Courses</Link>
           <Link href="/login" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.82rem' }}>Sign In</Link>
-          <Link href="/register" style={{ background: '#D4AF37', color: '#0D4638', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.82rem', fontWeight: 700 }}>Start Free</Link>
+          <Link href="/register" style={{ background: '#FF7A12', color: '#0A1A52', padding: '0.5rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontSize: '0.82rem', fontWeight: 700 }}>Start Free</Link>
         </div>
 
         {/* Mobile hamburger toggle */}
@@ -78,14 +78,14 @@ export default function AcademyHeader() {
           }}
         >
           <Link href="/" onClick={() => setMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontSize: '0.9rem', padding: '0.6rem 0.25rem' }}>&larr; Barada.in</Link>
-          <Link href="/academy" onClick={() => setMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 500, padding: '0.6rem 0.25rem' }}>Courses</Link>
+          <Link href="/qorvian" onClick={() => setMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 500, padding: '0.6rem 0.25rem' }}>Courses</Link>
           <Link href="/login" onClick={() => setMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 500, padding: '0.6rem 0.25rem' }}>Sign In</Link>
           <Link
             href="/register"
             onClick={() => setMenuOpen(false)}
             style={{
-              background: '#D4AF37',
-              color: '#0D4638',
+              background: '#FF7A12',
+              color: '#0A1A52',
               padding: '0.65rem 1.25rem',
               borderRadius: 8,
               textDecoration: 'none',
