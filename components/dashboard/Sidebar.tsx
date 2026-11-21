@@ -69,7 +69,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
         }}
       >
         <div style={{ padding: '0 1.25rem', marginBottom: '2rem' }}>
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-brand-navy)' }}>
+          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.125rem', color: 'var(--color-brand-navy)' }}>
             QORVIAN
           </span>
         </div>
@@ -97,7 +97,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
             }}
           >
             <div style={{ padding: '0 1.25rem', marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-brand-navy)' }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.125rem', color: 'var(--color-brand-navy)' }}>
                 QORVIAN
               </span>
               <button
