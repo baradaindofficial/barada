@@ -90,13 +90,13 @@ function ResourceRow({ resource, lessonId }: { resource: Resource; lessonId: str
     >
       <span style={{ fontSize: '1.25rem', flexShrink: 0 }} aria-hidden="true">{meta.icon}</span>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <p style={{ color: '#fff', fontWeight: 600, fontSize: '0.82rem', marginBottom: '0.125rem', lineHeight: 1.4 }}>
+        <p style={{ color: '#fff', fontWeight: 600, fontSize: '0.875rem', marginBottom: '0.125rem', lineHeight: 1.4 }}>
           {resource.title}
         </p>
-        <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.7rem' }}>
+        <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>
           {meta.label}{resource.fileSizeBytes ? ` · ${formatBytes(resource.fileSizeBytes)}` : ''}
         </p>
-        {error && <p style={{ color: '#f87171', fontSize: '0.7rem', marginTop: '0.25rem' }}>{error}</p>}
+        {error && <p style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem' }}>{error}</p>}
       </div>
       <div style={{ display: 'flex', gap: '0.5rem', flexShrink: 0 }}>
         {/* Bookmark */}
@@ -104,7 +104,7 @@ function ResourceRow({ resource, lessonId }: { resource: Resource; lessonId: str
           onClick={handleBookmark}
           aria-label={bookmarked ? 'Remove bookmark' : 'Bookmark this resource'}
           title={bookmarked ? 'Bookmarked' : 'Bookmark'}
-          style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '0.9rem', opacity: 0.6, padding: '0.25rem' }}
+          style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '0.875rem', opacity: 0.6, padding: '0.25rem' }}
         >
           {bookmarked ? '🔖' : '📌'}
         </button>
@@ -119,7 +119,7 @@ function ResourceRow({ resource, lessonId }: { resource: Resource; lessonId: str
               background: downloading ? 'rgba(255,255,255,0.05)' : '#0B63CE',
               border: 'none', borderRadius: 6,
               padding: '0.375rem 0.75rem',
-              color: '#fff', fontWeight: 700, fontSize: '0.72rem',
+              color: '#fff', fontWeight: 700, fontSize: '0.75rem',
               cursor: downloading ? 'not-allowed' : 'pointer',
               opacity: downloading ? 0.6 : 1,
               minWidth: 72, textAlign: 'center',
@@ -156,26 +156,26 @@ export default function LessonResources({ lessonId }: LessonResourcesProps) {
 
   if (loading) return (
     <div style={{ padding: '1rem', textAlign: 'center' }} aria-label="Loading resources" aria-live="polite">
-      <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.78rem' }}>Loading resources...</p>
+      <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>Loading resources...</p>
     </div>
   )
 
   if (error) return (
     <div style={{ padding: '1rem' }} role="alert">
-      <p style={{ color: '#f87171', fontSize: '0.78rem' }}>{error}</p>
+      <p style={{ color: '#f87171', fontSize: '0.75rem' }}>{error}</p>
     </div>
   )
 
   if (resources.length === 0) return (
     <div style={{ padding: '1rem', textAlign: 'center' }}>
       <p style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>📂</p>
-      <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.78rem' }}>No resources available for this lesson yet.</p>
+      <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>No resources available for this lesson yet.</p>
     </div>
   )
 
   return (
     <div>
-      <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+      <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
         Resources ({resources.length})
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }} role="list" aria-label="Lesson resources">
