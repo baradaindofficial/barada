@@ -23,7 +23,7 @@ function renderBlock(block: string, key: number) {
 
   if (lines.length === 1 && lines[0].trim().startsWith('### ')) {
     return (
-      <p key={key} style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+      <p key={key} style={{ color: '#FF7A12', fontWeight: 700, fontSize: '1rem', margin: '1.25rem 0 0.5rem' }}>
         {lines[0].trim().slice(4)}
       </p>
     )
@@ -33,7 +33,7 @@ function renderBlock(block: string, key: number) {
     return (
       <ul key={key} style={{ margin: '0 0 1rem', paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
         {lines.map((l, i) => (
-          <li key={i} style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.92rem', lineHeight: 1.7 }}>
+          <li key={i} style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem', lineHeight: 1.7 }}>
             {l.trim().slice(2)}
           </li>
         ))}
@@ -45,7 +45,7 @@ function renderBlock(block: string, key: number) {
     return (
       <ol key={key} style={{ margin: '0 0 1rem', paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
         {lines.map((l, i) => (
-          <li key={i} style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.92rem', lineHeight: 1.7 }}>
+          <li key={i} style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem', lineHeight: 1.7 }}>
             {l.trim().replace(/^\d+\.\s/, '')}
           </li>
         ))}
@@ -54,7 +54,7 @@ function renderBlock(block: string, key: number) {
   }
 
   return (
-    <p key={key} style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.92rem', lineHeight: 1.8, whiteSpace: 'pre-wrap', margin: '0 0 1rem' }}>
+    <p key={key} style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem', lineHeight: 1.8, whiteSpace: 'pre-wrap', margin: '0 0 1rem' }}>
       {lines.join('\n')}
     </p>
   )
@@ -69,7 +69,7 @@ export default function LessonBody({ text }: { text: string }) {
     if (part.startsWith('```')) {
       const code = part.replace(/^```[^\n]*\n?/, '').replace(/```$/, '').replace(/\n$/, '')
       nodes.push(
-        <pre key={key++} style={{ background: '#060F36', color: '#E8F1FF', borderRadius: 10, padding: '0.9rem', overflowX: 'auto', fontSize: '0.8rem', lineHeight: 1.6, margin: '0 0 1rem' }}>
+        <pre key={key++} style={{ background: '#060F36', color: '#E8F1FF', borderRadius: 10, padding: '0.9rem', overflowX: 'auto', fontSize: '0.875rem', lineHeight: 1.6, margin: '0 0 1rem' }}>
           <code>{code}</code>
         </pre>
       )
