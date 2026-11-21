@@ -27,7 +27,7 @@ const buttonStyle: React.CSSProperties = {
   borderRadius: 8,
   border: 'none',
   textDecoration: 'none',
-  fontSize: '0.82rem',
+  fontSize: '0.875rem',
   fontWeight: 700,
   textAlign: 'center',
   fontFamily: 'inherit',
@@ -108,7 +108,7 @@ export default function CourseEnrollButton({
         {loading ? 'Enrolling…' : <>Start Learning Free &rarr;</>}
       </button>
       {error && (
-        <p style={{ color: red, fontSize: '0.72rem', marginTop: '0.5rem', textAlign: 'center' }}>{error}</p>
+        <p style={{ color: red, fontSize: '0.75rem', marginTop: '0.5rem', textAlign: 'center' }}>{error}</p>
       )}
     </div>
   )
