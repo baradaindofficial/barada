@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Logo from '@/components/shared/Logo'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import CorporateHeader from '@/components/corporate/Header'
@@ -8,12 +7,12 @@ import HeroRobot from '@/components/corporate/HeroRobot'
 import TiltCard from '@/components/corporate/TiltCard'
 
 export const metadata: Metadata = {
-  title: 'Barada — Practical Learning and Business Execution',
-  description: 'Barada is the parent brand behind QORVIAN (AI capability programs for institutes, professionals and businesses) and Partnerschaft (retail execution and procurement support), built on real corporate experience. Bengaluru, India.',
+  title: 'Barada — Business Execution, AI and Technology',
+  description: 'Barada is a Bengaluru-based business group: QORVIAN (AI capability programs for institutes, professionals and businesses) and Partnerschaft (retail execution and procurement support), built on real corporate experience.',
   alternates: { canonical: 'https://barada.in' },
   openGraph: {
     title: 'Barada',
-    description: 'Practical learning and business execution, built on professional experience.',
+    description: 'Business execution, AI and technology, built on real corporate experience.',
     url: 'https://barada.in',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
@@ -35,7 +34,7 @@ const PRIMARY_ROUTES = [
     icon: '🎓',
     name: 'QORVIAN by Barada',
     headline: 'AI capability for institutes, professionals and businesses',
-    desc: 'Structured, practical AI courses, verified certificates and team programs — free to start for individuals, tailored programs for organisations.',
+    desc: 'Practical AI programs with verified certificates for institutes, working professionals and business teams. Free to start for individuals; tailored programs for organisations.',
     href: '/qorvian',
     cta: 'Explore QORVIAN',
     color: red,
@@ -108,23 +107,6 @@ const CAPABILITIES = [
   { name: 'Team workshops', desc: 'Hands-on AI skills workshops for teams. Register your interest to be contacted.' },
 ]
 
-const FEATURED_COURSES = [
-  { name: 'ChatGPT: Beginner to Workplace Power User', lessons: 40, tag: 'Flagship' },
-  { name: 'Claude AI for Professionals', lessons: 13, tag: 'AI tools' },
-  { name: 'Excel with AI', lessons: 14, tag: 'Productivity' },
-  { name: 'PowerPoint with AI', lessons: 13, tag: 'Productivity' },
-  { name: 'Mastery in Prompt Engineering', lessons: 16, tag: 'Skills' },
-  { name: 'LinkedIn Profile Optimisation', lessons: 13, tag: 'Career' },
-]
-
-const LESSON_STEPS = [
-  { n: '1', t: 'Narrated slides', d: 'Short slides with the line being spoken highlighted as you listen.' },
-  { n: '2', t: 'A real scenario', d: 'A workplace situation you could face this week, not a textbook case.' },
-  { n: '3', t: 'Try it yourself', d: 'A practice prompt to run in the tool you already use.' },
-  { n: '4', t: 'Checkpoint', d: 'A scenario question with an explanation of the right answer.' },
-  { n: '5', t: 'Certificate', d: 'Pass the course and receive a verifiable certificate.' },
-]
-
 export default function HomePage() {
   return (
     <div style={{ margin: 0, padding: 0, color: '#111' }}>
@@ -141,14 +123,14 @@ export default function HomePage() {
           <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
             <p style={{ color: gold, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Barada &middot; Bengaluru, India</p>
             <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
-              AI, technology and business execution, <span style={{ color: gold }}>built on real experience.</span>
+              Business execution, AI and technology, <span style={{ color: gold }}>built on real experience.</span>
             </h1>
             <p style={{ fontSize: 'clamp(1rem,2vw,1.2rem)', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, maxWidth: 540, margin: '0 0 2.5rem' }}>
-              Barada brings practical AI skills, digital procurement know-how and retail execution together, drawing on real corporate experience.
+              Barada is a Bengaluru-based business group. QORVIAN builds AI capability for institutes, professionals and businesses; Partnerschaft delivers retail execution and procurement support across India.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/qorvian" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore QORVIAN &rarr;</Link>
-              <Link href="/qorvian#courses" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Browse 23 courses</Link>
+              <a href="https://partnerschaft.in" target="_blank" rel="noopener noreferrer" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Visit Partnerschaft &#8599;</a>
             </div>
           </div>
 
@@ -192,33 +174,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LIVE NOW -- Academy is the only live product; show it concretely. */}
-      <section style={{ background: '#F2F6FF', padding: '4.5rem 2rem' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Live now &middot; QORVIAN by Barada</p>
-          <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 0.75rem' }}>23 practical AI courses, free to enroll.</h2>
-          <p style={{ color: '#69717D', textAlign: 'center', maxWidth: 620, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>Over 250 lessons for working professionals, each built around a real workplace scenario.</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1rem', marginBottom: '3rem' }}>
-            {FEATURED_COURSES.map(({ name, lessons, tag }) => (
-              <Link key={name} href="/qorvian#courses" style={{ display: 'block', textDecoration: 'none', background: '#fff', border: '1px solid #D6E3F8', borderRadius: 14, padding: '1.25rem 1.5rem' }}>
-                <p style={{ color: red, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.4rem' }}>{tag}</p>
-                <p style={{ color: navy, fontWeight: 700, fontSize: '1rem', margin: '0 0 0.35rem', lineHeight: 1.35 }}>{name}</p>
-                <p style={{ color: '#69717D', fontSize: '0.82rem', margin: 0 }}>{lessons} lessons &middot; certificate on completion</p>
-              </Link>
-            ))}
+      {/* TWO PRIMARY ROUTES */}
+      <section style={{ background: '#F9FAFB', padding: '5rem 2rem' }}>
+        <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Our Businesses</p>
+            <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, margin: 0 }}>Two businesses, one standard.</h2>
           </div>
-          <h3 style={{ color: navy, fontSize: '1.15rem', fontWeight: 800, textAlign: 'center', margin: '0 0 1.25rem' }}>How a lesson works</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(190px, 100%), 1fr))', gap: '1rem', marginBottom: '2.25rem' }}>
-            {LESSON_STEPS.map(({ n, t, d }) => (
-              <div key={n} style={{ padding: '1rem 0.5rem', textAlign: 'center' }}>
-                <div style={{ width: 34, height: 34, borderRadius: '50%', background: navy, color: '#fff', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 0.6rem' }}>{n}</div>
-                <p style={{ color: navy, fontWeight: 700, margin: '0 0 0.3rem' }}>{t}</p>
-                <p style={{ color: '#69717D', fontSize: '0.84rem', lineHeight: 1.55, margin: 0 }}>{d}</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
+            {PRIMARY_ROUTES.map(({ icon, name, headline, desc, href, cta, external, color }) => (
+              <div key={name} style={{ background: '#fff', borderRadius: 20, padding: '2.5rem', border: '1.5px solid #E5E7EB', borderTop: `4px solid ${color}` }}>
+                <span style={{ fontSize: '2.25rem', display: 'block', marginBottom: '1.25rem' }}>{icon}</span>
+                <p style={{ color: color, fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{name}</p>
+                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: navy, fontSize: '1.375rem', marginBottom: '0.875rem' }}>{headline}</h3>
+                <p style={{ color: '#69717D', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1.75rem' }}>{desc}</p>
+                {external ? (
+                  <a href={href} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', background: color, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>{cta} &rarr;</a>
+                ) : (
+                  <Link href={href} style={{ display: 'inline-block', background: color, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>{cta} &rarr;</Link>
+                )}
               </div>
             ))}
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <Link href="/qorvian#courses" style={{ background: navy, color: '#fff', padding: '0.8rem 1.9rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem' }}>See all 23 courses &rarr;</Link>
           </div>
         </div>
       </section>
@@ -226,15 +202,12 @@ export default function HomePage() {
       {/* WHO WE ARE */}
       <section style={{ background: '#fff', padding: '5rem 2rem' }}>
         <div style={{ maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', margin: '0 auto 2rem' }}>
-            <Logo variant="full" height={200} />
-          </div>
           <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Who We Are</p>
           <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, marginBottom: '1.25rem' }}>
-            A parent brand, built for practical results.
+            A business group, built for practical results.
           </h2>
           <p style={{ color: '#69717D', fontSize: '1.05rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
-            Barada is the parent brand behind QORVIAN and Partnerschaft, with consulting services planned and further ventures underway. Every Barada platform is built from real corporate experience.
+            Barada runs two businesses today: QORVIAN, for AI capability, and Partnerschaft, for retail execution and procurement. Consulting services are planned and further ventures are underway. Everything we build comes from real corporate experience.
           </p>
           <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
         </div>
@@ -263,31 +236,6 @@ export default function HomePage() {
               <TiltCard key={name}><Link href={href} style={{ textDecoration: 'none', display: 'block' }}>{card}</Link></TiltCard>
             )
           })}
-        </div>
-      </section>
-
-      {/* TWO PRIMARY ROUTES */}
-      <section style={{ background: '#F9FAFB', padding: '5rem 2rem' }}>
-        <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Two Ways to Work With Barada</p>
-            <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, margin: 0 }}>Start here.</h2>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
-            {PRIMARY_ROUTES.map(({ icon, name, headline, desc, href, cta, external, color }) => (
-              <div key={name} style={{ background: '#fff', borderRadius: 20, padding: '2.5rem', border: '1.5px solid #E5E7EB', borderTop: `4px solid ${color}` }}>
-                <span style={{ fontSize: '2.25rem', display: 'block', marginBottom: '1.25rem' }}>{icon}</span>
-                <p style={{ color: color, fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{name}</p>
-                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: navy, fontSize: '1.375rem', marginBottom: '0.875rem' }}>{headline}</h3>
-                <p style={{ color: '#69717D', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1.75rem' }}>{desc}</p>
-                {external ? (
-                  <a href={href} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', background: color, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>{cta} &rarr;</a>
-                ) : (
-                  <Link href={href} style={{ display: 'inline-block', background: color, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>{cta} &rarr;</Link>
-                )}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
