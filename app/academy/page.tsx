@@ -196,11 +196,9 @@ export default async function AcademyPage() {
               <rect width="1414" height="1000" fill="#FFFFFF" />
               <rect x="40" y="40" width="1334" height="920" fill="none" stroke="#FF7A12" strokeWidth="8" />
               <rect x="62" y="62" width="1290" height="876" fill="none" stroke="#0A1A52" strokeWidth="1.5" />
-              <svg x="662" y="90" width="90" height="90" viewBox="0 0 512 512"><path d="M138.7 427.8C154.1 408.1 178.9 377.0 188.3 365.6L200.5 350.8L200.8 364.0L201.1 377.1L247.3 376.8C298.1 376.3 297.2 376.4 310.5 369.8C318.2 365.9 330.5 353.6 334.7 345.5C346.6 322.7 342.8 297.7 324.5 278.2C316.9 270.1 304.8 261.0 301.6 261.0C296.7 261.0 257.2 282.5 237.0 296.1C198.0 322.5 155.7 368.4 136.5 405.2C134.8 408.4 133.2 411.0 132.9 411.0C130.8 411.0 132.6 369.2 135.4 353.0C145.6 295.1 194.3 246.4 273.9 214.6C295.4 206.0 304.6 198.7 311.5 184.6C322.1 163.2 311.7 141.0 287.1 132.8C280.8 130.7 278.6 130.6 239.8 130.2L199.0 129.9L199.0 179.2L199.0 228.5L193.2 231.9C173.2 243.8 155.5 263.2 143.6 286.5L140.1 293.5L139.8 204.5L139.5 115.5L135.6 108.2C131.2 100.0 123.1 91.1 115.0 85.7L109.5 82.0L199.5 82.0C302.5 82.0 304.7 82.2 325.2 90.5C368.5 108.1 388.2 156.5 368.6 197.5C362.7 209.9 350.4 223.6 340.9 228.6C337.9 230.1 337.0 232.0 339.3 232.0C341.4 232.0 354.6 238.7 360.7 242.8C394.6 265.8 408.6 309.8 395.8 353.5C384.6 391.9 350.2 420.4 306.7 427.5C294.2 429.5 137.2 429.8 138.7 427.8Z" fill="#1278EA" fillRule="evenodd" /></svg>
-              <text x="707" y="265" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="72" fill="#0A1A52" fontWeight="700" letterSpacing="20">QORVIAN</text>
-              <text x="707" y="305" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="22" fill="#FF7A12" fontWeight="700" letterSpacing="10">BY BARADA</text>
-              <line x1="607" y1="335" x2="807" y2="335" stroke="#FF7A12" strokeWidth="2" />
-              <text x="707" y="385" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="26" fill="#0B63CE" fontWeight="700" letterSpacing="8">CERTIFICATE OF COMPLETION</text>
+              <image href="/qorvian-logo/image.png" x="437" y="72" width="540" height="180" />
+              <line x1="607" y1="268" x2="807" y2="268" stroke="#FF7A12" strokeWidth="2" />
+              <text x="707" y="330" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="26" fill="#0B63CE" fontWeight="700" letterSpacing="8">CERTIFICATE OF COMPLETION</text>
               <text x="707" y="458" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="20" fill="#6B7280" letterSpacing="6">THIS CERTIFIES THAT</text>
               <text x="707" y="545" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="78" fill="#0A1A52" fontWeight="700">Aditi Sharma</text>
               <line x1="507" y1="575" x2="907" y2="575" stroke="#FF7A12" strokeWidth="2" />
