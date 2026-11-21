@@ -12,7 +12,7 @@
  * route, which would add an external failure point. Swap in once the font
  * files are added.
  */
-import { Document, Page, View, Text, Image, Svg, Path, StyleSheet, renderToBuffer } from '@react-pdf/renderer'
+import { Document, Page, View, Text, Image, Svg, Path, StyleSheet, renderToBuffer, Font } from '@react-pdf/renderer'
 import fs from 'fs'
 import path from 'path'
 import { generateVerificationQrPng } from './qr'
@@ -27,6 +27,9 @@ function loadQorvianLogo(): Buffer | null {
     return null
   }
 }
+
+// Never split words with hyphens: long names and course titles wrap whole words.
+Font.registerHyphenationCallback((word) => [word])
 
 const NAVY = '#0A1A52'
 const BLUE = '#0B63CE'
@@ -86,6 +89,8 @@ export interface CertificatePdfInput {
   issuedAtISO: string
   /** Optional: organisation name, shown for team and institute programs. */
   organisation?: string
+  /** Defaults to 'portrait' when an organisation is set, otherwise 'landscape'. */
+  orientation?: 'landscape' | 'portrait'
 }
 
 export async function generateCertificatePdf(input: CertificatePdfInput): Promise<Buffer> {
@@ -99,16 +104,34 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
   })
 
   const logo = loadQorvianLogo()
+  // Students get the horizontal certificate; organisation / team certificates
+  // are vertical. An explicit `orientation` overrides this.
+  const portrait = (input.orientation ?? (input.organisation ? 'portrait' : 'landscape')) === 'portrait'
+  // Portrait overrides: same zones, re-proportioned for a tall page. The footer
+  // stacks the QR above the date / issuer row so nothing shares a line with it.
+  const portraitStyles = StyleSheet.create({
+        header: { top: 64 },
+        logo: { width: 270, height: 90 },
+        body: { top: 250, height: 330, left: 60, right: 60 },
+        name: { fontSize: 36 },
+        nameLine: { width: 300 },
+        course: { fontSize: 21, maxWidth: 440 },
+        footer: { bottom: 56, height: 170, left: 60, right: 60 },
+        colMid: { top: 14 },
+        colLeft: { top: 104, width: 200 },
+        colRight: { top: 104, width: 200 },
+  })
+  const P: Partial<typeof portraitStyles> = portrait ? portraitStyles : {}
 
   const doc = (
     <Document>
-      <Page size="A4" orientation="landscape" style={styles.page}>
+      <Page size="A4" orientation={portrait ? 'portrait' : 'landscape'} style={styles.page}>
         <View style={styles.frameOuter} fixed />
         <View style={styles.frameInner} fixed />
 
-        <View style={styles.header}>
+        <View style={[styles.header, P.header]}>
           {logo ? (
-            <Image src={{ data: logo, format: 'png' }} style={styles.logo} />
+            <Image src={{ data: logo, format: 'png' }} style={[styles.logo, P.logo]} />
           ) : (
             <>
               <BMark size={46} color={LOGO_BLUE} />
@@ -120,28 +143,28 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
           <View style={styles.rule} />
         </View>
 
-        <View style={styles.body}>
+        <View style={[styles.body, P.body]}>
           <Text style={styles.title}>THIS CERTIFIES THAT</Text>
-          <Text style={styles.name}>{input.learnerName}</Text>
-          <View style={styles.nameLine} />
+          <Text style={[styles.name, P.name]}>{input.learnerName}</Text>
+          <View style={[styles.nameLine, P.nameLine]} />
           {input.organisation ? <Text style={styles.org}>of {input.organisation}</Text> : null}
           <Text style={styles.text}>has successfully completed the course</Text>
-          <Text style={styles.course}>{input.courseTitle}</Text>
+          <Text style={[styles.course, P.course]}>{input.courseTitle}</Text>
           <Text style={styles.text}>and has demonstrated proficiency in the associated evaluation.</Text>
         </View>
 
-        <View style={styles.footer}>
-          <View style={styles.colLeft}>
+        <View style={[styles.footer, P.footer]}>
+          <View style={[styles.colLeft, P.colLeft]}>
             <Text style={styles.label}>DATE OF ISSUE</Text>
             <Text style={styles.value}>{issuedDate}</Text>
             <Text style={[styles.label, { marginTop: 8 }]}>CERTIFICATE ID</Text>
             <Text style={styles.value}>{input.certificateId}</Text>
           </View>
-          <View style={styles.colMid}>
+          <View style={[styles.colMid, P.colMid]}>
             <Image src={qrDataUri} style={styles.qr} />
             <Text style={[styles.label, { marginTop: 4 }]}>SCAN TO VERIFY</Text>
           </View>
-          <View style={styles.colRight}>
+          <View style={[styles.colRight, P.colRight]}>
             <Text style={styles.label}>ISSUED BY</Text>
             <View style={styles.brandRow}>
               <BMark size={22} color={LOGO_BLUE} />
