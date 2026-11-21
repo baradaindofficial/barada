@@ -5,6 +5,11 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+  // The certificate PDF reads the QORVIAN logo from public/ at runtime; make
+  // sure the file is bundled with the API routes that render certificates.
+  experimental: {
+    outputFileTracingIncludes: { '/api/**/*': ['./public/qorvian-logo/image.png'] },
+  },
   // QORVIAN lives at /qorvian; the old /academy URL redirects permanently.
   async redirects() {
     return [{ source: '/academy', destination: '/qorvian', permanent: true }]
