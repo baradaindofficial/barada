@@ -33,7 +33,7 @@ export default function ContentComingSoon({ lessonTitle, availableAssets = [] }:
       <div>
         <p style={{
           color: '#FF7A12', fontWeight: 700,
-          fontSize: '0.72rem', letterSpacing: '0.12em',
+          fontSize: '0.75rem', letterSpacing: '0.12em',
           textTransform: 'uppercase', marginBottom: '0.5rem',
         }}>
           Content Being Prepared
@@ -51,7 +51,7 @@ export default function ContentComingSoon({ lessonTitle, availableAssets = [] }:
       </div>
       {availableAssets.length > 0 && (
         <div style={{ marginTop: '1rem', width: '100%', maxWidth: 400 }}>
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
             Available Now
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -66,7 +66,7 @@ export default function ContentComingSoon({ lessonTitle, availableAssets = [] }:
                 <span style={{ fontSize: '1rem' }}>
                   {asset.type === 'pdf' ? '📄' : asset.type === 'ppt' ? '📽️' : '⬇️'}
                 </span>
-                <span style={{ color: '#fff', fontSize: '0.82rem', fontWeight: 600 }}>{asset.title}</span>
+                <span style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>{asset.title}</span>
               </a>
             ))}
           </div>
