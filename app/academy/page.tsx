@@ -112,8 +112,8 @@ export default async function AcademyPage() {
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 2rem' }}>One platform, three ways to build AI capability</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1.25rem' }}>
             {[
-              ['For businesses', 'Team programs and workshops', 'Role-based learning pathways, live workshops and programs adapted to your teams and tools, with completion tracking and verifiable certificates.', 'Enquire for your team'],
-              ['For institutes', 'Curriculum and faculty enablement', 'Practical AI course content for your students, and trainer enablement so your faculty can teach it with confidence.', 'Talk to us about your institute'],
+              ['For businesses', 'Team programs and workshops', 'We are scoping pilot programs for business teams: role-based learning pathways and workshops adapted to your tools, with verifiable certificates. Not yet open for bookings; register your interest.', 'Register your interest'],
+              ['For institutes', 'Curriculum and faculty enablement', 'We are planning practical AI course content for students and support for faculty who teach it. Pilot scopes are being set; tell us what your institute needs.', 'Talk to us about your institute'],
               ['For professionals', 'Self-paced courses and certificates', 'Free-to-start courses built around real workplace scenarios, with a verifiable certificate you can share with employers.', 'Browse the courses'],
             ].map(([tag, head, body, cta], i) => (
               <div key={tag} style={{ border: '1px solid #D6E3F8', borderRadius: 14, padding: '1.5rem', background: '#F2F6FF' }}>
