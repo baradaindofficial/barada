@@ -91,7 +91,7 @@ export default function VoiceControls({
             display: 'flex', alignItems: 'center', gap: '0.5rem',
             // Navy by default; Red while speaking, active, or hovered (CTO colour rule, 2026-10-03).
             background: (tts.speaking || readAloudHover) ? red : navy, color: '#fff', border: 'none',
-            borderRadius: 8, padding: '0.5rem 0.875rem', fontSize: '0.8rem', fontWeight: 700,
+            borderRadius: 8, padding: '0.5rem 0.875rem', fontSize: '0.875rem', fontWeight: 700,
             cursor: 'pointer', fontFamily: 'inherit', transition: 'background 0.15s ease',
           }}
         >
@@ -111,7 +111,7 @@ export default function VoiceControls({
             background: voice.listening ? 'rgba(255,122,18,0.15)' : 'transparent',
             color: voice.listening ? gold : 'rgba(255,255,255,0.6)',
             border: `1.5px solid ${voice.listening ? gold : 'rgba(255,255,255,0.15)'}`,
-            borderRadius: 8, padding: '0.5rem 0.875rem', fontSize: '0.8rem', fontWeight: 700,
+            borderRadius: 8, padding: '0.5rem 0.875rem', fontSize: '0.875rem', fontWeight: 700,
             cursor: 'pointer', fontFamily: 'inherit',
           }}
         >
@@ -121,7 +121,7 @@ export default function VoiceControls({
       )}
 
       {enableCommands && voice.supported && voice.listening && (
-        <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem' }}>
+        <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.75rem' }}>
           Say &ldquo;next&rdquo;, &ldquo;previous&rdquo;, &ldquo;repeat&rdquo;, or &ldquo;stop&rdquo;
         </span>
       )}
