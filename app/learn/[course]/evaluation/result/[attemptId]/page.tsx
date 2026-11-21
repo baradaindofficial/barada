@@ -5,6 +5,8 @@ import { getAuthenticatedLearner } from '@/lib/auth/get-authenticated-learner'
 import { checkCertificateEligibility } from '@/lib/services/certificate-eligibility'
 import { generateEvaluationFeedback } from '@/lib/services/evaluation-feedback'
 import Logo from '@/components/shared/Logo'
+import ClaimCertificateButton from '@/components/academy/ClaimCertificateButton'
+import { CERTIFICATES_FREE } from '@/lib/certificates/config'
 
 interface Props {
   params: { course: string; attemptId: string }
@@ -134,11 +136,15 @@ export default async function ResultPage({ params }: Props) {
             <div style={{ background: 'rgba(255,122,18,0.08)', borderRadius: 12, padding: '1.25rem', border: '1.5px solid rgba(255,122,18,0.3)' }}>
               <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Certificate Available</p>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.82rem', marginBottom: '1rem' }}>{eligibility.reason}</p>
-              <div style={{ background: 'rgba(255,122,18,0.15)', borderRadius: 8, padding: '0.625rem 1.25rem', display: 'inline-block', border: '1px dashed rgba(255,122,18,0.4)' }}>
+              {CERTIFICATES_FREE ? (
+                <ClaimCertificateButton courseSlug={params.course} />
+              ) : (
+                <div style={{ background: 'rgba(255,122,18,0.15)', borderRadius: 8, padding: '0.625rem 1.25rem', display: 'inline-block', border: '1px dashed rgba(255,122,18,0.4)' }}>
                 <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.78rem' }}>
                   Payment coming in Sprint 5 &mdash; Certificate at &#8377;{Math.round((eligibility.certificatePricePaise || 29900) / 100)}
                 </p>
               </div>
+              )}
             </div>
           ) : !attempt.passed ? (
             <Link href={`/learn/${params.course}/evaluation`} style={{ display: 'inline-block', background: '#0B63CE', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>
