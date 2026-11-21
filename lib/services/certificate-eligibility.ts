@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { CERTIFICATES_FREE } from '@/lib/certificates/config'
 
 export interface EligibilityResult {
   eligible: boolean
@@ -45,7 +46,7 @@ export async function checkCertificateEligibility(
     bestScore: 0,
     attemptsCount: 0,
     enrolled: false,
-    paymentRequired: true,
+    paymentRequired: !CERTIFICATES_FREE,
     certificatePricePaise: 29900,
     reason,
     ...overrides,
@@ -134,7 +135,7 @@ export async function checkCertificateEligibility(
       bestScore,
       attemptsCount,
       enrolled: true,
-      paymentRequired: true,
+      paymentRequired: !CERTIFICATES_FREE,
       certificatePricePaise: c?.cert_price_paise || 29900,
       reason: `Complete all lessons to earn your certificate. You've completed ${Math.round(completionPercentage)}% of this course so far.`,
     }
@@ -149,7 +150,7 @@ export async function checkCertificateEligibility(
       bestScore,
       attemptsCount,
       enrolled: true,
-      paymentRequired: true,
+      paymentRequired: !CERTIFICATES_FREE,
       certificatePricePaise: c?.cert_price_paise || 29900,
       reason: attemptsCount === 0
         ? 'Complete the course evaluation to earn your certificate.'
@@ -165,8 +166,10 @@ export async function checkCertificateEligibility(
     bestScore,
     attemptsCount,
     enrolled: true,
-    paymentRequired: true,
+    paymentRequired: !CERTIFICATES_FREE,
     certificatePricePaise: c?.cert_price_paise || 29900,
-    reason: `You completed the course and passed with ${bestScore}%. Your certificate is ready for ₹${Math.round((c?.cert_price_paise || 29900) / 100)}.`,
+    reason: CERTIFICATES_FREE
+      ? `You completed the course and passed with ${bestScore}%. Your certificate is ready, and it is free.`
+      : `You completed the course and passed with ${bestScore}%. Your certificate is ready for ₹${Math.round((c?.cert_price_paise || 29900) / 100)}.`,
   }
 }
