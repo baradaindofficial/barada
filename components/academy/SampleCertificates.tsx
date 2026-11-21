@@ -47,7 +47,7 @@ function Qr({ qr, x, y, size }: { qr: QrData; x: number; y: number; size: number
 
 export default async function SampleCertificates() {
   const qr = await qrData('https://www.barada.in/verify/BA-2026-SAMPLE01')
-  const cap = { fontSize: '0.78rem', color: '#6B7280', textAlign: 'center', margin: '0.6rem 0 0' } as const
+  const cap = { fontSize: '0.75rem', color: '#6B7280', textAlign: 'center', margin: '0.6rem 0 0' } as const
   return (
     <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
       <figure style={{ flex: '1 1 380px', margin: 0 }}>
