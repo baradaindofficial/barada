@@ -22,9 +22,9 @@ export default function TermsPage() {
           ['Acceptance', 'By accessing or using any Barada platform, you agree to be bound by these Terms of Use. If you do not agree, please do not use our services.'],
           ['Permitted Use', 'QORVIAN courses are for your own professional development. Organisations may provide courses to their staff under a written agreement with Barada. You may not reproduce, resell, or redistribute course content without written permission from Barada.'],
           ['Accounts', 'You are responsible for maintaining the security of your account. You must provide accurate information during registration. Barada reserves the right to suspend accounts that violate these terms.'],
-          ['Certificates', 'Certificates are issued upon successful completion of the course assessment and payment of the certificate fee. Certificates are issued in the name provided at registration and cannot be transferred.'],
+          ['Certificates', 'Certificates are issued upon successful completion of the course assessment. Certificates are currently free; Barada may introduce a fee in future and will announce it before it applies. Certificates are issued in the name provided at registration and cannot be transferred.'],
           ['Intellectual Property', 'All course content, including videos, slides, prompts, and materials, is the intellectual property of Barada (OPC) Private Limited. Unauthorised reproduction is prohibited.'],
-          ['Limitation of Liability', 'Barada provides its platform on an as-is basis. We do not guarantee specific career outcomes. Our liability is limited to the amount paid for any certificate in the preceding 12 months.'],
+          ['Limitation of Liability', 'Barada provides its platform on an as-is basis. We do not guarantee specific career outcomes. Our liability is limited to the amount you have paid to Barada, if any, in the preceding 12 months.'],
           ['Governing Law', 'These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Bengaluru, Karnataka.'],
           ['Contact', 'For terms-related queries, contact info@barada.in or write to Barada (OPC) Private Limited, Bengaluru, Karnataka, India.'],
         ].map(([title, body]) => (
