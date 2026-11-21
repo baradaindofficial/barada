@@ -124,7 +124,7 @@ export default function HomePage() {
             <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
               Business execution, AI and technology, <span style={{ color: gold }}>built on real experience.</span>
             </h1>
-            <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, maxWidth: 540, margin: '0 0 2.5rem' }}>
+            <p style={{ fontSize: '1.125rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, maxWidth: 540, margin: '0 0 2.5rem' }}>
               Barada is a Bengaluru-based business group. QORVIAN builds AI capability for institutes, professionals and businesses; Partnerschaft delivers retail execution and procurement support across India.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
