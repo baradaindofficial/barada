@@ -406,25 +406,25 @@ function ExerciseSlide({ text, act, base, accent }: { text: string; act: number;
     <div style={{ borderRadius: 20, overflow: 'hidden', border: '1px solid ' + accent + '66', boxShadow: '0 14px 40px rgba(0,0,0,0.4)' }}>
       <ChatChrome label={label + ' \u00b7 try it live'} />
       <div style={{ background: 'linear-gradient(180deg, #F5F1E6 0%, #EFE9DA 100%)', padding: '1.5rem 1.2rem 1.3rem' }}>
-        <p style={{ textAlign: 'center', fontFamily: 'Georgia, serif', fontSize: 'clamp(1.15rem, 3vw, 1.5rem)', color: '#3B3326', margin: '0 0 1.1rem' }}>
+        <p style={{ textAlign: 'center', fontFamily: 'Georgia, serif', fontSize: '1.5rem', color: '#3B3326', margin: '0 0 1.1rem' }}>
           <span style={{ color: '#D97757' }}>&#10022;</span> How can I help you today?
         </p>
-        {lead && <p style={{ lineHeight: 1.65, fontSize: '0.95rem', marginBottom: '0.9rem' }}>{leadSpans}</p>}
+        {lead && <p style={{ lineHeight: 1.65, fontSize: '1rem', marginBottom: '0.9rem' }}>{leadSpans}</p>}
         <div style={{ background: '#FFFFFF', border: '1.5px solid ' + (promptOn ? accent : '#E5DFD3'), borderRadius: 24, boxShadow: promptOn ? '0 0 0 5px ' + accent + '66, 0 10px 30px rgba(0,0,0,0.16)' : '0 10px 30px rgba(0,0,0,0.14)', transition: 'box-shadow .25s, border-color .25s', padding: '1.1rem 1.2rem 0.9rem', color: '#29261B' }}>
-          <p style={{ margin: 0, fontSize: '1.12rem', lineHeight: 1.6, fontWeight: 500 }}>{parts.prompt}</p>
+          <p style={{ margin: 0, fontSize: '1.125rem', lineHeight: 1.6, fontWeight: 500 }}>{parts.prompt}</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
-            <span aria-hidden="true" style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid #D9D2C3', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6B6558', fontSize: '1.15rem' }}>+</span>
-            <button type="button" onClick={copy} style={{ marginLeft: 'auto', background: 'transparent', border: '1px solid #D9D2C3', borderRadius: 10, padding: '0.45rem 0.9rem', fontSize: '0.8rem', fontWeight: 700, color: '#29261B', cursor: 'pointer', fontFamily: 'inherit' }}>
+            <span aria-hidden="true" style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid #D9D2C3', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6B6558', fontSize: '1.125rem' }}>+</span>
+            <button type="button" onClick={copy} style={{ marginLeft: 'auto', background: 'transparent', border: '1px solid #D9D2C3', borderRadius: 10, padding: '0.45rem 0.9rem', fontSize: '0.875rem', fontWeight: 700, color: '#29261B', cursor: 'pointer', fontFamily: 'inherit' }}>
               {copied ? 'Copied \u2713' : 'Copy prompt'}
             </button>
             {openUrl && (
-              <a href={openUrl} target="_blank" rel="noopener noreferrer" aria-label={'Open this prompt in ' + label} title={'Open in ' + label} style={{ width: 36, height: 36, borderRadius: 10, background: brand === 'claude' ? '#D97757' : '#10A37F', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontWeight: 800, fontSize: '1.1rem' }}>
+              <a href={openUrl} target="_blank" rel="noopener noreferrer" aria-label={'Open this prompt in ' + label} title={'Open in ' + label} style={{ width: 36, height: 36, borderRadius: 10, background: brand === 'claude' ? '#D97757' : '#10A37F', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontWeight: 800, fontSize: '1.125rem' }}>
                 &uarr;
               </a>
             )}
           </div>
         </div>
-        {afterSpans && <p style={{ lineHeight: 1.65, fontSize: '0.95rem', marginTop: '0.9rem' }}>{afterSpans}</p>}
+        {afterSpans && <p style={{ lineHeight: 1.65, fontSize: '1rem', marginTop: '0.9rem' }}>{afterSpans}</p>}
       </div>
     </div>
   )
@@ -436,7 +436,7 @@ function ChatChrome({ label }: { label: string }) {
       {['#FF6B6B', '#FFB020', '#3DDC97'].map((c) => (
         <span key={c} aria-hidden="true" style={{ width: 9, height: 9, borderRadius: '50%', background: c, opacity: 0.85 }} />
       ))}
-      <span style={{ marginLeft: 8, fontSize: '0.72rem', fontWeight: 700, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.04em' }}>{label}</span>
+      <span style={{ marginLeft: 8, fontSize: '0.75rem', fontWeight: 700, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.04em' }}>{label}</span>
     </div>
   )
 }
@@ -468,7 +468,7 @@ function Bubble({ me, accent, dark, children }: { me?: boolean; accent: string; 
   return (
     <div style={{ display: 'flex', gap: '0.7rem', margin: '0 0 0.8rem', justifyContent: me ? 'flex-end' : 'flex-start' }}>
       {!me && <Avatar accent={accent} />}
-      <div style={{ maxWidth: '86%', background: me ? accent : 'rgba(255,255,255,0.08)', color: me ? dark : '#fff', borderRadius: me ? '16px 16px 4px 16px' : '16px 16px 16px 4px', padding: '0.75rem 1rem', lineHeight: 1.6, fontSize: '0.95rem', fontWeight: me ? 700 : 400 }}>{children}</div>
+      <div style={{ maxWidth: '86%', background: me ? accent : 'rgba(255,255,255,0.08)', color: me ? dark : '#fff', borderRadius: me ? '16px 16px 4px 16px' : '16px 16px 16px 4px', padding: '0.75rem 1rem', lineHeight: 1.6, fontSize: '1rem', fontWeight: me ? 700 : 400 }}>{children}</div>
     </div>
   )
 }
@@ -778,19 +778,19 @@ export default function LessonPlayer(props: Props) {
 
           <div className="bb-body" style={{ position: 'relative', zIndex: 1, padding: 'clamp(1.25rem, 3vw, 2.25rem)', minHeight: 360 }}>
             {props.courseTitle && (
-              <span className="bb-chip" style={{ position: 'absolute', top: 14, right: 18, alignItems: 'center', gap: 6, fontSize: '0.7rem', fontWeight: 700, color: GOLD, background: 'rgba(0,0,0,0.25)', border: '1px solid ' + GOLD + '40', borderRadius: 999, padding: '0.25rem 0.7rem' }}>
+              <span className="bb-chip" style={{ position: 'absolute', top: 14, right: 18, alignItems: 'center', gap: 6, fontSize: '0.75rem', fontWeight: 700, color: GOLD, background: 'rgba(0,0,0,0.25)', border: '1px solid ' + GOLD + '40', borderRadius: 999, padding: '0.25rem 0.7rem' }}>
                 {props.courseIcon ? <span aria-hidden="true">{props.courseIcon}</span> : null}
                 {props.courseTitle}
               </span>
             )}
             {needTap && (
-              <button type="button" onClick={() => { /* window listener starts narration */ }} style={{ display: 'block', margin: '0 0 0.9rem', background: GOLD, color: FOREST, border: 'none', borderRadius: 999, padding: '0.5rem 1rem', fontWeight: 800, fontSize: '0.82rem', cursor: 'pointer', fontFamily: 'inherit' }}>
+              <button type="button" onClick={() => { /* window listener starts narration */ }} style={{ display: 'block', margin: '0 0 0.9rem', background: GOLD, color: FOREST, border: 'none', borderRadius: 999, padding: '0.5rem 1rem', fontWeight: 800, fontSize: '0.875rem', cursor: 'pointer', fontFamily: 'inherit' }}>
                 🔊 Tap anywhere to start narration
               </button>
             )}
             {slide && (
               <div key={index} className="bb-slide">
-                <p style={{ color: GOLD, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
+                <p style={{ color: GOLD, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
                   {slide.type === 'title' ? `Module ${props.moduleNumber} · Lesson ${props.lessonNumber}` : `Slide ${index + 1} of ${total}`}
                 </p>
                 {(() => {
@@ -804,10 +804,10 @@ export default function LessonPlayer(props: Props) {
 
                       {slide.type === 'title' && slide.items.length > 0 && (
                         <div>
-                          <Hl tag="p" on={on(k++)} accent={GOLD} style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', marginBottom: '0.6rem' }}>By the end you will be able to:</Hl>
+                          <Hl tag="p" on={on(k++)} accent={GOLD} style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem', marginBottom: '0.6rem' }}>By the end you will be able to:</Hl>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                             {slide.items.map((o, i) => (
-                              <Hl key={i} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.7rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.88)', lineHeight: 1.55, fontSize: '0.95rem' }}>
+                              <Hl key={i} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.7rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.88)', lineHeight: 1.55, fontSize: '1rem' }}>
                                 <span style={{ color: GOLD, fontWeight: 800 }}>&#10003;</span>
                                 {o}
                               </Hl>
@@ -830,7 +830,7 @@ export default function LessonPlayer(props: Props) {
                           {slide.blocks.map((b, i) => {
                             if (b.kind === 'p')
                               return (
-                                <p key={i} style={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.75, fontSize: '1.02rem', marginBottom: '0.9rem' }}>
+                                <p key={i} style={{ color: 'rgba(255,255,255,0.88)', lineHeight: 1.75, fontSize: '1rem', marginBottom: '0.9rem' }}>
                                   {sentences(b.text).map((x) => (
                                     <Hl key={k} inline on={on(k++)} accent={GOLD}>
                                       {x}{' '}
@@ -842,8 +842,8 @@ export default function LessonPlayer(props: Props) {
                               return (
                                 <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', marginBottom: '0.9rem' }}>
                                   {b.items.map((it, j) => (
-                                    <Hl key={j} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.75rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.55, fontSize: '0.97rem' }}>
-                                      <span style={{ background: GOLD, color: FOREST, borderRadius: '50%', width: 22, height: 22, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 800 }}>
+                                    <Hl key={j} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.75rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '0.7rem 0.9rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.55, fontSize: '1rem' }}>
+                                      <span style={{ background: GOLD, color: FOREST, borderRadius: '50%', width: 22, height: 22, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 800 }}>
                                         {j + 1}
                                       </span>
                                       {it}
@@ -854,7 +854,7 @@ export default function LessonPlayer(props: Props) {
                             if (b.kind === 'code')
                               return (
                                 <Hl key={i} on={on(k++)} accent={GOLD} style={{ borderRadius: 12, marginBottom: '0.9rem' }}>
-                                  <pre style={{ background: '#060F36', color: '#E8F1FF', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.82rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
+                                  <pre style={{ background: '#060F36', color: '#E8F1FF', borderRadius: 12, padding: '1rem', overflowX: 'auto', fontSize: '0.875rem', lineHeight: 1.6, border: '1px solid ' + GOLD + '33', margin: 0 }}>
                                     <code>{b.text}</code>
                                   </pre>
                                 </Hl>
@@ -869,7 +869,7 @@ export default function LessonPlayer(props: Props) {
                           <ChatChrome label={'Scenario \u00b7 a situation you could face this week'} />
                           <div style={{ padding: '1.1rem 1rem 0.8rem' }}>
                             <Bubble accent={GOLD} dark={FOREST}>
-                              <span style={{ display: 'block', color: GOLD, fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>Situation</span>
+                              <span style={{ display: 'block', color: GOLD, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>Situation</span>
                               {sentences(slide.text).map((x) => (
                                 <Hl key={k} inline on={on(k++)} accent={GOLD}>
                                   {x}{' '}
@@ -888,7 +888,7 @@ export default function LessonPlayer(props: Props) {
                       {slide.type === 'takeaways' && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                           {slide.items.map((it, i) => (
-                            <Hl key={i} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.7rem', background: GOLD + '14', borderRadius: 12, padding: '0.7rem 0.9rem', color: '#fff', lineHeight: 1.55, fontSize: '0.97rem' }}>
+                            <Hl key={i} on={on(k++)} accent={GOLD} style={{ display: 'flex', gap: '0.7rem', background: GOLD + '14', borderRadius: 12, padding: '0.7rem 0.9rem', color: '#fff', lineHeight: 1.55, fontSize: '1rem' }}>
                               <span style={{ color: GOLD, fontWeight: 800 }}>&#9733;</span>
                               {it}
                             </Hl>
@@ -905,7 +905,7 @@ export default function LessonPlayer(props: Props) {
               <div className="bb-slide">
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-end', marginBottom: '1rem', flexWrap: 'wrap' }}>
                   <Mascot mood={finished ? (pct >= PASS_PCT ? 'happy' : 'think') : picked === null && qIndex === 0 ? 'wave' : 'happy'} />
-                  <div style={{ flex: 1, minWidth: 220, background: '#fff', color: FOREST, borderRadius: '16px 16px 16px 4px', padding: '0.9rem 1.1rem', fontSize: '0.95rem', lineHeight: 1.55, fontWeight: 600 }}>
+                  <div style={{ flex: 1, minWidth: 220, background: '#fff', color: FOREST, borderRadius: '16px 16px 16px 4px', padding: '0.9rem 1.1rem', fontSize: '1rem', lineHeight: 1.55, fontWeight: 600 }}>
                     {!finished && qIndex === 0 && picked === null && <>Namaste! I&rsquo;m Bara. Let&rsquo;s try this on real workplace situations. Score at least {PASS_PCT}% to unlock the next lesson.</>}
                     {!finished && picked !== null && (picked === questions[qIndex].answer ? <>Excellent! That&rsquo;s exactly right.</> : <>Good try! Here&rsquo;s the thinking behind it.</>)}
                     {!finished && picked === null && qIndex > 0 && <>Next situation. Take your time.</>}
@@ -927,14 +927,14 @@ export default function LessonPlayer(props: Props) {
                     <div style={{ padding: '1.1rem 1rem 0.6rem' }}>
                       {questions[qIndex].scenario && (
                         <Bubble accent={GOLD} dark={FOREST}>
-                          <span style={{ display: 'block', color: GOLD, fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>Situation</span>
+                          <span style={{ display: 'block', color: GOLD, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>Situation</span>
                           {questions[qIndex].scenario}
                         </Bubble>
                       )}
                       <Bubble accent={GOLD} dark={FOREST}>
                         <strong>{questions[qIndex].question}</strong>
                       </Bubble>
-                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0.2rem 0 0.5rem' }}>Choose your reply</p>
+                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0.2rem 0 0.5rem' }}>Choose your reply</p>
                       {questions[qIndex].options.map((o, i) => {
                         const isAns = i === questions[qIndex].answer
                         const show = picked !== null
@@ -964,10 +964,10 @@ export default function LessonPlayer(props: Props) {
 
                 {questions.length > 0 && finished && (
                   <div style={{ textAlign: 'center', paddingTop: '0.5rem' }}>
-                    <p style={{ color: '#fff', fontWeight: 800, fontSize: '1.4rem', marginBottom: '0.3rem' }}>
+                    <p style={{ color: '#fff', fontWeight: 800, fontSize: '1.5rem', marginBottom: '0.3rem' }}>
                       {correct} / {questions.length} correct ({pct}%)
                     </p>
-                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginBottom: '1rem' }}>Pass mark: {PASS_PCT}%</p>
+                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem', marginBottom: '1rem' }}>Pass mark: {PASS_PCT}%</p>
                     {pct >= PASS_PCT ? cta : (
                       <div style={{ display: 'flex', gap: '0.6rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <button type="button" className="bb-btn gold" onClick={retry}>Try again</button>
@@ -1011,18 +1011,18 @@ export default function LessonPlayer(props: Props) {
       </div>
 
       {tts.supported && tts.voiceLabel && (
-        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', margin: '0.5rem 0 0' }}>Narration plays automatically &mdash; press Stop anytime and it stays off. Voice: {tts.voiceLabel}</p>
+        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', margin: '0.5rem 0 0' }}>Narration plays automatically &mdash; press Stop anytime and it stays off. Voice: {tts.voiceLabel}</p>
       )}
 
       {showTranscript && (
         <div style={{ marginTop: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: 12, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)' }}>
-          <p style={{ color: GOLD, fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Transcript</p>
-          {props.description && <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '0.92rem', marginBottom: '1rem' }}>{props.description}</p>}
+          <p style={{ color: GOLD, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Transcript</p>
+          {props.description && <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '0.875rem', marginBottom: '1rem' }}>{props.description}</p>}
           {props.body && <LessonBody text={props.body} />}
           {props.practiceTask && (
             <>
-              <p style={{ color: GOLD, fontWeight: 700, fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>Exercise</p>
-              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '0.92rem', whiteSpace: 'pre-wrap' }}>{props.practiceTask}</p>
+              <p style={{ color: GOLD, fontWeight: 700, fontSize: '1rem', margin: '1.25rem 0 0.5rem' }}>Exercise</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '0.875rem', whiteSpace: 'pre-wrap' }}>{props.practiceTask}</p>
             </>
           )}
         </div>
