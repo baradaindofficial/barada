@@ -21,7 +21,7 @@ export default async function DownloadsPage() {
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', padding: '2rem', maxWidth: 800, margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem' }}>
-        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.82rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
+        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.875rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.75rem', marginTop: '0.5rem' }}>Downloads</h1>
         <p style={{ color: '#69717D' }}>{downloads.length} recent download{downloads.length !== 1 ? 's' : ''}</p>
       </div>
@@ -44,7 +44,7 @@ export default async function DownloadsPage() {
               <div key={d.download_id} style={{ background: '#fff', borderRadius: 12, padding: '1.125rem 1.25rem', border: '1.5px solid #E5E7EB', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{meta.icon}</span>
                 <div style={{ flex: 1 }}>
-                  <p style={{ fontWeight: 600, color: '#0A1A52', fontSize: '0.9rem', marginBottom: '0.25rem' }}>
+                  <p style={{ fontWeight: 600, color: '#0A1A52', fontSize: '0.875rem', marginBottom: '0.25rem' }}>
                     {asset?.title || 'Resource'}
                   </p>
                   <p style={{ color: '#9CA3AF', fontSize: '0.75rem' }}>
