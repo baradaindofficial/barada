@@ -6,6 +6,7 @@ import AcademyHeader from '@/components/academy/Header'
 import { getAllPublishedCoursesWithCounts, getAcademyStats } from '@/lib/db/courses'
 import { createClient } from '@/lib/supabase/server'
 import CourseCatalogue from '@/components/academy/CourseCatalogue'
+import SampleCertificates from '@/components/academy/SampleCertificates'
 
 export const metadata: Metadata = {
   title: { absolute: 'QORVIAN by Barada \u2014 AI Capability for Institutes, Professionals and Businesses' },
@@ -188,54 +189,11 @@ export default async function AcademyPage() {
               Every QORVIAN certificate carries a unique certificate ID and a QR code that resolves to a public verification page — so anyone you share it with (a recruiter, a manager) can confirm it&apos;s real in one scan.
             </p>
             <p style={{ color: '#9CA3AF', fontSize: '0.82rem' }}>
-              Sample shown for illustration. Your certificate carries your name, your course, and your own certificate ID.
+              Samples shown for illustration. Your certificate carries your name, your course, and your own certificate ID.
             </p>
           </div>
-          <div style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
-            <svg viewBox="0 0 1414 1000" role="img" aria-label="Sample QORVIAN certificate of completion, with a verification QR code and certificate ID" style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12, border: '1px solid #E5E7EB', boxShadow: '0 20px 40px -20px rgba(10,26,82,0.25)' }}>
-              <rect width="1414" height="1000" fill="#FFFFFF" />
-              <rect x="40" y="40" width="1334" height="920" fill="none" stroke="#FF7A12" strokeWidth="8" />
-              <rect x="62" y="62" width="1290" height="876" fill="none" stroke="#0A1A52" strokeWidth="1.5" />
-              <image href="/qorvian-logo/image.png" x="482" y="74" width="450" height="150" />
-              <line x1="607" y1="292" x2="807" y2="292" stroke="#FF7A12" strokeWidth="2" />
-              <text x="707" y="268" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="24" fill="#0B63CE" fontWeight="700" letterSpacing="8">CERTIFICATE OF COMPLETION</text>
-              <text x="707" y="400" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="20" fill="#6B7280" letterSpacing="6">THIS CERTIFIES THAT</text>
-              <text x="707" y="485" textAnchor="middle" fontFamily="Times New Roman, Times, serif" fontSize="72" fill="#0A1A52" fontWeight="700">Aditi Sharma</text>
-              <line x1="507" y1="512" x2="907" y2="512" stroke="#FF7A12" strokeWidth="2" />
-              <text x="707" y="566" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="26" fill="#374151">has successfully completed the course</text>
-              <text x="707" y="624" textAnchor="middle" fontFamily="Times New Roman, Times, serif" fontSize="42" fill="#0B63CE" fontWeight="700">ChatGPT: Beginner to Workplace Power User</text>
-              <text x="707" y="676" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="24" fill="#374151">and has demonstrated proficiency in the associated evaluation.</text>
-              <line x1="130" y1="772" x2="1284" y2="772" stroke="#D3DDEE" strokeWidth="2" />
-              <text x="130" y="816" textAnchor="start" fontFamily="Helvetica, Arial, sans-serif" fontSize="15" fill="#6B7280" letterSpacing="4">DATE OF ISSUE</text>
-              <text x="130" y="844" textAnchor="start" fontFamily="Helvetica, Arial, sans-serif" fontSize="22" fill="#0A1A52" fontWeight="700">4 October 2026</text>
-              <text x="130" y="886" textAnchor="start" fontFamily="Helvetica, Arial, sans-serif" fontSize="15" fill="#6B7280" letterSpacing="4">CERTIFICATE ID</text>
-              <text x="130" y="914" textAnchor="start" fontFamily="Helvetica, Arial, sans-serif" fontSize="22" fill="#0A1A52" fontWeight="700">BA-2026-SAMPLE01</text>
-              <g transform="translate(656 786) scale(0.85)">
-              <rect x="0" y="0" width="42" height="42" fill="none" stroke="#0A1A52" strokeWidth="7" /><rect x="14" y="14" width="14" height="14" fill="#0A1A52" />              <rect x="78" y="0" width="42" height="42" fill="none" stroke="#0A1A52" strokeWidth="7" /><rect x="92" y="14" width="14" height="14" fill="#0A1A52" />              <rect x="0" y="78" width="42" height="42" fill="none" stroke="#0A1A52" strokeWidth="7" /><rect x="14" y="92" width="14" height="14" fill="#0A1A52" />              <rect x="60" y="8" width="12" height="12" fill="#0A1A52" />
-              <rect x="78" y="8" width="12" height="12" fill="#0A1A52" />
-              <rect x="96" y="22" width="12" height="12" fill="#0A1A52" />
-              <rect x="60" y="26" width="12" height="12" fill="#0A1A52" />
-              <rect x="80" y="40" width="12" height="12" fill="#0A1A52" />
-              <rect x="100" y="50" width="12" height="12" fill="#0A1A52" />
-              <rect x="8" y="60" width="12" height="12" fill="#0A1A52" />
-              <rect x="26" y="72" width="12" height="12" fill="#0A1A52" />
-              <rect x="46" y="66" width="12" height="12" fill="#0A1A52" />
-              <rect x="64" y="64" width="12" height="12" fill="#0A1A52" />
-              <rect x="84" y="78" width="12" height="12" fill="#0A1A52" />
-              <rect x="104" y="92" width="12" height="12" fill="#0A1A52" />
-              <rect x="60" y="100" width="12" height="12" fill="#0A1A52" />
-              <rect x="78" y="96" width="12" height="12" fill="#0A1A52" />
-              <rect x="96" y="108" width="12" height="12" fill="#0A1A52" />
-              <rect x="40" y="90" width="12" height="12" fill="#0A1A52" />
-              <rect x="10" y="92" width="12" height="12" fill="#0A1A52" />
-              <rect x="20" y="110" width="12" height="12" fill="#0A1A52" />
-              </g>
-              <text x="707" y="914" textAnchor="middle" fontFamily="Helvetica, Arial, sans-serif" fontSize="14" fill="#6B7280" letterSpacing="4">SCAN TO VERIFY</text>
-              <text x="1284" y="816" textAnchor="end" fontFamily="Helvetica, Arial, sans-serif" fontSize="15" fill="#6B7280" letterSpacing="4">ISSUED BY</text>
-              <svg x="1056" y="832" width="44" height="44" viewBox="0 0 512 512"><path d="M138.7 427.8C154.1 408.1 178.9 377.0 188.3 365.6L200.5 350.8L200.8 364.0L201.1 377.1L247.3 376.8C298.1 376.3 297.2 376.4 310.5 369.8C318.2 365.9 330.5 353.6 334.7 345.5C346.6 322.7 342.8 297.7 324.5 278.2C316.9 270.1 304.8 261.0 301.6 261.0C296.7 261.0 257.2 282.5 237.0 296.1C198.0 322.5 155.7 368.4 136.5 405.2C134.8 408.4 133.2 411.0 132.9 411.0C130.8 411.0 132.6 369.2 135.4 353.0C145.6 295.1 194.3 246.4 273.9 214.6C295.4 206.0 304.6 198.7 311.5 184.6C322.1 163.2 311.7 141.0 287.1 132.8C280.8 130.7 278.6 130.6 239.8 130.2L199.0 129.9L199.0 179.2L199.0 228.5L193.2 231.9C173.2 243.8 155.5 263.2 143.6 286.5L140.1 293.5L139.8 204.5L139.5 115.5L135.6 108.2C131.2 100.0 123.1 91.1 115.0 85.7L109.5 82.0L199.5 82.0C302.5 82.0 304.7 82.2 325.2 90.5C368.5 108.1 388.2 156.5 368.6 197.5C362.7 209.9 350.4 223.6 340.9 228.6C337.9 230.1 337.0 232.0 339.3 232.0C341.4 232.0 354.6 238.7 360.7 242.8C394.6 265.8 408.6 309.8 395.8 353.5C384.6 391.9 350.2 420.4 306.7 427.5C294.2 429.5 137.2 429.8 138.7 427.8Z" fill="#1278EA" fillRule="evenodd" /></svg>
-              <text x="1284" y="868" textAnchor="end" fontFamily="Helvetica, Arial, sans-serif" fontSize="30" fill="#0A1A52" fontWeight="700" letterSpacing="6">BARADA</text>
-              <text x="1284" y="898" textAnchor="end" fontFamily="Helvetica, Arial, sans-serif" fontSize="14" fill="#FF7A12" fontWeight="700" letterSpacing="3">CONNECT. BUILD. GROW.</text>
-            </svg>
+          <div style={{ flex: '2 1 560px', minWidth: 'min(300px, 100%)' }}>
+            <SampleCertificates />
           </div>
         </div>
       </section>
