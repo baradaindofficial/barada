@@ -35,18 +35,18 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
           <div>
             <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Corporate</p>
             {[['About', '/about'], ['Ecosystem', '/ecosystem'], ['Services', '/services'], ['Contact', '/contact']].map(([l, h]) => (
-              <Link key={l} href={h} style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{l}</Link>
+              <Link key={l} href={h} style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', padding: '0.4rem 0' }}>{l}</Link>
             ))}
           </div>
           <div>
             <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Ecosystem</p>
             {footerVerticals.map((v) =>
               v.external ? (
-                <a key={v.name} href={v.href} target="_blank" rel="noopener noreferrer" style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{v.name}</a>
+                <a key={v.name} href={v.href} target="_blank" rel="noopener noreferrer" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', padding: '0.4rem 0' }}>{v.name}</a>
               ) : v.href === '#' ? (
                 <span key={v.name} style={{ display: 'block', color: 'rgba(255,255,255,0.25)', fontSize: '0.875rem', marginBottom: '0.4rem' }}>{v.name}</span>
               ) : (
-                <Link key={v.name} href={v.href} style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{v.name}</Link>
+                <Link key={v.name} href={v.href} style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', padding: '0.4rem 0' }}>{v.name}</Link>
               )
             )}
           </div>
@@ -55,7 +55,7 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
             
             {[['Privacy', '/privacy'], ['Terms', '/terms']].map(([l, h]) => (
-              <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
+              <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', textDecoration: 'none', display: 'inline-block', padding: '0.5rem 0' }}>{l}</Link>
             ))}
           </div>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', margin: 0 }}>
