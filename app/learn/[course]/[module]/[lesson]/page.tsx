@@ -110,22 +110,22 @@ export default async function LessonPage({ params }: Props) {
             <Logo variant="academy" height={32} />
           </Link>
           <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.75rem' }}>/</span>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }}>
             {course.icon} {course.title}
           </span>
         </div>
-        <Link href="/dashboard" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', textDecoration: 'none' }}>
+        <Link href="/dashboard" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', textDecoration: 'none' }}>
           Dashboard
         </Link>
       </nav>
 
       <style>{`@media (max-width: 880px){.lesson-grid{grid-template-columns: minmax(0,1fr) !important}.lesson-side{order:2}}`}</style>
-      <div className="lesson-grid" style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 300px', gap: '2rem' }}>
+      <div className="lesson-grid" style={{ maxWidth: 1200, margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 300px', gap: '2rem' }}>
         <div>
-          <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
             Module {moduleNumber} &middot; Lesson {lessonNumber}
           </p>
-          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', marginBottom: '1.5rem' }}>
+          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', marginBottom: '1.5rem' }}>
             {lesson.title}
           </h1>
 
@@ -183,8 +183,8 @@ export default async function LessonPage({ params }: Props) {
               }}>
                 <span style={{ color: 'rgba(255,255,255,0.4)' }}>&larr;</span>
                 <div>
-                  <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Previous</p>
-                  <p style={{ color: '#fff', fontSize: '0.82rem', fontWeight: 600 }}>{prevLesson.title}</p>
+                  <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Previous</p>
+                  <p style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600 }}>{prevLesson.title}</p>
                 </div>
               </Link>
             ) : <div style={{ flex: 1 }} />}
@@ -196,7 +196,7 @@ export default async function LessonPage({ params }: Props) {
 
         <div className="lesson-side">
           <div style={{ background: theme.nav, borderRadius: 14, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 72 }}>
-            <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+            <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
               Course Content
             </p>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', fontWeight: 600, marginBottom: '0.875rem' }}>
@@ -218,13 +218,13 @@ export default async function LessonPage({ params }: Props) {
                         width: 20, height: 20, borderRadius: '50%',
                         background: isActive ? '#0B63CE' : 'rgba(255,255,255,0.08)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '0.6rem', color: '#fff', flexShrink: 0, fontWeight: 700,
+                        fontSize: '0.75rem', color: '#fff', flexShrink: 0, fontWeight: 700,
                       }}>
                         {l.lesson_number}
                       </span>
                       <span style={{
                         color: isActive ? '#fff' : 'rgba(255,255,255,0.5)',
-                        fontSize: '0.78rem', lineHeight: 1.4,
+                        fontSize: '0.75rem', lineHeight: 1.4,
                         fontWeight: isActive ? 600 : 400,
                       }}>
                         {l.title}
