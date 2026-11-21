@@ -13,7 +13,20 @@
  * files are added.
  */
 import { Document, Page, View, Text, Image, Svg, Path, StyleSheet, renderToBuffer } from '@react-pdf/renderer'
+import fs from 'fs'
+import path from 'path'
 import { generateVerificationQrPng } from './qr'
+
+// The QORVIAN by Barada logo is read from public/ at render time. If the file
+// cannot be read (for example it is missing from a serverless bundle) the
+// header falls back to a vector B mark and text, so issuing never fails.
+function loadQorvianLogo(): Buffer | null {
+  try {
+    return fs.readFileSync(path.join(process.cwd(), 'public', 'qorvian-logo', 'image.png'))
+  } catch {
+    return null
+  }
+}
 
 const NAVY = '#0A1A52'
 const BLUE = '#0B63CE'
@@ -41,6 +54,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   header: { alignItems: 'center' },
+  logo: { width: 210, height: 70 },
+  org: { fontSize: 13, color: INK, marginTop: 8, textAlign: 'center' },
   brand: { fontSize: 30, fontWeight: 700, color: NAVY, letterSpacing: 7, marginTop: 6 },
   byline: { fontSize: 9, fontWeight: 700, color: ORANGE, letterSpacing: 4, marginTop: 4 },
   rule: { height: 1, width: 180, backgroundColor: ORANGE, marginTop: 14 },
@@ -84,6 +99,8 @@ export interface CertificatePdfInput {
   learnerName: string
   courseTitle: string
   issuedAtISO: string
+  /** Optional: organisation name, shown for team and institute programs. */
+  organisation?: string
 }
 
 export async function generateCertificatePdf(input: CertificatePdfInput): Promise<Buffer> {
@@ -96,15 +113,23 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
     year: 'numeric',
   })
 
+  const logo = loadQorvianLogo()
+
   const doc = (
     <Document>
       <Page size="A4" orientation="landscape" style={styles.page}>
         <View style={styles.outer}>
           <View style={styles.inner}>
             <View style={styles.header}>
-              <BMark size={46} color={LOGO_BLUE} />
-              <Text style={styles.brand}>QORVIAN</Text>
-              <Text style={styles.byline}>BY BARADA</Text>
+              {logo ? (
+                <Image src={{ data: logo, format: 'png' }} style={styles.logo} />
+              ) : (
+                <>
+                  <BMark size={46} color={LOGO_BLUE} />
+                  <Text style={styles.brand}>QORVIAN</Text>
+                  <Text style={styles.byline}>BY BARADA</Text>
+                </>
+              )}
               <View style={styles.rule} />
               <Text style={styles.kind}>CERTIFICATE OF COMPLETION</Text>
             </View>
@@ -113,6 +138,7 @@ export async function generateCertificatePdf(input: CertificatePdfInput): Promis
               <Text style={styles.title}>THIS CERTIFIES THAT</Text>
               <Text style={styles.name}>{input.learnerName}</Text>
               <View style={styles.nameLine} />
+              {input.organisation ? <Text style={styles.org}>of {input.organisation}</Text> : null}
               <Text style={styles.body}>has successfully completed the course</Text>
               <Text style={styles.course}>{input.courseTitle}</Text>
               <Text style={styles.body}>
