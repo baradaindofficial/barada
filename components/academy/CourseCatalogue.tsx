@@ -34,7 +34,7 @@ const chip = (active: boolean): React.CSSProperties => ({
   border: `1.5px solid ${active ? navy : '#D1D5DB'}`,
   background: active ? navy : '#fff',
   color: active ? '#fff' : '#0C1740',
-  fontSize: '0.8rem',
+  fontSize: '0.875rem',
   fontWeight: 600,
   cursor: 'pointer',
   fontFamily: 'inherit',
@@ -94,20 +94,20 @@ export default function CourseCatalogue({
 
       {audience === 'teams' ? (
         <div style={{ background: '#fff', border: '1.5px solid #E5E7EB', borderRadius: 16, padding: '2rem', maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
-          <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1.15rem', margin: '0 0 0.75rem' }}>Team training is being planned</h3>
-          <p style={{ color: '#4B5563', fontSize: '0.95rem', lineHeight: 1.75, margin: '0 0 1.25rem' }}>
+          <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1.125rem', margin: '0 0 0.75rem' }}>Team training is being planned</h3>
+          <p style={{ color: '#4B5563', fontSize: '1rem', lineHeight: 1.75, margin: '0 0 1.25rem' }}>
             Team workshops are not yet open for bookings. Register your interest and we will be in touch. In the meantime, each person on your team can start any course below for free.
           </p>
           <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/services#professional-workshops" style={{ background: red, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>Register your interest &rarr;</Link>
-            <button type="button" onClick={() => setAudience('individuals')} style={{ ...chip(false), padding: '0.75rem 1.5rem', borderRadius: 10, fontSize: '0.9rem' }}>Browse courses</button>
+            <Link href="/services#professional-workshops" style={{ background: red, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>Register your interest &rarr;</Link>
+            <button type="button" onClick={() => setAudience('individuals')} style={{ ...chip(false), padding: '0.75rem 1.5rem', borderRadius: 10, fontSize: '0.875rem' }}>Browse courses</button>
           </div>
         </div>
       ) : (
         <>
           {/* Search + filters */}
           <div style={{ maxWidth: 900, margin: '0 auto 1.5rem' }}>
-            <label htmlFor="course-search" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: navy, marginBottom: '0.4rem' }}>Search courses</label>
+            <label htmlFor="course-search" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: navy, marginBottom: '0.4rem' }}>Search courses</label>
             <input
               id="course-search"
               type="search"
@@ -130,10 +130,10 @@ export default function CourseCatalogue({
                 ))}
               </div>
             )}
-            <p aria-live="polite" style={{ color: '#69717D', fontSize: '0.82rem', margin: '1rem 0 0' }}>
+            <p aria-live="polite" style={{ color: '#69717D', fontSize: '0.875rem', margin: '1rem 0 0' }}>
               Showing {shown.length} of {courses.length} courses
               {filtered && (
-                <button type="button" onClick={clear} style={{ marginLeft: '0.75rem', background: 'none', border: 'none', color: red, fontWeight: 700, cursor: 'pointer', fontSize: '0.82rem', fontFamily: 'inherit', textDecoration: 'underline', padding: '0.5rem 0' }}>Clear filters</button>
+                <button type="button" onClick={clear} style={{ marginLeft: '0.75rem', background: 'none', border: 'none', color: red, fontWeight: 700, cursor: 'pointer', fontSize: '0.875rem', fontFamily: 'inherit', textDecoration: 'underline', padding: '0.5rem 0' }}>Clear filters</button>
               )}
             </p>
           </div>
@@ -151,13 +151,13 @@ export default function CourseCatalogue({
                     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '0.875rem' }}>
                       <span style={{ fontSize: '1.75rem' }}>{course.icon}</span>
                       {course.enrollmentPaused ? (
-                        <span style={{ background: 'rgba(255,122,18,0.15)', color: '#B34A00', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Content Being Completed</span>
+                        <span style={{ background: 'rgba(255,122,18,0.15)', color: '#B34A00', fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Content Being Completed</span>
                       ) : (
-                        <span style={{ background: 'rgba(22,163,74,0.1)', color: '#15803d', fontSize: '0.65rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Available Now</span>
+                        <span style={{ background: 'rgba(22,163,74,0.1)', color: '#15803d', fontSize: '0.75rem', fontWeight: 700, padding: '2px 8px', borderRadius: 20 }}>&bull; Available Now</span>
                       )}
                     </div>
-                    <p style={{ color: '#69717D', fontSize: '0.72rem', marginBottom: '0.25rem' }}>{course.category} &middot; {course.difficulty}</p>
-                    <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.75rem', lineHeight: 1.4 }}>{course.title}</h3>
+                    <p style={{ color: '#69717D', fontSize: '0.75rem', marginBottom: '0.25rem' }}>{course.category} &middot; {course.difficulty}</p>
+                    <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1rem', marginBottom: '0.75rem', lineHeight: 1.4 }}>{course.title}</h3>
                     <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: '#69717D', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
                       <span>{course.moduleCount} modules</span>
                       <span>{course.lessonCount} lessons</span>
@@ -173,11 +173,11 @@ export default function CourseCatalogue({
                   </div>
                   {course.enrollmentPaused ? (
                     <div style={{ background: 'rgba(255,122,18,0.08)', borderTop: '1px solid rgba(255,122,18,0.2)', padding: '0.5rem 1.5rem' }}>
-                      <span style={{ fontSize: '0.7rem', color: '#B34A00', fontWeight: 700 }}>Content being completed &mdash; new enrolments temporarily paused.</span>
+                      <span style={{ fontSize: '0.75rem', color: '#B34A00', fontWeight: 700 }}>Content being completed &mdash; new enrolments temporarily paused.</span>
                     </div>
                   ) : (
                     <div style={{ background: 'rgba(22,163,74,0.05)', borderTop: '1px solid rgba(22,163,74,0.1)', padding: '0.5rem 1.5rem' }}>
-                      <span style={{ fontSize: '0.7rem', color: '#15803d', fontWeight: 700 }}>&#10003; Enroll instantly &middot; No payment required</span>
+                      <span style={{ fontSize: '0.75rem', color: '#15803d', fontWeight: 700 }}>&#10003; Enroll instantly &middot; No payment required</span>
                     </div>
                   )}
                 </div>
