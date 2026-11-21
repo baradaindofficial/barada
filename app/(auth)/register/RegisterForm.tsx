@@ -62,7 +62,7 @@ export default function RegisterForm() {
             'Free account — no credit card required',
             '10 flagship professional courses',
             'Self-paced — learn at your own schedule',
-            'Verifiable certificates from ₹299',
+            'Free verifiable certificates',
             'Real skills from real corporate experience',
           ].map(f => (
             <li key={f} className="flex items-center gap-3 text-white/70 text-sm">

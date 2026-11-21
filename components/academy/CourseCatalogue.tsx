@@ -162,7 +162,7 @@ export default function CourseCatalogue({
                       <span>{course.moduleCount} modules</span>
                       <span>{course.lessonCount} lessons</span>
                       {course.estimatedHours ? <span>{course.estimatedHours}h</span> : null}
-                      <span>Certificate: ₹299</span>
+                      <span>Free certificate</span>
                     </div>
                     <CourseEnrollButton
                       slug={course.slug}

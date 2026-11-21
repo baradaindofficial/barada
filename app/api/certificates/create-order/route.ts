@@ -15,10 +15,14 @@ import { z } from 'zod'
 import { createClient, createAdminClient } from '@/lib/supabase/server'
 import { checkCertificateEligibility } from '@/lib/services/certificate-eligibility'
 import { getRazorpayClient } from '@/lib/payments/razorpay'
+import { CERTIFICATES_FREE } from '@/lib/certificates/config'
 
 const CreateOrderSchema = z.object({ courseSlug: z.string().min(1).max(100) })
 
 export async function POST(request: NextRequest) {
+  if (CERTIFICATES_FREE) {
+    return NextResponse.json({ error: 'Certificates are free at the moment. Use the claim option instead.' }, { status: 403 })
+  }
   const supabase = await createClient()
   const {
     data: { user },

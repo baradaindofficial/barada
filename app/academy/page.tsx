@@ -91,11 +91,11 @@ export default async function AcademyPage() {
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/register" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Start Learning Free &rarr;</Link>
-          <Link href="/contact" style={{ border: '2px solid rgba(255,122,18,0.7)', color: '#FF7A12', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Enquire for your team</Link>
+          <Link href="/enquire" style={{ border: '2px solid rgba(255,122,18,0.7)', color: '#FF7A12', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Enquire for your team</Link>
           <Link href="/login" style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem' }}>Sign In</Link>
         </div>
         <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', marginTop: '3rem', flexWrap: 'wrap' }}>
-          {[['Free', 'To Enroll'], ['Self-Paced', 'No Deadlines'], ['\u20B9299', 'Per Certificate'], ['Practical', 'Immediately Applicable']].map(([v, l]) => (
+          {[['Free', 'To Enroll'], ['Self-Paced', 'No Deadlines'], ['Free', 'Certificate'], ['Practical', 'Immediately Applicable']].map(([v, l]) => (
             <div key={l}>
               <div style={{ fontSize: '1.5rem', fontWeight: 900, color: gold, fontFamily: 'Poppins, sans-serif' }}>{v}</div>
               <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>{l}</div>
@@ -120,7 +120,7 @@ export default async function AcademyPage() {
                 <p style={{ color: red, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.5rem' }}>{tag}</p>
                 <h3 style={{ color: navy, fontSize: '1.1rem', fontWeight: 800, margin: '0 0 0.6rem' }}>{head}</h3>
                 <p style={{ color: '#4B5563', fontSize: '0.92rem', lineHeight: 1.7, margin: '0 0 1rem' }}>{body}</p>
-                <Link href={i === 2 ? '#courses' : '/contact'} style={{ color: navy, fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>{cta} &rarr;</Link>
+                <Link href={i === 2 ? '#courses' : '/enquire'} style={{ color: navy, fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>{cta} &rarr;</Link>
               </div>
             ))}
           </div>
@@ -299,7 +299,7 @@ export default async function AcademyPage() {
             {[
               {
                 q: 'Is it really free?',
-                a: 'Yes. Every course is free to enroll in and complete -- all lessons, all modules, no subscription. The only paid step is optional: a ₹299 certificate once you pass a course\'s final assessment, if you want a verifiable credential for your resume or LinkedIn.',
+                a: 'Yes. Every course is free to enroll in and complete -- all lessons, all modules, no subscription. The certificate is free too while we establish the programme: pass a course\'s final assessment and claim a verifiable credential for your resume or LinkedIn.',
               },
               {
                 q: 'Is the certificate recognized by employers?',

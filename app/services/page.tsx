@@ -156,7 +156,7 @@ export default function ServicesPage() {
         <p style={{ color: '#0C1740', fontSize: '0.9rem', lineHeight: 1.6, textAlign: 'center', margin: '0 auto 2rem', maxWidth: 640 }}>Related: Partnerschaft India, our group company for retail execution and vendor operations, is also planning Digital Enablement support. <a href="https://partnerschaft.in/services" target="_blank" rel="noopener noreferrer" style={{ color: '#0B63CE', fontWeight: 700 }}>See its services</a>.</p><div style={{ background: '#0A1A52', borderRadius: 16, padding: '2.5rem', textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: '1.375rem', marginBottom: '0.75rem' }}>Coming Soon &mdash; Register Your Interest</h2>
           <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem' }}>These services are planned, not yet open for engagements. Tell us what you need and we&apos;ll follow up once they are.</p>
-          <Link href="/contact" style={{ display: 'inline-block', background: '#0B63CE', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Register Your Interest &rarr;</Link>
+          <Link href="/enquire" style={{ display: 'inline-block', background: '#0B63CE', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Register Your Interest &rarr;</Link>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.82rem', marginTop: '1rem' }}>or email info@barada.in directly</p>
         </div>
       </div>

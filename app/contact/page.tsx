@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
 
@@ -47,6 +48,11 @@ export default function ContactPage() {
               )}
             </div>
           ))}
+        </div>
+        <div style={{ background: '#fff', borderRadius: 16, padding: '1.75rem', border: '1.5px solid #E5E7EB', textAlign: 'center', marginBottom: '2rem' }}>
+          <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Businesses and institutes</p>
+          <p style={{ color: '#0A1A52', fontWeight: 700, fontSize: '1.05rem', margin: '0 0 0.75rem' }}>Looking for AI training, integration or support?</p>
+          <Link href="/enquire" style={{ display: 'inline-block', background: '#0B63CE', color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.9rem' }}>Make an enquiry &rarr;</Link>
         </div>
         <div style={{ background: '#0A1A52', borderRadius: 16, padding: '2rem', textAlign: 'center' }}>
           <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Response Time</p>

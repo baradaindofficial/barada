@@ -121,7 +121,6 @@ export default function HomePage() {
       <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #123C8F 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
-            <p style={{ color: gold, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Barada &middot; Bengaluru, India</p>
             <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
               Business execution, AI and technology, <span style={{ color: gold }}>built on real experience.</span>
             </h1>
@@ -131,6 +130,7 @@ export default function HomePage() {
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/qorvian" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore QORVIAN &rarr;</Link>
               <a href="https://partnerschaft.in" target="_blank" rel="noopener noreferrer" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Visit Partnerschaft &#8599;</a>
+              <Link href="/enquire" style={{ border: '2px solid rgba(255,255,255,0.55)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Enquire for your organisation &rarr;</Link>
             </div>
           </div>
 
