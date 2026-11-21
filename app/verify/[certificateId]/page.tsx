@@ -4,7 +4,7 @@ import Logo from '@/components/shared/Logo'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
-  title: 'Verify Certificate \u2014 QORVIAN by Barada',
+  title: { absolute: 'Verify Certificate \u2014 QORVIAN by Barada' },
   description: 'Verify the authenticity of a QORVIAN certificate.',
 }
 
