@@ -13,8 +13,8 @@ export default function PrivacyPage() {
       <CorporateHeader />
 
       <section style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', padding: '5rem 2rem', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Privacy Policy</h1>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', margin: 0 }}>Last updated: August 2026</p>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', color: '#fff', marginBottom: '1rem' }}>Privacy Policy</h1>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', margin: 0 }}>Last updated: August 2026</p>
       </section>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         ].map(([title, body]) => (
           <div key={title} style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', marginBottom: '1rem' }}>
             <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0A1A52', fontSize: '1rem', marginBottom: '0.625rem' }}>{title}</h2>
-            <p style={{ color: '#69717D', lineHeight: 1.8, fontSize: '0.9rem', margin: 0 }}>{body}</p>
+            <p style={{ color: '#69717D', lineHeight: 1.8, fontSize: '0.875rem', margin: 0 }}>{body}</p>
           </div>
         ))}
       </div>
