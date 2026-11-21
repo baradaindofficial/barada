@@ -14,13 +14,13 @@ export default function TermsPage() {
 
       <section style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', padding: '5rem 2rem', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Terms of Use</h1>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', margin: 0 }}>Last updated: August 2026</p>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', margin: 0 }}>Last updated: November 2026</p>
       </section>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
         {[
           ['Acceptance', 'By accessing or using any Barada platform, you agree to be bound by these Terms of Use. If you do not agree, please do not use our services.'],
-          ['Permitted Use', 'QORVIAN courses are for personal, non-commercial professional development. You may not reproduce, resell, or redistribute course content without written permission from Barada.'],
+          ['Permitted Use', 'QORVIAN courses are for your own professional development. Organisations may provide courses to their staff under a written agreement with Barada. You may not reproduce, resell, or redistribute course content without written permission from Barada.'],
           ['Accounts', 'You are responsible for maintaining the security of your account. You must provide accurate information during registration. Barada reserves the right to suspend accounts that violate these terms.'],
           ['Certificates', 'Certificates are issued upon successful completion of the course assessment and payment of the certificate fee. Certificates are issued in the name provided at registration and cannot be transferred.'],
           ['Intellectual Property', 'All course content, including videos, slides, prompts, and materials, is the intellectual property of Barada (OPC) Private Limited. Unauthorised reproduction is prohibited.'],

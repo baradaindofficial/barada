@@ -101,7 +101,7 @@ export default async function SampleCertificates() {
       <text x="101" y="1290" textAnchor="start" fontFamily="Helvetica, Arial, sans-serif" fontSize="13" fill="#6B7280" letterSpacing="3">CERTIFICATE ID</text>
       <text x="101" y="1316" textAnchor="start" fontFamily="Helvetica, Arial, sans-serif" fontSize="19" fill="#0A1A52" fontWeight="700">BA-2026-SAMPLE01</text>
       <text x="899" y="1226" textAnchor="end" fontFamily="Helvetica, Arial, sans-serif" fontSize="13" fill="#6B7280" letterSpacing="3">ISSUED BY</text>
-      <svg x="688" y="1246" width="38" height="38" viewBox="0 0 512 512"><path d={B_PATH} fill="#1278EA" fillRule="evenodd" /></svg>
+      <svg x="664" y="1246" width="38" height="38" viewBox="0 0 512 512"><path d={B_PATH} fill="#1278EA" fillRule="evenodd" /></svg>
       <text x="899" y="1275" textAnchor="end" fontFamily="Helvetica, Arial, sans-serif" fontSize="27" fill="#0A1A52" fontWeight="700" letterSpacing="5">BARADA</text>
       <text x="899" y="1304" textAnchor="end" fontFamily="Helvetica, Arial, sans-serif" fontSize="12" fill="#FF7A12" fontWeight="700" letterSpacing="2.5">CONNECT. BUILD. GROW.</text>
     </svg>
