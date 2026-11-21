@@ -121,17 +121,20 @@ export default function HomePage() {
       <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #123C8F 100%)`, padding: '6rem 2rem 5rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <div className="barada-hero-text" style={{ flex: '1 1 420px', minWidth: 'min(300px, 100%)' }}>
-            <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
               Business execution, AI and technology, <span style={{ color: gold }}>built on real experience.</span>
             </h1>
-            <p style={{ fontSize: 'clamp(1rem,2vw,1.2rem)', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, maxWidth: 540, margin: '0 0 2.5rem' }}>
+            <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, maxWidth: 540, margin: '0 0 2.5rem' }}>
               Barada is a Bengaluru-based business group. QORVIAN builds AI capability for institutes, professionals and businesses; Partnerschaft delivers retail execution and procurement support across India.
             </p>
             <div className="barada-hero-ctas" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link href="/qorvian" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}>Explore QORVIAN &rarr;</Link>
               <a href="https://partnerschaft.in" target="_blank" rel="noopener noreferrer" style={{ border: `2px solid ${gold}`, color: gold, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Visit Partnerschaft &#8599;</a>
-              <Link href="/enquire" style={{ border: '2px solid rgba(255,255,255,0.55)', color: '#fff', padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 600 }}>Enquire for your organisation &rarr;</Link>
             </div>
+            <p style={{ margin: '1.5rem 0 0', fontSize: '0.875rem', color: 'rgba(255,255,255,0.7)' }}>
+              Business or institute?{' '}
+              <Link href="/enquire" style={{ color: '#fff', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>Enquire about AI training, integration and support &rarr;</Link>
+            </p>
           </div>
 
           <div className="barada-hero-illustration" style={{ flex: '1 1 380px', minWidth: 'min(280px, 100%)', maxWidth: 480 }}>
@@ -161,13 +164,13 @@ export default function HomePage() {
       {/* CAPABILITIES STRIP -- planned services only. Wording follows the
           /services page: planned, not open for booking, no pricing. */}
       <section style={{ background: navy, padding: '0 2rem 3.5rem' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '2rem' }}>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '1.25rem' }}>Planned services &middot; Coming Soon</p>
+        <div style={{ maxWidth: 1200, margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '2rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '1.25rem' }}>Planned services &middot; Coming Soon</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '1rem' }}>
             {CAPABILITIES.map(({ name, desc }) => (
               <Link key={name} href="/services" style={{ display: 'block', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 14, padding: '1.25rem 1.5rem', background: 'rgba(255,255,255,0.03)' }}>
                 <p style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', margin: '0 0 0.35rem' }}>{name}</p>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{desc}</p>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>{desc}</p>
               </Link>
             ))}
           </div>
@@ -178,16 +181,16 @@ export default function HomePage() {
       <section style={{ background: '#F9FAFB', padding: '5rem 2rem' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Our Businesses</p>
-            <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, margin: 0 }}>Two businesses, one standard.</h2>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Our Businesses</p>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, margin: 0 }}>Two businesses, one standard.</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
             {PRIMARY_ROUTES.map(({ icon, name, headline, desc, href, cta, external, color }) => (
               <div key={name} style={{ background: '#fff', borderRadius: 20, padding: '2.5rem', border: '1.5px solid #E5E7EB', borderTop: `4px solid ${color}` }}>
-                <span style={{ fontSize: '2.25rem', display: 'block', marginBottom: '1.25rem' }}>{icon}</span>
-                <p style={{ color: color, fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{name}</p>
-                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: navy, fontSize: '1.375rem', marginBottom: '0.875rem' }}>{headline}</h3>
-                <p style={{ color: '#69717D', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1.75rem' }}>{desc}</p>
+                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '1.25rem' }}>{icon}</span>
+                <p style={{ color: color, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{name}</p>
+                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: navy, fontSize: '1.25rem', marginBottom: '0.875rem' }}>{headline}</h3>
+                <p style={{ color: '#69717D', fontSize: '1rem', lineHeight: 1.8, marginBottom: '1.75rem' }}>{desc}</p>
                 {external ? (
                   <a href={href} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', background: color, color: '#fff', padding: '0.75rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>{cta} &rarr;</a>
                 ) : (
@@ -202,14 +205,14 @@ export default function HomePage() {
       {/* WHO WE ARE */}
       <section style={{ background: '#fff', padding: '5rem 2rem' }}>
         <div style={{ maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Who We Are</p>
-          <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: navy, marginBottom: '1.25rem' }}>
+          <p style={{ color: red, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Who We Are</p>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, marginBottom: '1.25rem' }}>
             A business group, built for practical results.
           </h2>
-          <p style={{ color: '#69717D', fontSize: '1.05rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
+          <p style={{ color: '#69717D', fontSize: '1rem', lineHeight: 1.85, maxWidth: 680, margin: '0 auto 1.5rem' }}>
             Barada runs two businesses today: QORVIAN, for AI capability, and Partnerschaft, for retail execution and procurement. Consulting services are planned and further ventures are underway. Everything we build comes from real corporate experience.
           </p>
-          <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
+          <Link href="/ecosystem" style={{ background: navy, color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>See the Full Ecosystem &rarr;</Link>
         </div>
       </section>
 
@@ -218,7 +221,7 @@ export default function HomePage() {
           photos claiming programmes Barada doesn't run), captioned with
           what each platform actually is. */}
       <section style={{ background: '#fff', padding: '1rem 2rem 4rem' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1.25rem' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1.25rem' }}>
           {ECOSYSTEM_PHOTOS.map(({ src, name, desc, href, external }) => {
             const card = (
               <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
@@ -226,7 +229,7 @@ export default function HomePage() {
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,26,82,0.97) 0%, rgba(10,26,82,0.8) 42%, rgba(10,26,82,0.2) 75%, transparent 100%)' }} />
                 <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
                   <p style={{ color: '#fff', fontWeight: 800, fontSize: '1rem', marginBottom: '0.25rem' }}>{name}</p>
-                  <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.78rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
+                  <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
                 </div>
               </div>
             )
@@ -244,23 +247,23 @@ export default function HomePage() {
           live route — its availability is unresolved, see BUILDING above. */}
       <section style={{ background: '#fff', padding: '3.5rem 2rem 5rem' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <p style={{ color: '#9CA3AF', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '1.5rem' }}>What We&apos;re Building</p>
+          <p style={{ color: '#9CA3AF', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '1.5rem' }}>What We&apos;re Building</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
             {BUILDING.map(({ icon, name, desc, registerInterest }) => (
               <div key={name} style={{ background: '#F9FAFB', borderRadius: 14, padding: '1.5rem', border: '1px solid #E5E7EB', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <span style={{ fontSize: '1.5rem' }}>{icon}</span>
                 <div>
-                  <p style={{ fontWeight: 700, color: navy, fontSize: '0.9rem', margin: '0 0 0.25rem' }}>{name} <span style={{ color: '#9CA3AF', fontWeight: 600, fontSize: '0.7rem' }}>&middot; Coming Soon</span></p>
-                  <p style={{ color: '#69717D', fontSize: '0.82rem', lineHeight: 1.6, margin: '0 0 0.5rem' }}>{desc}</p>
+                  <p style={{ fontWeight: 700, color: navy, fontSize: '0.875rem', margin: '0 0 0.25rem' }}>{name} <span style={{ color: '#9CA3AF', fontWeight: 600, fontSize: '0.75rem' }}>&middot; Coming Soon</span></p>
+                  <p style={{ color: '#69717D', fontSize: '0.875rem', lineHeight: 1.6, margin: '0 0 0.5rem' }}>{desc}</p>
                   {registerInterest && (
-                    <Link href="/contact" style={{ color: red, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'underline' }}>Coming Soon &mdash; Register Your Interest &rarr;</Link>
+                    <Link href="/contact" style={{ color: red, fontSize: '0.75rem', fontWeight: 700, textDecoration: 'underline' }}>Coming Soon &mdash; Register Your Interest &rarr;</Link>
                   )}
                 </div>
               </div>
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-            <Link href="/ecosystem" style={{ color: navy, fontWeight: 700, textDecoration: 'underline', fontSize: '0.9rem' }}>View full ecosystem map &rarr;</Link>
+            <Link href="/ecosystem" style={{ color: navy, fontWeight: 700, textDecoration: 'underline', fontSize: '0.875rem' }}>View full ecosystem map &rarr;</Link>
           </div>
         </div>
       </section>
@@ -268,21 +271,21 @@ export default function HomePage() {
       {/* VISION */}
       <section style={{ background: navy, padding: '5rem 2rem', textAlign: 'center' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
-          <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Our Vision</p>
-          <blockquote style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.1rem,2.5vw,1.65rem)', fontWeight: 700, color: '#fff', lineHeight: 1.65, margin: '0 0 1.25rem', fontStyle: 'normal' }}>
+          <p style={{ color: gold, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Our Vision</p>
+          <blockquote style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 700, color: '#fff', lineHeight: 1.65, margin: '0 0 1.25rem', fontStyle: 'normal' }}>
             &ldquo;To build one of the world&rsquo;s most trusted AI-powered professional transformation platforms — enabling individuals, organisations, and communities to continuously learn, adapt, and succeed.&rdquo;
           </blockquote>
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem', letterSpacing: '0.06em' }}>Integrity &middot; Innovation &middot; Impact &middot; Empowerment &middot; Excellence</p>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.875rem', letterSpacing: '0.06em' }}>Integrity &middot; Innovation &middot; Impact &middot; Empowerment &middot; Excellence</p>
         </div>
       </section>
 
       {/* CONTACT */}
       <section style={{ background: '#F9FAFB', padding: '4rem 2rem', textAlign: 'center' }}>
-        <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Get in Touch</p>
-        <h2 style={{ fontSize: 'clamp(1.25rem,2.5vw,1.75rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>Let&apos;s build something together.</h2>
+        <p style={{ color: red, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Get in Touch</p>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>Let&apos;s build something together.</h2>
         <p style={{ color: '#69717D', marginBottom: '1.5rem' }}>For partnerships, consulting, or media enquiries.</p>
-        <Link href="/contact" style={{ background: navy, color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>Contact Barada &rarr;</Link>
-        <p style={{ color: '#9CA3AF', fontSize: '0.82rem', marginTop: '1rem' }}>info@barada.in</p>
+        <Link href="/contact" style={{ background: navy, color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>Contact Barada &rarr;</Link>
+        <p style={{ color: '#9CA3AF', fontSize: '0.875rem', marginTop: '1rem' }}>info@barada.in</p>
       </section>
 
       <CorporateFooter />

@@ -24,14 +24,14 @@ export default function AboutPage() {
       <CorporateHeader />
 
       <section style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', padding: '5rem 2rem', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>About Barada</h1>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 600, margin: '0 auto' }}>A professionally driven ecosystem of platforms built from real corporate experience.</p>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', color: '#fff', marginBottom: '1rem' }}>About Barada</h1>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', maxWidth: 600, margin: '0 auto' }}>A professionally driven ecosystem of platforms built from real corporate experience.</p>
       </section>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
 
         <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB', marginBottom: '2rem' }}>
-          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.375rem', marginBottom: '1rem' }}>Who We Are</h2>
+          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.25rem', marginBottom: '1rem' }}>Who We Are</h2>
           <p style={{ color: '#69717D', lineHeight: 1.85, fontSize: '1rem', marginBottom: '1rem' }}>
             Barada is the parent brand of a growing ecosystem of platforms designed to help professionals and organisations succeed in an AI-driven world. From structured AI learning to B2B business solutions, technology products, and social impact &mdash; every Barada platform is built on the same foundation of integrity, innovation, and real-world experience.
           </p>
@@ -43,9 +43,9 @@ export default function AboutPage() {
         <div style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', border: '1.5px solid #E5E7EB', marginBottom: '2rem', boxShadow: '0 1px 3px rgba(10,26,82,0.04)' }}>
           <div style={{ height: 4, background: 'linear-gradient(90deg, #0A1A52 0%, #0A1A52 33%, #FF7A12 33%, #FF7A12 66%, #0B63CE 66%, #0B63CE 100%)' }} />
           <div style={{ padding: '2.5rem' }}>
-            <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Registered Entity</p>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, color: '#0A1A52', fontSize: '1.5rem', marginBottom: '0.375rem' }}>BARADA (OPC) PRIVATE LIMITED</h2>
-            <p style={{ color: '#9CA3AF', fontSize: '0.85rem', letterSpacing: '0.02em', marginBottom: '2rem' }}>Technology &middot; Consulting &middot; Learning &middot; Strategic Partnerships</p>
+            <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Registered Entity</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.5rem', marginBottom: '0.375rem' }}>BARADA (OPC) PRIVATE LIMITED</h2>
+            <p style={{ color: '#9CA3AF', fontSize: '0.875rem', letterSpacing: '0.02em', marginBottom: '2rem' }}>Technology &middot; Consulting &middot; Learning &middot; Strategic Partnerships</p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.25rem', padding: '1.25rem 1.5rem', background: '#F9FAFB', borderRadius: 12, border: '1px solid #E5E7EB', marginBottom: '2rem' }}>
               {[
@@ -55,8 +55,8 @@ export default function AboutPage() {
                 ['Director', 'Manaswini Satapathy'],
               ].map(([label, val]) => (
                 <div key={label}>
-                  <p style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.3rem' }}>{label}</p>
-                  <p style={{ fontSize: '0.88rem', color: '#0A1A52', fontWeight: 700, margin: 0 }}>{val}</p>
+                  <p style={{ fontSize: '0.75rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.3rem' }}>{label}</p>
+                  <p style={{ fontSize: '0.875rem', color: '#0A1A52', fontWeight: 700, margin: 0 }}>{val}</p>
                 </div>
               ))}
             </div>
@@ -70,8 +70,8 @@ export default function AboutPage() {
               ].map(([icon, label, val]) => (
                 <div key={label} style={{ padding: '1.25rem', border: '1px solid #E5E7EB', borderRadius: 12 }}>
                   <span style={{ fontSize: '1.25rem', display: 'block', marginBottom: '0.5rem' }}>{icon}</span>
-                  <p style={{ fontSize: '0.68rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.3rem' }}>{label}</p>
-                  <p style={{ fontSize: '0.85rem', color: '#0A1A52', lineHeight: 1.6, margin: 0 }}>{val}</p>
+                  <p style={{ fontSize: '0.75rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '0.3rem' }}>{label}</p>
+                  <p style={{ fontSize: '0.875rem', color: '#0A1A52', lineHeight: 1.6, margin: 0 }}>{val}</p>
                 </div>
               ))}
             </div>
@@ -79,7 +79,7 @@ export default function AboutPage() {
         </div>
 
         <div style={{ background: '#fff', borderRadius: 16, padding: '2.5rem', border: '1.5px solid #E5E7EB', marginBottom: '2rem' }}>
-          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.375rem', marginBottom: '1.25rem' }}>Our Values</h2>
+          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.25rem', marginBottom: '1.25rem' }}>Our Values</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
             {[
               ['Integrity', 'We build what we promise. We say what we mean.'],
@@ -91,14 +91,14 @@ export default function AboutPage() {
             ].map(([title, desc]) => (
               <div key={title} style={{ background: '#F9FAFB', borderRadius: 12, padding: '1.25rem', border: '1px solid #E5E7EB' }}>
                 <p style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#0B63CE', fontSize: '0.875rem', marginBottom: '0.375rem' }}>{title}</p>
-                <p style={{ color: '#69717D', fontSize: '0.82rem', lineHeight: 1.65 }}>{desc}</p>
+                <p style={{ color: '#69717D', fontSize: '0.875rem', lineHeight: 1.65 }}>{desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         <div style={{ textAlign: 'center' }}>
-          <Link href="/ecosystem" style={{ background: '#0B63CE', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700 }}>Explore Our Ecosystem &rarr;</Link>
+          <Link href="/ecosystem" style={{ background: '#0B63CE', color: '#fff', padding: '0.75rem 2rem', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: 700 }}>Explore Our Ecosystem &rarr;</Link>
         </div>
       </div>
 

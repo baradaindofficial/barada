@@ -108,7 +108,7 @@ export default function EvaluationPage() {
         <Link href="/qorvian" style={{ lineHeight: 0 }}>
           <Logo variant="academy" height={32} />
         </Link>
-        <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem' }}>Course Evaluation</span>
+        <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem' }}>Course Evaluation</span>
       </nav>
 
       <div style={{ height: 3, background: 'rgba(255,255,255,0.06)' }}>
@@ -117,17 +117,17 @@ export default function EvaluationPage() {
 
       <div style={{ maxWidth: 680, margin: '0 auto', padding: '3rem 1.5rem' }}>
         <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
-          <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+          <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
             Question {current + 1} of {questions.length}
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.78rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem' }}>
             Pass score: {evaluation?.passThreshold}% &middot; Unlimited attempts
           </p>
         </div>
 
         {q && (
           <div>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#fff', fontSize: 'clamp(1.1rem,2.5vw,1.375rem)', lineHeight: 1.5, marginBottom: '2rem' }}>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: '#fff', fontSize: '1.25rem', lineHeight: 1.5, marginBottom: '2rem' }}>
               {q.questionText}
             </h2>
 
@@ -145,10 +145,10 @@ export default function EvaluationPage() {
                     aria-label={`Option ${String.fromCharCode(65 + i)}: ${opt.optionText}`}
                     aria-pressed={isSelected}
                     style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.25rem', borderRadius: 12, cursor: 'pointer', background: isSelected ? 'rgba(11,99,206,0.12)' : 'rgba(255,255,255,0.03)', border: isSelected ? '2px solid #0B63CE' : '1.5px solid rgba(255,255,255,0.08)', textAlign: 'left', transition: 'all 0.15s ease' }}>
-                    <span style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, background: isSelected ? '#0B63CE' : 'rgba(255,255,255,0.06)', border: isSelected ? 'none' : '1.5px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: isSelected ? '#fff' : 'rgba(255,255,255,0.4)', fontWeight: 700, fontSize: '0.72rem' }}>
+                    <span style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, background: isSelected ? '#0B63CE' : 'rgba(255,255,255,0.06)', border: isSelected ? 'none' : '1.5px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: isSelected ? '#fff' : 'rgba(255,255,255,0.4)', fontWeight: 700, fontSize: '0.75rem' }}>
                       {String.fromCharCode(65 + i)}
                     </span>
-                    <span style={{ color: isSelected ? '#fff' : 'rgba(255,255,255,0.7)', fontSize: '0.95rem', lineHeight: 1.5, fontWeight: isSelected ? 600 : 400 }}>
+                    <span style={{ color: isSelected ? '#fff' : 'rgba(255,255,255,0.7)', fontSize: '1rem', lineHeight: 1.5, fontWeight: isSelected ? 600 : 400 }}>
                       {opt.optionText}
                     </span>
                   </button>
@@ -157,7 +157,7 @@ export default function EvaluationPage() {
             </div>
 
             {q.hint && (
-              <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.78rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>
+              <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>
                 Hint: {q.hint}
               </p>
             )}

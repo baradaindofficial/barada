@@ -20,7 +20,7 @@ export default async function CertificatesPage() {
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', padding: '2rem', maxWidth: 900, margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem' }}>
-        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.82rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
+        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.875rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.75rem', marginTop: '0.5rem' }}>My Certificates</h1>
         <p style={{ color: '#69717D' }}>{certificates?.length || 0} certificate{(certificates?.length || 0) !== 1 ? 's' : ''} earned</p>
       </div>
@@ -39,8 +39,8 @@ export default async function CertificatesPage() {
           {(certificates as any[]).map((cert: any) => (
             <div key={cert.certificate_id} style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', borderRadius: 14, padding: '1.75rem', border: '1px solid rgba(255,122,18,0.3)' }}>
               <div style={{ fontSize: '2rem', marginBottom: '0.875rem' }}>🏆</div>
-              <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.375rem' }}>Certificate of Completion</p>
-              <p style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: '0.375rem' }}>
+              <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.375rem' }}>Certificate of Completion</p>
+              <p style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: '0.375rem' }}>
                 {cert.course_slug.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}
               </p>
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', marginBottom: '1.25rem' }}>
@@ -48,7 +48,7 @@ export default async function CertificatesPage() {
               </p>
               {cert.certificate_url && (
                 <a href={cert.certificate_url} target="_blank" rel="noopener noreferrer"
-                  style={{ display: 'inline-block', background: '#FF7A12', color: '#0A1A52', padding: '0.5rem 1rem', borderRadius: 8, textDecoration: 'none', fontWeight: 700, fontSize: '0.78rem' }}>
+                  style={{ display: 'inline-block', background: '#FF7A12', color: '#0A1A52', padding: '0.5rem 1rem', borderRadius: 8, textDecoration: 'none', fontWeight: 700, fontSize: '0.75rem' }}>
                   Download PDF
                 </a>
               )}

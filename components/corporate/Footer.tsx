@@ -30,23 +30,23 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
           <div>
             <Logo variant="full" height={110} />
-            <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', lineHeight: 1.7, marginTop: '0.75rem' }}>A professionally driven ecosystem of platforms built from real corporate experience.</p>
+            <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.75rem', lineHeight: 1.7, marginTop: '0.75rem' }}>A professionally driven ecosystem of platforms built from real corporate experience.</p>
           </div>
           <div>
-            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Corporate</p>
+            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Corporate</p>
             {[['About', '/about'], ['Ecosystem', '/ecosystem'], ['Services', '/services'], ['Contact', '/contact']].map(([l, h]) => (
-              <Link key={l} href={h} style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.82rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{l}</Link>
+              <Link key={l} href={h} style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{l}</Link>
             ))}
           </div>
           <div>
-            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Ecosystem</p>
+            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>Ecosystem</p>
             {footerVerticals.map((v) =>
               v.external ? (
-                <a key={v.name} href={v.href} target="_blank" rel="noopener noreferrer" style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.82rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{v.name}</a>
+                <a key={v.name} href={v.href} target="_blank" rel="noopener noreferrer" style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{v.name}</a>
               ) : v.href === '#' ? (
-                <span key={v.name} style={{ display: 'block', color: 'rgba(255,255,255,0.25)', fontSize: '0.82rem', marginBottom: '0.4rem' }}>{v.name}</span>
+                <span key={v.name} style={{ display: 'block', color: 'rgba(255,255,255,0.25)', fontSize: '0.875rem', marginBottom: '0.4rem' }}>{v.name}</span>
               ) : (
-                <Link key={v.name} href={v.href} style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.82rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{v.name}</Link>
+                <Link key={v.name} href={v.href} style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.4rem' }}>{v.name}</Link>
               )
             )}
           </div>
@@ -58,7 +58,7 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
               <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
             ))}
           </div>
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.72rem', margin: 0 }}>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', margin: 0 }}>
             &copy; 2026 Barada. A venture of Barada (OPC) Private Limited.
           </p>
         </div>

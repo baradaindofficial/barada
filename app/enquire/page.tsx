@@ -84,30 +84,30 @@ export default function EnquirePage() {
 
       <section style={{ background: `linear-gradient(135deg, ${navy}, #123C8F)`, padding: '5rem 2rem', textAlign: 'center' }}>
         <p style={{ color: orange, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1rem' }}>For businesses and institutes</p>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.25rem)', color: '#fff', margin: '0 auto 1rem', maxWidth: 760, lineHeight: 1.15 }}>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', color: '#fff', margin: '0 auto 1rem', maxWidth: 760, lineHeight: 1.15 }}>
           Work with Barada on AI training, integration and support
         </h1>
-        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem', maxWidth: 600, margin: '0 auto' }}>
+        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem', maxWidth: 600, margin: '0 auto' }}>
           We are scoping first pilot engagements. Tell us what you need and we reply within 2 business days with next steps.
         </p>
       </section>
 
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '4rem 2rem' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '4rem 2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1.5rem' }}>
           {SERVICES.map((s) => (
             <div key={s.key} style={{ background: '#fff', borderRadius: 16, padding: '1.75rem', border: '1.5px solid #E5E7EB', display: 'flex', flexDirection: 'column' }}>
-              <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', color: navy, fontWeight: 800, fontSize: '1.3rem', margin: '0 0 0.5rem' }}>{s.title}</h2>
-              <p style={{ color: blue, fontWeight: 600, fontSize: '0.85rem', margin: '0 0 0.75rem' }}>{s.forWho}</p>
-              <p style={{ color: '#4B5563', fontSize: '0.92rem', lineHeight: 1.7, margin: '0 0 1rem' }}>{s.what}</p>
-              <p style={{ color: '#69717D', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.4rem' }}>Helpful to include</p>
-              <ul style={{ color: '#4B5563', fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 1.25rem', paddingLeft: '1.1rem', flex: 1 }}>
+              <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', color: navy, fontWeight: 800, fontSize: '1.25rem', margin: '0 0 0.5rem' }}>{s.title}</h2>
+              <p style={{ color: blue, fontWeight: 600, fontSize: '0.875rem', margin: '0 0 0.75rem' }}>{s.forWho}</p>
+              <p style={{ color: '#4B5563', fontSize: '0.875rem', lineHeight: 1.7, margin: '0 0 1rem' }}>{s.what}</p>
+              <p style={{ color: '#69717D', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.4rem' }}>Helpful to include</p>
+              <ul style={{ color: '#4B5563', fontSize: '0.875rem', lineHeight: 1.7, margin: '0 0 1.25rem', paddingLeft: '1.1rem', flex: 1 }}>
                 {s.include.map((i) => (
                   <li key={i}>{i}</li>
                 ))}
               </ul>
               <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
-                <a href={mailto(s, 'business')} style={{ background: orange, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.88rem' }}>Enquire as a business</a>
-                <a href={mailto(s, 'institute')} style={{ border: `1.5px solid ${navy}`, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.88rem' }}>Enquire as an institute</a>
+                <a href={mailto(s, 'business')} style={{ background: orange, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire as a business</a>
+                <a href={mailto(s, 'institute')} style={{ border: `1.5px solid ${navy}`, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire as an institute</a>
               </div>
             </div>
           ))}
@@ -117,22 +117,22 @@ export default function EnquirePage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '1rem' }}>
           {STEPS.map(([t, d], i) => (
             <div key={t} style={{ background: '#fff', borderRadius: 14, padding: '1.25rem', border: '1.5px solid #E5E7EB' }}>
-              <p style={{ color: orange, fontWeight: 800, fontSize: '0.8rem', margin: '0 0 0.3rem' }}>STEP {i + 1}</p>
+              <p style={{ color: orange, fontWeight: 800, fontSize: '0.875rem', margin: '0 0 0.3rem' }}>STEP {i + 1}</p>
               <p style={{ color: navy, fontWeight: 700, margin: '0 0 0.3rem' }}>{t}</p>
-              <p style={{ color: '#4B5563', fontSize: '0.86rem', lineHeight: 1.6, margin: 0 }}>{d}</p>
+              <p style={{ color: '#4B5563', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>{d}</p>
             </div>
           ))}
         </div>
 
         <div style={{ background: navy, borderRadius: 16, padding: '2rem', textAlign: 'center', marginTop: '3rem' }}>
-          <p style={{ color: orange, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Prefer to talk?</p>
-          <p style={{ color: '#fff', fontSize: '1.05rem', margin: '0 0 0.4rem' }}>
+          <p style={{ color: orange, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Prefer to talk?</p>
+          <p style={{ color: '#fff', fontSize: '1rem', margin: '0 0 0.4rem' }}>
             Call <a href="tel:+919113283848" style={{ color: '#fff', fontWeight: 700 }}>+91 91132 83848</a> or write to{' '}
             <a href="mailto:info@barada.in" style={{ color: '#fff', fontWeight: 700 }}>info@barada.in</a>
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.82rem', margin: 0 }}>Monday to Friday &middot; 9am to 6pm IST</p>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', margin: 0 }}>Monday to Friday &middot; 9am to 6pm IST</p>
         </div>
-        <p style={{ color: '#69717D', fontSize: '0.8rem', textAlign: 'center', marginTop: '1.5rem' }}>
+        <p style={{ color: '#69717D', fontSize: '0.875rem', textAlign: 'center', marginTop: '1.5rem' }}>
           Individual learner? <Link href="/qorvian" style={{ color: blue, fontWeight: 700 }}>Start free on QORVIAN</Link>.
         </p>
       </div>

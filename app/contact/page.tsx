@@ -24,8 +24,8 @@ export default function ContactPage() {
       <CorporateHeader />
 
       <section style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', padding: '5rem 2rem', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,4.5vw,3.5rem)', color: '#fff', marginBottom: '1rem' }}>Get in Touch</h1>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 500, margin: '0 auto' }}>For partnerships, consulting enquiries, media, or general questions.</p>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', color: '#fff', marginBottom: '1rem' }}>Get in Touch</h1>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', maxWidth: 500, margin: '0 auto' }}>For partnerships, consulting enquiries, media, or general questions.</p>
       </section>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>
@@ -42,22 +42,22 @@ export default function ContactPage() {
               <span style={{ fontSize: '1.75rem', display: 'block', marginBottom: '0.875rem' }}>{icon}</span>
               <p style={{ color: '#69717D', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.375rem' }}>{label}</p>
               {href ? (
-                <a href={href} style={{ color: '#0A1A52', fontWeight: 700, textDecoration: 'none', fontSize: '0.95rem' }}>{value}</a>
+                <a href={href} style={{ color: '#0A1A52', fontWeight: 700, textDecoration: 'none', fontSize: '1rem' }}>{value}</a>
               ) : (
-                <p style={{ color: '#0A1A52', fontWeight: 700, fontSize: '0.95rem', margin: 0 }}>{value}</p>
+                <p style={{ color: '#0A1A52', fontWeight: 700, fontSize: '1rem', margin: 0 }}>{value}</p>
               )}
             </div>
           ))}
         </div>
         <div style={{ background: '#fff', borderRadius: 16, padding: '1.75rem', border: '1.5px solid #E5E7EB', textAlign: 'center', marginBottom: '2rem' }}>
-          <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Businesses and institutes</p>
-          <p style={{ color: '#0A1A52', fontWeight: 700, fontSize: '1.05rem', margin: '0 0 0.75rem' }}>Looking for AI training, integration or support?</p>
-          <Link href="/enquire" style={{ display: 'inline-block', background: '#0B63CE', color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.9rem' }}>Make an enquiry &rarr;</Link>
+          <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Businesses and institutes</p>
+          <p style={{ color: '#0A1A52', fontWeight: 700, fontSize: '1rem', margin: '0 0 0.75rem' }}>Looking for AI training, integration or support?</p>
+          <Link href="/enquire" style={{ display: 'inline-block', background: '#0B63CE', color: '#fff', padding: '0.75rem 1.75rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Make an enquiry &rarr;</Link>
         </div>
         <div style={{ background: '#0A1A52', borderRadius: 16, padding: '2rem', textAlign: 'center' }}>
-          <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Response Time</p>
+          <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Response Time</p>
           <p style={{ color: '#fff', fontSize: '1rem', marginBottom: '0.5rem' }}>We aim to respond within 2 business days.</p>
-          <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.82rem' }}>Monday to Friday &middot; 9am to 6pm IST</p>
+          <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.875rem' }}>Monday to Friday &middot; 9am to 6pm IST</p>
         </div>
       </div>
 

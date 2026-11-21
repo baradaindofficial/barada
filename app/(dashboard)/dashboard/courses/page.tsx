@@ -46,7 +46,7 @@ export default async function MyCoursesPage() {
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', padding: '2rem', maxWidth: 900, margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem' }}>
-        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.82rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
+        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.875rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.75rem', marginTop: '0.5rem' }}>My Courses</h1>
         <p style={{ color: '#69717D' }}>{courses.length} course{courses.length !== 1 ? 's' : ''} enrolled</p>
       </div>
@@ -68,7 +68,7 @@ export default async function MyCoursesPage() {
                 {course?.icon || '📚'}
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0A1A52', fontSize: '0.95rem', marginBottom: '0.25rem' }}>
+                <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, color: '#0A1A52', fontSize: '1rem', marginBottom: '0.25rem' }}>
                   {course?.title || course_slug}
                 </p>
                 <p style={{ color: '#69717D', fontSize: '0.75rem', marginBottom: '0.625rem' }}>
@@ -77,9 +77,9 @@ export default async function MyCoursesPage() {
                 <div style={{ height: 4, background: '#F3F4F6', borderRadius: 2, overflow: 'hidden' }}>
                   <div style={{ height: '100%', width: `${completion_percentage || 0}%`, background: '#0B63CE', borderRadius: 2 }} />
                 </div>
-                <p style={{ color: '#9CA3AF', fontSize: '0.72rem', marginTop: '0.25rem' }}>{completion_percentage || 0}% complete</p>
+                <p style={{ color: '#9CA3AF', fontSize: '0.75rem', marginTop: '0.25rem' }}>{completion_percentage || 0}% complete</p>
               </div>
-              <Link href={`/learn/${course_slug}/module-1/lesson-1`} style={{ background: '#0A1A52', color: '#fff', padding: '0.625rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontWeight: 700, fontSize: '0.82rem', flexShrink: 0 }}>
+              <Link href={`/learn/${course_slug}/module-1/lesson-1`} style={{ background: '#0A1A52', color: '#fff', padding: '0.625rem 1.25rem', borderRadius: 8, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem', flexShrink: 0 }}>
                 Continue &rarr;
               </Link>
             </div>

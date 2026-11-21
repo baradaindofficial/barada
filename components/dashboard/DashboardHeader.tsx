@@ -34,7 +34,7 @@ export default function DashboardHeader({ learnerName, avatarUrl, onMenuClick }:
           style={{
             background: 'none',
             border: 'none',
-            fontSize: '1.35rem',
+            fontSize: '1.25rem',
             cursor: 'pointer',
             color: 'var(--color-text-primary)',
             padding: '0.25rem',
@@ -64,7 +64,7 @@ export default function DashboardHeader({ learnerName, avatarUrl, onMenuClick }:
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              fontSize: '1.05rem',
+              fontSize: '1rem',
             }}
           >
             {theme === 'dark' ? '☀️' : '🌙'}

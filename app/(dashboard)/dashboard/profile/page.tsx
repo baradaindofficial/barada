@@ -20,7 +20,7 @@ export default async function ProfilePage() {
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', padding: '2rem', maxWidth: 700, margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem' }}>
-        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.82rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
+        <Link href="/dashboard" style={{ color: '#69717D', fontSize: '0.875rem', textDecoration: 'none' }}>&larr; Dashboard</Link>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.75rem', marginTop: '0.5rem' }}>My Profile</h1>
       </div>
       <div style={{ background: '#fff', borderRadius: 16, padding: '2rem', border: '1.5px solid #E5E7EB', marginBottom: '1.25rem' }}>
@@ -48,7 +48,7 @@ export default async function ProfilePage() {
         ))}
       </div>
       <div style={{ background: '#FFF7ED', borderRadius: 12, padding: '1.25rem', border: '1px solid #FED7AA' }}>
-        <p style={{ color: '#92400E', fontSize: '0.82rem', fontWeight: 600 }}>
+        <p style={{ color: '#92400E', fontSize: '0.875rem', fontWeight: 600 }}>
           Profile editing is coming in Sprint 4.5. For changes, email academy@barada.in
         </p>
       </div>

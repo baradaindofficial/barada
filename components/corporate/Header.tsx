@@ -107,7 +107,7 @@ export default function CorporateHeader() {
           }}
         >
           {NAV_LINKS.map(({ label, href, external }) => {
-            const style = { color: 'rgba(255,255,255,0.85)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 500, padding: '0.6rem 0.25rem' } as const
+            const style = { color: 'rgba(255,255,255,0.85)', textDecoration: 'none', fontSize: '1rem', fontWeight: 500, padding: '0.6rem 0.25rem' } as const
             return external ? (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} style={style}>{label} &#8599;</a>
             ) : (
@@ -123,7 +123,7 @@ export default function CorporateHeader() {
               padding: '0.65rem 1.25rem',
               borderRadius: 8,
               textDecoration: 'none',
-              fontSize: '0.9rem',
+              fontSize: '0.875rem',
               fontWeight: 700,
               textAlign: 'center',
               marginTop: '0.5rem',

@@ -104,17 +104,17 @@ export default async function ResultPage({ params }: Props) {
         <Link href="/qorvian" style={{ lineHeight: 0 }}>
           <Logo variant="academy" height={32} />
         </Link>
-        <Link href="/dashboard" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', textDecoration: 'none' }}>Dashboard</Link>
+        <Link href="/dashboard" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', textDecoration: 'none' }}>Dashboard</Link>
       </nav>
 
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '3rem 1.5rem' }}>
         {/* Score card */}
         <div style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', borderRadius: 20, padding: '2.5rem', border: `1.5px solid ${attempt.passed ? 'rgba(22,163,74,0.3)' : 'rgba(11,99,206,0.2)'}`, textAlign: 'center', marginBottom: '2rem' }}>
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
             {course?.title} &mdash; Course Evaluation
           </p>
           <div style={{ width: 120, height: 120, borderRadius: '50%', background: `rgba(${attempt.passed ? '22,163,74' : '227,30,36'},0.12)`, border: `3px solid ${scoreColor}`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
-            <span style={{ color: scoreColor, fontWeight: 900, fontSize: '2rem', fontFamily: 'Poppins, sans-serif' }}>{attempt.score}%</span>
+            <span style={{ color: scoreColor, fontWeight: 800, fontSize: '2rem', fontFamily: 'Poppins, sans-serif' }}>{attempt.score}%</span>
           </div>
           <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#fff', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
             {attempt.passed ? '\uD83C\uDF89 You Passed!' : 'Not Quite Yet'}
@@ -126,7 +126,7 @@ export default async function ResultPage({ params }: Props) {
           {/* AI Feedback */}
           {feedback && (
             <div style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: '1.25rem', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'left', marginBottom: '1.5rem' }}>
-              <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>AI Feedback</p>
+              <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>AI Feedback</p>
               <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem', lineHeight: 1.75 }}>{feedback}</p>
             </div>
           )}
@@ -134,13 +134,13 @@ export default async function ResultPage({ params }: Props) {
           {/* Certificate eligibility */}
           {attempt.passed && eligibility?.eligible ? (
             <div style={{ background: 'rgba(255,122,18,0.08)', borderRadius: 12, padding: '1.25rem', border: '1.5px solid rgba(255,122,18,0.3)' }}>
-              <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Certificate Available</p>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.82rem', marginBottom: '1rem' }}>{eligibility.reason}</p>
+              <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Certificate Available</p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem', marginBottom: '1rem' }}>{eligibility.reason}</p>
               {CERTIFICATES_FREE ? (
                 <ClaimCertificateButton courseSlug={params.course} />
               ) : (
                 <div style={{ background: 'rgba(255,122,18,0.15)', borderRadius: 8, padding: '0.625rem 1.25rem', display: 'inline-block', border: '1px dashed rgba(255,122,18,0.4)' }}>
-                <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.78rem' }}>
+                <p style={{ color: '#FF7A12', fontWeight: 700, fontSize: '0.75rem' }}>
                   Payment coming in Sprint 5 &mdash; Certificate at &#8377;{Math.round((eligibility.certificatePricePaise || 29900) / 100)}
                 </p>
               </div>
@@ -168,15 +168,15 @@ export default async function ResultPage({ params }: Props) {
               </div>
               <div style={{ paddingLeft: '2.25rem' }}>
                 {!q.isCorrect && (
-                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', marginBottom: '0.375rem' }}>
+                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', marginBottom: '0.375rem' }}>
                     Your answer: <span style={{ color: '#f87171' }}>{q.selectedOptionText}</span>
                   </p>
                 )}
-                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', marginBottom: '0.625rem' }}>
+                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', marginBottom: '0.625rem' }}>
                   Correct answer: <span style={{ color: '#4ade80' }}>{q.correctOptionText}</span>
                 </p>
                 {q.explanation && (
-                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', fontStyle: 'italic', lineHeight: 1.6 }}>{q.explanation}</p>
+                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', fontStyle: 'italic', lineHeight: 1.6 }}>{q.explanation}</p>
                 )}
               </div>
             </div>

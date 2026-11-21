@@ -13,10 +13,10 @@ export default function VerifyEmailPage() {
           <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, color: '#0A1A52', fontSize: '1.5rem', marginBottom: '0.75rem' }}>
             Check your inbox
           </h1>
-          <p style={{ color: '#69717D', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
+          <p style={{ color: '#69717D', fontSize: '0.875rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
             We sent you a verification email. Click the link in the email to activate your QORVIAN account and start learning.
           </p>
-          <p style={{ color: '#9CA3AF', fontSize: '0.78rem', marginBottom: '1.5rem' }}>
+          <p style={{ color: '#9CA3AF', fontSize: '0.75rem', marginBottom: '1.5rem' }}>
             Did not receive it? Check your spam folder, or{' '}
             <Link href="/register" style={{ color: '#0B63CE', fontWeight: 700, textDecoration: 'none' }}>try again</Link>.
           </p>

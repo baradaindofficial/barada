@@ -33,7 +33,7 @@ export default function ClaimCertificateButton({ courseSlug }: { courseSlug: str
       {state === 'done' ? (
         <div>
           <a href={url} target="_blank" rel="noopener noreferrer" style={btn}>Download your certificate</a>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', marginTop: '0.75rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', marginTop: '0.75rem' }}>
             Also saved in your dashboard under My Certificates.
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function ClaimCertificateButton({ courseSlug }: { courseSlug: str
           <button onClick={claim} disabled={state === 'busy'} style={{ ...btn, opacity: state === 'busy' ? 0.7 : 1 }}>
             {state === 'busy' ? 'Preparing your certificate…' : 'Claim your free certificate'}
           </button>
-          {state === 'error' && <p style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '0.75rem' }}>{msg}</p>}
+          {state === 'error' && <p style={{ color: '#f87171', fontSize: '0.875rem', marginTop: '0.75rem' }}>{msg}</p>}
         </>
       )}
     </div>
