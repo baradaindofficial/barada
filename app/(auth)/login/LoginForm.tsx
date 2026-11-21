@@ -45,13 +45,13 @@ export default function LoginForm() {
             </li>
           ))}
         </ul>
-        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.72rem' }}>Bengaluru, India &middot; barada.in</p>
+        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem' }}>Bengaluru, India &middot; barada.in</p>
       </div>
       {/* Right panel */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem 2rem', background: '#fff' }}>
         <div style={{ width: '100%', maxWidth: 420 }}>
-          <Link href="/" style={{ color: '#69717D', textDecoration: 'none', fontSize: '0.82rem', display: 'block', marginBottom: '2rem' }}>&larr; Back to Barada.in</Link>
-          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: '1.875rem', color: '#0A1A52', marginBottom: '0.5rem' }}>Welcome back.</h1>
+          <Link href="/" style={{ color: '#69717D', textDecoration: 'none', fontSize: '0.875rem', display: 'block', marginBottom: '2rem' }}>&larr; Back to Barada.in</Link>
+          <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: '1.75rem', color: '#0A1A52', marginBottom: '0.5rem' }}>Welcome back.</h1>
           <p style={{ color: '#69717D', fontSize: '0.875rem', marginBottom: '2rem' }}>Sign in to continue your learning journey.</p>
           {error && <div role="alert" style={{ background: '#FEF2F2', border: '1px solid #FECACA', color: '#B91C1C', fontSize: '0.875rem', borderRadius: 8, padding: '0.75rem 1rem', marginBottom: '1.5rem' }}>{error}</div>}
           <form onSubmit={handleLogin} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
@@ -69,7 +69,7 @@ export default function LoginForm() {
               </div>
             </div>
             <button type="submit" disabled={loading} aria-busy={loading}
-              style={{ background: '#0B63CE', color: '#fff', padding: '0.875rem', borderRadius: 10, border: 'none', fontSize: '0.95rem', fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.6 : 1 }}>
+              style={{ background: '#0B63CE', color: '#fff', padding: '0.875rem', borderRadius: 10, border: 'none', fontSize: '1rem', fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.6 : 1 }}>
               {loading ? 'Signing in\u2026' : 'Sign In \u2192'}
             </button>
           </form>
