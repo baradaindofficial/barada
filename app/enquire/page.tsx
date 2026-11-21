@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import CorporateHeader from '@/components/corporate/Header'
 import CorporateFooter from '@/components/corporate/Footer'
+import EnquiryForm from '@/components/corporate/EnquiryForm'
 
 export const metadata: Metadata = {
   title: 'Enquire: AI Training, Integration and Support',
@@ -30,7 +31,6 @@ type Service = {
   forWho: string
   what: string
   include: string[]
-  to: string
 }
 
 const SERVICES: Service[] = [
@@ -40,7 +40,6 @@ const SERVICES: Service[] = [
     forWho: 'Teams, departments and institutes that want people confident with everyday AI tools.',
     what: 'Practical, role-based training and workshops built around real workplace tasks, with QORVIAN courses and verifiable certificates. Institutes can also ask about course content for students and support for faculty.',
     include: ['Who will be trained and how many', 'Tools they use today', 'Preferred format: live workshop, self-paced, or both', 'Target dates'],
-    to: 'academy@barada.in',
   },
   {
     key: 'AI integration',
@@ -48,7 +47,6 @@ const SERVICES: Service[] = [
     forWho: 'Businesses that want AI built into how work actually gets done.',
     what: 'Finding the processes where AI and automation pay off, then designing and rolling out the workflow, with a focus on procurement, finance and operations teams.',
     include: ['The process or function you want to improve', 'Systems and tools involved', 'What success would look like', 'Any data or security constraints'],
-    to: 'info@barada.in',
   },
   {
     key: 'AI support',
@@ -56,28 +54,21 @@ const SERVICES: Service[] = [
     forWho: 'Organisations already using AI that want it to work reliably and safely.',
     what: 'Ongoing help after rollout: answering team questions, improving prompts and workflows, usage guidelines and responsible-AI practices, and refresher sessions.',
     include: ['What you already use', 'Where people are getting stuck', 'Team size', 'How often you would want support'],
-    to: 'info@barada.in',
   },
 ]
 
-function mailto(s: Service, who: 'business' | 'institute') {
-  const subject = `${s.key} enquiry (${who})`
-  const body =
-    `Hello Barada team,\n\nWe are a ${who} and would like to discuss ${s.key}.\n\n` +
-    `Organisation name:\nYour name and role:\nPhone:\nCity:\n\n` +
-    s.include.map((i) => `${i}:\n`).join('') +
-    `\nThank you.`
-  return `mailto:${s.to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-}
-
 const STEPS: [string, string][] = [
-  ['Enquire', 'Email us from the button below, or call. Tell us what you need.'],
+  ['Enquire', 'Fill in the short form below, or call or email us. Tell us what you need.'],
   ['Discovery call', 'A short call to understand your team, tools and goals.'],
   ['Written scope', 'A clear proposal: what we will do, timeline and cost.'],
   ['Pilot, then scale', 'Start small with a pilot, review results, then extend.'],
 ]
 
-export default function EnquirePage() {
+const SERVICE_NAMES = ['AI training', 'AI integration', 'AI support', 'Not sure yet']
+
+export default function EnquirePage({ searchParams }: { searchParams?: { service?: string; who?: string } }) {
+  const defaultService = SERVICE_NAMES.includes(searchParams?.service ?? '') ? (searchParams!.service as string) : 'AI training'
+  const defaultAudience = searchParams?.who === 'institute' ? 'institute' : 'business'
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', minHeight: '100vh', background: '#F9FAFB' }}>
       <CorporateHeader />
@@ -106,8 +97,8 @@ export default function EnquirePage() {
                 ))}
               </ul>
               <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
-                <a href={mailto(s, 'business')} style={{ background: orange, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire as a business</a>
-                <a href={mailto(s, 'institute')} style={{ border: `1.5px solid ${navy}`, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire as an institute</a>
+                <a href={`/enquire?service=${encodeURIComponent(s.key)}&who=business#enquiry-form`} style={{ background: orange, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire as a business</a>
+                <a href={`/enquire?service=${encodeURIComponent(s.key)}&who=institute#enquiry-form`} style={{ border: `1.5px solid ${navy}`, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire as an institute</a>
               </div>
             </div>
           ))}
@@ -124,7 +115,12 @@ export default function EnquirePage() {
           ))}
         </div>
 
-        <div style={{ background: navy, borderRadius: 16, padding: '2rem', textAlign: 'center', marginTop: '3rem' }}>
+        <h2 id="enquiry-form" style={{ fontFamily: 'Poppins, system-ui, sans-serif', color: navy, fontWeight: 800, fontSize: '1.5rem', textAlign: 'center', margin: '4rem 0 1.5rem', scrollMarginTop: 90 }}>Send us your enquiry</h2>
+        <div style={{ maxWidth: 760, margin: '0 auto 3rem' }}>
+          <EnquiryForm key={`${defaultService}-${defaultAudience}`} defaultService={defaultService} defaultAudience={defaultAudience} />
+        </div>
+
+        <div style={{ background: navy, borderRadius: 16, padding: '2rem', textAlign: 'center', marginTop: 0 }}>
           <p style={{ color: orange, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Prefer to talk?</p>
           <p style={{ color: '#fff', fontSize: '1rem', margin: '0 0 0.4rem' }}>
             Call <a href="tel:+919113283848" style={{ color: '#fff', fontWeight: 700 }}>+91 91132 83848</a> or write to{' '}
