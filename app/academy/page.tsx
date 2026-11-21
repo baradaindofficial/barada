@@ -72,21 +72,21 @@ export default async function AcademyPage() {
       <AcademyHeader />
 
       <div style={{ background: red, padding: '0.625rem', textAlign: 'center' }}>
-        <p style={{ color: '#fff', fontSize: '0.82rem', margin: 0 }}>
+        <p style={{ color: '#fff', fontSize: '0.875rem', margin: 0 }}>
           <strong>Now Enrolling</strong> &mdash; Free to learn &middot; Certificate available &middot;{' '}
           <Link href="/register" style={{ color: gold, fontWeight: 700 }}>Start Today &rarr;</Link>
         </p>
       </div>
 
       <section style={{ background: `linear-gradient(135deg, ${navy} 0%, #123C8F 100%)`, padding: '4.5rem 2rem 3.5rem', textAlign: 'center' }}>
-        <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>QORVIAN by Barada</p>
-        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '0.5rem' }}>
+        <p style={{ color: gold, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.875rem' }}>QORVIAN by Barada</p>
+        <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.15, marginBottom: '0.5rem' }}>
           AI capability for
         </h1>
-        <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 900, color: gold, lineHeight: 1.15, marginBottom: '1.25rem' }}>
+        <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 800, color: gold, lineHeight: 1.15, marginBottom: '1.25rem' }}>
           teams that deliver.
         </h2>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', maxWidth: 580, margin: '0 auto 2.5rem', lineHeight: 1.85 }}>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', maxWidth: 580, margin: '0 auto 2.5rem', lineHeight: 1.85 }}>
           Practical AI programs for institutes, working professionals and businesses. Structured courses, verifiable certificates and team programs, built by a practitioner and applied to real work.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -97,8 +97,8 @@ export default async function AcademyPage() {
         <div style={{ display: 'flex', gap: '3rem', justifyContent: 'center', marginTop: '3rem', flexWrap: 'wrap' }}>
           {[['Free', 'To Enroll'], ['Self-Paced', 'No Deadlines'], ['Free', 'Certificate'], ['Practical', 'Immediately Applicable']].map(([v, l]) => (
             <div key={l}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: gold, fontFamily: 'Poppins, sans-serif' }}>{v}</div>
-              <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>{l}</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: gold, fontFamily: 'Poppins, sans-serif' }}>{v}</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>{l}</div>
             </div>
           ))}
         </div>
@@ -107,9 +107,9 @@ export default async function AcademyPage() {
       {/* WHO IT IS FOR -- B2B positioning (2026-11-18). Offer details are
           deliberately general; refine once the first pilot scopes are set. */}
       <section style={{ background: '#fff', padding: '4rem 2rem', borderBottom: '1px solid #E5E7EB' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Who it is for</p>
-          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 2rem' }}>One platform, three ways to build AI capability</h2>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <p style={{ color: gold, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '0.75rem' }}>Who it is for</p>
+          <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, textAlign: 'center', margin: '0 0 2rem' }}>One platform, three ways to build AI capability</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1.25rem' }}>
             {[
               ['For businesses', 'Team programs and workshops', 'We are scoping pilot programs for business teams: role-based learning pathways and workshops adapted to your tools, with verifiable certificates. Not yet open for bookings; register your interest.', 'Register your interest'],
@@ -117,10 +117,10 @@ export default async function AcademyPage() {
               ['For professionals', 'Self-paced courses and certificates', 'Free-to-start courses built around real workplace scenarios, with a verifiable certificate you can share with employers.', 'Browse the courses'],
             ].map(([tag, head, body, cta], i) => (
               <div key={tag} style={{ border: '1px solid #D6E3F8', borderRadius: 14, padding: '1.5rem', background: '#F2F6FF' }}>
-                <p style={{ color: red, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.5rem' }}>{tag}</p>
-                <h3 style={{ color: navy, fontSize: '1.1rem', fontWeight: 800, margin: '0 0 0.6rem' }}>{head}</h3>
-                <p style={{ color: '#4B5563', fontSize: '0.92rem', lineHeight: 1.7, margin: '0 0 1rem' }}>{body}</p>
-                <Link href={i === 2 ? '#courses' : '/enquire'} style={{ color: navy, fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>{cta} &rarr;</Link>
+                <p style={{ color: red, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 0.5rem' }}>{tag}</p>
+                <h3 style={{ color: navy, fontSize: '1.125rem', fontWeight: 800, margin: '0 0 0.6rem' }}>{head}</h3>
+                <p style={{ color: '#4B5563', fontSize: '0.875rem', lineHeight: 1.7, margin: '0 0 1rem' }}>{body}</p>
+                <Link href={i === 2 ? '#courses' : '/enquire'} style={{ color: navy, fontWeight: 700, fontSize: '0.875rem', textDecoration: 'none' }}>{cta} &rarr;</Link>
               </div>
             ))}
           </div>
@@ -141,8 +141,8 @@ export default async function AcademyPage() {
             ...(stats.learnerCount >= 20 ? [[`${stats.learnerCount}+`, 'Professionals Learning']] : []),
           ].map(([v, l]) => (
             <div key={l}>
-              <div style={{ fontSize: '1.35rem', fontWeight: 900, color: navy, fontFamily: 'Poppins, sans-serif' }}>{v}</div>
-              <div style={{ fontSize: '0.72rem', color: '#9CA3AF', marginTop: 2 }}>{l}</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800, color: navy, fontFamily: 'Poppins, sans-serif' }}>{v}</div>
+              <div style={{ fontSize: '0.75rem', color: '#9CA3AF', marginTop: 2 }}>{l}</div>
             </div>
           ))}
         </div>
@@ -152,20 +152,20 @@ export default async function AcademyPage() {
           on the Academy page. Real Unsplash photography matching the
           actual course categories (not generic AI stock art). */}
       <section style={{ background: '#F9FAFB', padding: '3.5rem 2rem' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto 2rem', textAlign: 'center' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto 2rem', textAlign: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
             <Logo variant="academy" height={52} />
-            <span style={{ color: '#69717D', fontSize: '0.78rem', letterSpacing: '0.14em' }}>AI CAPABILITY FOR TEAMS THAT DELIVER</span>
+            <span style={{ color: '#69717D', fontSize: '0.75rem', letterSpacing: '0.14em' }}>AI CAPABILITY FOR TEAMS THAT DELIVER</span>
           </div>
         </div>
-        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
           {ACADEMY_PHOTOS.map(({ src, name, desc }) => (
             <div key={name} style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '4 / 3', background: '#E5E7EB' }}>
               <Image src={src} alt={name} fill sizes="(max-width: 700px) 100vw, 260px" style={{ objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,26,82,0.97) 0%, rgba(10,26,82,0.8) 42%, rgba(10,26,82,0.2) 75%, transparent 100%)' }} />
               <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '1.25rem' }}>
-                <p style={{ color: '#fff', fontWeight: 800, fontSize: '0.95rem', marginBottom: '0.25rem' }}>{name}</p>
-                <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.76rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
+                <p style={{ color: '#fff', fontWeight: 800, fontSize: '1rem', marginBottom: '0.25rem' }}>{name}</p>
+                <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', lineHeight: 1.5, margin: 0 }}>{desc}</p>
               </div>
             </div>
           ))}
@@ -181,14 +181,14 @@ export default async function AcademyPage() {
       <section style={{ background: '#fff', padding: '4rem 2rem', borderBottom: '1px solid #E5E7EB' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <div style={{ flex: '1 1 380px', minWidth: 'min(300px, 100%)' }}>
-            <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Your Certificate</p>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.6rem,3vw,2.1rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>
+            <p style={{ color: gold, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Your Certificate</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, marginBottom: '1rem' }}>
               A verifiable credential, not just a PDF
             </h2>
             <p style={{ color: '#4B5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1rem' }}>
               Every QORVIAN certificate carries a unique certificate ID and a QR code that resolves to a public verification page — so anyone you share it with (a recruiter, a manager) can confirm it&apos;s real in one scan.
             </p>
-            <p style={{ color: '#9CA3AF', fontSize: '0.82rem' }}>
+            <p style={{ color: '#9CA3AF', fontSize: '0.875rem' }}>
               Samples shown for illustration. Your certificate carries your name, your course, and your own certificate ID.
             </p>
           </div>
@@ -202,10 +202,10 @@ export default async function AcademyPage() {
           starting point instead of facing the full catalogue. Team training
           is described as planned, in line with /services. */}
       <section style={{ background: '#fff', padding: '4rem 2rem', borderBottom: '1px solid #E5E7EB' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Where to start</p>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: 0 }}>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Where to start</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, margin: 0 }}>
               Which of these sounds like you?
             </h2>
           </div>
@@ -216,9 +216,9 @@ export default async function AcademyPage() {
               { title: 'I lead a team', body: 'Team workshops are being planned and are not yet open for bookings. Register your interest and we will be in touch.', cta: 'Register your interest', href: '/services#professional-workshops' },
             ].map(({ title, body, cta, href }) => (
               <div key={title} style={{ background: '#F9FAFB', borderRadius: 16, padding: '1.5rem', border: '1.5px solid #E5E7EB', display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1.05rem', margin: '0 0 0.5rem' }}>{title}</h3>
-                <p style={{ color: '#4B5563', fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 1rem', flex: 1 }}>{body}</p>
-                <Link href={href} style={{ color: red, fontWeight: 700, fontSize: '0.88rem', display: 'inline-block', padding: '0.5rem 0' }}>{cta} &rarr;</Link>
+                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1rem', margin: '0 0 0.5rem' }}>{title}</h3>
+                <p style={{ color: '#4B5563', fontSize: '0.875rem', lineHeight: 1.7, margin: '0 0 1rem', flex: 1 }}>{body}</p>
+                <Link href={href} style={{ color: red, fontWeight: 700, fontSize: '0.875rem', display: 'inline-block', padding: '0.5rem 0' }}>{cta} &rarr;</Link>
               </div>
             ))}
           </div>
@@ -228,11 +228,11 @@ export default async function AcademyPage() {
       <section id="courses" style={{ background: '#F9FAFB', padding: '4rem 2rem', scrollMarginTop: 96 }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Course Catalogue</p>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: '0 0 0.5rem' }}>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Course Catalogue</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, margin: '0 0 0.5rem' }}>
               All courses &mdash; free to start
             </h2>
-            <p style={{ color: '#69717D', fontSize: '0.95rem' }}>Every course is free to enroll. Certificate available after passing the final assessment.</p>
+            <p style={{ color: '#69717D', fontSize: '1rem' }}>Every course is free to enroll. Certificate available after passing the final assessment.</p>
           </div>
           {/* Search, filters and the Individuals / Teams switcher live in the
               client component; only plain course fields are passed down. */}
@@ -259,11 +259,11 @@ export default async function AcademyPage() {
       <section style={{ background: '#fff', padding: '4rem 2rem' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <p style={{ color: gold, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Coming Soon</p>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: '0 0 0.5rem' }}>
+            <p style={{ color: gold, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Coming Soon</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, margin: '0 0 0.5rem' }}>
               More courses in the works
             </h2>
-            <p style={{ color: '#69717D', fontSize: '0.95rem', maxWidth: 640, margin: '0 auto' }}>
+            <p style={{ color: '#69717D', fontSize: '1rem', maxWidth: 640, margin: '0 auto' }}>
               We&apos;re building out the catalogue tool by tool. Each one goes live only once it meets the same bar as our published courses &mdash; real lessons, real assessments, a real certificate. No placeholders launched early.
             </p>
           </div>
@@ -279,8 +279,8 @@ export default async function AcademyPage() {
             ].map((item) => (
               <div key={item.name} style={{ background: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: 14, padding: '1.25rem 1rem', textAlign: 'center', width: 200, flex: '0 0 200px' }}>
                 <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>{item.icon}</span>
-                <p style={{ fontWeight: 700, color: navy, fontSize: '0.82rem', marginBottom: '0.375rem', lineHeight: 1.3 }}>{item.name}</p>
-                <span style={{ fontSize: '0.65rem', color: '#D5A63A', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase' }}>Coming Soon</span>
+                <p style={{ fontWeight: 700, color: navy, fontSize: '0.875rem', marginBottom: '0.375rem', lineHeight: 1.3 }}>{item.name}</p>
+                <span style={{ fontSize: '0.75rem', color: '#D5A63A', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase' }}>Coming Soon</span>
               </div>
             ))}
           </div>
@@ -290,8 +290,8 @@ export default async function AcademyPage() {
       <section style={{ background: '#fff', padding: '4rem 2rem' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>FAQ</p>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: 0 }}>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>FAQ</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, margin: 0 }}>
               Common questions
             </h2>
           </div>
@@ -311,8 +311,8 @@ export default async function AcademyPage() {
               },
             ].map((item) => (
               <div key={item.q} style={{ borderBottom: '1px solid #E5E7EB', paddingBottom: '1.25rem' }}>
-                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '0.95rem', marginBottom: '0.5rem' }}>{item.q}</h3>
-                <p style={{ color: '#69717D', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
+                <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1rem', marginBottom: '0.5rem' }}>{item.q}</h3>
+                <p style={{ color: '#69717D', fontSize: '0.875rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
               </div>
             ))}
           </div>
@@ -324,8 +324,8 @@ export default async function AcademyPage() {
       <section id="support" style={{ background: '#F9FAFB', padding: '4rem 2rem', borderTop: '1px solid #E5E7EB' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <p style={{ color: red, fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Learner support</p>
-            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: navy, margin: 0 }}>
+            <p style={{ color: red, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Learner support</p>
+            <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: navy, margin: 0 }}>
               Stuck or have a question?
             </h2>
           </div>
@@ -337,11 +337,11 @@ export default async function AcademyPage() {
             ].map(({ title, body }) => (
               <div key={title} style={{ background: '#fff', borderRadius: 16, padding: '1.5rem', border: '1.5px solid #E5E7EB' }}>
                 <h3 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 700, color: navy, fontSize: '1rem', margin: '0 0 0.5rem' }}>{title}</h3>
-                <p style={{ color: '#4B5563', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>{body}</p>
+                <p style={{ color: '#4B5563', fontSize: '0.875rem', lineHeight: 1.7, margin: 0 }}>{body}</p>
               </div>
             ))}
           </div>
-          <p style={{ textAlign: 'center', color: '#4B5563', fontSize: '0.95rem', margin: '2rem 0 0' }}>
+          <p style={{ textAlign: 'center', color: '#4B5563', fontSize: '1rem', margin: '2rem 0 0' }}>
             Write to <a href="mailto:info@barada.in" style={{ color: red, fontWeight: 700 }}>info@barada.in</a> or use the{' '}
             <Link href="/contact" style={{ color: red, fontWeight: 700 }}>contact form</Link>.
           </p>
@@ -349,7 +349,7 @@ export default async function AcademyPage() {
       </section>
 
       <section style={{ background: navy, padding: '4rem 2rem', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: '#fff', marginBottom: '1rem' }}>Ready to start learning?</h2>
+        <h2 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 800, color: '#fff', marginBottom: '1rem' }}>Ready to start learning?</h2>
         <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '2rem' }}>Create your free account and start any course today.</p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/register" style={{ background: gold, color: navy, padding: '0.875rem 2rem', borderRadius: 12, textDecoration: 'none', fontSize: '1rem', fontWeight: 800 }}>Create Free Account &rarr;</Link>
@@ -365,7 +365,7 @@ export default async function AcademyPage() {
             <Link key={l} href={h} style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', textDecoration: 'none' }}>{l}</Link>
           ))}
         </div>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', marginTop: '1rem' }}>
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', marginTop: '1rem' }}>
           Need this implemented for your business?{' '}
           <Link href="/services" style={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'underline', display: 'inline-block', padding: '0.6rem 0' }}>Explore Barada&apos;s business services.</Link>
         </p>
