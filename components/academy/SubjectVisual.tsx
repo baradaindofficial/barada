@@ -55,7 +55,7 @@ function Frame({ label, accent, children }: { label: string; accent: string; chi
         {['#FF6B6B', '#FFB020', '#3DDC97'].map((c) => (
           <span key={c} aria-hidden="true" style={{ width: 8, height: 8, borderRadius: '50%', background: c, opacity: 0.85 }} />
         ))}
-        <span style={{ marginLeft: 8, fontSize: '0.68rem', fontWeight: 700, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.04em' }}>{label}</span>
+        <span style={{ marginLeft: 8, fontSize: '0.75rem', fontWeight: 700, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.04em' }}>{label}</span>
       </div>
       <div style={{ padding: '0.8rem' }}>{children}</div>
     </div>
@@ -64,7 +64,7 @@ function Frame({ label, accent, children }: { label: string; accent: string; chi
 
 function Tag({ children, accent }: { children: React.ReactNode; accent: string }) {
   return (
-    <span style={{ position: 'absolute', top: -9, right: 8, background: accent, color: '#1b1b1b', fontSize: '0.62rem', fontWeight: 800, borderRadius: 999, padding: '0.1rem 0.5rem', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>{children}</span>
+    <span style={{ position: 'absolute', top: -9, right: 8, background: accent, color: '#1b1b1b', fontSize: '0.75rem', fontWeight: 800, borderRadius: 999, padding: '0.1rem 0.5rem', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>{children}</span>
   )
 }
 
@@ -86,32 +86,32 @@ function LinkedIn({ focus, accent }: { focus: string; accent: string }) {
         <div style={{ height: 46, background: 'linear-gradient(90deg,#9db8d6,#c9d8e8)' }} />
         <div style={{ padding: '0 0.9rem 0.8rem', marginTop: -20 }}>
           <div style={{ width: 46, height: 46, borderRadius: '50%', background: '#b8c4d0', border: '3px solid #fff' }} />
-          <div style={{ fontWeight: 800, fontSize: '0.9rem', marginTop: 4 }}>Your Name</div>
+          <div style={{ fontWeight: 800, fontSize: '0.875rem', marginTop: 4 }}>Your Name</div>
           <Zone on={focus === 'headline'} accent={accent} tag="HEADLINE" style={{ padding: '2px 4px', margin: '2px -4px' }}>
-            <div style={{ fontSize: '0.78rem', color: '#444' }}>Procurement Leader | Strategic Sourcing &bull; Cost Savings &bull; Digital P2P</div>
+            <div style={{ fontSize: '0.75rem', color: '#444' }}>Procurement Leader | Strategic Sourcing &bull; Cost Savings &bull; Digital P2P</div>
           </Zone>
           <Zone on={focus === 'network'} accent={accent} tag="NETWORK" style={{ padding: '2px 4px', margin: '2px -4px' }}>
-            <div style={{ fontSize: '0.72rem', color: '#0a66c2' }}>Bengaluru &middot; 500+ connections</div>
+            <div style={{ fontSize: '0.75rem', color: '#0a66c2' }}>Bengaluru &middot; 500+ connections</div>
           </Zone>
           <Zone on={focus === 'about'} accent={accent} tag="ABOUT" style={{ padding: '6px 6px', margin: '8px -6px 0' }}>
-            <div style={{ fontWeight: 700, fontSize: '0.78rem' }}>About</div>
+            <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>About</div>
             <div style={line('96%')} /><div style={line('90%')} /><div style={line('62%')} />
           </Zone>
           <Zone on={focus === 'experience'} accent={accent} tag="EXPERIENCE" style={{ padding: '6px 6px', margin: '8px -6px 0' }}>
-            <div style={{ fontWeight: 700, fontSize: '0.78rem' }}>Experience</div>
-            <div style={{ fontSize: '0.72rem', color: '#444', marginTop: 4 }}>Cut supplier spend 14% across 3 categories</div>
+            <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>Experience</div>
+            <div style={{ fontSize: '0.75rem', color: '#444', marginTop: 4 }}>Cut supplier spend 14% across 3 categories</div>
             <div style={line('70%')} />
           </Zone>
           <Zone on={focus === 'skills'} accent={accent} tag="SKILLS" style={{ padding: '6px 6px', margin: '8px -6px 0' }}>
-            <div style={{ fontWeight: 700, fontSize: '0.78rem' }}>Skills</div>
+            <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>Skills</div>
             <div style={{ display: 'flex', gap: 5, marginTop: 5, flexWrap: 'wrap' }}>
               {['Sourcing', 'SAP Ariba', 'Negotiation', 'Analytics'].map((s) => (
-                <span key={s} style={{ fontSize: '0.66rem', border: '1px solid #bbb', borderRadius: 999, padding: '1px 8px' }}>{s}</span>
+                <span key={s} style={{ fontSize: '0.75rem', border: '1px solid #bbb', borderRadius: 999, padding: '1px 8px' }}>{s}</span>
               ))}
             </div>
           </Zone>
           <Zone on={focus === 'post'} accent={accent} tag="POST" style={{ padding: '6px 6px', margin: '8px -6px 0' }}>
-            <div style={{ fontWeight: 700, fontSize: '0.78rem' }}>Start a post</div>
+            <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>Start a post</div>
             <div style={{ ...line('100%', 'transparent', 22), border: '1px solid #ccc', borderRadius: 999 }} />
           </Zone>
         </div>
@@ -126,7 +126,7 @@ function Excel({ focus, accent }: { focus: string; accent: string }) {
   const rows = [['Region', 'Qtr', 'Sales', 'Cost'], ['North', 'Q1', '4,200', '3,100'], ['South', 'Q1', '3,800', '2,900'], ['North', 'Q2', '5,100', '3,600'], ['East', 'Q1', '2,700', '2,000']]
   return (
     <Frame label="Excel · worksheet" accent={accent}>
-      <div style={{ background: '#fff', borderRadius: 8, overflow: 'hidden', color: '#1d2226', fontSize: '0.74rem', paddingTop: 10 }}>
+      <div style={{ background: '#fff', borderRadius: 8, overflow: 'hidden', color: '#1d2226', fontSize: '0.75rem', paddingTop: 10 }}>
         <Zone on accent={accent} tag={focus.toUpperCase()} style={{ borderRadius: 0, padding: '5px 8px', background: '#f3f6f4', borderBottom: '1px solid #D3DDEE', outlineOffset: -2 }}>
           <span style={{ color: '#1d6f42', fontWeight: 800, marginRight: 8 }}>fx</span>
           <span style={{ fontFamily: 'ui-monospace, Menlo, monospace' }}>{f[focus] || f.formula}</span>
@@ -169,15 +169,15 @@ function Ppt({ focus, accent }: { focus: string; accent: string }) {
         </div>
         <div>
           <Zone on={focus === 'outline' || focus === 'design'} accent={accent} tag={focus === 'design' ? 'DESIGN' : 'OUTLINE'} style={{ background: '#fff', padding: '0.8rem', color: '#1d2226' }}>
-            <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Q3 supplier performance</div>
-            <div style={{ fontSize: '0.74rem', color: '#555', marginTop: 4 }}>&bull; On-time delivery up 6 pts<br />&bull; Savings: 2.4 Cr vs target 2.0 Cr</div>
+            <div style={{ fontWeight: 800, fontSize: '1rem' }}>Q3 supplier performance</div>
+            <div style={{ fontSize: '0.75rem', color: '#555', marginTop: 4 }}>&bull; On-time delivery up 6 pts<br />&bull; Savings: 2.4 Cr vs target 2.0 Cr</div>
             {focus === 'chart' && (
               <div style={{ display: 'flex', alignItems: 'flex-end', gap: 8, height: 40, marginTop: 8 }}>
                 {[40, 65, 50, 90].map((h, i) => <div key={i} style={{ flex: 1, height: h + '%', background: accent, borderRadius: 2 }} />)}
               </div>
             )}
           </Zone>
-          <Zone on={focus === 'notes'} accent={accent} tag="SPEAKER NOTES" style={{ marginTop: 8, padding: '6px 8px', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.75)', fontSize: '0.7rem' }}>
+          <Zone on={focus === 'notes'} accent={accent} tag="SPEAKER NOTES" style={{ marginTop: 8, padding: '6px 8px', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem' }}>
             Click to add notes &mdash; open with the result, then the ask.
           </Zone>
         </div>
@@ -190,19 +190,19 @@ function Resume({ focus, accent }: { focus: string; accent: string }) {
   return (
     <Frame label="Resume · one-page view" accent={accent}>
       <div style={{ background: '#fff', borderRadius: 6, padding: '0.8rem 1rem', color: '#1d2226', maxWidth: 420, margin: '0 auto' }}>
-        <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>Your Name</div>
-        <div style={{ fontSize: '0.68rem', color: '#555' }}>Bengaluru &middot; you@email.com</div>
+        <div style={{ fontWeight: 800, fontSize: '1rem' }}>Your Name</div>
+        <div style={{ fontSize: '0.75rem', color: '#555' }}>Bengaluru &middot; you@email.com</div>
         <Zone on={focus === 'summary'} accent={accent} tag="SUMMARY" style={{ padding: '4px 6px', margin: '6px -6px 0' }}>
-          <div style={{ fontWeight: 700, fontSize: '0.72rem' }}>Summary</div><div style={line('95%')} /><div style={line('78%')} />
+          <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>Summary</div><div style={line('95%')} /><div style={line('78%')} />
         </Zone>
         <Zone on={focus === 'bullets'} accent={accent} tag="IMPACT BULLETS" style={{ padding: '4px 6px', margin: '6px -6px 0' }}>
-          <div style={{ fontWeight: 700, fontSize: '0.72rem' }}>Experience</div>
-          <div style={{ fontSize: '0.68rem', color: '#333', marginTop: 3 }}>&bull; Reduced cycle time 32% by automating approvals</div>
-          <div style={{ fontSize: '0.68rem', color: '#333' }}>&bull; Negotiated 11% savings on a 5 Cr contract</div>
+          <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>Experience</div>
+          <div style={{ fontSize: '0.75rem', color: '#333', marginTop: 3 }}>&bull; Reduced cycle time 32% by automating approvals</div>
+          <div style={{ fontSize: '0.75rem', color: '#333' }}>&bull; Negotiated 11% savings on a 5 Cr contract</div>
         </Zone>
         <Zone on={focus === 'skills' || focus === 'layout'} accent={accent} tag={focus === 'layout' ? 'LAYOUT' : 'ATS KEYWORDS'} style={{ padding: '4px 6px', margin: '6px -6px 0' }}>
-          <div style={{ fontWeight: 700, fontSize: '0.72rem' }}>Skills</div>
-          <div style={{ fontSize: '0.68rem', color: '#333' }}>Sourcing &middot; SAP Ariba &middot; Negotiation &middot; Analytics</div>
+          <div style={{ fontWeight: 700, fontSize: '0.75rem' }}>Skills</div>
+          <div style={{ fontSize: '0.75rem', color: '#333' }}>Sourcing &middot; SAP Ariba &middot; Negotiation &middot; Analytics</div>
         </Zone>
       </div>
     </Frame>
@@ -221,7 +221,7 @@ function Prompt({ focus, accent }: { focus: string; accent: string }) {
     <Frame label="Prompt bar · anatomy of a good prompt" accent={accent}>
       <div style={{ background: '#fff', borderRadius: 18, padding: '0.7rem 0.9rem', color: '#29261B', display: 'flex', flexDirection: 'column', gap: 6 }}>
         {parts.map(([k, label, text]) => (
-          <Zone key={k} on={focus === k} accent={accent} tag={label.toUpperCase()} style={{ padding: '3px 6px', fontSize: '0.78rem', opacity: focus === k || focus === 'task' ? 1 : 0.6 }}>
+          <Zone key={k} on={focus === k} accent={accent} tag={label.toUpperCase()} style={{ padding: '3px 6px', fontSize: '0.75rem', opacity: focus === k || focus === 'task' ? 1 : 0.6 }}>
             {text}
           </Zone>
         ))}
@@ -246,19 +246,19 @@ function Chat({ focus, accent, brand, heading, sample }: { focus: string; accent
   return (
     <Frame label={b.name + ' \u00b7 how this looks in practice'} accent={accent}>
       <div style={{ background: b.bg, borderRadius: 14, padding: '0.9rem', color: b.ink }}>
-        <div style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: b.color, marginBottom: 6 }}>Topic: {heading.slice(0, 60)}</div>
+        <div style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: b.color, marginBottom: 6 }}>Topic: {heading.slice(0, 60)}</div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <div style={{ background: '#fff', border: '1px solid rgba(0,0,0,0.12)', borderRadius: '14px 14px 4px 14px', padding: '0.6rem 0.8rem', fontSize: '0.84rem', lineHeight: 1.5, maxWidth: '92%' }}>{sample}</div>
+          <div style={{ background: '#fff', border: '1px solid rgba(0,0,0,0.12)', borderRadius: '14px 14px 4px 14px', padding: '0.6rem 0.8rem', fontSize: '0.875rem', lineHeight: 1.5, maxWidth: '92%' }}>{sample}</div>
         </div>
         <div style={{ display: 'flex', gap: 8, marginTop: 10, alignItems: 'flex-start' }}>
-          <span aria-hidden="true" style={{ width: 24, height: 24, borderRadius: '50%', background: b.color, flexShrink: 0, color: '#fff', textAlign: 'center', lineHeight: '24px', fontSize: '0.8rem' }}>&#10022;</span>
+          <span aria-hidden="true" style={{ width: 24, height: 24, borderRadius: '50%', background: b.color, flexShrink: 0, color: '#fff', textAlign: 'center', lineHeight: '24px', fontSize: '0.875rem' }}>&#10022;</span>
           <div style={{ flex: 1 }}>
             <div style={line('94%', 'rgba(0,0,0,0.16)', 8)} /><div style={line('82%', 'rgba(0,0,0,0.12)', 8)} /><div style={line('68%', 'rgba(0,0,0,0.10)', 8)} />
           </div>
         </div>
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 12 }}>
           {chips.map(([k, l]) => (
-            <span key={k} style={{ fontSize: '0.66rem', fontWeight: 700, borderRadius: 999, padding: '2px 9px', border: '1px solid ' + b.color, background: focus === k ? b.color : 'transparent', color: focus === k ? '#fff' : b.color }}>{l}</span>
+            <span key={k} style={{ fontSize: '0.75rem', fontWeight: 700, borderRadius: 999, padding: '2px 9px', border: '1px solid ' + b.color, background: focus === k ? b.color : 'transparent', color: focus === k ? '#fff' : b.color }}>{l}</span>
           ))}
         </div>
       </div>
@@ -272,7 +272,7 @@ function Copilot({ focus, accent }: { focus: string; accent: string }) {
     <Frame label="Copilot · side pane" accent={accent}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 150px', gap: 8 }}>
         <div style={{ background: '#fff', borderRadius: 6, padding: 8 }}><div style={line('80%')} /><div style={line('92%')} /><div style={line('60%')} /><div style={line('85%')} /></div>
-        <Zone on accent={accent} tag={focus === 'agent' ? 'AGENT' : focus === 'govern' ? 'ADMIN' : 'ASK'} style={{ background: 'rgba(255,255,255,0.1)', padding: 8, fontSize: '0.68rem', color: '#fff', lineHeight: 1.4 }}>{msg}</Zone>
+        <Zone on accent={accent} tag={focus === 'agent' ? 'AGENT' : focus === 'govern' ? 'ADMIN' : 'ASK'} style={{ background: 'rgba(255,255,255,0.1)', padding: 8, fontSize: '0.75rem', color: '#fff', lineHeight: 1.4 }}>{msg}</Zone>
       </div>
     </Frame>
   )
