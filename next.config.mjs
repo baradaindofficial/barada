@@ -12,10 +12,16 @@ const nextConfig = {
   },
   // QORVIAN lives at /qorvian; the old /academy URL redirects permanently.
   async redirects() {
-    return [{ source: '/academy', destination: '/qorvian', permanent: true }]
+    return [
+      { source: '/academy', destination: '/qorvian', permanent: true },
+      { source: '/academy/:slug', destination: '/qorvian/:slug', permanent: true },
+    ]
   },
   async rewrites() {
-    return [{ source: '/qorvian', destination: '/academy' }]
+    return [
+      { source: '/qorvian', destination: '/academy' },
+      { source: '/qorvian/:slug', destination: '/academy/:slug' },
+    ]
   },
   images: {
     remotePatterns: [
