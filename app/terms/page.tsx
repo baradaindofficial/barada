@@ -4,7 +4,7 @@ import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
-  alternates: { canonical: 'https://barada.in/terms' },
+  alternates: { canonical: 'https://www.barada.in/terms' },
 }
 
 export default function TermsPage() {
