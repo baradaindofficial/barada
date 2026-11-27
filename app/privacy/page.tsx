@@ -14,7 +14,7 @@ export default function PrivacyPage() {
 
       <section style={{ background: 'linear-gradient(135deg, #0A1A52, #123C8F)', padding: '5rem 2rem', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', color: '#fff', marginBottom: '1rem' }}>Privacy Policy</h1>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', margin: 0 }}>Last updated: August 2026</p>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', margin: 0 }}>Last updated: November 2026</p>
       </section>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '4rem 2rem' }}>

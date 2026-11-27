@@ -50,8 +50,6 @@ export default function AboutPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.25rem', padding: '1.25rem 1.5rem', background: '#F9FAFB', borderRadius: 12, border: '1px solid #E5E7EB', marginBottom: '2rem' }}>
               {[
                 ['CIN', 'U70200KA2026OPC228497'],
-                ['PAN', 'AAPCB1876R'],
-                ['TAN', 'BLRB33874B'],
                 ['Director', 'Manaswini Satapathy'],
               ].map(([label, val]) => (
                 <div key={label}>
