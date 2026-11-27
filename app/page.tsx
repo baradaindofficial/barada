@@ -8,12 +8,12 @@ import TiltCard from '@/components/corporate/TiltCard'
 
 export const metadata: Metadata = {
   title: 'Barada — Business Execution, AI and Technology',
-  description: 'Barada is a Bengaluru-based business group: QORVIAN (AI capability programs for institutes, professionals and businesses) and Partnerschaft (retail execution and procurement support), built on real corporate experience.',
-  alternates: { canonical: 'https://barada.in' },
+  description: 'Barada is a Bengaluru-based business group: QORVIAN for practical AI capability and Partnerschaft for retail execution and procurement support.',
+  alternates: { canonical: 'https://www.barada.in' },
   openGraph: {
     title: 'Barada',
     description: 'Business execution, AI and technology, built on real corporate experience.',
-    url: 'https://barada.in',
+    url: 'https://www.barada.in',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
     locale: 'en_IN',
