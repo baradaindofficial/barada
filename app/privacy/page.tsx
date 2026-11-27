@@ -4,7 +4,7 @@ import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  alternates: { canonical: 'https://barada.in/privacy' },
+  alternates: { canonical: 'https://www.barada.in/privacy' },
 }
 
 export default function PrivacyPage() {
