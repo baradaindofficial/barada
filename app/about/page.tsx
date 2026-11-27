@@ -6,11 +6,11 @@ import CorporateFooter from '@/components/corporate/Footer'
 export const metadata: Metadata = {
   title: 'About',
   description: 'Learn about Barada \u2014 a professionally driven ecosystem of platforms built around AI, technology, business growth, and social impact.',
-  alternates: { canonical: 'https://barada.in/about' },
+  alternates: { canonical: 'https://www.barada.in/about' },
   openGraph: {
     title: 'About Barada',
     description: 'Learn about Barada \u2014 a professionally driven ecosystem of platforms built around AI, technology, business growth, and social impact.',
-    url: 'https://barada.in/about',
+    url: 'https://www.barada.in/about',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
     locale: 'en_IN',
