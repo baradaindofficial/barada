@@ -1,0 +1,4 @@
+Contact: mailto:info@barada.in
+Expires: 2027-11-27T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.barada.in/.well-known/security.txt
