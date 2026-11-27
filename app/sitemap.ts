@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 const BASE = 'https://www.barada.in'
 
 // Public, indexable pages only. Authenticated and admin routes are excluded (see robots.ts).
-const PATHS = ['', '/qorvian', '/services', '/ecosystem', '/about', '/contact', '/enquire', '/privacy', '/terms']
+const PATHS = ['', '/qorvian', '/services', '/ecosystem', '/about', '/contact', '/enquire', '/verify', '/privacy', '/terms']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
