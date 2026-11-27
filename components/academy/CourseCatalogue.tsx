@@ -164,6 +164,7 @@ export default function CourseCatalogue({
                       {course.estimatedHours ? <span>{course.estimatedHours}h</span> : null}
                       <span>Free certificate</span>
                     </div>
+                    <Link href={`/qorvian/${course.slug}`} style={{ display: 'block', textAlign: 'center', color: red, fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.625rem', textDecoration: 'none' }}>View course details</Link>
                     <CourseEnrollButton
                       slug={course.slug}
                       isLoggedIn={isLoggedIn}
