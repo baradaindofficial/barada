@@ -81,6 +81,7 @@ export default function EnquirePage({ searchParams }: { searchParams?: { service
         <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem', maxWidth: 600, margin: '0 auto' }}>
           We are scoping first pilot engagements. Tell us what you need and we reply within 2 business days with next steps.
         </p>
+        <a href="#enquiry-form" style={{ display: 'inline-block', marginTop: '1.5rem', background: orange, color: navy, padding: '0.8rem 1.5rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '1rem' }}>Go to the enquiry form &darr;</a>
       </section>
 
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '4rem 2rem' }}>
@@ -96,9 +97,8 @@ export default function EnquirePage({ searchParams }: { searchParams?: { service
                   <li key={i}>{i}</li>
                 ))}
               </ul>
-              <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
-                <a href={`/enquire?service=${encodeURIComponent(s.key)}&who=business#enquiry-form`} style={{ background: orange, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire as a business</a>
-                <a href={`/enquire?service=${encodeURIComponent(s.key)}&who=institute#enquiry-form`} style={{ border: `1.5px solid ${navy}`, color: navy, padding: '0.7rem 1.1rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire as an institute</a>
+              <div>
+                <a href={`/enquire?service=${encodeURIComponent(s.key)}#enquiry-form`} style={{ display: 'inline-block', background: orange, color: navy, padding: '0.7rem 1.25rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}>Enquire about {s.title}</a>
               </div>
             </div>
           ))}

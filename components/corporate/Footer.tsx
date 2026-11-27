@@ -44,7 +44,7 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
               v.external ? (
                 <a key={v.name} href={v.href} target="_blank" rel="noopener noreferrer" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', padding: '0.4rem 0' }}>{v.name}</a>
               ) : v.href === '#' ? (
-                <span key={v.name} style={{ display: 'block', color: 'rgba(255,255,255,0.25)', fontSize: '0.875rem', marginBottom: '0.4rem' }}>{v.name}</span>
+                <span key={v.name} style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', marginBottom: '0.4rem' }}>{v.name}</span>
               ) : (
                 <Link key={v.name} href={v.href} style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', padding: '0.4rem 0' }}>{v.name}</Link>
               )
