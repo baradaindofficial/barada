@@ -6,11 +6,11 @@ import CorporateFooter from '@/components/corporate/Footer'
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Contact Barada in Bengaluru for QORVIAN questions, team programs, partnership and media enquiries, or to register your interest in planned business services.',
-  alternates: { canonical: 'https://barada.in/contact' },
+  alternates: { canonical: 'https://www.barada.in/contact' },
   openGraph: {
     title: 'Contact Barada',
     description: 'Contact Barada in Bengaluru for QORVIAN questions, team programs, partnership and media enquiries, or to register your interest in planned business services.',
-    url: 'https://barada.in/contact',
+    url: 'https://www.barada.in/contact',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
     locale: 'en_IN',

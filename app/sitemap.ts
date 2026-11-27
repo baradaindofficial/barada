@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE = 'https://barada.in'
+const BASE = 'https://www.barada.in'
 
 // Public, indexable pages only. Authenticated and admin routes are excluded (see robots.ts).
 const PATHS = ['', '/qorvian', '/services', '/ecosystem', '/about', '/contact', '/enquire', '/privacy', '/terms']

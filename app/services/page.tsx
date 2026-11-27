@@ -5,12 +5,12 @@ import CorporateFooter from '@/components/corporate/Footer'
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Barada is developing AI adoption advisory, AI and automation for procurement and finance operations, procurement transformation consulting, and professional workshops \u2014 planned services, not yet open for engagements. Register your interest.',
-  alternates: { canonical: 'https://barada.in/services' },
+  description: 'Planned Barada services: AI adoption advisory, AI and automation for procurement and finance, transformation consulting and workshops. Register your interest.',
+  alternates: { canonical: 'https://www.barada.in/services' },
   openGraph: {
     title: 'Services | Barada',
     description: 'Barada is developing AI adoption advisory, AI and automation for procurement and finance operations, procurement transformation consulting, and professional workshops \u2014 planned, not yet available.',
-    url: 'https://barada.in/services',
+    url: 'https://www.barada.in/services',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
     locale: 'en_IN',

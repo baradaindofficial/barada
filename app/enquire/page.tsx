@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: 'Enquire: AI Training, Integration and Support',
   description:
     'Businesses and institutes: enquire with Barada about AI training, AI integration and AI support. Tell us what you need and we respond within 2 business days.',
-  alternates: { canonical: 'https://barada.in/enquire' },
+  alternates: { canonical: 'https://www.barada.in/enquire' },
   openGraph: {
     title: 'Enquire with Barada: AI Training, Integration and Support',
     description:
       'Businesses and institutes: enquire about AI training, AI integration and AI support. We respond within 2 business days.',
-    url: 'https://barada.in/enquire',
+    url: 'https://www.barada.in/enquire',
     siteName: 'Barada',
     images: [{ url: '/og/barada-og.png', width: 1200, height: 630, alt: 'Barada' }],
     locale: 'en_IN',

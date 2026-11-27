@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   // Fixed to the public domain so canonical, Open Graph and sitemap URLs never
   // resolve to the Vercel host (NEXT_PUBLIC_APP_URL points at barada.vercel.app).
-  metadataBase: new URL('https://barada.in'),
+  metadataBase: new URL('https://www.barada.in'),
   title: { default: 'Barada — Innovate. Empower. Grow.', template: '%s | Barada' },
   description: 'Barada — a professionally driven ecosystem of platforms spanning AI technology, professional excellence, business growth, and social impact.',
 
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })();
           `}
         </Script>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Barada', legalName: 'Barada (OPC) Private Limited', url: 'https://barada.in', areaServed: 'IN', sameAs: ['https://partnerschaft.in', 'https://ayushman.world'] }) }} /><AuthProvider>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Barada', legalName: 'Barada (OPC) Private Limited', url: 'https://www.barada.in', areaServed: 'IN', sameAs: ['https://partnerschaft.in', 'https://ayushman.world'] }) }} /><AuthProvider>
           {children}
         </AuthProvider>
         {/* Google Analytics */}

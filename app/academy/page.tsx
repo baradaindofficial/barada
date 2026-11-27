@@ -9,13 +9,13 @@ import CourseCatalogue from '@/components/academy/CourseCatalogue'
 import SampleCertificates from '@/components/academy/SampleCertificates'
 
 export const metadata: Metadata = {
-  title: { absolute: 'QORVIAN by Barada \u2014 AI Capability for Institutes, Professionals and Businesses' },
-  alternates: { canonical: 'https://barada.in/qorvian' },
+  title: { absolute: 'QORVIAN by Barada \u2014 AI Courses and Certificates' },
+  alternates: { canonical: 'https://www.barada.in/qorvian' },
   description: 'AI capability programs for institutes, working professionals and businesses: structured, practical courses with verifiable certificates, plus team programs and workshops.',
   openGraph: {
-    title: 'QORVIAN by Barada \u2014 AI Capability for Institutes, Professionals and Businesses',
+    title: 'QORVIAN by Barada \u2014 AI Courses and Certificates',
     description: 'AI capability programs for institutes, working professionals and businesses: structured, practical courses with verifiable certificates, plus team programs and workshops.',
-    url: 'https://barada.in/qorvian',
+    url: 'https://www.barada.in/qorvian',
     siteName: 'Barada',
     images: [{ url: '/og/academy-og.png', width: 1200, height: 630, alt: 'QORVIAN by Barada' }],
     locale: 'en_IN',
