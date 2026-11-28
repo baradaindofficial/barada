@@ -84,6 +84,14 @@ export default async function VerifyCertificatePage({
               <dt style={{ fontSize: '0.75rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Certificate ID</dt>
               <dd style={{ margin: 0, fontSize: '0.875rem', color: '#69717D', fontFamily: 'monospace' }}>{result.certificate_id}</dd>
             </dl>
+            <a
+              href={'https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=' + encodeURIComponent(result.course_title) + '&organizationName=' + encodeURIComponent('QORVIAN by Barada') + '&issueYear=' + new Date(result.issued_at).getFullYear() + '&issueMonth=' + (new Date(result.issued_at).getMonth() + 1) + '&certUrl=' + encodeURIComponent('https://www.barada.in/verify/' + result.certificate_id) + '&certId=' + encodeURIComponent(result.certificate_id)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-block', marginTop: '1.5rem', background: '#0A66C2', color: '#fff', padding: '0.75rem 1.25rem', borderRadius: 10, textDecoration: 'none', fontWeight: 700, fontSize: '0.875rem' }}
+            >
+              Add to LinkedIn profile
+            </a>
           </div>
         ) : (
           <div style={{ background: '#fff', borderRadius: 16, border: '1.5px solid #E5E7EB', borderTop: `4px solid #9CA3AF`, padding: '2rem', textAlign: 'center' }}>
