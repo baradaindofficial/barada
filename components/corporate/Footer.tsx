@@ -29,7 +29,7 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
           <div>
-            <Logo variant="full" height={110} />
+            <Logo variant="full" height={80} />
             <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.75rem', lineHeight: 1.7, marginTop: '0.75rem' }}>A professionally driven ecosystem of platforms built from real corporate experience.</p>
           </div>
           <div>
@@ -44,7 +44,7 @@ export default function CorporateFooter({ hideAcademy = false }: CorporateFooter
               v.external ? (
                 <a key={v.name} href={v.href} target="_blank" rel="noopener noreferrer" style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', padding: '0.4rem 0' }}>{v.name}</a>
               ) : v.href === '#' ? (
-                <span key={v.name} style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', marginBottom: '0.4rem' }}>{v.name}</span>
+                <span key={v.name} style={{ display: 'block', color: 'rgba(255,255,255,0.55)', fontSize: '0.875rem', padding: '0.4rem 0' }}>{v.name}</span>
               ) : (
                 <Link key={v.name} href={v.href} style={{ display: 'block', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', padding: '0.4rem 0' }}>{v.name}</Link>
               )
