@@ -35,7 +35,7 @@ export default function ContactPage() {
             { icon: '\uD83C\uDF93', label: 'QORVIAN Support', value: 'academy@barada.in', href: 'mailto:academy@barada.in' },
             { icon: '\uD83D\uDCBC', label: 'Business & Partnerships', value: 'business@partnerschaft.in', href: 'mailto:business@partnerschaft.in' },
             { icon: '\uD83D\uDCDE', label: 'Phone', value: '+91 91132 83848', href: 'tel:+919113283848' },
-            { icon: '\uD83C\uDFE2', label: 'Bangalore Operating Location', value: 'No. 2060, JPLV-2, Kodichiknahalli, Bommanahalli, Bangalore \u2013 560076', href: null },
+            { icon: '\uD83C\uDFE2', label: 'Bangalore Operating Location', value: 'No. 2060, JPLV-2, Kodichikkanahalli, Bommanahalli, Bangalore \u2013 560076', href: null },
             { icon: '\uD83C\uDFE0', label: 'Head Office', value: 'No. 101, Ranpur, PS \u2013 Binjharpur, Jajpur, Odisha \u2013 755012', href: null },
           ].map(({ icon, label, value, href }) => (
             <div key={label} style={{ background: '#fff', borderRadius: 16, padding: '1.75rem', border: '1.5px solid #E5E7EB' }}>
