@@ -63,7 +63,7 @@ export default function AboutPage() {
               {[
                 ['\uD83D\uDCCD', 'Registered Office (as per ROC)', '155, DS MAX, Synergy Agrahara Layout, Yelahanka, Bangalore North, Bangalore \u2013 560064, Karnataka'],
                 ['\uD83C\uDFE0', 'Head Office', 'No. 101, Ranpur, PS \u2013 Binjharpur, Jajpur, Odisha \u2013 755012'],
-                ['\uD83C\uDFE2', 'Bangalore Operating Location', 'No. 2060, JPLV-2, Kodichiknahalli, Bommanahalli, Bangalore \u2013 560076'],
+                ['\uD83C\uDFE2', 'Bangalore Operating Location', 'No. 2060, JPLV-2, Kodichikkanahalli, Bommanahalli, Bangalore \u2013 560076'],
                 ['\uD83D\uDCDE', 'Phone & Email', '+91 91132 83848 \u00b7 info@barada.in'],
               ].map(([icon, label, val]) => (
                 <div key={label} style={{ padding: '1.25rem', border: '1px solid #E5E7EB', borderRadius: 12 }}>
