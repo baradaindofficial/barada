@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const c = data.course
   const desc = (c.subtitle || c.description || `${c.title}: a practical course from QORVIAN by Barada.`).toString().slice(0, 155)
   return {
-    title: `${c.title} | QORVIAN by Barada`,
+    title: { absolute: `${c.title} | QORVIAN by Barada` },
     description: desc,
     alternates: { canonical: `${BASE}/qorvian/${c.slug}` },
     openGraph: { title: c.title, description: desc, url: `${BASE}/qorvian/${c.slug}`, siteName: 'Barada', locale: 'en_IN', type: 'website' },
